@@ -1,0 +1,24 @@
+{
+    "watchForFileChanges": false,
+    "experimentalStudio": true,
+    "reporter": "../node_modules/mochawesome/src/mochawesome.js",
+    "reporterOptions": {
+        "overwrite": false,
+        "html": false,
+        "json": true
+    },
+
+    
+    "retries": {
+          
+        "runMode": 2,
+      
+        "openMode": 2
+      },
+    
+      "defaultCommandTimeout":20000
+
+}
+
+
+  

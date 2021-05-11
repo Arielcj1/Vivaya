@@ -1,0 +1,17 @@
+{
+    
+   "viewportWidth": 1900,
+   "viewportHeight": 900,
+    
+    "experimentalStudio": true,
+
+    
+    "retries": {
+          
+        "runMode": 2,
+      
+        "openMode": 2
+      }
+    
+    
+}
