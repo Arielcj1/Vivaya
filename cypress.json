@@ -1,0 +1,32 @@
+{
+  "watchForFileChanges": false,
+
+"viewportWidth": 1900,
+"viewportHeight": 900,
+  "reporterOptions": {
+    "reportDir": "integration-reports/integration/reports/mocha",
+    "quiet": true,
+    "html": false,
+    "overwrite": false,
+    "json": true
+  },
+  "videosFolder": "integration-reports/integration/public/videos",
+  "screenshotsFolder": "integration-reports/integration/public/screenshots",
+  "videoCompression": false,
+  "reporter": "mochawesome",
+  "browser": "chrome",
+  "chromeWebSecurity": false,
+  "projectId": "2127x7",
+
+  
+  "retries": {
+          
+    "runMode": 2,
+  
+    "openMode": 2
+  },
+  "defaultCommandTimeout":20000
+
+
+
+}
