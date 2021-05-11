@@ -21,6 +21,5 @@ describe('Guide creation, Edition from Vivaya page', ()=>{
         guidecreation.become_Guide()
         guidecreation.become_Guide_Page()
         guidecreation.fill_Form_For_Guide('Auto','Guide','tomascoca39@gmail.com','2019789745')
-        cy.log('tesinting git')
     })
 })
