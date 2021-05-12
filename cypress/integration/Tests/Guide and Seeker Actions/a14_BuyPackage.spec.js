@@ -26,16 +26,9 @@ describe('Buy Plans from membership', ()=>{
         commons.open_Web_Site()
         cy.wait(4000)
         homePage.select_Login()
-        //homePage.fill_Email('horcosio@gmail.com')
-        //homePage.fill_Password('perrodelmal')
         commons.set_Seeker_Credentials_One()
         homePage.submit_Credentials()
     })
-
-    /*after(()=>{
-        homePage.logout_Account()
-    
-    })*/
     
     it('Buy Monthly 3 Pack Membership', () => {  
        cy.wait(3000) 

@@ -19,8 +19,7 @@ describe('Events Creation', ()=>{
     beforeEach(()=>{
         commons.open_Web_Site()
         homePage.select_Login()
-        homePage.fill_Email('pamelaestaf@gmail.com')
-        homePage.fill_Password('password')
+        commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
         //dashboard.go_to_Dashboard_From_Menu()
     })

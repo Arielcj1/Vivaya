@@ -8,7 +8,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
 })
 
-describe('Guide creation, Edition from Vivaya page', ()=>{
+describe.skip('Guide creation, Edition from Vivaya page', ()=>{
     const commons = new Commons()
     const homePage = new HomePage()
     const guidecreation = new GuideCreation()
