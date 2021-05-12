@@ -44,7 +44,7 @@ describe('Booking Events', ()=> {
         eventCreationPage.press_Add()
         
      })
-    it.skip('Book the Last Event from Home page', ()=>{
+    /*it.skip('Book the Last Event from Home page', ()=>{
         homePage.select_Login()
         commons.set_Seeker_Credentials_One()
         homePage.submit_Credentials()
@@ -56,9 +56,9 @@ describe('Booking Events', ()=> {
         eventDetailPage.cancel_Event_from_EventDetail()
         eventDetailPage.confirm_Cancelation_from_EventDetail()
         
-    })
+    })*/
 
-    it.skip('Guide delete the Event from his Dashboard',()=>{
+    it('Guide delete the Event from his Dashboard',()=>{
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()

@@ -23,8 +23,10 @@ export class EventsPage {
 
     }
 
-    type_Start_Date(value){
-        cy.get('#eventform-startdate').type(value) 
+    type_Start_Date(){//one day more
+        var moment = require('moment');
+        const todayDate = moment().add(1, 'days').format('MMM-DD-YYYY')
+        const typeDate = cy.get('#eventform-startdate').type(todayDate)
     }
 
     type_Start_Time(value){

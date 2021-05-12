@@ -48,7 +48,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
     })
 
-    it.skip('Verify the Pricing page as Loggedin Seeker, Free trial plan is expired',()=>{
+    it('Verify the Pricing page as Loggedin Seeker, Free trial plan is expired',()=>{
         homePage.select_Login()
         commons.set_Seeker_Credentials_Two()
         homePage.submit_Credentials()

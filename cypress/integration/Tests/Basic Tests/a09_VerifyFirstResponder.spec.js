@@ -52,7 +52,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
     })
 
-    it('Verify the First Responder Page as Logged in Seeker',()=>{
+    /*it('Verify the First Responder Page as Logged in Seeker',()=>{
         homePage.select_Login()
         commons.set_Seeker_Credentials_One()
         homePage.submit_Credentials()
@@ -63,8 +63,5 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('.free-months > :nth-child(3)').should('contain', 'VIVAYA is offering 2 FREE months of Unlimited Access to all VIVAYA Classes for First Responders, Healthcare and Emergency Workers.')
         firstResponderPage.select_Register_Button()
         //cy.get('#appModal > div > div').should('be.visible')
-    })
-
-
-
+    })*/
   })

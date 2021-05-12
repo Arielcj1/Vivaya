@@ -8,7 +8,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
 })
 
-describe.skip('Guide creation, Edition from Vivaya page', ()=>{
+/*describe.skip('Guide creation, Edition from Vivaya page', ()=>{
     const commons = new Commons()
     const homePage = new HomePage()
     const guidecreation = new GuideCreation()
@@ -22,4 +22,4 @@ describe.skip('Guide creation, Edition from Vivaya page', ()=>{
         guidecreation.become_Guide_Page()
         guidecreation.fill_Form_For_Guide('Auto','Guide','tomascoca39@gmail.com','2019789745')
     })//phone_number code is a blocker
-})
+})*/

@@ -22,7 +22,7 @@ describe('Events page', ()=>{
         eventsPage.select_Events_New()
         eventsPage.type_Event_Name('Free public Event')
         eventsPage.type_Description_Event('Automation description for free public event')
-        eventsPage.type_Start_Date('5')// no matter the date, it will select the current date
+        eventsPage.type_Start_Date()
         eventsPage.type_Start_Time('7')
         eventsPage.type_End_Time('9')
         eventsPage.type_Event_Guide('ariel guide')
@@ -57,7 +57,7 @@ describe('Events page', ()=>{
         eventsPage.select_Events_New()
         eventsPage.type_Event_Name('Free Event')
         eventsPage.type_Description_Event('Automation description for free event')
-        eventsPage.type_Start_Date('5')// no matter the date, it will select the current date
+        eventsPage.type_Start_Date()
         eventsPage.type_Start_Time('7')
         eventsPage.type_End_Time('9')
         eventsPage.select_Free_Event_Type()

@@ -78,7 +78,7 @@ describe('Booking Event from Guide', ()=> {
         cy.get('#w0-success-0').should('contain', 'Event has been canceled.')*/
     })
 
-    it ('Guide delete the Event from his Dashboard',()=>{
+    /*it ('Guide delete the Event from his Dashboard',()=>{
        homePage.select_Login()
        commons.set_Guide_Credentials_One()
        homePage.submit_Credentials()
@@ -88,6 +88,6 @@ describe('Booking Event from Guide', ()=> {
        dashboard.cancel_Created_Event()
        cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
        
-    })
+    })*/
 
 })

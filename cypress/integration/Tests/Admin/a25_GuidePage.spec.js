@@ -73,7 +73,7 @@ describe('Guide Page admin', ()=>{
     it('Guide elimination', ()=>{
         guidePage.select_Guide_Option()
         guidePage.select_Guide_List()
-        guidePage.find_EmailGuide('callecarla354@gmail.com', '3') //num 2 for elimination
+        guidePage.find_EmailGuide('callecarla354@gmail.com', '3') //num 3 for elimination
         cy.get('#w2-success').should('contain', 'Guide successfully deleted')
     })
 })

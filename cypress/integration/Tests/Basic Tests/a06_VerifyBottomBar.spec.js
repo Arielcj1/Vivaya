@@ -56,9 +56,4 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.url().should('eq', 'https://stage.vivayalive.com/seminars')
         cy.get('#banner').should('contain', 'Seminars')
     })
-
-
-
-
-
   })

@@ -35,7 +35,7 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
     })
 
-    it.skip('Seeker edition from Account', ()=>{
+    it('Seeker edition from Account', ()=>{
         homePage.select_Login()
         commons.set_Generic_Seeker('pedrasasmota.luis@gmail.com', 'password')
         seekerCreation.seeker_Account()
