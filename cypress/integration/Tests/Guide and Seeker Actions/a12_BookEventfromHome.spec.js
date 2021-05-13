@@ -44,26 +44,13 @@ describe('Booking Events', ()=> {
         eventCreationPage.press_Add()
         
      })
-    /*it.skip('Book the Last Event from Home page', ()=>{
-        homePage.select_Login()
-        commons.set_Seeker_Credentials_One()
-        homePage.submit_Credentials()
-        cy.wait(3000)
-        homePage.go_Home()
-        cy.scrollTo(0, 1400)   
-        homePage.select_First_Event_Upcoming_Section()
-        eventDetailPage.book_Event_from_EventDetail()
-        eventDetailPage.cancel_Event_from_EventDetail()
-        eventDetailPage.confirm_Cancelation_from_EventDetail()
-        
-    })*/
 
-    it('Guide delete the Event from his Dashboard',()=>{
+    /*it('Guide delete the Event from his Dashboard',()=>{
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
         dashboard.cancel_Created_Event()
         cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
-     })
+     })*/
 
 })    
