@@ -269,7 +269,7 @@ export class Dashboard{
         cy.get('.btn-success').click()*/
 
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
-        for(var e=1; e<=text; e++){
+        for(var e=1; e<text; e++){
             cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div[2]/div[2]')
             .contains('Cancel Event')
             .invoke('text')
