@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-05-17T21:37:50.984Z",
+    "end": "2021-05-17T21:38:21.061Z",
+    "duration": 30077,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1c5bbe08-5647-4fc9-93eb-4f7ead207ebf",
+      "title": "",
+      "fullFile": "cypress\\integration\\Tests\\Admin\\a23_PromotionPage.spec.js",
+      "file": "cypress\\integration\\Tests\\Admin\\a23_PromotionPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "130eee39-89f5-43de-a6b0-1f173ebaeecb",
+          "title": "Promotions page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create a promotion code",
+              "fullTitle": "Promotions page Create a promotion code",
+              "timedOut": null,
+              "duration": 10944,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "promotionPage.select_Promotions_Option();\npromotionPage.select_Promotion_New();\npromotionPage.type_Promotion_Name('AutCode');\npromotionPage.type_Promotion_Code_Name('AUTCOD');\npromotionPage.type_Promotion_Discount('35');\npromotionPage.type_Promotion_ExpDate('30-May-2021');\npromotionPage.type_Promotion_Limit('10');\ncy.get('#w0-success').should('contain', 'Promotion has been created.');",
+              "err": {},
+              "uuid": "1ae9d966-f927-46c1-b9dd-c4eb58caf461",
+              "parentUUID": "130eee39-89f5-43de-a6b0-1f173ebaeecb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Edit the promotion code",
+              "fullTitle": "Promotions page Edit the promotion code",
+              "timedOut": null,
+              "duration": 9075,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "promotionPage.select_Promotions_Option();\npromotionPage.select_Promotion_List();\npromotionPage.find_Element_List_Promo('2'); // num 2 para editar, es la posicion en el xpath\npromotionPage.type_Promotion_Code_Name('CODEEDITED');\npromotionPage.type_Promotion_Discount('37');\npromotionPage.type_Promotion_ExpDate('29-May-2021');\npromotionPage.type_Promotion_Limit('12');\ncy.get('#w0-success').should('contain', 'Promotion has been updated.');",
+              "err": {},
+              "uuid": "c1ffe5f2-d3d5-4d3c-9178-58bf93874f24",
+              "parentUUID": "130eee39-89f5-43de-a6b0-1f173ebaeecb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete the promotion",
+              "fullTitle": "Promotions page Delete the promotion",
+              "timedOut": null,
+              "duration": 6823,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "promotionPage.select_Promotions_Option();\npromotionPage.select_Promotion_List();\npromotionPage.find_Element_List_Promo('4'); //num 4 para eliminar, posicion de xpath\ncy.get('#w0-success').should('contain', 'Promotion successfully deleted');",
+              "err": {},
+              "uuid": "4a979c97-553b-49b4-a60f-e99f300d46b3",
+              "parentUUID": "130eee39-89f5-43de-a6b0-1f173ebaeecb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1ae9d966-f927-46c1-b9dd-c4eb58caf461",
+            "c1ffe5f2-d3d5-4d3c-9178-58bf93874f24",
+            "4a979c97-553b-49b4-a60f-e99f300d46b3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 26842,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "integration-reports/integration/reports/mocha",
+        "quiet": true,
+        "html": false,
+        "overwrite": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}

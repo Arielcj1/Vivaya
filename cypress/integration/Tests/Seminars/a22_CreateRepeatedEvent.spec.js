@@ -25,7 +25,7 @@ describe('Events Creation', ()=>{
     })
 
     it('Create a recurrent Daily Class', () => { 
-        /*dashboard.add_NewEvent()
+        dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Class1')
         cy.wait(2000)
@@ -34,7 +34,7 @@ describe('Events Creation', ()=>{
         eventCreationPage.add_Custom_Start_Date(3)
         eventCreationPage.add_Custom_End_Date(10)
         eventCreationPage.select_Repeater_Daily()
-        eventCreationPage.press_Add()*/
+        eventCreationPage.press_Add()
         dashboard.cancel_Several_Events_AtOnce() 
     })
 
