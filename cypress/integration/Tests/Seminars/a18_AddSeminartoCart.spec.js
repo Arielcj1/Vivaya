@@ -71,7 +71,7 @@ describe('Add seminar to cart and remove from cart',
         commons.set_Seeker_Credentials_One()
         homePage.submit_Credentials()
         cy.wait(3000)
-        cy.get('.col-lg-8 > #footernav > :nth-child(3) > a').click()
+        cy.get('.col-lg-9 > #footernav > :nth-child(3) > a').click()
         cy.get(':nth-child(1) > .n').click()
         cy.get(':nth-child(1) > .text-center > .btn').click()
         cy.get('.product > :nth-child(2) > h4').should('contain.text','Seminar: Seminar Automation')

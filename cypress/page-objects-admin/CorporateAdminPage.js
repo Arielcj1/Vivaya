@@ -45,5 +45,70 @@ export class CorporateAdminPage {
         cy.get('.box-footer > .btn').click()
     }
 
-    
+    select_the_corporate(value){
+    var x=1
+    var y = value
+    cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[1]')
+    .invoke('text')
+    .then((text)=>{
+                if(text == 'Automation corp'){
+                    cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[10]/a['+y+']').click()
+                }
+                else{
+                    x++
+                    cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[1]')
+                    .invoke('text').then((text)=>{
+                        if(text == 'Automation corp'){
+                        cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[10]/a['+y+']').click()
+                        }
+                        else{
+                            x++
+                            cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[1]')
+                            .invoke('text').then((text)=>{
+                                if(text == 'Automation corp'){
+                                cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[10]/a['+y+']').click()
+                                }
+                                else{
+                                    x++
+                                    cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[1]')
+                                    .invoke('text').then((text)=>{
+                                        if(text == 'Automation corp'){
+                                        cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[10]/a['+y+']').click()
+                                        }
+                                        else{
+                                            x++
+                                            cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[1]')
+                                            .invoke('text').then((text)=>{
+                                                if(text == 'Automation corp'){
+                                                cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[10]/a['+y+']').click()
+                                                }
+                                                else{
+                                                    x++
+                                                    cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[1]')
+                                                    .invoke('text').then((text)=>{
+                                                        if(text == 'Automation corp'){
+                                                        cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[10]/a['+y+']').click()
+                                                        }
+                                                        else{
+                                                            x++
+                                                            cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[1]')
+                                                            .invoke('text').then((text)=>{
+                                                                if(text == 'Automation corp'){
+                                                                cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[10]/a['+y+']').click()
+                                                                }
+                                                                else{
+                                                                    x++
+                                                                    cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[1]')
+                                                                    .invoke('text').then((text)=>{
+                                                                        if(text == 'Automation corp'){
+                                                                        cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+x+']/td[10]/a['+y+']').click()
+                                                                        }
+                                                                    })}
+                                                            })}
+                                                    })}
+                                            })}
+                                    })}
+                            })}
+                    })}
+            })}
 }

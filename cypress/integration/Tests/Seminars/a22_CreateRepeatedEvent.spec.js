@@ -24,13 +24,8 @@ describe('Events Creation', ()=>{
         
     })
 
-    /*after(()=>{
-        homePage.logout_Account()
-    
-    })*/
     it('Create a recurrent Daily Class', () => { 
-        cy.wait(3000) 
-        dashboard.add_NewEvent()
+        /*dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Class1')
         cy.wait(2000)
@@ -39,15 +34,11 @@ describe('Events Creation', ()=>{
         eventCreationPage.add_Custom_Start_Date(3)
         eventCreationPage.add_Custom_End_Date(10)
         eventCreationPage.select_Repeater_Daily()
-        eventCreationPage.press_Add()
-        cy.wait(5000)
-        //dashboard.cancel_Several_Events_AtOnce()
-    
-       
-    });
+        eventCreationPage.press_Add()*/
+        dashboard.cancel_Several_Events_AtOnce() 
+    })
 
-    it.skip('Create a recurrent Weekly Class', () => { 
-        cy.wait(3000)  
+    it('Create a recurrent Weekly Class', () => { 
         dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Class1')
@@ -59,7 +50,24 @@ describe('Events Creation', ()=>{
         eventCreationPage.select_Repeater_Weekly()
         eventCreationPage.press_Add()
         dashboard.cancel_Several_Events_AtOnce()
-       
-    });
+    })
+
+    it('Create a Weekly Class by days', () => { 
+        dashboard.add_NewEvent()
+        dashboard.add_Class()
+        eventCreationPage.add_EventName('Class1')
+        cy.wait(2000)
+        eventCreationPage.add_Description('This is a Test Class')
+        eventCreationPage.select_Repeater_Checkbox()
+        eventCreationPage.add_Custom_Start_Date(3)
+        eventCreationPage.add_Custom_End_Date(10)
+        eventCreationPage.select_Repeater_Weekday()
+        eventCreationPage.select_Weekday_Friday()
+        eventCreationPage.select_Weekday_Monday()
+        eventCreationPage.select_Weekday_Saturday()
+        eventCreationPage.press_Add()
+        dashboard.cancel_Several_Events_AtOnce()
+    })
+
 
 })

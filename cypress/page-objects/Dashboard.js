@@ -195,41 +195,6 @@ export class Dashboard{
     
 
    cancel_Created_Event_Workshop(){
-/*var col = 7
-        for(var e=3; e<7; e++)
-        {
-            for(var i=1; i<4; i++)
-            {   
-                var row = 1
-                var colu = 3
-                const text = cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+e+']/div['+i+']/h4/a')
-                .invoke('text')
-                .then((text)=>{
-                    cy.log('texto ' +text)
-                    cy.log(i, e)
-                    if(text == 'Mantra1'){
-                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+colu+']/div['+row+']/div[2]').contains('Cancel Event').click()
-                        //cy.get('.btn-success').click()
-                        }
-                    if(row<3)
-                    {
-                        row++
-                    }else {row = 1
-                    colu = colu+1}
-                    })
-                    cy.log(i, e)
-                cy.wait(2000)
-                /*if(cy.get('#w0-success-0').contains('Event has been canceled')){
-                    cy.log('breakeo')
-                    break
-                }
-            }
-            /*.wait(2000)
-            if(cy.get('#w0-success-0').contains('Event has been canceled')){
-                cy.log('breakeo2')
-                break
-            }  
-        }*/
         var row = 1
         var col = 3
         cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
@@ -299,10 +264,23 @@ export class Dashboard{
     }
 
     cancel_Several_Events_AtOnce(){
-        cy.contains('Cancel Event').click({ multiple: true})
+        /*cy.contains('Cancel Event').click({ multiple: true})
         //cy.get('.cancel-event').click({ multiple: true})
-        cy.get('.btn-success').click()
-        
+        cy.get('.btn-success').click()*/
+
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
+        for(var e=1; e<=text; e++){
+            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div[2]/div[2]')
+            .contains('Cancel Event')
+            .invoke('text')
+            .then((text) => {
+                if(text == 'Cancel Event'){
+                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div[3]/div[2]').contains('Cancel Event').click()
+                    cy.get('.btn-success').click()
+                }
+            })
+        }
+        })
     }
 
     cancel_Event_As_Seeker(){

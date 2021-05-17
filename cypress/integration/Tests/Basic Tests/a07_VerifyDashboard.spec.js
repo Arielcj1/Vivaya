@@ -53,9 +53,9 @@ describe('Verify the Elements within Dashboard', ()=>{
         dashBoard.select_Contact_Vivaya()
         cy.url().should('eq', 'https://stage.vivayalive.com/site/contact')
 
-        cy.go('back')
+        /*cy.go('back')
         dashBoard.select_Write_Blog()
-        cy.url().should('eq', 'https://stage.vivayalive.com/blog/write')
+        cy.url().should('eq', 'https://stage.vivayalive.com/blog/write')*/
 
         cy.go('back')
         dashBoard.select_Edit_My_Offerings()

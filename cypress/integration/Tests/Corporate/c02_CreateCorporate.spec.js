@@ -22,12 +22,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         corporate.select_Corporate_As_Loggedout()
         corporate.type_Corporate_Email('manu@automation.com')
         corporate.select_register_Now()
-        cy.wait(2000)
         corporate.type_First_Name('manu')
         corporate.type_Last_Name('automation')
         corporate.type_Company_Name('Automation corp')
         corporate.continue_From_Step1()
-        cy.wait(2000)
         cy.get('#calendly-schedule > iframe').should('be.visible')
         
     })
@@ -38,15 +36,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
         //edit the corporate Info and Update
-        cy.wait(3000)
-        cy.get('.table').find('.glyphicon-pencil').last().click()
+        admin_corporate.select_the_corporate(2) //num 2 for edit
+        //cy.get('.table').find('.glyphicon-pencil').last().click()
         admin_corporate.type_Corporate_Address('address automation')
         admin_corporate.type_Corporate_PhoneNumber('73575915')
         admin_corporate.update_Corporate_From_Form()
-        cy.wait(2000)
-        cy.get('.table').find('.glyphicon-trash').last().click()
-       
-        
+        admin_corporate.select_the_corporate(3) //num 3 for delete
+        //cy.get('.table').find('.glyphicon-trash').first().click()
     })
 })   
   

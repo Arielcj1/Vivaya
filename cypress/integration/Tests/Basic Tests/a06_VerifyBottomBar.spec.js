@@ -33,6 +33,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get(':nth-child(5) > :nth-child(2) > picture > .lazy').should('be.visible')
     })
 
+    it('Verify the FAQ link',()=>{
+        cy.scrollTo('bottom')
+        bottomBar.select_FAQ()
+        cy.url().should('eq', 'https://stage.vivayalive.com/faqs')
+        cy.get('.text-center').should('contain', 'FAQs')
+    })
+
     it('Verify the Become a Guide Link',()=>{
         cy.scrollTo('bottom')
         bottomBar.select_BecomeAGuide_Link()
