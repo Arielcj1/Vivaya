@@ -27,7 +27,7 @@ export class CorporatePromotionPage {
     }
 
     type_Promotion_Discount(value){
-        cy.get('#promotion-discount').type(value)
+        cy.get('#promotion-discount').type(value+'{enter}')
     }
 
     select_Add_Promtion_Button(){

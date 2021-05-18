@@ -10,8 +10,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   })
 
   describe('Tests to verify the Corporate creation, edition and Deletion',()=>{
-    //const homePage = new HomePage()
-    //const guidesPage = new GuidesPage()
     const commons = new Commons()
     const corporate = new CorporatePage()
     const admin_corporate = new CorporateAdminPage()
@@ -37,12 +35,11 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         admin_corporate.select_Corporate_List()
         //edit the corporate Info and Update
         admin_corporate.select_the_corporate(2) //num 2 for edit
-        //cy.get('.table').find('.glyphicon-pencil').last().click()
         admin_corporate.type_Corporate_Address('address automation')
         admin_corporate.type_Corporate_PhoneNumber('73575915')
         admin_corporate.update_Corporate_From_Form()
         admin_corporate.select_the_corporate(3) //num 3 for delete
-        //cy.get('.table').find('.glyphicon-trash').first().click()
+        cy.get('#w0-success').should('contain', 'Corporate successfully deleted')
     })
 })   
   

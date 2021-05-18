@@ -275,7 +275,7 @@ export class Dashboard{
             .invoke('text')
             .then((text) => {
                 if(text == 'Cancel Event'){
-                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div[3]/div[2]').contains('Cancel Event').click()
+                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div[2]/div[2]').contains('Cancel Event').click()
                     cy.get('.btn-success').click()
                 }
             })

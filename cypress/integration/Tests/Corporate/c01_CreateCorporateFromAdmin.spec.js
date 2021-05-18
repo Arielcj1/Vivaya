@@ -34,9 +34,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         admin_corporate.type_Corporate_ContactEmail('manuel.rojas@automation.com')
         cy.wait(2000)
         admin_corporate.add_Corporate_From_Form()
-        cy.wait(5000)
-       
-        
+        cy.get('#w0-success').should('contain', 'Corporate has been created.')
     })
 
     it('Create and Delete a Promo Code for last created Corporation',()=>{
@@ -52,9 +50,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         .type('{downarrow}')
         .type('{enter}')
         admin_promo_code.type_Promotion_Discount('25')
-        cy.wait(3000)
-        admin_promo_code.select_Add_Promtion_Button()
-        cy.get('.table').find('.glyphicon-remove').first().click()
+        cy.get('#w0-success').should('contain', 'Promotion for Corporate has been created.')
     })
 
     it('Delete the las corporated created',()=>{
@@ -62,6 +58,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
         cy.get('.table').find('.glyphicon-trash').first().click()
+        cy.get('#w0-success').should('contain', 'Corporate successfully deleted')
     })
 })   
   
