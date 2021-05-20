@@ -71,7 +71,7 @@ export class GuidePage {
     find_EmailGuide(email, value){
         cy.get('#guidesearch-email').type(email+'{enter}')
         cy.wait(1200)
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[10]/a['+value+']/span').click()
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[10]/a['+value+']/span').click() //selecionar email y la opcion a realizar
     }
     add_New_Offering(){
         cy.get('.box-title > .pull-right > .btn').click()
@@ -84,5 +84,37 @@ export class GuidePage {
     }
     offer_Options(value){
         cy.xpath('//*[@id="w0"]/table/tbody/tr/td[10]/a['+value+']/span').click()
+    }
+    check_Pending_and_Approve_Offerings(){
+        cy.get('.summary > :nth-child(2)').invoke('text').then((text)=>{
+            var aux = text
+            for(var e=1; e<=aux; e++){
+                var aux2 = 1
+                cy.xpath('//*[@id="w0"]/table/tbody/tr['+e+']/td[9]/label').invoke('text').then((text)=>{
+                    if(text == 'NO'){
+                        cy.xpath('//*[@id="w0"]/table/tbody/tr['+aux2+']/td[10]/a[1]/span').click()
+                        cy.get('#guideoffer-approved > :nth-child(1) > input').check()
+                        cy.get('.box-footer > .btn').click()
+                        aux2++
+                    }
+                    else{aux2++}
+                })
+            }
+        })
+    }
+    delete_New_Offering(value){
+        cy.get('.summary > :nth-child(2)').invoke('text').then((text)=>{
+            var aux = text
+            for(var e=1; e<aux; e++){
+                var aux2 = 1
+                cy.xpath('//*[@id="w0"]/table/tbody/tr['+e+']/td[1]').invoke('text').then((text)=>{
+                    if(text == value){
+                        cy.xpath('//*[@id="w0"]/table/tbody/tr['+aux2+']/td[10]/a[2]/span').click()
+                        aux2++
+                    }
+                    else{aux2++}
+                })
+            }
+        })
     }
 }
