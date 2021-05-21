@@ -36,4 +36,13 @@ export class SeekerPage {
     select_Seeker_options(value){
         cy.xpath('//*[@id="w2"]/table/tbody/tr/td[11]/a['+value+']/span').click()
     }
+    button_New_Suscription(){
+        cy.get('.box-title > .pull-right > .btn').click()
+    }
+    select_Membership(value){
+        cy.get('#typeMembership').select(value)
+    }
+    button_add_Membership(){
+        cy.get('.box-footer > .btn').click()
+    }
 }

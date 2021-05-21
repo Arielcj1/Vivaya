@@ -35,6 +35,12 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
     })
 
+    it('Verify Membership selected on seeker page', ()=>{
+        homePage.select_Login()
+        commons.set_Generic_Seeker('pedrasasmota.luis@gmail.com', 'password')
+        cy.get(':nth-child(1) > .dashboard-box > div > :nth-child(2)').should('contain', 'Days Until Start Of Your Monthly Unlimited Membership')
+    })
+
     it('Seeker edition from Account', ()=>{
         homePage.select_Login()
         commons.set_Generic_Seeker('pedrasasmota.luis@gmail.com', 'password')

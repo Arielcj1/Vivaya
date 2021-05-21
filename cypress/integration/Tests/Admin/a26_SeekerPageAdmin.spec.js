@@ -2,6 +2,8 @@
 
 import {Commons} from "../../../Commons/common"
 import {SeekerPage} from "../../../page-objects-admin/SeekerPage"
+import {HomePage} from "../../../page-objects/Home"
+import {SeekerCreation} from "../../../page-objects/SeekerCreation"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
@@ -10,6 +12,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 describe('Seeker Page admin', ()=>{
     const commons = new Commons()
     const seekerpage = new SeekerPage()
+    const homePage = new HomePage()
+    const seekerCreation = new SeekerCreation()
     beforeEach(()=>{
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
@@ -25,6 +29,26 @@ describe('Seeker Page admin', ()=>{
         seekerpage.type_Seeker_Password('password')
         cy.get('#w3-success').should('contain', 'Seeker successfully added')
     })
+
+    it('Adding card to the New Seeker', ()=>{
+        commons.open_Web_Site()
+        homePage.select_Login()
+        commons.set_Generic_Seeker('quiroga.rosasrafael@gmail.com', 'password')
+        seekerCreation.type_Card_Name('Auto Mation')
+        seekerCreation.type_Card_Number('4242424242424242')
+        seekerCreation.type_Card_ExpDate('0225')
+        seekerCreation.type_Security_Code('123')
+        seekerCreation.type_ZipCode('1234')
+        cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+    })
+
+    it('Verify Membership selected on seeker page', ()=>{
+        commons.open_Web_Site()
+        homePage.select_Login()
+        commons.set_Generic_Seeker('quiroga.rosasrafael@gmail.com', 'password')
+        cy.get(':nth-child(1) > .dashboard-box > div > :nth-child(2)').should('contain', 'Days Until Start Of Your Monthly Unlimited Membership')
+    })
+
     it('Seeker edition from admin', ()=>{
         seekerpage.select_Seeker_Option()
         seekerpage.select_Seeker_List()
@@ -35,11 +59,35 @@ describe('Seeker Page admin', ()=>{
         seekerpage.type_Seeker_Password('password2')
         cy.get('#w3-success').should('contain', 'Seeker successfully updated')
     })
+
     it('Seeker elimination from admin',()=>{
         seekerpage.select_Seeker_Option()
         seekerpage.select_Seeker_List()
         seekerpage.type_Seeker_Email('quiroga.rosasrafael@gmail.com')
         seekerpage.select_Seeker_options('5') //num 5 for elimination 
         cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
+    })
+
+    it('Adding suscription expired User from admin',()=>{
+        seekerpage.select_Seeker_Option()
+        seekerpage.select_Seeker_List()
+        seekerpage.type_Seeker_Email('milton.paredes.mp@gmail.com')
+        seekerpage.select_Seeker_options('3') //num 3 for subcriptions
+        seekerpage.button_New_Suscription()
+        seekerpage.select_Membership('5 PACK ($55.00)')
+        seekerpage.button_add_Membership()
+        cy.contains('Subscription successfully added').should('contain', 'Subscription successfully added')
+    })
+})
+
+describe('Web page', ()=>{
+    const commons = new Commons()
+    const homepage = new HomePage()
+    it('Verify suscription added from web page',()=>{
+        commons.open_Web_Site()
+        homepage.select_Login()
+        commons.set_Seeker_Credentials_Two()
+        homepage.submit_Credentials()
+        cy.contains('5 PACK').should('contain', '5 PACK')
     })
 })
