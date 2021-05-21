@@ -105,14 +105,14 @@ export class GuidePage {
     delete_New_Offering(value){
         cy.get('.summary > :nth-child(2)').invoke('text').then((text)=>{
             var aux = text
-            for(var e=1; e<aux; e++){
-                var aux2 = 1
+            for(var e=aux; e>0; e--){
+                var aux2 = aux
                 cy.xpath('//*[@id="w0"]/table/tbody/tr['+e+']/td[1]').invoke('text').then((text)=>{
                     if(text == value){
                         cy.xpath('//*[@id="w0"]/table/tbody/tr['+aux2+']/td[10]/a[2]/span').click()
-                        aux2++
+                        aux2--
                     }
-                    else{aux2++}
+                    else{aux2--}
                 })
             }
         })
