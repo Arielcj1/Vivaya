@@ -45,4 +45,8 @@ export class SeekerPage {
     button_add_Membership(){
         cy.get('.box-footer > .btn').click()
     }
+    refund_Button(){
+        cy.get('.send-refund').click()
+        cy.wait(1000)
+    }
 }

@@ -45,9 +45,9 @@ export class SeekerCreation{
         cy.get('#accountNav > ul li:nth-child(2) >a').click({force:true})
     }
     seeker_Account_Edition(val,val1,val2,val3,val4,val5,val6){
-        cy.get('#accountinformationform-first_name').type(val)
-        cy.get('#accountinformationform-last_name').type(val1)
-        cy.get('#accountinformationform-country').select('Bolivia')
+        cy.get('#accountinformationform-first_name').clear().type(val)
+        cy.get('#accountinformationform-last_name').clear().type(val1)
+        //cy.get('#accountinformationform-country').select('Bolivia')
         cy.get('#address-address_one').type(val2)
         cy.get('#address-address_two').type(val3)
         cy.get('#address-city').type(val4)

@@ -68,7 +68,7 @@ describe('Seeker Page admin', ()=>{
         cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
     })
 
-    it('Adding suscription expired User from admin',()=>{
+    it('Adding subscription expired User from admin',()=>{
         seekerpage.select_Seeker_Option()
         seekerpage.select_Seeker_List()
         seekerpage.type_Seeker_Email('milton.paredes.mp@gmail.com')
@@ -80,14 +80,25 @@ describe('Seeker Page admin', ()=>{
     })
 })
 
-describe('Web page', ()=>{
+describe('Verify creation and Refund it', ()=>{
     const commons = new Commons()
     const homepage = new HomePage()
-    it('Verify suscription added from web page',()=>{
+    const seekerPage = new SeekerPage()
+    it('Verify subscription added from web page',()=>{
         commons.open_Web_Site()
         homepage.select_Login()
         commons.set_Seeker_Credentials_Two()
         homepage.submit_Credentials()
         cy.contains('5 PACK').should('contain', '5 PACK')
+    })
+    it('Refund new subscription', ()=>{
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
+        seekerPage.select_Seeker_Option()
+        seekerPage.select_Seeker_List()
+        seekerPage.type_Seeker_Email('milton.paredes.mp@gmail.com')
+        seekerPage.select_Seeker_options('3')
+        seekerPage.refund_Button()
+        cy.xpath('//*[@id="w0"]/table/tbody/tr[1]/td[7]/label').should('contain', 'Refunded')
     })
 })
