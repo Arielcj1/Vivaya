@@ -8,6 +8,7 @@ export class EventDetailPage {
     }
 
     cancel_Event_from_EventDetail(){
+        cy.reload()
         cy.xpath("//a[.='Cancel Event']").click()
     }
 
