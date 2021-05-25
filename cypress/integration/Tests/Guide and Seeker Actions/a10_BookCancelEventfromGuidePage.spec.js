@@ -39,7 +39,7 @@ describe('Booking Event from Guide', ()=> {
        cy.wait(2000)
        eventCreationPage.add_Description('This is a class test')
        eventCreationPage.add_Custom_Number_Of_Days(1)
-       eventCreationPage.custom_Start_Time(10)
+       eventCreationPage.custom_Start_Time(20)
        eventCreationPage.press_Add()
        homePage.logout_Account()
     })
@@ -53,7 +53,6 @@ describe('Booking Event from Guide', ()=> {
         guidesPage.perform_a_Search('ariel guide')
         cy.wait(3000)
         cy.get('.img').click()
-        //cy.xpath("//a[.='guide manu rex']").click()
         cy.scrollTo(0, 600)   
         guidesPage.select_an_event()
         eventDetailPage.book_Event_from_EventDetail()
@@ -61,7 +60,7 @@ describe('Booking Event from Guide', ()=> {
         eventDetailPage.confirm_Cancelation_from_EventDetail()
     })
 
-    it('Book an cancel an event from Schedule page', ()=>{
+    it('Book an event from Schedule page', ()=>{
         homePage.select_Login()
         commons.set_Seeker_Credentials_One()
         homePage.submit_Credentials()
@@ -83,8 +82,6 @@ describe('Booking Event from Guide', ()=> {
        commons.set_Guide_Credentials_One()
        homePage.submit_Credentials()
        dashboard.go_to_Dashboard_From_Menu()
-       //cy.wait(4000)
-       cy.scrollTo(0,100)
        dashboard.cancel_Created_Event()
        cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
        

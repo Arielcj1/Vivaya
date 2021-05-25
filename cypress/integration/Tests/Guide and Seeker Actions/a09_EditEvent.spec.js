@@ -10,7 +10,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   });
 
 
-describe('Events Creation', ()=>{
+describe('Events Edition from web page', ()=>{
     const homePage = new HomePage()
     const dashboard = new Dashboard()
     const eventCreationPage = new EventCreationPage()

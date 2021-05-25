@@ -47,7 +47,7 @@ export class EventsPage {
 
     type_Event_Guide(value){
         cy.get('#w1').type(value)
-        cy.wait(2000)
+        cy.wait(3000)
         cy.get('#w1').type('{downarrow}{enter}')
     }
 

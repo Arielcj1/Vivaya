@@ -3,6 +3,8 @@
 import {Commons} from "../../../Commons/Common"
 import {CorporateAdminPage } from "../../../page-objects-admin/CorporateAdminPage"
 import {CorporatePromotionPage} from "../../../page-objects-admin/CorporatePromotionPage"
+import {SeekerCreation} from "../../../page-objects/SeekerCreation"
+import {SeekerPage} from "../../../page-objects-admin/SeekerPage"
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -13,6 +15,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const commons = new Commons()
     const admin_corporate = new CorporateAdminPage()
     const admin_promo_code = new CorporatePromotionPage()
+    const seekerCreation = new SeekerCreation()
+    const seekerPage = new SeekerPage()
 
     beforeEach(()=>{
         
@@ -46,19 +50,80 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         admin_promo_code.type_Promotion_Code('pr automation')
         //admin_promo_code.type_Promotion_Domain_Name('automation')
         cy.get('#w1').type('automation')
-        .wait(2000)
+        .wait(3000)
         .type('{downarrow}')
         .type('{enter}')
         admin_promo_code.type_Promotion_Discount('25')
         cy.get('#w0-success').should('contain', 'Promotion for Corporate has been created.')
     })
 
-    it('Delete the las corporated created',()=>{
+    it('Create an Corporate user, using the Corp Code Level One',()=>{
+        commons.open_Web_Site()
+        seekerCreation.select_Free_trial_option()
+        seekerCreation.type_First_Name('Auto')
+        seekerCreation.type_Last_Name('Mation')
+        seekerCreation.type_Seeker_Email('pedrasasmota.luis@gmail.com')
+        seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+        seekerCreation.marking_Checkbox()
+        seekerCreation.type_Seeker_Password('password')
+        //adding the promo code
+        seekerCreation.promo_code_option()
+        seekerCreation.type_promo_code('pr automation')
+        cy.get('#promoCollapse', {timeout:1000}).should('be.visible')
+        //adding card information
+        seekerCreation.type_Card_Name('Auto Mation')
+        seekerCreation.type_Card_Number('4242424242424242')
+        seekerCreation.type_Card_ExpDate('0225')
+        seekerCreation.type_Security_Code('123')
+        seekerCreation.type_ZipCode('1234')
+        cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+    })
+
+    it('Create an Corporate user with a corporate email Level One',()=>{
+        commons.open_Web_Site()
+        seekerCreation.select_Free_trial_option()
+        seekerCreation.type_First_Name('Auto')
+        seekerCreation.type_Last_Name('Mation')
+        seekerCreation.type_Seeker_Email('automation@automation.com')
+        seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+        seekerCreation.marking_Checkbox()
+        seekerCreation.type_Seeker_Password('password')
+        //Verification the discount for being a corporate email
+        cy.get('.monthly-unlimited-box > .panel-body > .p-membership > .right > .amount').should('contain', '$67.50')
+        //adding card information
+        seekerCreation.type_Card_Name('Auto Mation')
+        seekerCreation.type_Card_Number('4242424242424242')
+        seekerCreation.type_Card_ExpDate('0225')
+        seekerCreation.type_Security_Code('123')
+        seekerCreation.type_ZipCode('1234')
+        cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+    })
+
+    it('Delete corp users Level One',()=>{
+        commons.set_Admin_Credentials()
+        seekerPage.select_Seeker_Option()
+        seekerPage.select_Seeker_List()
+        seekerPage.type_Seeker_Email('pedrasasmota.luis@gmail.com')
+        seekerPage.select_Seeker_options('5') //num 5 for elimination
+        cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
+        seekerPage.type_Seeker_Email('automation@automation.com')
+        seekerPage.select_Seeker_options('5') //num 5 for elimination
+        cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
+    })
+
+    it('Delete the last corporated created',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
         cy.get('.table').find('.glyphicon-trash').first().click()
         cy.get('#w0-success').should('contain', 'Corporate successfully deleted')
+    })
+    it('Delete the Corporate Promotion Code', ()=>{
+        commons.set_Admin_Credentials()
+        admin_corporate.select_Corporate_Option()
+        admin_promo_code.select_Corporate_Promotions_From_List()
+        admin_promo_code.delete_Last_Promo_Created()
+        cy.get('#w0-success').should('contain', 'Promotion successfully deleted')
     })
 })   
   

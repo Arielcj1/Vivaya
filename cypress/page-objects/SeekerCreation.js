@@ -54,4 +54,10 @@ export class SeekerCreation{
         cy.get('#address-country').type(val5)
         cy.get('#address-zip_code').type(val6+'{enter}')
     }
+    promo_code_option(){
+        cy.get('#promoCollapse').click()
+    }
+    type_promo_code(value){
+        cy.get('input[name=corporate-code]').type(value+'{enter}')
+    }
 }
