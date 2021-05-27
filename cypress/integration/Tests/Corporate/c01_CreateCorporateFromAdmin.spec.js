@@ -57,7 +57,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#w0-success').should('contain', 'Promotion for Corporate has been created.')
     })
 
-    it('Create an Corporate user, using the Corp Code Level One',()=>{
+    it('Create a Corporate user, using the Corp Code Level One',()=>{
         commons.open_Web_Site()
         seekerCreation.select_Free_trial_option()
         seekerCreation.type_First_Name('Auto')
@@ -79,7 +79,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
     })
 
-    it('Create an Corporate user with a corporate email Level One',()=>{
+    it('Create a Corporate user with a corporate email Level One',()=>{
         commons.open_Web_Site()
         seekerCreation.select_Free_trial_option()
         seekerCreation.type_First_Name('Auto')
