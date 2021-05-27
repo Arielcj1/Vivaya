@@ -20,7 +20,7 @@ describe('Guest page is displayed correctly', ()=>{
 
     it('Verify element within Guest page',()=>{
        guestpage.select_Guest_Option()
-       guestpage.selecct_Guest_List()
+       guestpage.select_Guest_List()
        //Verify elemnts within the page
        cy.get('h1').should('contain', 'Guests')
        cy.get(':nth-child(1) > .form-group > .control-label').should('have.text','Name')
