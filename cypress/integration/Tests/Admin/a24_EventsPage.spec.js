@@ -2,6 +2,7 @@
 
 import {Commons} from "../../../Commons/Common"
 import {EventsPage} from "../../../page-objects-admin/EventsPage"
+import {Dashboard} from "../../../page-objects/Dashboard"
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -44,14 +45,6 @@ describe('Events page', ()=>{
         cy.get('#w2-success').should('contain','Event has been updated.')
     })
 
-    it('Delete a Free Public Event', ()=>{
-        eventsPage.select_Events_Option()
-        eventsPage.select_Events_List()
-        //eventsPage.find_Element_List_Events('3', 'Free public Event') // option 3 is used for elimination
-        eventsPage.find_Event('Free public Event', '3')
-        cy.get('#w2-success').should('contain','Event has been canceled')
-    })
-
     it('Create a Free Event', ()=>{
         eventsPage.select_Events_Option()
         eventsPage.select_Events_New()
@@ -78,11 +71,5 @@ describe('Events page', ()=>{
         eventsPage.type_Event_HowToComePrepared('Auto test how to come prepared Edited')
         cy.get('#w2-success').should('contain','Event has been updated.')
     })
-
-    it('Delete a Free Event', ()=>{
-        eventsPage.select_Events_Option()
-        eventsPage.select_Events_List()
-        eventsPage.find_Event('Free Event', '3') // option 3 is used for elimination
-        cy.get('#w2-success').should('contain','Event has been canceled')
-    })
 })
+

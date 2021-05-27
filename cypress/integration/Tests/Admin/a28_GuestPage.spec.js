@@ -30,8 +30,12 @@ describe('Guest page is displayed correctly', ()=>{
        cy.get(':nth-child(3) > .form-group > .control-label').should('have.text','Is Converted')
        cy.get('#guestsearch-is_converted').should('be.visible')
        cy.get('.box-footer > .btn').should('be.visible').and('have.text', 'Search')
-
     })
 
-
+    it('Verify the Convertion of a Guest user to a Seeker',()=>{
+      guestpage.select_Guest_Option()
+      guestpage.select_Guest_List()
+      guestpage.make_a_Search_by_email('guest@user.com')
+      cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[4]/label').should('contain', 'Yes')
+    })
 })    

@@ -9,7 +9,7 @@ export class GuestPage {
         cy.get('.menu-open > .treeview-menu > :nth-child(1) > a > span').click()
     }
 
-    make_a_Search(value){
+    make_a_Search_by_email(value){
         cy.get('#guestsearch-email').type(value+'{enter}')
     }
     type_Guest_Name(value){
