@@ -18,6 +18,40 @@ describe('Seeker Page admin', ()=>{
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
     })
+
+    it('Verify elements within Seeker page',()=>{
+        seekerpage.select_Seeker_Option()
+        seekerpage.select_Seeker_List()
+        //Verify Search seekers elements
+        cy.get('h1').should('contain', 'Seekers')
+        cy.get(':nth-child(1) > :nth-child(1) > .form-group > .control-label').should('have.text','First name')
+        cy.get('#seekersearch-first_name').should('be.visible')
+        cy.get(':nth-child(1) > :nth-child(2) > .form-group > .control-label').should('have.text', 'Last name')
+        cy.get('#seekersearch-last_name').should('be.visible')
+        cy.get(':nth-child(3) > .form-group > .control-label').should('have.text','Email')
+        cy.get('#seekersearch-email').should('be.visible')
+        cy.get(':nth-child(4) > .form-group > .control-label').should('have.text','Status')
+        cy.get('#seekersearch-status').should('be.visible')
+        cy.get(':nth-child(2) > :nth-child(1) > .form-group > .control-label').should('have.text','Corporate')
+        cy.get('#seekersearch-corporate').should('be.visible')
+        cy.get(':nth-child(2) > :nth-child(2) > .form-group > .control-label').should('have.text','Is Corporate')
+        cy.get('#seekersearch-iscorporate').should('be.visible')
+        cy.get('.box-footer > .btn').should('be.visible').and('have.text', 'Search')
+
+        //Verify List of Seekers Elements
+        cy.get('.box > :nth-child(3) > :nth-child(2)').should('be.visible').and('have.text', 'List')
+        cy.get('[style="width:50px;"]').should('be.visible').and('have.text', 'ID')
+        cy.get('tr > :nth-child(2) > a').should('be.visible').and('have.text', 'First name')
+        cy.get('tr > :nth-child(3) > a').should('be.visible').and('have.text', 'Last name')
+        cy.get('tr > :nth-child(4) > a').should('be.visible').and('have.text', 'Email')
+        cy.get('tr > :nth-child(5) > a').should('be.visible').and('have.text', 'Registration Date')
+        cy.get('tr > :nth-child(6) > a').should('be.visible').and('have.text', 'Auto renewal')
+        cy.get('[style="text-align:center;width:140px;color:#3c8dbc;"]').should('be.visible').and('have.text', 'Auto renewal canceled')
+        cy.get('[style="text-align:center;width:160px;color:#3c8dbc;"]').should('be.visible').and('have.text', 'Free Trial Registration Status')
+        cy.get('tr > :nth-child(9) > a').should('be.visible').and('have.text', 'Admin Status')
+        cy.get('tr > :nth-child(10) > a').should('be.visible').and('have.text', 'Corporate')
+    })
+
     it('Seeker creation from admin',()=>{
         seekerpage.select_Seeker_Option()
         seekerpage.select_Seeker_New()
