@@ -30,6 +30,12 @@ describe('Guest page is displayed correctly', ()=>{
        cy.get(':nth-child(3) > .form-group > .control-label').should('have.text','Is Converted')
        cy.get('#guestsearch-is_converted').should('be.visible')
        cy.get('.box-footer > .btn').should('be.visible').and('have.text', 'Search')
+       cy.get(':nth-child(3) > .box-title').should('be.visible').and('have.text', 'List')
+       cy.get('[style="width:50px;"] > a').should('be.visible').and('have.text', 'Id')
+       cy.get('tr > :nth-child(2) > a').should('be.visible').and('have.text', 'Name')
+       cy.get('tr > :nth-child(3) > a').should('be.visible').and('have.text', 'Email')
+       cy.get('tr > :nth-child(4) > a').should('be.visible').and('have.text', 'Is Converted') 
+       
     })
 
     it('Verify the Convertion of a Guest user to a Seeker',()=>{
