@@ -25,5 +25,5 @@ export class SeminarPage {
     select_Refunds_Option(){
         cy.get('.menu-open > .treeview-menu > :nth-child(2) > a').click()
     }
-    
+
 }

@@ -101,7 +101,7 @@ describe('Verify Seminar Page admin', ()=>{
         cy.get('#seminarrefundsearch-refundstatus').should('be.visible')
         cy.get('.box-footer > .btn').should('be.visible').and('have.text', 'Search')
         cy.get(':nth-child(3) > .box-title').should('be.visible').and('have.text', 'List')
-
+        //Verify List
         cy.get('tr > :nth-child(1) > a').should('be.visible').and('have.text', 'User ID')
         cy.get('tr > :nth-child(2) > a').should('be.visible').and('have.text', 'First Name')
         cy.get('tr > :nth-child(3) > a').should('be.visible').and('have.text', 'Last Name')
