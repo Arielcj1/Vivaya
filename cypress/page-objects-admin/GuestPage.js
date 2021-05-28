@@ -11,6 +11,7 @@ export class GuestPage {
 
     make_a_Search_by_email(value){
         cy.get('#guestsearch-email').type(value+'{enter}')
+        cy.wait(1500)
     }
     type_Guest_Name(value){
         cy.get('#guest-name').clear().type(value)
