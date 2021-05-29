@@ -69,4 +69,12 @@ export class EventsPage {
         cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[8]/a['+value+']/span').click()
     }
 
+    type_EventName_To_Search(value){
+        cy.get('#eventsearch-name').type(value)
+    }
+
+    press_Search_Button(){
+        cy.xpath("//button[@class='btn btn-primary']").click()
+    }
+
 }

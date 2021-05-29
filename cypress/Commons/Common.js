@@ -10,9 +10,9 @@ export class Commons {
     }
 
     set_Guide_Credentials_One(){
-        cy.get('#loginform-email').type("pamelaestaf@gmail.com")
+        cy.get('#loginform-email').type("manurex@manu.com")
         cy.wait(2000)
-        cy.get('#loginform-password').type("password")
+        cy.get('#loginform-password').type("perrodelmal")
     }
 
     set_Seeker_Credentials_One(){
