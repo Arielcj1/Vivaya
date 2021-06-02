@@ -22,7 +22,7 @@ describe('Verify Seminar Page admin', ()=>{
         commons.set_Admin_Credentials()
     })
 
-    it.skip('Test elements are present in Seminar page',()=>{
+    it('Test elements are present in Seminar page',()=>{
         seminarPage.select_Seminar_Option()
         seminarPage.select_Seminar_List()
         //verify elements
@@ -49,7 +49,7 @@ describe('Verify Seminar Page admin', ()=>{
 
     })
 
-    it.skip('Create a Seminar in Website', ()=>{
+    it('Create a Seminar in Website', ()=>{
         commons.open_Web_Site()
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
@@ -70,7 +70,7 @@ describe('Verify Seminar Page admin', ()=>{
 
     })  
     
-    it.skip('Test elements are present in Seminar page',()=>{
+    it('Test elements are present in Seminar page',()=>{
         seminarPage.select_Seminar_Option()
         seminarPage.select_Seminar_List()
         seminarPage.search_A_Seminar('Seminar Manu')
