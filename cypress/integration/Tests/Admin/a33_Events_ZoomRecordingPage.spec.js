@@ -47,5 +47,24 @@ describe('Test and Verify Zoom page',()=>{
         cy.xpath("//tbody[1]/tr[1]//a[.='Save']").should('be.visible').and('contain.text', 'Save')
     
     })
+
+    it('Search an Event and Verify Zoom options',()=>{
+        eventsPage.select_Events_Option()
+        zoomRPage.select_Zoom_Recordings_Option()
+
+        //Search Harvey's events to verify the recording elements
+        zoomRPage.type_Guide_Name('Harvey')
+        zoomRPage.substract_Custom_From_Date(3)
+        zoomRPage.type_Current_Date()
+        zoomRPage.click_Search_Button()
+        cy.wait(3000)
+
+        cy.get('#w1').should('be.visible')
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/div/a').should('be.visible').and('contain.text', 'View Recording 1')
+        cy.get('#w1 > table > tbody > tr:nth-child(1) > td:nth-child(5) > div > a').should('have.attr', 'href').and('include', 'https://vivaya.zoom.us/rec/play')
+
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/div/a').click() //select first View recording in the list
+        
+    })
         
 })  
