@@ -23,10 +23,10 @@ describe('Search a Guide', ()=> {
 
     it('Search a Guide Logged out',()=>{
         guidesPage.select_Guide_Tab()
-        guidesPage.perform_a_Search('Ariel Guide')
+        guidesPage.perform_a_Search('manu rex')
         cy.wait(3000)
         cy.get('#w0 > div.row > div > a.img > img').click()
-        cy.get('h1').contains('Ariel Guide')
+        cy.get('h1').contains('manu rex')
         
     })
 
@@ -36,10 +36,10 @@ describe('Search a Guide', ()=> {
         homePage.submit_Credentials()
         cy.wait(2000)
         guidesPage.select_Guide_Tab_when_Login()
-        guidesPage.perform_a_Search('Ariel Guide')
+        guidesPage.perform_a_Search('manu rex')
         cy.wait(3000)
         cy.get('#w0 > div.row > div > a.img > img').click()
-        cy.get('h1').contains('Ariel Guide')
+        cy.get('h1').contains('manu rex')
     })
 
 

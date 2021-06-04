@@ -16,9 +16,9 @@ export class Commons {
     }
 
     set_Seeker_Credentials_One(){
-        cy.get('#loginform-email').type("dianagonzales123.moreno@gmail.com")
+        cy.get('#loginform-email').type("horcosio@gmail.com")
         cy.wait(2000)
-        cy.get('#loginform-password').type("password")
+        cy.get('#loginform-password').type("perrodelmal")
     }
 
     set_Seeker_Credentials_Two(){ //Thi user have the free trial plan expired and Autorenewal cancelled
