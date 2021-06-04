@@ -50,7 +50,7 @@ describe('Booking Event from Guide', ()=> {
         homePage.submit_Credentials()
         cy.wait(2000)
         guidesPage.select_Guide_Tab_when_Login()
-        guidesPage.perform_a_Search('ariel guide')
+        guidesPage.perform_a_Search('manu rex')
         cy.wait(3000)
         cy.get('.img').click()
         cy.scrollTo(0, 600)   
