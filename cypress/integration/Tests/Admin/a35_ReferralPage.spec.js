@@ -29,7 +29,7 @@ describe('Admin Referral Page', ()=>{
         cy.get('.box-footer > .btn').should('contain', 'Search')
     })
 
-    it('Get a Referral Link', ()=>{
+    it('Go to a Referral Link', ()=>{
         cy.visit('https://stage.vivayalive.com/?referral=60b8177d')//referral link of a test user 
         seekerCreation.select_Free_trial_option()
         seekerCreation.type_First_Name('Auto')
@@ -45,6 +45,7 @@ describe('Admin Referral Page', ()=>{
         seekerCreation.type_ZipCode('1234')
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
         cy.get('#mainNav > :nth-child(4) > a').click()
+        cy.reload()
         cy.xpath('/html/body/div[2]/div[2]/div[2]/div/div[1]/div/div/div[2]/div/div/a').click()
         cy.get('.col-md-12 > .btn').click()
         cy.get('#stripe-form-submit').click()
