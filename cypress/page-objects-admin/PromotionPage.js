@@ -26,11 +26,13 @@ export class PromotionPage {
     }
 
     type_Promotion_Limit(value){
-        cy.get('#promotion-times_limit_use').type('{selectall}'+value+'{enter}')
+        cy.get('#promotion-times_limit_use').click().type('{selectall}'+value+'{enter}')
     }
 
     type_Promotion_ExpDate(value){
-        cy.get('#promotion-expiration_date').type('{selectall}'+value)
+        var moment = require('moment');
+        const todayDate = moment().add(value, 'days').format('MMM-DD-YYYY')
+        const typeDate = cy.get('#promotion-expiration_date').type(todayDate)
     }
 
     find_Element_List_Promo(value){

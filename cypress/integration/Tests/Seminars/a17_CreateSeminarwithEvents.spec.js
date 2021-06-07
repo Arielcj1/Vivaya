@@ -61,7 +61,7 @@ describe('Seminar Creation, Cancelation and Seminar Eevnt creation',
         seminarEvent.add_Custom_Number_Of_Days(10)
         seminarEvent.custom_End_Time(2)
         seminarEvent.select_Existing_Seminar('Seminar Automation')
-        seminarEvent.select_Assign_Guide('Ariel Guide')
+        seminarEvent.select_Assign_Guide('Manu rex')
         cy.get('.tt-suggestion').click()
         seminarEvent.add_EventSeminar_Price(50)
         seminarEvent.select_Add_Button()

@@ -10,7 +10,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   })
 
-  describe('Web Page for Guest', ()=>{
+  describe.skip('Web Page for Guest', ()=>{
     const dashboard = new Dashboard()
     const commons = new Commons()
     const homePage = new HomePage()

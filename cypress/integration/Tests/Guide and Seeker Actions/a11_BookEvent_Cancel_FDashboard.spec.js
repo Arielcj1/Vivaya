@@ -54,7 +54,7 @@ describe('Booking Event and Cancel the Event from Seeker Dashboard', ()=> {
         homePage.submit_Credentials()
         cy.wait(2000)
         guidesPage.select_Guide_Tab_when_Login()
-        guidesPage.perform_a_Search('ariel guide')
+        guidesPage.perform_a_Search('Manu rex')
         cy.wait(3000)
         cy.get('.img').click()
         cy.scrollTo(0, 600)

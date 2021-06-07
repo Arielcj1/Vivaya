@@ -194,63 +194,63 @@ export class Dashboard{
     cancel_Created_Event_one_on_one(){
         var row = 1
         var col = 3
-        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+        cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
         .invoke('text')
         .then((text)=>{
                 if(text == 'One-One'){
                     cy.log('found')
-                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                         cy.get('.btn-success').click()
                 }
                 else{
                     row++
-                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                    cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                     .invoke('text')
                     .then((text)=>{
                     if(text == 'One-One'){
                         cy.log('found')
-                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                         cy.get('.btn-success').click()
                     }
                     else{
                         row++
-                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                        cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                         .invoke('text')
                         .then((text)=>{
                          if(text == 'One-One'){
                             cy.log('found')
-                            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                             cy.get('.btn-success').click()
                         }
                         else{
                             col++
                             row=1
-                            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                            cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                             .invoke('text')
                             .then((text)=>{
                              if(text == 'One-One'){
                                 cy.log('found')
-                                cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                                cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                                 cy.get('.btn-success').click()
                             }
                             else{
                                 row++
-                                cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                                cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                                 .invoke('text')
                                 .then((text)=>{
                                 if(text == 'One-One'){
                                     cy.log('found')
-                                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                                     cy.get('.btn-success').click()
                                 }
                                 else{
                                     row++
-                                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                                    cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                                     .invoke('text')
                                     .then((text)=>{
                                     if(text == 'One-One'){
                                         cy.log('found')
-                                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                                         cy.get('.btn-success').click()
                                     }})
                                 }})
@@ -263,63 +263,63 @@ export class Dashboard{
     cancel_Created_Event_class(){
         var row = 1
         var col = 3
-        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+        cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
         .invoke('text')
         .then((text)=>{
                 if(text == 'Class1'){
                     cy.log('found')
-                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                         cy.get('.btn-success').click()
                 }
                 else{
                     row++
-                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                    cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                     .invoke('text')
                     .then((text)=>{
                     if(text == 'Class1'){
                         cy.log('found')
-                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                         cy.get('.btn-success').click()
                     }
                     else{
                         row++
-                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                        cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                         .invoke('text')
                         .then((text)=>{
                          if(text == 'Class1'){
                             cy.log('found')
-                            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                             cy.get('.btn-success').click()
                         }
                         else{
                             col++
                             row=1
-                            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                            cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                             .invoke('text')
                             .then((text)=>{
                              if(text == 'Class1'){
                                 cy.log('found')
-                                cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                                cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                                 cy.get('.btn-success').click()
                             }
                             else{
                                 row++
-                                cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                                cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                                 .invoke('text')
                                 .then((text)=>{
                                 if(text == 'Class1'){
                                     cy.log('found')
-                                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                                     cy.get('.btn-success').click()
                                 }
                                 else{
                                     row++
-                                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                                    cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                                     .invoke('text')
                                     .then((text)=>{
                                     if(text == 'Class1'){
                                         cy.log('found')
-                                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                                         cy.get('.btn-success').click()
                                     }})
                                 }})
@@ -334,63 +334,63 @@ export class Dashboard{
    cancel_Created_Event_Workshop(){
         var row = 1
         var col = 3
-        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+        cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
         .invoke('text')
         .then((text)=>{
                 if(text == 'Workshop1'){
                     cy.log('found')
-                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                         cy.get('.btn-success').click()
                 }
                 else{
                     row++
-                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                    cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                     .invoke('text')
                     .then((text)=>{
                     if(text == 'Workshop1'){
                         cy.log('found')
-                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                         cy.get('.btn-success').click()
                     }
                     else{
                         row++
-                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                        cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                         .invoke('text')
                         .then((text)=>{
                          if(text == 'Workshop1'){
                             cy.log('found')
-                            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                             cy.get('.btn-success').click()
                         }
                         else{
                             col++
                             row=1
-                            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                            cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                             .invoke('text')
                             .then((text)=>{
                              if(text == 'Workshop1'){
                                 cy.log('found')
-                                cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                                cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                                 cy.get('.btn-success').click()
                             }
                             else{
                                 row++
-                                cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                                cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                                 .invoke('text')
                                 .then((text)=>{
                                 if(text == 'Workshop1'){
                                     cy.log('found')
-                                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                                     cy.get('.btn-success').click()
                                 }
                                 else{
                                     row++
-                                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/h4/a')
+                                    cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/h4/a')
                                     .invoke('text')
                                     .then((text)=>{
                                     if(text == 'Workshop1'){
                                         cy.log('found')
-                                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div['+col+']/div['+row+']/div[2]').contains('Cancel Event').click()
+                                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
                                         cy.get('.btn-success').click()
                                     }})
                                 }})
@@ -401,18 +401,14 @@ export class Dashboard{
     }
 
     cancel_Several_Events_AtOnce(){
-        /*cy.contains('Cancel Event').click({ multiple: true})
-        //cy.get('.cancel-event').click({ multiple: true})
-        cy.get('.btn-success').click()*/
-
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
         for(var e=1; e<text; e++){
-            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div[2]/div[2]')
+            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[1]/div[3]/div[2]/div[2]')
             .contains('Cancel Event')
             .invoke('text')
             .then((text) => {
                 if(text == 'Cancel Event'){
-                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div[2]/div[2]').contains('Cancel Event').click()
+                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[1]/div[3]/div[2]/div[2]').contains('Cancel Event').click()
                     cy.get('.btn-success').click()
                 }
             })

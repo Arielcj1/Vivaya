@@ -23,7 +23,7 @@ describe('Promotions page', ()=>{
         promotionPage.type_Promotion_Name('AutCode')
         promotionPage.type_Promotion_Code_Name('AUTCOD')
         promotionPage.type_Promotion_Discount('35')
-        promotionPage.type_Promotion_ExpDate('30-May-2021')
+        promotionPage.type_Promotion_ExpDate('13')
         promotionPage.type_Promotion_Limit('10')
         cy.get('#w0-success').should('contain','Promotion has been created.')
     })
@@ -34,7 +34,7 @@ describe('Promotions page', ()=>{
         promotionPage.find_Element_List_Promo('2') // num 2 para editar, es la posicion en el xpath
         promotionPage.type_Promotion_Code_Name('CODEEDITED')
         promotionPage.type_Promotion_Discount('37')
-        promotionPage.type_Promotion_ExpDate('29-May-2021')
+        promotionPage.type_Promotion_ExpDate('20')
         promotionPage.type_Promotion_Limit('12')
         cy.get('#w0-success').should('contain','Promotion has been updated.')
     })
