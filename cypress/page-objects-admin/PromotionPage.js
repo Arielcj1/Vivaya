@@ -30,9 +30,10 @@ export class PromotionPage {
     }
 
     type_Promotion_ExpDate(value){
-        var moment = require('moment');
-        const todayDate = moment().add(value, 'days').format('MMM-DD-YYYY')
-        const typeDate = cy.get('#promotion-expiration_date').type(todayDate)
+        cy.get('#promotion-expiration_date').clear().type(value)
+        /*var moment = require('moment');
+        const todayDate = moment().add(1, 'days').format('MMM-DD-YYYY')
+        const typeDate = cy.get('#promotion-expiration_date').type(todayDate)*/
     }
 
     find_Element_List_Promo(value){

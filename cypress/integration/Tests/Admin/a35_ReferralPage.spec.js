@@ -46,7 +46,7 @@ describe('Admin Referral Page', ()=>{
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
         cy.get('#mainNav > :nth-child(4) > a').click()
         cy.reload()
-        cy.xpath('/html/body/div[2]/div[2]/div[2]/div/div[1]/div/div/div[2]/div/div/a').click()
+        cy.xpath('/html/body/div[2]/div[2]/div[2]/div/div[1]/div/div/div[2]/div/div/a').click({force: true})
         cy.get('.col-md-12 > .btn').click()
         cy.get('#stripe-form-submit').click()
         cy.get('.order-summary').should('contain', 'Purchase Confirmation')

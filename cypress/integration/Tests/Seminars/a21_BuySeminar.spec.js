@@ -58,7 +58,7 @@ describe('Add seminar to cart and remove from cart',
         seminarEvent.custom_End_Time(2)
         seminarEvent.select_Existing_Seminar('Seminar Automation')
         seminarEvent.select_Assign_Guide('Manu rex')
-        cy.get('.tt-suggestion').click()
+        cy.get('.tt-suggestion').click({force:true})
         seminarEvent.add_EventSeminar_Price(50)
         seminarEvent.select_Add_Button()
         cy.get('#w0-success-0').should('contain', 'Events have been created.')
