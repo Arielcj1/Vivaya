@@ -60,9 +60,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cartPage.confirm_Remove_From_Cart()
         pricingPage.select_Pricing_When_Login()
         cy.scrollTo(0, 800)
-        pricingPage.buy_5Pack_Package()
+        pricingPage.buy_5Pack_Package({force:true})
         cy.wait(2000)
-        cy.get('.remove-button').click()
+        cy.get('.remove-button').click({force:true})
         cartPage.confirm_Remove_From_Cart()
 
 

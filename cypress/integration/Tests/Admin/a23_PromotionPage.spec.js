@@ -45,4 +45,8 @@ describe('Promotions page', ()=>{
         promotionPage.find_Element_List_Promo('4') //num 4 para eliminar, posicion de xpath
         cy.get('#w0-success').should('contain','Promotion successfully deleted')
     })
+
+    
+
+    
 })

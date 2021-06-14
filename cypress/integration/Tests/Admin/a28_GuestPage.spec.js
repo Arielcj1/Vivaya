@@ -8,7 +8,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
 })
 
-describe.skip('Guest page is displayed correctly', ()=>{
+describe('Guest page is displayed correctly', ()=>{
     const commons = new Commons()
     const guestpage = new GuestPage()
     const seekerPage = new SeekerPage()

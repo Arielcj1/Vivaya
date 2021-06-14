@@ -19,7 +19,7 @@ export class SeminarPage {
     //After perfom a search for specific Seminar, the user select the first Trash icon
     //in order to delete the seminar founded    
     select_TrashIcon(){
-        cy.xpath("//span[@class='glyphicon glyphicon-trash']").click()
+        cy.xpath("//span[@class='glyphicon glyphicon-trash']").first().click()
     }
 
     select_Refunds_Option(){

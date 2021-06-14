@@ -30,7 +30,7 @@ describe('Admin Referral Page', ()=>{
     })
 
     it('Go to a Referral Link', ()=>{
-        cy.visit('https://stage.vivayalive.com/?referral=60b8177d')//referral link of a test user 
+        cy.visit('https://stage.vivayalive.com/?referral=60c6b15f')//referral link of a test user 
         seekerCreation.select_Free_trial_option()
         seekerCreation.type_First_Name('Auto')
         seekerCreation.type_Last_Name('Mation')
