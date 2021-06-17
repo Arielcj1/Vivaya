@@ -56,6 +56,96 @@ describe('Events page', ()=>{
 
     })
 
+    it('Verify Event Detail page from Events main page',()=>{
+        eventsPage.select_Events_Option()
+        eventsPage.select_Events_List()
+        eventsPage.press_First_Eye_Icon()
+
+        //Regular expressions to validations
+        let reNum = new RegExp('/^[0-9]*$/')
+        let reText = new RegExp('/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g')
+        let reDate = new RegExp('/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/')
+
+        cy.get('body > div.wrapper > div > section.content-header > h1').should('be.visible')
+        cy.get(':nth-child(1) > .box-header > .box-title').should('be.visible')
+        cy.get('#w0 > tbody > :nth-child(1) > th').should('have.text', 'ID')
+        cy.get('#w0 > tbody > :nth-child(1) > td').should('be.visible').and('contains', reNum)
+        cy.get('#w0 > tbody > :nth-child(2) > th').should('be.visible').and('have.text', 'Event Name')
+        cy.get('#w0 > tbody > :nth-child(2) > td').should('be.visible').and('contains', reText)
+        cy.get('#w0 > tbody > :nth-child(3) > th').should('be.visible').and('have.text', 'Type')
+            //Expect to be on of: workshop, class, 1-1
+           cy.get(':nth-child(3) > td > .label').each(x => {
+            expect(x.text()).to.be.oneOf([
+              "Class",
+              "Workshop",
+              "1-1 Session"
+                ]);
+             });
+        cy.get('#w0 > tbody > :nth-child(4) > th').should('be.visible').and('have.text', 'Guide')
+        cy.get('#w0 > tbody > :nth-child(4) > td').should('be.visible').and('contains', reText)
+        cy.get('#w0 > tbody > :nth-child(5) > th').should('be.visible').and('have.text', 'Description')
+        cy.get('#w0 > tbody > :nth-child(5) > td').should('be.visible').and('contains', reText) 
+        cy.get('#w0 > tbody > :nth-child(6) > th').should('be.visible').and('have.text', 'Start Date')
+        cy.get('#w0 > tbody > :nth-child(6) > td').should('be.visible').and('contains', reDate)
+        cy.get('#w0 > tbody > :nth-child(7) > th').should('be.visible').and('have.text', 'End Date')
+        cy.get('#w0 > tbody > :nth-child(7) > td').should('be.visible').and('contains', reDate) 
+        
+        cy.get('#w1 > tbody > :nth-child(1) > th').should('be.visible').and('have.text', 'Status')
+        
+            cy.get(':nth-child(1) > td > .label').each(x => {
+            expect(x.text()).to.be.oneOf([
+              "Published",
+              "Canceled",
+                ]);
+             });
+
+        cy.get('#w1 > tbody > :nth-child(2) > th').should('be.visible').and('have.text', 'Zoom Status')
+            cy.get(':nth-child(2) > td > .label').each(x => {
+            expect(x.text()).to.be.oneOf([
+              "Not Started",
+              "Started",
+              "Finished"
+                ]);
+             });
+
+        cy.get('#w1 > tbody > :nth-child(3) > th').should('be.visible').and('have.text', 'Zoom Meeting Number')
+             cy.get('#w1 > tbody > tr:nth-child(3) > td > span').each(x =>{
+                expect(x.text()).to.be.oneOf([
+                    "(not set)",
+                      reNum
+                      ]);
+             });
+
+        cy.get('#w1 > tbody > :nth-child(4) > th').should('be.visible').and('have.text', 'Zoom Meeting Id')
+             cy.get('#w1 > tbody > tr:nth-child(4) > td > span').each(x =>{
+                expect(x.text()).to.be.oneOf([
+                    "(not set)",
+                      reText
+                      ]);
+             });    
+             
+        cy.get('#w1 > tbody > :nth-child(5) > th').should('be.visible').and('have.text', 'Started At')
+        cy.get('#w1 > tbody > :nth-child(5) > td').should('be.visible').and('contains', reDate)
+        cy.get('#w1 > tbody > :nth-child(6) > th').should('be.visible').and('have.text', 'Ended At')
+        cy.get('#w1 > tbody > :nth-child(6) > td').should('be.visible').and('contains', reDate)
+        cy.get('#w1 > tbody > tr:nth-child(7) > th').should('be.visible').and('have.text', 'Guide Participated')
+            cy.get(':nth-child(7) > td > .label').each(x =>{
+            expect(x.text()).to.be.oneOf([
+                "Yes",
+                "No"
+                  ]);
+                }); 
+        cy.get(':nth-child(8) > th').should('be.visible').and('have.text', 'Zoom Report Done')    
+        cy.get(':nth-child(3) > .box-header > .box-title').should('be.visible').and('have.text', 'List of seekers registered for event')
+        cy.get('.box-body > .table > tbody > tr > :nth-child(1)').should('be.visible').and('have.text', 'UID')
+        cy.get('.box-body > .table > tbody > tr > :nth-child(2)').should('be.visible').and('have.text', 'Full Name')
+        cy.get('tr > :nth-child(3)').should('be.visible').and('have.text', 'Date booked')
+        cy.get('tr > :nth-child(4)').should('be.visible').and('have.text', 'Participated')
+        cy.get('tr > :nth-child(5)').should('be.visible').and('have.text', 'Membership ID')
+
+ 
+    })
+
     it('Create an Event from Web, locate and Delete from Admin',()=>{
         commons.open_Web_Site()
         homePage.select_Login()
