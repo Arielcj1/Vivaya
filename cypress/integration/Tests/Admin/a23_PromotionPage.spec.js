@@ -46,7 +46,32 @@ describe('Promotions page', ()=>{
         cy.get('#w0-success').should('contain','Promotion successfully deleted')
     })
 
-    
+    it('Create a Promo Auto Renewal', ()=>{
+        promotionPage.select_Promotions_Option()
+        promotionPage.select_PromoRenewal_New()
+        promotionPage.type_Promotion_Name('AutCode')
+        promotionPage.type_Promotion_Code_Name('AUTCOD')
+        promotionPage.type_Promotion_Discount('35')
+        promotionPage.type_Promotion_ExpDate('12')
+        promotionPage.type_Promotion_Limit('10')
+        cy.get('#w0-success').should('contain','Promotion auto renewal has been created.')
+    })
 
-    
+    it('Edit a Promo Auto Renewal', ()=>{
+        promotionPage.select_Promotions_Option()
+        promotionPage.select_PromoRenewal_List()
+        promotionPage.find_Element_List_Promo_Renewal('2') // num 2 para editar, es la posicion en el xpath
+        promotionPage.type_Promotion_Code_Name('CODEEDITED')
+        promotionPage.type_Promotion_Discount('37')
+        promotionPage.type_Promotion_ExpDate('10')
+        promotionPage.type_Promotion_Limit('12')
+        cy.get('#w0-success').should('contain','Promotion has been updated.')
+    })
+
+    it('Delete a Promo Auto Renewal', ()=>{
+        promotionPage.select_Promotions_Option()
+        promotionPage.select_PromoRenewal_List()
+        promotionPage.find_Element_List_Promo_Renewal('4') //num 4 para eliminar, posicion de xpath
+        cy.get('#w0-success').should('contain','Promotion successfully deleted')
+    })
 })

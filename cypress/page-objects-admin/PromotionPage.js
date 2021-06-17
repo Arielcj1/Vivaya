@@ -13,6 +13,14 @@ export class PromotionPage {
         cy.get('.menu-open > .treeview-menu > :nth-child(1) > a > span').click()
     }
 
+    select_PromoRenewal_List(){
+        cy.get('.menu-open > .treeview-menu > :nth-child(3) > a > span').click()
+    }
+
+    select_PromoRenewal_New(){
+        cy.get('.menu-open > .treeview-menu > :nth-child(4) > a > span').click()
+    }
+
     type_Promotion_Name(value){
         cy.get('#promotion-name').type(value)
     }
@@ -94,4 +102,63 @@ export class PromotionPage {
         })}
                 })}
         })}
+
+        find_Element_List_Promo_Renewal(value){
+            var x = value
+            var e = 1
+            cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+            .then((text)=>{
+                if(text=='AutCode'){
+                    cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click()
+                }else{
+                    e++
+                    cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+                    .then((text)=>{
+                        if(text=='AutCode'){
+                            cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click()
+                        }else{
+                            e++
+                            cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+            .then((text)=>{
+                if(text=='AutCode'){
+                    cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click()
+                }else{
+                    e++
+                    cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+                    .then((text)=>{
+                        if(text=='AutCode'){
+                            cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click()
+                        }else{
+                            e++
+                            cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+            .then((text)=>{
+                if(text=='AutCode'){
+                    cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click()
+                }else{
+                    e++
+                    cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+                    .then((text)=>{
+                        if(text=='AutCode'){
+                            cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click()
+                        }else{
+                            e++
+                            cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+            .then((text)=>{
+                if(text=='AutCode'){
+                    cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click()
+                }else{
+                    e++
+                    cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+                    .then((text)=>{
+                        if(text=='AutCode'){
+                            cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click()
+                        }
+                    })}
+            })}
+                    })}
+            })}
+                    })}
+            })}
+                    })}
+            })}
 }
