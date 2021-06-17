@@ -25,7 +25,7 @@ describe('Promotions page', ()=>{
         promotionPage.type_Promotion_Discount('35')
         promotionPage.type_Promotion_ExpDate('12')
         promotionPage.type_Promotion_Limit('10')
-        cy.get('#w0-success').should('contain','Promotion has been ceaterd.')
+        cy.get('#w0-success').should('contain','Promotion has been created.')
     })
 
     it('Edit the promotion code', ()=>{
