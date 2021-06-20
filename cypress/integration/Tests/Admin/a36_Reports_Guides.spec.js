@@ -6,7 +6,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   })
 
-describe('This tests verify all reports within Reports tab', ()=>{
+describe('This tests verify Guide reports within Reports tab', ()=>{
     const commons = new Commons()
     const reports = new ReportsTab()
 

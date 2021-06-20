@@ -5,3 +5,4 @@ integration-reports/integration/public/screenshots/Tests/Guide and Seeker Action
 integration-reports/integration/public/screenshots/Tests/Guide and Seeker Actions/a11_BookEvent_Cancel_FDashboard.spec.js/Booking Event and Cancel the Event from Seeker Dashboard -- Guide delete the Event from his Dashboard (failed) (attempt 2).png
 integration-reports/integration/public/screenshots/Tests/Guide and Seeker Actions/a11_BookEvent_Cancel_FDashboard.spec.js/Booking Event and Cancel the Event from Seeker Dashboard -- Guide delete the Event from his Dashboard (failed).png
 integration-reports/integration/public/screenshots/Tests/Guide and Seeker Actions/a11_BookEvent_Cancel_FDashboard.spec.js/Booking Event and Cancel the Event from Seeker Dashboard -- Guide delete the Event from his Dashboard (failed) (attempt 3).png
+cypress/integration/Tests/API/GetForms.spec.js
