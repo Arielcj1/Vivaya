@@ -33,7 +33,7 @@ export class CorporatePromotionPage {
     select_Add_Promtion_Button(){
         cy.get('.box-footer > .btn').click()
     }
-    delete_Last_Promo_Created(){
-        cy.get(':nth-child(1) > :nth-child(9) > .glyphicon-remove').click()
+    disable_last_Promo_created(){
+        cy.get(':nth-child(1) > :nth-child(7) > .glyphicon-remove').click()
     }
 }

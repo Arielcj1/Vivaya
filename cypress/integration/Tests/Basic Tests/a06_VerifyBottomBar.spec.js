@@ -1,3 +1,4 @@
+
 /// <reference types="cypress"/>
 
 import {Commons} from "../../../Commons/Common"
@@ -29,8 +30,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('.about-page-jumbotron > picture > .lazy').should('be.visible')
         cy.get(':nth-child(2) > .col-md-offset-2 > picture > .lazy').should('be.visible')
         cy.get(':nth-child(2) > :nth-child(2) > picture > .lazy').should('be.visible')
-        cy.get(':nth-child(5) > .col-md-offset-2 > picture > .lazy').should('be.visible')
-        cy.get(':nth-child(5) > :nth-child(2) > picture > .lazy').should('be.visible')
+        cy.get(':nth-child(5) > .col-md-4 > picture > .lazy').should('be.visible')
+        
     })
 
     it('Verify the FAQ link',()=>{
