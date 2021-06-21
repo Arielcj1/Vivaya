@@ -79,7 +79,7 @@ export class EventsPage {
     
     //Press the first Eye icon from Even List
     press_First_Eye_Icon(){
-        cy.get('#w1 > table > tbody > tr:nth-child(1) > td:nth-child(8) > a > span').click()
+        cy.get('#w1 > table > tbody > tr:nth-child(1) > td:nth-child(8) > a > span').first().click()
     }
 
 }
