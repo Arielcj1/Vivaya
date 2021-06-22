@@ -71,8 +71,8 @@ describe('Admin Referral Page', ()=>{
         referralPage.type_Email('pedrasasmota.luis@gmail.com')
         referralPage.search_Button()
         referralPage.select_the_result()
-        cy.get(':nth-child(2) > :nth-child(1) > :nth-child(2) > a').should('contain', 'Automation Yoon') //referred by:
-    })
+        cy.get(':nth-child(2) > :nth-child(1) > :nth-child(2) > a').should('contain', 'Auto Yoon') //referred by:
+    }) 
 
     it('Verify The amount paid by the referred user', ()=>{
         commons.open_Admin_Site()
