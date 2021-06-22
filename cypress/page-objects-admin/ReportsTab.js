@@ -19,8 +19,21 @@ select_Most_Active_Seekers(){
     cy.get('.menu-open > .treeview-menu > :nth-child(5) > a > span').click()
 }
 
+//Seekers dropping
 select_Seekers_Dropping(){
     cy.get('.treeview-menu > :nth-child(6) > a').click()
+}
+
+//Free Trial Converted
+
+select_Free_Trial_Converted_Option(){
+    cy.get('.treeview-menu > :nth-child(7) > a > span').click()
+}
+
+//Active Guides
+
+select_Active_Guides_Option(){
+    cy.get('.treeview-menu > :nth-child(8) > a > span').click()
 }
 
 }

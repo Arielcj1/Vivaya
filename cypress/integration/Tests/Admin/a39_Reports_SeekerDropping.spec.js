@@ -6,7 +6,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   })
 
-  describe('This tests verify the Membership reports within Reports tab', ()=>{
+  describe('This tests verify the different kind of reports within Reports tab', ()=>{
     const commons = new Commons()
     const reports = new ReportsTab()
 
@@ -15,7 +15,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         commons.set_Admin_Credentials()
     })
     
-    it('Verify the Membership report',()=>{
+    it('Verify the Seekers report',()=>{
         reports.select_Reports_Tab()
         reports.select_Seekers_Dropping()
 
