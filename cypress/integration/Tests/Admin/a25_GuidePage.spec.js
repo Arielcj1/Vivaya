@@ -2,6 +2,9 @@
 
 import {Commons} from "../../../Commons/common"
 import {GuidePage} from "../../../page-objects-admin/GuidePage"
+import {HomePage} from "../../../page-objects/Home"
+import {GuidesPage} from "../../../page-objects/GuidesPage"
+import {SeekerCreation} from "../../../page-objects/SeekerCreation"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
@@ -10,13 +13,17 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 describe('Guide Page admin', ()=>{
     const commons = new Commons()
     const guidePage = new GuidePage()
+    const home = new HomePage()
+    const guideweb = new GuidesPage()
+    const seekercreation = new SeekerCreation()
 
     beforeEach(()=>{
         commons.open_Admin_Site()
-        commons.set_Admin_Credentials()
+        
     })
     
      it('Verify the elements within Guide page',()=>{
+        commons.set_Admin_Credentials()
         guidePage.select_Guide_Option()
         guidePage.select_Guide_List()
         //Verify all elements within the page
@@ -49,6 +56,7 @@ describe('Guide Page admin', ()=>{
     })
 
     it('Guide creation from admin', ()=>{
+        commons.set_Admin_Credentials()
         guidePage.select_Guide_Option()
         guidePage.select_Guide_New()
         guidePage.type_About_Me('about me')
@@ -73,6 +81,7 @@ describe('Guide Page admin', ()=>{
     })
 
     it('Verify Offerings and Events page from Admin list', ()=>{
+        commons.set_Admin_Credentials()
         guidePage.select_Guide_Option()
         guidePage.select_Guide_List()
         cy.get('#guidesearch-first_name').type('manu')
@@ -95,6 +104,7 @@ describe('Guide Page admin', ()=>{
     })
 
     it('Verify events by using View list of Guide events button', ()=>{
+        commons.set_Admin_Credentials()
         guidePage.select_Guide_Option()
         guidePage.select_Guide_List()
         cy.get('#guidesearch-first_name').type('manu')
@@ -127,6 +137,7 @@ describe('Guide Page admin', ()=>{
     })
 
     it('Guide Edition from admin', ()=>{
+        commons.set_Admin_Credentials()
         guidePage.select_Guide_Option()
         guidePage.select_Guide_List()
         guidePage.find_EmailGuide('callecarla354@gmail.com', '2') //num 2 for edition
@@ -140,7 +151,8 @@ describe('Guide Page admin', ()=>{
         cy.get('#w2-success').should('contain', 'Guide successfully updated')
     })
 
-    it('Create, Edit and delete offering', ()=>{
+    it('Create, Edit offering', ()=>{
+        commons.set_Admin_Credentials()
         guidePage.select_Guide_Option()
         guidePage.select_Guide_List()
         guidePage.find_EmailGuide('callecarla354@gmail.com', '1') //num 1 for offering
@@ -152,11 +164,50 @@ describe('Guide Page admin', ()=>{
         guidePage.select_Guide_Offer('Yoga Nidra')
         guidePage.type_Guide_YearsTeaching('5{enter}')
         cy.get('#w1-success').should('contain', 'Guide offering successfully updated')
+         })
+
+    it('Delete Offering', ()=>{
+        commons.set_Admin_Credentials()
+        guidePage.select_Guide_Option()
+        guidePage.select_Guide_List()
+        guidePage.find_EmailGuide('callecarla354@gmail.com', '1') //num 1 for offering
+         
         guidePage.offer_Options('2') //num 2 for delete
         cy.get('#w1-success').should('contain', 'Offering successfully deleted')
+
+               
     })
 
+    it('Verify that Guide changes to Seeker', ()=>{
+        commons.open_Web_Site()
+        home.select_Login()
+        home.fill_Email('callecarla354@gmail.com')
+        cy.wait(1500)
+        home.fill_Password('password')
+        home.submit_Credentials()
+        cy.wait(2000)
+        guideweb.select_close_modal()
+        guideweb.select_create_seeker_account()
+        guideweb.fill_account_seeker('callecarla2@gmail.com')
+        seekercreation.type_Card_Name('Auto Mation')
+        seekercreation.type_Card_Number('4242424242424242')
+        seekercreation.type_Card_ExpDate('0225')
+        seekercreation.type_Security_Code('123')
+        seekercreation.type_ZipCode('1234')
+        //Change to Seeker
+        cy.get('.col-sm-9 > :nth-child(2) > h3').should('be.visible')
+        guideweb.Select_Switch_to_seeker()
+        cy.get('.dashboard-credits > h3').should('be.visible')
+        //Change to Guide
+        guideweb.Select_Switch_to_Guide()
+        cy.get('.col-sm-9 > :nth-child(2) > h3').should('be.visible')
+               
+    })
+
+
+    
     it('Guide elimination', ()=>{
+        commons.set_Admin_Credentials()
         guidePage.select_Guide_Option()
         guidePage.select_Guide_List()
         guidePage.find_EmailGuide('callecarla354@gmail.com', '3') //num 3 for elimination

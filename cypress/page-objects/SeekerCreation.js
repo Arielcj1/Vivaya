@@ -23,6 +23,7 @@ export class SeekerCreation{
     marking_Checkbox(){
         cy.get('#signupform-terms').check()
     }
+    //Create Card Page
     type_Card_Name(value){
         cy.get('.n-group > .form-control').type(value)
     }

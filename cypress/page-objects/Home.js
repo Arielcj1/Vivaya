@@ -21,7 +21,6 @@ export class HomePage {
 
         const typing = cy.get('#loginform-password').type(value)
         return this
-
     
     }
 

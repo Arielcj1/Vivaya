@@ -1,6 +1,12 @@
 /// <reference types="cypress"/>
 export class GuidesPage {
 
+    select_close_modal(){
+        //cy.get('#modalHeader').click({force:true})
+        cy.get('.guide-reminder > .btn').click()
+        
+    }
+
     select_Guide_Tab(){
 
         cy.get('#mainNav > :nth-child(3) > a').click()
@@ -50,4 +56,19 @@ export class GuidesPage {
             })
     }
 
+    select_create_seeker_account(){
+        cy.get('[href="/signup/add-seeker-account-from-guide"]').click()
+    }
+    fill_account_seeker(value){
+        cy.get('#seekerassociatedsignupform-email').type(value+'{enter}')
+    }
+    Select_Switch_to_seeker(){
+        cy.get('.uname').click({force:true})
+        cy.get('#accountNav > ul > li > ul > li:nth-child(3) > a').click({force:true})
+
+    }
+    Select_Switch_to_Guide(){
+        cy.get('.uname').click({force:true})
+        cy.get('#accountNav > ul > li > ul > li:nth-child(3) > a').click({force:true})
+    }
 }
