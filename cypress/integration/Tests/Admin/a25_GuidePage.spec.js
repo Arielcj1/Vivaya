@@ -5,6 +5,7 @@ import {GuidePage} from "../../../page-objects-admin/GuidePage"
 import {HomePage} from "../../../page-objects/Home"
 import {GuidesPage} from "../../../page-objects/GuidesPage"
 import {SeekerCreation} from "../../../page-objects/SeekerCreation"
+import {SeekerPage} from "../../../page-objects-admin/SeekerPage"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
@@ -16,6 +17,7 @@ describe('Guide Page admin', ()=>{
     const home = new HomePage()
     const guideweb = new GuidesPage()
     const seekercreation = new SeekerCreation()
+    const seekerpage = new SeekerPage()
 
     beforeEach(()=>{
         commons.open_Admin_Site()
@@ -213,4 +215,16 @@ describe('Guide Page admin', ()=>{
         guidePage.find_EmailGuide('callecarla354@gmail.com', '3') //num 3 for elimination
         cy.get('#w2-success').should('contain', 'Guide successfully deleted')
     })
+
+     
+    it('Seek elimination', ()=>{
+        commons.set_Admin_Credentials()
+        seekerpage.select_Seeker_Option()
+        seekerpage.select_Seeker_List()
+        seekerpage.type_Seeker_Email('callecarla2@gmail.com')
+        seekerpage.select_Seeker_options('5') //num 5 for elimination 
+        cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
+    })
+
+   
 })
