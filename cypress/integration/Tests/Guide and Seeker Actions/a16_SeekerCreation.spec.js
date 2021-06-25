@@ -48,6 +48,10 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         seekerCreation.seeker_Account_Edition('AutoEdited','MationEdition','Address1','Address2','Cochabamba','Bolivia','13452')
     })
 
+    
+
+
+
     it('Seeker elimination from admin', ()=>{
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()

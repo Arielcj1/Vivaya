@@ -117,4 +117,8 @@ export class GuidePage {
             }
         })
     }
+
+    Approve_Guide(){
+        cy.get('#guide-approved > :nth-child(1) > input').click().type('{enter}')
+    }
 }
