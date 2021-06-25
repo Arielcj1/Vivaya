@@ -4,6 +4,9 @@ import {Commons} from "../../../Commons/common"
 import {SeekerCreation} from "../../../page-objects/SeekerCreation"
 import {HomePage} from "../../../page-objects/Home"
 import {SeekerPage} from "../../../page-objects-admin/SeekerPage"
+import {GuideCreation} from "../../../page-objects/GuideCreation"
+import {GuidesPage} from "../../../page-objects/GuidesPage"
+import {GuidePage} from "../../../page-objects-admin/GuidePage"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
@@ -14,6 +17,9 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
     const seekerCreation = new SeekerCreation()
     const homePage = new HomePage()
     const seekerpage = new SeekerPage()
+    const guidecreation = new GuideCreation()
+    const guideweb = new GuidesPage()
+    const guidepage = new GuidePage()
 
     beforeEach(()=>{
         commons.open_Web_Site()
@@ -48,8 +54,25 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         seekerCreation.seeker_Account_Edition('AutoEdited','MationEdition','Address1','Address2','Cochabamba','Bolivia','13452')
     })
 
-    
-
+    it('Verify that Seeker changes to Guide', ()=>{
+        homePage.select_Login()
+        commons.set_Generic_Seeker('pedrasasmota.luis@gmail.com', 'password')
+        seekerpage.select_create_guide()
+        seekerpage.fill_fieds_for_guide('pedrasasmota.guide@gmail.com','2019789748')
+        guidecreation.fill_class_for_guide('5','5')
+        guidecreation.fill_class_choose('3','3')
+        guidecreation.Check_type_of_class()
+        guidecreation.Fill_information_guide()
+        guidecreation.fill_Liability_Insurance()
+        cy.get('h1.text-center').should('be.visible')
+        // go to seeker
+        guideweb.Select_Switch_to_seeker()
+        cy.get('strong').should('be.visible')
+        //go to Guide
+        guideweb.Select_Switch_to_Guide()
+        cy.get('h1.text-center').should('be.visible')
+        
+   })
 
 
     it('Seeker elimination from admin', ()=>{
@@ -60,5 +83,15 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         seekerpage.type_Seeker_Email('pedrasasmota.luis@gmail.com')
         seekerpage.select_Seeker_options('5') // num 5 for elimination from DB
         cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
+    })
+
+
+    it('Guide elimination from admin', ()=>{
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
+        guidepage.select_Guide_Option()
+        guidepage.select_Guide_List()
+        guidepage.find_EmailGuide('pedrasasmota.guide@gmail.com', '3') //num 3 for elimination
+        cy.get('#w2-success').should('contain', 'Guide successfully deleted')
     })
 })

@@ -146,7 +146,7 @@ export class Dashboard{
     }
 
     select_Edit_Profile_Left_Section_Seeker(){
-        cy.get('.profile-box > .btn').click()
+        cy.get('.profile-box > [href="/account"]').click()
     
     }
 

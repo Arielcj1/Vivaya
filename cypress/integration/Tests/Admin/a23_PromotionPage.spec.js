@@ -43,7 +43,7 @@ describe('Promotions page', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promotion_List()
         promotionPage.find_Element_List_Promo('4') //num 4 para eliminar, posicion de xpath
-        cy.get('#w0-success').should('contain','Promotion successfully deleted')
+        cy.get('#w0-success').should('be.visible')
     })
 
     it('Create a Promo Auto Renewal', ()=>{
@@ -72,6 +72,6 @@ describe('Promotions page', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_PromoRenewal_List()
         promotionPage.find_Element_List_Promo_Renewal('4') //num 4 para eliminar, posicion de xpath
-        cy.get('#w0-success').should('contain','Promotion successfully deleted')
+        cy.get('#w0-success').should('be.visible')
     })
 })

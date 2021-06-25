@@ -116,14 +116,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
         cy.get('.table').find('.glyphicon-trash').first().click()
-        cy.get('#w0-success').should('contain', 'Corporate successfully deleted')
+        cy.get('#w0-success').should('be.visible')
     })
     it('Delete the Corporate Promotion Code', ()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_promo_code.select_Corporate_Promotions_From_List()
         admin_promo_code.disable_last_Promo_created()
-        cy.get('#w0-success').should('contain', 'Promotion successfully deleted')
+        cy.get('#w0-success').should('be.visible')
     })
 })   
   

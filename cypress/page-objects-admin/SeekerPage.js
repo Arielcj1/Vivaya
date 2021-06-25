@@ -49,4 +49,13 @@ export class SeekerPage {
         cy.get('.send-refund').click()
         cy.wait(1000)
     }
+
+    select_create_guide(){
+        cy.get('[href="/signup/add-guide-account-from-seeker"]').click({force:true})
+    }
+    fill_fieds_for_guide(val1, val2){
+        cy.get('#guideassociatedsignupform-email').type(val1)
+        cy.get('#guideassociatedsignupform-phone_number').type(val2)
+        cy.get('.text-center > .btn').click({force:true})
+    }
 }
