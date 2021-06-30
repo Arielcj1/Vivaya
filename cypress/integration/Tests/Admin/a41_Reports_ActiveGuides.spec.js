@@ -15,7 +15,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         commons.set_Admin_Credentials()
     })
     
-    it('Verify the Free Trials Converted report',()=>{
+    it('Verify the most Active Guides report',()=>{
         reports.select_Reports_Tab()
         reports.select_Active_Guides_Option()
         cy.get('h1').should('contain', 'Active Guides')
