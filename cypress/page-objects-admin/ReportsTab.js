@@ -36,4 +36,9 @@ select_Active_Guides_Option(){
     cy.get('.treeview-menu > :nth-child(8) > a > span').click()
 }
 
+ // Most Viewed Events
+ select_Most_Viewed_Events(){
+    cy.get('.treeview-menu > :nth-child(9) > a > span').click()
+ }   
+
 }
