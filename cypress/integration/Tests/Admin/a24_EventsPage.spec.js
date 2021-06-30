@@ -137,12 +137,11 @@ describe('Events page', ()=>{
                 }); 
         cy.get(':nth-child(8) > th').should('be.visible').and('have.text', 'Zoom Report Done')    
         cy.get(':nth-child(3) > .box-header > .box-title').should('be.visible').and('have.text', 'List of seekers registered for event')
-        cy.get('.box-body > .table > tbody > tr > :nth-child(1)').should('be.visible').and('have.text', 'UID')
-        cy.get('.box-body > .table > tbody > tr > :nth-child(2)').should('be.visible').and('have.text', 'Full Name')
-        cy.get('tr > :nth-child(3)').should('be.visible').and('have.text', 'Date booked')
-        cy.get('tr > :nth-child(4)').should('be.visible').and('have.text', 'Participated')
-        cy.get('tr > :nth-child(5)').should('be.visible').and('have.text', 'Membership ID')
-
+        cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(1)').should('be.visible').and('have.text', 'UID')
+        cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(2)').and('have.text', 'Full Name')
+        cy.get('tbody > :nth-child(1) > :nth-child(3)').should('be.visible').and('have.text', 'Date booked')
+        cy.get('tbody > :nth-child(1) > :nth-child(4)').should('be.visible').and('have.text', 'Participated')
+        cy.get('tbody > :nth-child(1) > :nth-child(5)').should('be.visible').and('have.text', 'Membership ID')
  
     })
 
