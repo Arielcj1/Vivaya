@@ -30,7 +30,7 @@ describe('Admin Referral Page', ()=>{
     })
 
     it('Go to a Referral Link', ()=>{
-        cy.visit('https://stage.vivayalive.com/?referral=60d2050f')//referral link of a test user 
+        cy.visit('https://stage.vivayalive.com/?referral=60db7ab8')//referral link of a test user 
         seekerCreation.select_Free_trial_option()
         seekerCreation.type_First_Name('Auto')
         seekerCreation.type_Last_Name('Mation')
@@ -82,7 +82,7 @@ describe('Admin Referral Page', ()=>{
         //referralPage.type_Email('dianagonzales123.moreno@gmail.com')
         //referralPage.search_Button()
         //referralPage.select_the_result()
-        cy.get('[data-key="9"] > [style="text-align:center;"] > a > .glyphicon').click()//delete this line after fix the issue
+        cy.get('[style="text-align:center;"] > a > .glyphicon').last().click()//delete this line after fix the issue
         cy.get('tbody > tr > :nth-child(6)').should('contain', '44.00')
     })
 

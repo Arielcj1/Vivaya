@@ -65,8 +65,10 @@ export class GuideCreation {
     }
 
     fill_Liability_Insurance(){
+        var moment = require('moment');
+        const todayDate = moment().add(200, 'days').format('MMM-DD-YYYY')
         cy.get('#step5-form').find('input[type=file]').attachFile('guidecreate.png')
-        cy.get('#guideapplicationstep5-insurance_expiry_date').type('12/12/2021')
+        cy.get('#guideapplicationstep5-insurance_expiry_date').type(todayDate)
         cy.get('.text-center > .next').click({force:true})
     }
 
