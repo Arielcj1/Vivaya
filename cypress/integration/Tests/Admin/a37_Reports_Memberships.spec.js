@@ -18,12 +18,22 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     it('Verify the Membership report',()=>{
         reports.select_Reports_Tab()
         reports.select_Membership_Option()
+
+         //Search memberships in a custom date range
+        
+         cy.get('#reportsearch-fromdate').click()
+         cy.get('#reportsearch-fromdate').clear()
+         reports.custom_Date_From_Date_Membership()
+         cy.get(':nth-child(3) > .col-xs-12 > .box > .box-header > .box-title').click()
+         cy.get('#w0 > div.box-footer > button').click()
+
         cy.get('h1').should('contain', 'Membership Report')
         cy.get('#w0 > div.box-body > div > div:nth-child(1) > div > label').should('be.visible').and('have.text', 'From Date')
         cy.get('#reportsearch-fromdate').should('be.visible')
         cy.get('#w0 > div.box-body > div > div:nth-child(2) > div > label').should('be.visible').and('have.text', 'To Date')
         cy.get('#reportsearch-todate').should('be.visible')
         cy.get('#w0 > div.box-footer > button').should('be.visible').and('have.text', 'Search')
+
 
         cy.get(':nth-child(2) > .col-xs-12 > .box > .box-header > .box-title').should('be.visible').and('have.text', 'Custom details')
         cy.get('.box-body > .table > thead > tr > :nth-child(1)').should('be.visible').and('have.text', 'Membership Id')
