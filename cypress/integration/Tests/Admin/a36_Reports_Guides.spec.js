@@ -31,7 +31,7 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
         cy.get('#reportssearch-email').should('be.visible')
         cy.get('.box-footer > .btn').should('be.visible').and('have.text', 'Search')
         cy.get('body > div > div > section.content > div > div > div > div > div:nth-child(3) > h3').should('have.text','List')
-        cy.get('[style="width:50px;"] > a').should('be.visible').and('have.text', 'User ID')
+        cy.get('[style="width:50px;"] > a').should('be.visible').and('have.text', 'User Id')
         cy.get('thead > tr > :nth-child(2)').should('be.visible').and('have.text', 'First Name')
         cy.get('thead > tr > :nth-child(3)').should('be.visible').and('have.text', 'Last Name')
         cy.get('thead > tr > :nth-child(4)').should('be.visible').and('have.text', 'Email')
@@ -60,7 +60,7 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
 
         //Verify Guide Details section
         cy.get('.row > :nth-child(1) > .box-header > .box-title').should('be.visible').and('have.text', 'Guide Details')
-        cy.get('#w1 > tbody > :nth-child(1) > th').should('be.visible').and('have.text', 'User ID')
+        cy.get('#w1 > tbody > :nth-child(1) > th').should('be.visible').and('have.text', 'User Id')
         cy.get('#w1 > tbody > :nth-child(1) > td').should('contains', reNum)
         cy.get('#w1 > tbody > :nth-child(2) > th').should('be.visible').and('have.text', 'Guide name')
         cy.get('#w1 > tbody > :nth-child(2) > td').should('contains', reText)

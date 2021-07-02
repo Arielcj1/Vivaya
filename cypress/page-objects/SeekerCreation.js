@@ -45,6 +45,11 @@ export class SeekerCreation{
         cy.get('.uname').click({force:true})
         cy.get('#accountNav > ul li:nth-child(2) >a').click({force:true})
     }
+    
+    seeker_dashboard(){
+        cy.get('.uname').click({force:true})
+        cy.get('#accountNav > ul > li > ul > li:nth-child(1) > a').click({force:true})
+    }
     seeker_Account_Edition(val,val1,val2,val3,val4,val5,val6){
         cy.get('#accountinformationform-first_name').clear().type(val)
         cy.get('#accountinformationform-last_name').clear().type(val1)

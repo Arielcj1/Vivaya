@@ -14,6 +14,13 @@ export class Commons {
         cy.wait(2000)
         cy.get('#loginform-password').type("perrodelmal")
     }
+    
+    put_credentials_guide(val11, val22){
+        cy.get('#loginform-email').type(val11)
+        cy.wait(2000)
+        cy.get('#loginform-password').type(val22)
+        cy.get('.col-sm-8 > .btn').click({force:true})
+    }
 
     set_Seeker_Credentials_One(){
         cy.get('#loginform-email').type("automation@test.com")

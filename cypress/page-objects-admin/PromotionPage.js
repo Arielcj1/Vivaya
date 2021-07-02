@@ -21,6 +21,10 @@ export class PromotionPage {
         cy.get('.menu-open > .treeview-menu > :nth-child(4) > a > span').click()
     }
 
+    select_Promo_Trial_extended(){
+        cy.get('.menu-open > .treeview-menu > :nth-child(6) > a').click()
+    }
+
     type_Promotion_Name(value){
         cy.get('#promotion-name').type(value)
     }
@@ -43,6 +47,12 @@ export class PromotionPage {
         const todayDate = moment().add(1, 'days').format('MMM-DD-YYYY')
         const typeDate = cy.get('#promotion-expiration_date').type(todayDate)*/
     }
+
+    save_promotion(){
+        cy.get('.box-footer > .btn').click()
+    }
+
+
 
     find_Element_List_Promo(value){
         var x = value
@@ -161,4 +171,9 @@ export class PromotionPage {
             })}
                     })}
             })}
+
+
+
+
+
 }

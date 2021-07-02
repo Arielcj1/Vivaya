@@ -6,7 +6,6 @@ import {Dashboard} from "../../../page-objects/Dashboard"
 import { HomePage } from "../../../page-objects/Home";
 import {EventCreationPage} from "../../../page-objects/EventCreationPage"
 
-
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   })

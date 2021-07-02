@@ -56,6 +56,7 @@ export class SeekerPage {
     fill_fieds_for_guide(val1, val2){
         cy.get('#guideassociatedsignupform-email').type(val1)
         cy.get('#guideassociatedsignupform-phone_number').type(val2)
+        cy.get('#guideassociatedsignupform-country').select('Bolivia')
         cy.get('.text-center > .btn').click({force:true})
     }
 }

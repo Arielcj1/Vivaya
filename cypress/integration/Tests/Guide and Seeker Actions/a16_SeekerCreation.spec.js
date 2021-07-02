@@ -61,6 +61,7 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         seekerpage.fill_fieds_for_guide('pedrasasmota.guide@gmail.com','2019789748')
         guidecreation.fill_class_for_guide('5','5')
         guidecreation.fill_class_choose('3','3')
+        cy.wait(1500)
         guidecreation.Check_type_of_class()
         guidecreation.Fill_information_guide()
         guidecreation.fill_Liability_Insurance()
@@ -73,7 +74,26 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         cy.get('h1.text-center').should('be.visible')
         
    })
-
+ 
+    
+    it('Activate Guide created from seeker', ()=>{
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
+        guidepage.select_Guide_Option()
+        guidepage.select_Guide_List()
+        guidepage.find_EmailGuide('pedrasasmota.guide@gmail.com', '2')
+        guidepage.Approve_Guide()
+        cy.get('#w2-success').should('be.visible')
+        
+    })
+    
+    it('Verify that Guide is activated', ()=>{
+        commons.open_Web_Site()
+        homePage.select_Login()
+        commons.put_credentials_guide('pedrasasmota.guide@gmail.com','password')
+        cy.get('.guide-reminder > .btn').click()
+        cy.get('.col-sm-9 > :nth-child(2) > h3').should('be.visible')
+    })
 
     it('Seeker elimination from admin', ()=>{
         commons.open_Admin_Site()
@@ -84,7 +104,6 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         seekerpage.select_Seeker_options('5') // num 5 for elimination from DB
         cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
     })
-
 
     it('Guide elimination from admin', ()=>{
         commons.open_Admin_Site()
