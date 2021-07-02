@@ -45,12 +45,16 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
         let reDate = new RegExp('^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$')
         let reNum = new RegExp('/^[0-9]*$/')
         let reText = new RegExp('/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g')
-
+        //Search a guide in a custom date
         cy.get('#reportssearch-first_name').type('Harvey')
+        cy.get('#reportssearch-fromdate').click()
+        cy.get('#reportssearch-fromdate').clear()
+        reports.custom_Date_From_Date_Guide()
         cy.get('.box-footer > .btn').click()
+
         cy.wait(2000)
         cy.get('#w1 > table > tbody > tr > td:nth-child(6) > a:nth-child(1) > span').click()
-        cy.get('h1').should('be.visible').contains('Report details for guide: Harvey Deutch')
+        cy.get('h1').should('be.visible').contains('Report details for guide: Harvey')
         cy.get(':nth-child(1) > .form-group > .control-label').should('be.visible').and('have.text', 'From Date')
         cy.get(':nth-child(2) > .form-group > .control-label').should('be.visible').and('have.text', 'To Date')
         cy.get('#reportsearch-fromdate').should('be.visible').and('contains', reDate)

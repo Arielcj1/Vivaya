@@ -5,6 +5,19 @@ select_Reports_Tab(){
     cy.get(':nth-child(9) > [href="#"] > :nth-child(2)').click()
 }
 
+//Add custom Date in Guide Reports
+custom_Date_From_Date_Guide(){
+    var moment = require('moment');
+    const todayDate = moment().subtract(30, 'days').format('MMM-DD-YYYY')
+    const typeDate = cy.get('#reportssearch-fromdate').type(todayDate)
+}
+
+custom_Date_From_Date_Membership(){
+    var moment = require('moment');
+    const todayDate = moment().subtract(30, 'days').format('MMM-DD-YYYY')
+    const typeDate = cy.get('#reportsearch-fromdate').type(todayDate)
+}
+
 select_Guides_Option(){
     cy.get('.menu-open > .treeview-menu > :nth-child(1) > a > span').click()
 }
@@ -21,7 +34,7 @@ select_Most_Active_Seekers(){
 
 //Seekers dropping
 select_Seekers_Dropping(){
-    cy.get('.treeview-menu > :nth-child(6) > a').click()
+    cy.get('.menu-open > .treeview-menu > :nth-child(6) > a > span').click()
 }
 
 //Free Trial Converted
