@@ -64,7 +64,7 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
 
         //Verify Guide Details section
         cy.get('.row > :nth-child(1) > .box-header > .box-title').should('be.visible').and('have.text', 'Guide Details')
-        cy.get('#w1 > tbody > :nth-child(1) > th').should('be.visible').and('have.text', 'User Id')
+        cy.get('#w1 > tbody > :nth-child(1) > th').should('be.visible').and('have.text', 'User ID')
         cy.get('#w1 > tbody > :nth-child(1) > td').should('contains', reNum)
         cy.get('#w1 > tbody > :nth-child(2) > th').should('be.visible').and('have.text', 'Guide name')
         cy.get('#w1 > tbody > :nth-child(2) > td').should('contains', reText)

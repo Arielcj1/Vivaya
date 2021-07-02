@@ -82,6 +82,18 @@ describe('Promotions page', ()=>{
         promotionPage.type_Promotion_Limit('10')
         promotionPage.type_Promotion_ExpDate('10')
         promotionPage.save_promotion()
+        cy.get('#w0-success').should('be.visible')
+
+    })
+    it('EDIT a Promo Trial Extended', ()=>{
+        promotionPage.select_Promotions_Option()
+        promotionPage.select_Promo_Trial_extended()
+        promotionPage.type_Promotion_Name('Trial extended')
+        promotionPage.type_Promotion_Code_Name('EXTENDED')
+        promotionPage.type_Promotion_Limit('10')
+        promotionPage.type_Promotion_ExpDate('10')
+        promotionPage.save_promotion()
+        cy.get('#w0-success').should('be.visible')
 
     })
 })
