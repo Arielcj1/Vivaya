@@ -54,4 +54,9 @@ select_Active_Guides_Option(){
     cy.get('.treeview-menu > :nth-child(9) > a > span').click()
  }   
 
+ // Seekers who spent more
+ select_Seeker_Who_Spent_More(){
+    cy.get('.treeview-menu > :nth-child(10) > a > span').click()
+ }
+
 }
