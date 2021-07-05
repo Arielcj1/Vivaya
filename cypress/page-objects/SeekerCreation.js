@@ -62,8 +62,15 @@ export class SeekerCreation{
     }
     promo_code_option(){
         cy.get('#promoCollapse').click()
-    }
+         }
+
     type_promo_code(value){
         cy.get('input[name=corporate-code]').type(value+'{enter}')
+
+    }
+
+    Fill_promo_code(value1){
+        cy.get('.col-md-7 > .form-control').type(value1)
+        cy.get('.col-md-5 > .btn').click()
     }
 }

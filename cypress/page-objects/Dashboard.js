@@ -375,4 +375,43 @@ export class Dashboard{
             })
         })
     }
+
+    verify_events(){
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{ 
+            if(text=='0'||text==1){
+    
+            }
+            else{
+                cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
+                    var aux = parseInt(text)
+                    var total = aux
+                        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
+                            var aux1 = parseInt(text)
+                            total = total + aux1
+                            cy.get(':nth-child(1) > .dashboard-box > :nth-child(6) > .count').invoke('text').then((text)=>{
+                                var aux2 = parseInt(text)
+                                total = total + aux2
+                                cy.log(total)
+                                for(var e=1; e<total; e++){
+                                cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[1]/div[3]/div[2]/div[2]')
+                                .contains('Cancel Event')
+                                .invoke('text')
+                                .then((text) => {
+                                    if(text == 'Cancel Event'){
+                                        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[1]/div[3]/div[2]/div[2]').contains('Cancel Event').click()
+                                        cy.get('.btn-success').click()
+                                    }
+                                })
+                                }
+                                
+                            })
+                        })
+                    })
+            }
+           })
+    }
+
+
+
+
 }

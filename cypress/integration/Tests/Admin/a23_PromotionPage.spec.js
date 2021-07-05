@@ -2,6 +2,9 @@
 
 import {Commons} from "../../../Commons/Common"
 import {PromotionPage} from "../../../page-objects-admin/PromotionPage"
+import {SeekerCreation} from "../../../page-objects/SeekerCreation"
+import {HomePage} from "../../../page-objects/Home"
+import {SeekerPage} from "../../../page-objects-admin/SeekerPage"
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -11,13 +14,16 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 describe('Promotions page', ()=>{
     const commons = new Commons()
     const promotionPage = new PromotionPage()
+    const seekerCreation = new SeekerCreation()
+    const homePage = new HomePage()
+    const seekerpage = new SeekerPage()
 
     beforeEach(()=>{
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
     })
 
-    it.skip('Create a promotion code', ()=>{
+    it('Create a promotion code', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promotion_New()
         promotionPage.type_Promotion_Name('AutCode')
@@ -28,7 +34,7 @@ describe('Promotions page', ()=>{
         cy.get('#w0-success').should('contain','Promotion has been created.')
     })
 
-    it.skip('Edit the promotion code', ()=>{
+    it('Edit the promotion code', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promotion_List()
         promotionPage.find_Element_List_Promo('2') // num 2 para editar, es la posicion en el xpath
@@ -39,14 +45,14 @@ describe('Promotions page', ()=>{
         cy.get('#w0-success').should('contain','Promotion has been updated.')
     })
 
-    it.skip('Delete the promotion', ()=>{
+    it('Delete the promotion', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promotion_List()
         promotionPage.find_Element_List_Promo('4') //num 4 para eliminar, posicion de xpath
         cy.get('#w0-success').should('be.visible')
     })
 
-    it.skip('Create a Promo Auto Renewal', ()=>{
+    it('Create a Promo Auto Renewal', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_PromoRenewal_New()
         promotionPage.type_Promotion_Name('AutCode')
@@ -57,7 +63,7 @@ describe('Promotions page', ()=>{
         cy.get('#w0-success').should('contain','Promotion auto renewal has been created.')
     })
 
-    it.skip('Edit a Promo Auto Renewal', ()=>{
+    it('Edit a Promo Auto Renewal', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_PromoRenewal_List()
         promotionPage.find_Element_List_Promo_Renewal('2') // num 2 para editar, es la posicion en el xpath
@@ -68,7 +74,7 @@ describe('Promotions page', ()=>{
         cy.get('#w0-success').should('contain','Promotion has been updated.')
     })
 
-    it.skip('Delete a Promo Auto Renewal', ()=>{
+    it('Delete a Promo Auto Renewal', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_PromoRenewal_List()
         promotionPage.find_Element_List_Promo_Renewal('4') //num 4 para eliminar, posicion de xpath
@@ -77,23 +83,75 @@ describe('Promotions page', ()=>{
     it('Create a Promo Trial Extended', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promo_Trial_extended()
-        promotionPage.type_Promotion_Name('Trial extended')
-        promotionPage.type_Promotion_Code_Name('EXTENDED')
-        promotionPage.type_Promotion_Limit('10')
-        promotionPage.type_Promotion_ExpDate('10')
+        promotionPage.type_Promotion_Name('AutCode')
+        promotionPage.type_Promotion_Code_Name('AUTCOD')
+        promotionPage.type_Promotion_Limit('9')
+        promotionPage.type_Promotion_ExpDate_trial('22-Jul-2025')
         promotionPage.save_promotion()
         cy.get('#w0-success').should('be.visible')
 
     })
     it('EDIT a Promo Trial Extended', ()=>{
         promotionPage.select_Promotions_Option()
-        promotionPage.select_Promo_Trial_extended()
-        promotionPage.type_Promotion_Name('Trial extended')
+        promotionPage.select_Promo_Trial_extended_list()
+        promotionPage.find_Element_List_Promo_trial_Extended('2')
         promotionPage.type_Promotion_Code_Name('EXTENDED')
         promotionPage.type_Promotion_Limit('10')
-        promotionPage.type_Promotion_ExpDate('10')
         promotionPage.save_promotion()
         cy.get('#w0-success').should('be.visible')
+       
 
     })
+
+    it('Create seeker using the Trial Extended', ()=>{
+       commons.open_Web_Site()
+       seekerCreation.select_Free_trial_option()
+        seekerCreation.type_First_Name('Auto')
+        seekerCreation.type_Last_Name('Mation')
+        seekerCreation.type_Seeker_Email('trialextended@gmail.com')
+        seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+        seekerCreation.marking_Checkbox()
+        seekerCreation.type_Seeker_Password('password')
+        seekerCreation.promo_code_option()
+        seekerCreation.Fill_promo_code('EXTENDED')
+        cy.wait(1500)
+        seekerCreation.type_Card_Name('Auto Mation')
+        seekerCreation.type_Card_Number('4242424242424242')
+        seekerCreation.type_Card_ExpDate('0225')
+        seekerCreation.type_Security_Code('123')
+        seekerCreation.type_ZipCode('1234')
+        cy.get('.seeker-registration-content > h2').should('be.visible')
+        //cy.wait(1500)
+        //seekerCreation.seeker_dashboard()
+        //cy.get(':nth-child(1) > .dashboard-box > div > .count').should('contain', '24')
+      
+        })
+        
+    it('Verify days of the trial', ()=>{
+        commons.open_Web_Site()
+        homePage.select_Login()
+        commons.set_Generic_Seeker('trialextended@gmail.com', 'password')
+        cy.get(':nth-child(1) > .dashboard-box > div > .count').should('contain', '24')
+       
+         })
+
+    it('Delete a Promo Trial Extended', ()=>{
+        promotionPage.select_Promotions_Option()
+        promotionPage.select_Promo_Trial_extended_list()
+        promotionPage.find_Element_List_Promo_trial_Extended('4')
+        cy.get('#w0-success').should('be.visible')
+    
+    
+        })
+
+    it('Seeker elimination from admin', ()=>{
+            commons.open_Admin_Site()
+            commons.set_Admin_Credentials()
+            seekerpage.select_Seeker_Option()
+            seekerpage.select_Seeker_List()
+            seekerpage.type_Seeker_Email('trialextended@gmail.com')
+            seekerpage.select_Seeker_options('5') // num 5 for elimination from DB
+            cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
+        })    
+
 })

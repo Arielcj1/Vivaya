@@ -25,6 +25,7 @@ describe('Events Creation', ()=>{
     })
 
     it('Create a recurrent Daily Class', () => { 
+        dashboard.verify_events()
         dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Class1')
