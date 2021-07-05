@@ -40,6 +40,7 @@ describe('Events Creation', ()=>{
     })
 
     it('Delete recurrent Daily Class',()=>{
+        cy.wait(1500)
         dashboard.cancel_Several_Events_AtOnce()
     })
 

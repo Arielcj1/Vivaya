@@ -35,12 +35,14 @@ export class GuideCreation {
         cy.get('#step2-form > :nth-child(4)').find('input[type=file]').attachFile('guide.jpg')
         cy.get('#step2-form > :nth-child(4)').xpath('/html/body/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/input').type('AutomationYoga')
         cy.get('#step2-form > :nth-child(4)').xpath('/html/body/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[3]/div/input').type(val6)
-        cy.get('#step2-form > :nth-child(4)').find('input[type=checkbox]').check()
+        cy.wait(1000)
+        cy.get('#step2-form > :nth-child(4)').find('input[type=checkbox]').click({force:true})
         //MEditation
         cy.get('#step2-form > :nth-child(6)').find('input[type=file]').attachFile('guide.jpg')
         cy.get('#step2-form > :nth-child(6)').xpath('/html/body/div[2]/div[2]/div/form/div[2]/div/div[1]/div/div[2]/div/input').type('AutomationMeditation')
         cy.get('#step2-form > :nth-child(6)').xpath('/html/body/div[2]/div[2]/div/form/div[2]/div/div[1]/div/div[3]/div/input').type(val7)
-        cy.get('#step2-form > :nth-child(6)').find('input[type=checkbox]').check()
+        cy.wait(1000)
+        cy.get('#step2-form > :nth-child(6)').find('input[type=checkbox]').click({force:true})
         cy.get('.next').click({force:true})
     }
 
