@@ -8,7 +8,7 @@ select_Reports_Tab(){
 //Add custom Date in Guide Reports
 custom_Date_From_Date_Guide(){
     var moment = require('moment');
-    const todayDate = moment().subtract(30, 'days').format('MMM-DD-YYYY')
+    const todayDate = moment().subtract(1, 'month').format('MMM-DD-YYYY')
     const typeDate = cy.get('#reportssearch-fromdate').type(todayDate)
 }
 
