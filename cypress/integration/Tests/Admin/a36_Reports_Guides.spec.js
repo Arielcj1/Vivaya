@@ -49,11 +49,16 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
         cy.get('#reportssearch-first_name').type('Harvey')
         cy.get('#reportssearch-fromdate').click()
         cy.get('#reportssearch-fromdate').clear()
-        reports.custom_Date_From_Date_Guide()
+        cy.get('#reportssearch-fromdate').type('01-01-2021')
         cy.get('.box-footer > .btn').click()
 
+<<<<<<< HEAD
         cy.wait(2000)
         cy.get('#w1 > table > tbody > tr > td:nth-child(6) > a:nth-child(1) > span').click({force:true})
+=======
+        cy.wait(10000)
+        cy.get('#w1 > table > tbody > tr > td:nth-child(6) > a:nth-child(1) > span').click()
+>>>>>>> a7c258c4892a0b2c59e1e5ac6dd6950ed5f6e9d5
         cy.get('h1').should('be.visible').contains('Report details for guide: Harvey')
         cy.get(':nth-child(1) > .form-group > .control-label').should('be.visible').and('have.text', 'From Date')
         cy.get(':nth-child(2) > .form-group > .control-label').should('be.visible').and('have.text', 'To Date')
