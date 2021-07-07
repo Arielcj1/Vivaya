@@ -10,7 +10,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   });
 
 
-describe('Events Creation', ()=>{
+describe('Events duplicate creation', ()=>{
     const homePage = new HomePage()
     const dashboard = new Dashboard()
     const eventCreationPage = new EventCreationPage()
@@ -36,7 +36,8 @@ describe('Events Creation', ()=>{
                 cy.wait(2000)
                 //Go to Upcoming Events
                 cy.get("[href='/dashboard/upcoming']").click()
-                cy.get(':nth-child(7) > .btn').click()
+                //duplicate event
+                cy.get('#w0 > table > tbody > tr > td:nth-child(7)').click({ multiple: true})
                 eventCreationPage.add_Custom_Number_Of_Days(4)
                 eventCreationPage.press_Add()
                 cy.wait(5000)
@@ -45,17 +46,7 @@ describe('Events Creation', ()=>{
                 for (let i = 0; i<2; i++){
                     cy.xpath("//*[contains(text(), 'Cancel Event')]").eq(0).click({ multiple: true}).should('not.exist')
                     cy.get('.btn-success').click()
-                }
+                }                
                 
-                    
-                
-                
-                
-                     
-            
-                 
-               
-                    
-
     })    
 })
