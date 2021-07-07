@@ -34,7 +34,7 @@ export class SeekerPage {
         cy.wait(2000)
     }
     select_Seeker_options(value){
-        cy.xpath('//*[@id="w2"]/table/tbody/tr/td[11]/a['+value+']/span').click()
+        cy.xpath('//*[@id="w2"]/table/tbody/tr/td[11]/a['+value+']/span').click({force:true})
     }
     button_New_Suscription(){
         cy.get('.box-title > .pull-right > .btn').click()

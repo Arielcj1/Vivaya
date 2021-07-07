@@ -41,14 +41,14 @@ describe('Guest page is displayed correctly', ()=>{
     it('Verify the Convertion of a Guest user to a Seeker',()=>{
         guestpage.select_Guest_Option()
         guestpage.select_Guest_List()
-        guestpage.make_a_Search_by_email('guest@user.com')
+        guestpage.make_a_Search_by_email('guest8@user.com')
         cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[4]/label').should('contain', 'Yes')
     })
 
     it('Delete the Guest user created', ()=>{
         guestpage.select_Guest_Option()
         guestpage.select_Guest_List()
-        guestpage.make_a_Search_by_email('guest@user.com')
+        guestpage.make_a_Search_by_email('guest8@user.com')
         guestpage.guests_Options('2') // num 2 in order to delete guest
         cy.get('#w2-success').should('be.visible')
     })
@@ -56,7 +56,7 @@ describe('Guest page is displayed correctly', ()=>{
     it('Delete the Seeker created from a Guest user', ()=>{
         seekerPage.select_Seeker_Option()
         seekerPage.select_Seeker_List()
-        seekerPage.type_Seeker_Email('guest@user.com')
+        seekerPage.type_Seeker_Email('guest8@user.com')
         seekerPage.select_Seeker_options('5')
         cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
     })

@@ -53,7 +53,7 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
         cy.get('.box-footer > .btn').click()
 
         cy.wait(2000)
-        cy.get('#w1 > table > tbody > tr > td:nth-child(6) > a:nth-child(1) > span').click()
+        cy.get('#w1 > table > tbody > tr > td:nth-child(6) > a:nth-child(1) > span').click({force:true})
         cy.get('h1').should('be.visible').contains('Report details for guide: Harvey')
         cy.get(':nth-child(1) > .form-group > .control-label').should('be.visible').and('have.text', 'From Date')
         cy.get(':nth-child(2) > .form-group > .control-label').should('be.visible').and('have.text', 'To Date')

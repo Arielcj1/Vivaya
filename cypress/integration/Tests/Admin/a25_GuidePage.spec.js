@@ -199,10 +199,11 @@ describe('Guide Page admin', ()=>{
         //Change to Seeker
         cy.get('.col-sm-9 > :nth-child(2) > h3').should('be.visible')
         guideweb.Select_Switch_to_seeker()
-        cy.get('.dashboard-credits > h3').should('be.visible')
+        cy.wait(1000)
+        cy.get(':nth-child(1) > .dashboard-box > h3').should('be.visible')
         //Change to Guide
         guideweb.Select_Switch_to_Guide()
-        cy.get('.col-sm-9 > :nth-child(2) > h3').should('be.visible')
+        cy.get('.col-sm-9 > :nth-child(3) > h3').should('be.visible')
                
     })
 
