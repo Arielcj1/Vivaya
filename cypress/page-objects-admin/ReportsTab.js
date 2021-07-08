@@ -59,4 +59,9 @@ select_Active_Guides_Option(){
     cy.get('.treeview-menu > :nth-child(10) > a > span').click()
  }
 
+ //Seeker who Cancelled
+ select_Seeker_Who_Cancelled(){
+    cy.get('.treeview-menu > :nth-child(11) > a > span').click()
+ }
+
 }
