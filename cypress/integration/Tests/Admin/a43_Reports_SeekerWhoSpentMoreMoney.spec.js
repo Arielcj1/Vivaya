@@ -14,7 +14,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
     })
-    it('Verify the most Active Guides report',()=>{
+    it('Verify the seeker who spent more',()=>{
         reports.select_Reports_Tab()
         reports.select_Seeker_Who_Spent_More()
 
