@@ -34,7 +34,7 @@ describe('Admin Referral Page', ()=>{
         seekerCreation.select_Free_trial_option()
         seekerCreation.type_First_Name('Auto')
         seekerCreation.type_Last_Name('Mation')
-        seekerCreation.type_Seeker_Email('pedrasasmota.luis13@gmail.com')
+        seekerCreation.type_Seeker_Email('pedrasasmota.luis14@gmail.com')
         seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
         seekerCreation.marking_Checkbox()
         seekerCreation.type_Seeker_Password('password')
@@ -60,7 +60,7 @@ describe('Admin Referral Page', ()=>{
         referralPage.type_Email('automation@test.com')
         referralPage.search_Button()
         referralPage.select_the_result()
-        cy.get('tbody > tr > :nth-child(4)').should('contain', 'pedrasasmota.luis13@gmail.com')
+        cy.get('tbody > tr > :nth-child(4)').should('contain', 'pedrasasmota.luis14@gmail.com')
     })
 
     it('Verify the New referred user created', ()=>{
@@ -68,7 +68,7 @@ describe('Admin Referral Page', ()=>{
         commons.set_Admin_Credentials()
         referralPage.select_Referral_Option()
         referralPage.select_Referral_Referred_Users()
-        referralPage.type_Email('pedrasasmota.luis13@gmail.com')
+        referralPage.type_Email('pedrasasmota.luis14@gmail.com')
         referralPage.search_Button()
         referralPage.select_the_result()
         cy.get(':nth-child(2) > :nth-child(1) > :nth-child(2) > a').should('contain', 'Auto Yoon') //referred by:
@@ -91,7 +91,7 @@ describe('Admin Referral Page', ()=>{
         commons.set_Admin_Credentials()
         seekerpage.select_Seeker_Option()
         seekerpage.select_Seeker_List()
-        seekerpage.type_Seeker_Email('pedrasasmota.luis13@gmail.com')
+        seekerpage.type_Seeker_Email('pedrasasmota.luis14@gmail.com')
         seekerpage.select_Seeker_options('5') //num 5 for elimination 
         cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
     })

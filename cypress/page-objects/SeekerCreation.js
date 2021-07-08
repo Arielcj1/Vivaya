@@ -73,4 +73,13 @@ export class SeekerCreation{
         cy.get('.col-md-7 > .form-control').type(value1)
         cy.get('.col-md-5 > .btn').click()
     }
+
+    Press_Become_guide_menu(){
+        cy.xpath('/html/body/div[2]/div[2]/ul/li[7]/a').click({force:true})
+    }
+
+    Press_become_guide_from_quicklink(){
+        cy.get('#seeker-become-a-guide').click({force:true})
+    }
+
 }
