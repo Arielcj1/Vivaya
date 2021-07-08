@@ -64,4 +64,14 @@ select_Active_Guides_Option(){
     cy.get('.treeview-menu > :nth-child(11) > a > span').click()
  }
 
+ //Most revenued events
+ select_Most_Revenued_Events(){
+    cy.get('.treeview-menu > :nth-child(12) > a > span').click()
+ }
+
+ //Corporate Level One
+ select_Corporate_Lvl_One(){
+    cy.get('.treeview-menu > :nth-child(13) > a > span').click()
+ }
+
 }
