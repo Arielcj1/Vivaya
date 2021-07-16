@@ -46,4 +46,12 @@ export class Commons {
         cy.get('#loginform-password').type(value1+'{enter}')
     }
 
+    login_As_Seeker_Mobile(){
+        cy.get('.open').click()
+        cy.get('#mainNav > .hidden-lg > a').click()
+        cy.get('#loginform-email').type('horcosio@gmail.com')
+        cy.get('#loginform-password').type('perrodelmal')
+        cy.get('.col-sm-8 > .btn').click()
+    }
+
 }
