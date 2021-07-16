@@ -22,6 +22,16 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
         it('Verify Elements in Seeker Dashboard after Login', ()=>{
             commons.login_As_Seeker_Mobile()
             cy.get('#header').should('contain.html', 'user-item')
+            //Verify main menu options
+            cy.get('.user-item').click()
+            cy.get('.menu-item-expanded > .menu > :nth-child(1) > a').should('be.visible').and('contain.text', 'Dashboard')
+            cy.get('.menu > :nth-child(2) > a').should('be.visible').and('contain.text', 'Account')
+            cy.get('.menu > :nth-child(3) > a').should('be.visible').and('contain.text', 'Switch to Guide Profile')
+            cy.get('#modal-btn-referral').should('be.visible').and('contain.text', 'Referral Link')
+            cy.get(':nth-child(5) > form > .btn').should('be.visible').and('contain.text', 'Logout')
+            cy.wait(2000)
+            cy.get('.user-item').click()
+
             cy.get('.profile-box > h2').should('be.visible').and('contain.text', 'manurojirim')
             cy.get('.dashboard-credits > h3').should('be.visible').and('have.text', 'Your Membership Status:')
             cy.get('.normal-classes-wrapper > h3').should('be.visible').and('have.text', 'Your Schedule:')
