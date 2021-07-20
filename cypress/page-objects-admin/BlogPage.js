@@ -45,4 +45,18 @@ export class BlogPage {
     select_NewBlog_Status(value){
         cy.get('#blogpost-status').select(value)
     }
+
+    save_new_blog(){
+        cy.get('.box-footer > .btn').click({force:true})
+    }
+
+    search_by_title(title){
+        cy.get('#blogpostsearch-title').type(title+'{enter}')
+        cy.get('.box-footer > .btn').click({force:true})
+    }
+    
+    Option_blog(value){
+       cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/a['+value+']/span').click({force:true})
+    }
+    
 }
