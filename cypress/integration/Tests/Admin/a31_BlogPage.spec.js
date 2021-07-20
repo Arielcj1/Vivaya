@@ -16,7 +16,7 @@ describe('Guest page is displayed correctly', ()=>{
         commons.set_Admin_Credentials()
     })
 
-    it.skip('Verify elements within Blog Page', ()=>{
+    it('Verify elements within Blog Page', ()=>{
         blogPage.select_Blog_Option()
         blogPage.select_Blog_List()
         cy.get('h1').should('contain', 'Blog')
@@ -61,9 +61,25 @@ describe('Guest page is displayed correctly', ()=>{
         blogPage.type_NewBlog_intro('Automation testing Edit')
         blogPage.type_newBlog_Description('This is an automation blog Edit')
         cy.wait(2000)
+
         blogPage.save_new_blog()
         cy.wait(2000)
         cy.get('#w2-success').should('be.visible')
+
+    })
+
+    it('Change the Status to Pending' ,()=>{
+        blogPage.select_Blog_Option()
+        blogPage.select_Blog_List()
+        blogPage.search_by_title('Automation Edit')
+        cy.wait(2000)
+        blogPage.Option_blog(1) //Edit the option 1
+        blogPage.select_NewBlog_Status('Pending')
+        cy.wait(2000)
+        blogPage.save_new_blog()
+        cy.wait(2000)
+        blogPage.search_by_title('Automation Edit')
+        cy.get('.label').should('contain','Pending')
 
     })
 
