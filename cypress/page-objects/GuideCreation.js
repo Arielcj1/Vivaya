@@ -12,7 +12,7 @@ export class GuideCreation {
         cy.get('#signupform-last_name').type(val1)
         cy.get('#signupform-email').type(val2)
         cy.get('#signupform-phone_number').type(val3)
-        cy.get('#signupform-timezone').select('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+        //cy.get('#signupform-timezone').select('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
         cy.get('#states').select('Florida')
         cy.get('#signupform-terms').check()
         cy.get('#signupform-password').type('password{enter}')

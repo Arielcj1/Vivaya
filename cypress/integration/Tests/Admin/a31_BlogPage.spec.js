@@ -83,9 +83,6 @@ describe('Guest page is displayed correctly', ()=>{
 
     })
 
-
-
-    
     it('Delete a new Blog' ,()=>{
         blogPage.select_Blog_Option()
         blogPage.select_Blog_List()
