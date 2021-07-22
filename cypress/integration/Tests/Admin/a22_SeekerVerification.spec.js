@@ -9,7 +9,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   })
 
-describe('Promotions page', ()=>{
+describe('Verify Seeker for Automation', ()=>{
     const commons = new Commons()
     const seekerCreation = new SeekerCreation()
     const seekerPage = new SeekerPage()
@@ -31,7 +31,7 @@ describe('Promotions page', ()=>{
                 seekerCreation.type_First_Name('Auto')
                 seekerCreation.type_Last_Name('Yoon')
                 seekerCreation.type_Seeker_Email('automation@test.com')
-                seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+                //seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
                 seekerCreation.marking_Checkbox()
                 seekerCreation.type_Seeker_Password('password')
                 seekerCreation.type_Card_Name('Auto Mation')

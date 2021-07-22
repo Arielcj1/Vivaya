@@ -65,10 +65,11 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         guidecreation.Check_type_of_class()
         guidecreation.Fill_information_guide()
         guidecreation.fill_Liability_Insurance()
+        cy.wait(1500)
         cy.get('h1.text-center').should('be.visible')
         // go to seeker
         guideweb.Select_Switch_to_seeker()
-        cy.get('strong').should('be.visible')
+        cy.get('.wrap > :nth-child(3) > .alert').should('be.visible')
         //go to Guide
         guideweb.Select_Switch_to_Guide()
         cy.get('h1.text-center').should('be.visible')

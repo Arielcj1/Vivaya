@@ -36,7 +36,7 @@ describe('Elements verification in responsive mode for Guide page', ()=>{
              cy.get('.circle-box').should('be.visible')
              cy.get('.profile-box > h2').should('be.visible').and('contain.text', 'manurex')
              cy.get('body > div.wrap > div.container > div > div.col-sm-9 > div:nth-child(1) > h3').should('be.visible').and('have.text', 'Your Schedule:')
-             cy.get(':nth-child(3) > :nth-child(1) > .btn').should('be.visible').and('have.text', 'All upcoming events')
+             cy.get('.col-sm-9 > :nth-child(1) > :nth-child(2) > :nth-child(1) > .btn').should('be.visible').and('have.text', 'All upcoming events')
              cy.get(':nth-child(2) > .btn').should('be.visible').and('have.text', 'Edit 1-1 availability')
              cy.get(':nth-child(3) > .btn').should('be.visible').and('have.text', 'Add new event')
              cy.get(':nth-child(4) > .btn').should('be.visible').and('have.text', 'Add Seminar')

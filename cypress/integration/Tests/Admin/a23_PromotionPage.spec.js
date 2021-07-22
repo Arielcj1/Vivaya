@@ -109,7 +109,7 @@ describe('Promotions page', ()=>{
         seekerCreation.type_First_Name('Auto')
         seekerCreation.type_Last_Name('Mation')
         seekerCreation.type_Seeker_Email('trialextended@gmail.com')
-        seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+        //seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
         seekerCreation.marking_Checkbox()
         seekerCreation.type_Seeker_Password('password')
         seekerCreation.promo_code_option()

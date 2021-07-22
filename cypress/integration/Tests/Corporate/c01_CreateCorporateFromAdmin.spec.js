@@ -63,7 +63,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         seekerCreation.type_First_Name('Auto')
         seekerCreation.type_Last_Name('Mation')
         seekerCreation.type_Seeker_Email('pedrasasmota.luis@gmail.com')
-        seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+        //seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
         seekerCreation.marking_Checkbox()
         seekerCreation.type_Seeker_Password('password')
         //adding the promo code
@@ -85,7 +85,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         seekerCreation.type_First_Name('Auto')
         seekerCreation.type_Last_Name('Mation')
         seekerCreation.type_Seeker_Email('automation@automation.com')
-        seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+        //seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
         seekerCreation.marking_Checkbox()
         seekerCreation.type_Seeker_Password('password')
         //Verification the discount for being a corporate email

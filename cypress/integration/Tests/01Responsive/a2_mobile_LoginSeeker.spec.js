@@ -49,8 +49,8 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
             cy.get('.quick-links > :nth-child(4) > :nth-child(1) > a').should('be.visible').and('have.text', 'Switch to Guide Profile')
             cy.get('#referral-status-link').should('be.visible').and('have.text', 'My Referral')
 
-            cy.get('body > div.wrap > div.container > div > div.col-sm-9 > div.col-sm-3.mobile > div > h3').should('be.visible').and('contain.text', 'Your Free Trial')
-            cy.get('.col-sm-9 > .col-sm-3 > .dashboard-box > div > .count').contains(/^[0-9]*$/)
+            cy.get('.col-sm-9 > .your-success > h3').should('be.visible').and('contain.text', 'Your Free Trial')
+            cy.get('.col-sm-9 > .your-success > div > .count').contains(/^[0-9]*$/)
         })        
 
    })   

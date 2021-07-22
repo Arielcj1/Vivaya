@@ -59,7 +59,7 @@ describe('Seeker Page admin', ()=>{
         seekerpage.type_Seeker_LastName('Mation')
         seekerpage.type_New_Seeker_Email('quiroga.rosasrafael@gmail.com')
         cy.get('#user-phone_number').type('+59176405837')
-        seekerpage.select_Seeker_TimeZone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+        seekerpage.select_Seeker_TimeZone('(UTC-04:00) La Paz')
         seekerpage.type_Seeker_Password('password')
         cy.get('#w3-success').should('contain', 'Seeker successfully added')
     })

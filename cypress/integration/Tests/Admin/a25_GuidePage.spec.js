@@ -68,7 +68,7 @@ describe('Guide Page admin', ()=>{
         guidePage.type_Guide_Lastname('test')
         guidePage.type_Guide_Email('callecarla354@gmail.com')
         guidePage.type_Guide_Number('+59172744457')
-        guidePage.select_TimeZone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+        guidePage.select_TimeZone('(UTC-04:00) La Paz')
         //guidePage.select_TimeZone('Bolivia')
         guidePage.select_Guide_State('Texas')
         guidePage.upload_guide_photo()
@@ -197,7 +197,7 @@ describe('Guide Page admin', ()=>{
         seekercreation.type_Security_Code('123')
         seekercreation.type_ZipCode('1234')
         //Change to Seeker
-        cy.get('.col-sm-9 > :nth-child(2) > h3').should('be.visible')
+        cy.get('.wrap > :nth-child(3) > .alert').should('be.visible')
         guideweb.Select_Switch_to_seeker()
         cy.wait(1000)
         cy.get(':nth-child(1) > .dashboard-box > h3').should('be.visible')

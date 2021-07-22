@@ -108,12 +108,12 @@ describe('Events page', ()=>{
              });
 
         cy.get('#w1 > tbody > :nth-child(3) > th').should('be.visible').and('have.text', 'Zoom Meeting Number')
-             cy.get('#w1 > tbody > tr:nth-child(3) > td > span').each(x =>{
+        cy.xpath('//*[@id="w1"]/tbody/tr[3]/td').each(x =>{
                 expect(x.text()).to.be.oneOf([
-                    "(not set)",
-                      reNum
+                   "(not set)",
+                    reNum
                       ]);
-             });
+            });
 
         cy.get('#w1 > tbody > :nth-child(4) > th').should('be.visible').and('have.text', 'Zoom Meeting Id')
              cy.get('#w1 > tbody > tr:nth-child(4) > td > span').each(x =>{
