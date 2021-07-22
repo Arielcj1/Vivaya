@@ -20,7 +20,7 @@ describe('Elements verification in responsive mode for Guide page', ()=>{
           commons.login_As_Guide_Mobile()
         })
 
-        it.skip('Verify Elements in Guide Dashboard after Login', ()=>{
+        it('Verify Elements in Guide Dashboard after Login', ()=>{
             
             cy.get('#header').should('contain.html', 'user-item')
 
@@ -62,7 +62,7 @@ describe('Elements verification in responsive mode for Guide page', ()=>{
              cy.get('.mobile > .dashboard-box > :nth-child(6) > :nth-child(2)').should('be.visible').and('have.text', '1-1 Session Clients')
         })
         
-        it.skip('Verify Event buttons in Guide Dashboard after Login', ()=>{  
+        it('Verify Event buttons in Guide Dashboard after Login', ()=>{  
           cy.get(':nth-child(3) > :nth-child(1) > .btn').click()
           cy.get('.text-center').should('be.visible').and('have.text', 'Upcoming events')
           cy.go('back')
