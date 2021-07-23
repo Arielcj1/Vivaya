@@ -69,7 +69,7 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         cy.get('h1.text-center').should('be.visible')
         // go to seeker
         guideweb.Select_Switch_to_seeker()
-        cy.get('.wrap > :nth-child(3) > .alert').should('be.visible')
+        cy.get('.col-sm-3 > .dashboard-box > h3').should('be.visible')
         //go to Guide
         guideweb.Select_Switch_to_Guide()
         cy.get('h1.text-center').should('be.visible')
