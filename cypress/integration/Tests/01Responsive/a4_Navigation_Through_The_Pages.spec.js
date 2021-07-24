@@ -29,7 +29,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
             cy.get('.col-sm-8 > h3').should('be.visible').and('contain.text', 'Become a VIVAYA Guide or Teacher')
         })
 
-        it('Verify Elements and redirection for Schedule page as Logged out', ()=>{
+        it('Verify Elements and redirection for Guides page as Logged out', ()=>{
             home.go_To_Guides_TopBar()
             cy.get('#banner').should('be.visible').and('contain.text', 'Explore our VIVAYA Guides')
             cy.get('#w0 > :nth-child(1) > :nth-child(1)').should('be.visible')
@@ -340,15 +340,111 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
             home.go_To_WhatWeOffer_TopBar()
 
-            cy.get(':nth-child(3) > .col-md-4 > .box-shadow > .lazy').click()
+            cy.get(':nth-child(3) > :nth-child(1) > .box-shadow > .lazy').click()
             cy.get('#banner').should('be.visible').and('contain.text', 'Movement & Dance')
+            cy.go('back')
+
+            cy.visit('https://stage.vivayalive.com/offerings/dance')
+            cy.get('#banner').should('be.visible').and('contain.text', 'Dance')
+            cy.go('back')
+
+            cy.visit('https://stage.vivayalive.com/offerings/embodied-movement')
+            cy.get('#banner').should('be.visible').and('contain.text', 'Embodied Movement')
+            cy.go('back')
+
+            cy.visit('https://stage.vivayalive.com/offerings/qi-gong')
+            cy.get('#banner').should('be.visible').and('contain.text', 'Qi Gong')
+            cy.go('back')
+
+            cy.visit('https://stage.vivayalive.com/offerings/sacred-movement')
+            cy.get('#banner').should('be.visible').and('contain.text', 'Sacred Movement')
+            cy.go('back')
+
+            cy.visit('https://stage.vivayalive.com/offerings/tai-chi')
+            cy.get('#banner').should('be.visible').and('contain.text', 'Tai Chi')
+            cy.go('back')
+
+            cy.visit('https://stage.vivayalive.com/offerings/zumba')
+            cy.get('#banner').should('be.visible').and('contain.text', 'Zumba')
             cy.go('back')
 
             
             
         })
 
+        it('Verify Pricing page elements',()=>{
+            home.go_To_Pricing_TopBar()
+            cy.get('.memberships > :nth-child(1) > :nth-child(1) > strong').should('be.visible').and('contain.text', 'New Student')
+            cy.get('.col-md-4').should('be.visible').and('contain.text', 'Free 14 Day Trial')
+            cy.get('.col-md-4').should('be.visible').and('contain.text', 'Unlimited classes')
+            cy.get('picture > img').should('be.visible')
+            cy.get('.membership-access-content > .container').should('be.visible').and('contain.text', 'Yoga and Wellness on Your Terms')
+            cy.get('.membership-access-content > .container').should('be.visible').and('contain.text', 'Our memberships and packages give access to all classes')
+            cy.get('.membership-timebased > .container').should('be.visible').and('contain.text', 'Memberships')
+            cy.get('.content-other-offerings > .container').should('be.visible').and('contain.text', 'All Other Offerings')
 
+        })    
+
+        it('Verify Corporate Page',()=>{
+            home.go_To_Corporate_TopBar()
+            cy.get('.container-banner > .container').should('be.visible').and('contain.text', 'Healthy Body, Mind & Soul - Healthy Business')
+            cy.get('.container-banner > .container').should('be.visible').and('contain.text', 'Join us for a free corporate trial of live and interactive yoga and wellness classes.')
+            cy.get('.container-banner > .container > #corporate-entry-form > .form-group > #corporateentryform-emailfrontend').should('be.visible')
+            cy.get('.container-banner > .container > #corporate-entry-form > .from-group > .btn').should('be.visible')
+            cy.get('.corporate-offerings').should('be.visible')
+            cy.get('.corporate-offerings > .text-blue').should('be.visible').and('contain.text', 'Explore our Diverse Array of Health and Healing Offerings')
+            cy.get(':nth-child(5) > .container').should('be.visible').and('contain.text', 'Why Choose VIVAYA for Business')
+            cy.get('.employees-corporate-background > img').should('be.visible')
+            cy.get(':nth-child(1) > .col-md-7').should('be.visible').and('contain.text', 'Customizable Corporate Programs')
+            cy.get('.employees-variety-background > img').should('be.visible')
+            cy.get(':nth-child(2) > .col-md-7').should('be.visible').and('contain.text', 'Unique Variety of Wellness Offerings')
+            cy.get('.employees-trusted-background > img').should('be.visible')
+            cy.get(':nth-child(3) > .col-md-7').should('be.visible').and('contain.text', 'One Trusted Platform for Employees’ Needs')
+            cy.get('.corporate-plan-background > .container > h2').should('be.visible').and('contain.text', 'Plans as low as $25/month.')
+
+        })   
+        
+        it('Verify Corporate Page',()=>{
+            home.go_To_FResponders_TopBar()
+            cy.get('.free-months').should('be.visible').and('contain.text', 'Our Gift of Gratitude to First Responders, Healthcare and Emergency Workers')
+            cy.get(':nth-child(2) > .img-responsive').should('be.visible')
+            cy.get('.innovative > :nth-child(1)').should('be.visible')
+            cy.get('.innovative > :nth-child(2)').should('be.visible')
+            cy.get('.invite-first-responders').should('be.visible').and('contain.text', 'Register now!')
+            cy.get('.gift-first-responders > .container > .row > .col-md-12').should('be.visible').and('contain.text', 'About this thank you gratitude gift...')
+            cy.get('.benefits-first-responders > .container > :nth-child(1) > .col-md-12').should('be.visible').and('contain.text', 'Benefits of enrolling...')
+            cy.get('.benefits-list').should('be.visible')
+            cy.get('.transformation-first-responders > .container > :nth-child(1) > .col-md-12 > h2').should('be.visible').and('contain.text', 'The transformation you will experience after even just a few weeks will be one of...')
+            cy.get('.transformation-list').should('be.visible')
+            cy.get('.health-first-responders > .container > .row > .col-md-12').should('be.visible').and('contain.text', 'This is for you If...')
+            cy.get('.included-first-responders > .container > :nth-child(1) > .col-md-12 > h2').should('be.visible').and('contain.text', "What's Included?")
+            cy.get('.included-list').should('be.visible')
+            cy.get('.col-md-8').should('be.visible').and('contain.text', 'Hear what others are saying...')
+            cy.get('.thank-you-first-responders > .container > .row').should('be.visible').and('contain.text', 'Before you click away... our CEO would like to thank you')
+            cy.get('.vivaya-first-responders > .container > .row > .col-md-12 > :nth-child(1)').should('be.visible').and('contain.text', 'Hear what others are saying...')
+            cy.get('.col-md-12 > div > .img-responsive').should('be.visible')
+            cy.get('.vivaya-platform').should('be.visible').and('contain.text', 'VIVAYA is offering 2 free months access to our platform for all First Responders, Healthcare and Emergency Workers.')
+            cy.get('.vivaya-first-responders > .container > .row > .col-md-12 > .btn').should('be.visible')
+
+        })    
+
+        it('Verify Become a Guide Page',()=>{
+            home.go_To_BecomeaGuide_TopBar()
+            cy.get('.banner-become').should('be.visible').and('contain.text', 'YOUR NEW HOME FOR LIVE-STREAMING YOGA AND WELLNESS CLASSES, WORKSHOPS AND 1-1 SESSIONS')
+            cy.get('.bag-button > .btn').should('be.visible')
+            cy.get('.become-list > h2.text-center').should('be.visible').and('contain.text','We created VIVAYA for exceptional yogis, teachers and healers like you and we would be honored to have you on board!')
+            cy.get(':nth-child(2) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
+            cy.get(':nth-child(2) > .col-md-5 > .box-shadow > div > .btn').should('be.visible')
+            cy.get(':nth-child(2) > .col-md-6').should('be.visible').and('contain.text','Why Teach With VIVAYA?')
+            cy.get(':nth-child(3) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
+            cy.get(':nth-child(3) > .col-md-5').should('be.visible').and('contain.text', 'VIVAYA was created with your needs in mind')
+            cy.get(':nth-child(3) > .col-md-5 > .box-shadow > div > .btn').should('be.visible')
+            cy.get(':nth-child(3) > .col-md-6').should('be.visible').and('contain.text','VIVAYA Supports You!')
+            cy.get('.become-oportunities').should('be.visible')
+            cy.get('.become-faq > .container').should('be.visible').and('contain.text','FAQs')
+            cy.get('div.text-center > .btn').should('be.visible')
+
+        })    
            
     })    
     
