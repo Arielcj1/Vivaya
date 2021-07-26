@@ -10,6 +10,9 @@ export class HomePage {
         const login = cy.get('.login-link').click()
         return this
     }
+    select_freeTrial(){
+        cy.get('.menu > :nth-child(1) > .btn').click({force:true})
+    }
 
     fill_Email(value){
         
