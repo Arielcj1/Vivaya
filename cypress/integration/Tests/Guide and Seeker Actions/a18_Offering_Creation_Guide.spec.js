@@ -49,6 +49,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         guidepage.select_Guide_Option()
         guidepage.select_Guide_List()
         guidepage.find_EmailGuide('manurex@manu.com', '1')
+        cy.wait(1500)
         guidepage.delete_New_Offering('Kula Yoga')
         cy.get('#w1-success').should('contain', 'Offering successfully deleted')
     })

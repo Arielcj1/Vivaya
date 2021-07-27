@@ -59,6 +59,7 @@ describe('Booking Event and Cancel the Event from Seeker Dashboard', ()=> {
         cy.get('.img').click()
         cy.scrollTo(0, 600)
         guidesPage.select_an_event()   
+        cy.wait(1500)
         //cy.get('#w0 > div > div.col-md-3.vertical-align.col-xs-6.sm-block').click()
         eventDetailPage.book_Event_from_EventDetail()
         dashboard.go_to_Dashboard_From_Menu()

@@ -37,10 +37,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#modal-referral').should('contain.text', '*You will receive a $10 credit for every successful referral. This credit will be added to your seeker account and can be applied toward your next VIVAYA purchase.  Successful referral requires that the new seeker makes their first VIVAYA purchase. Multiple referrals are possible.')
         cy.get('.field-btn > .btn').should('contain', 'Send')
 
-        cy.get('.col-md-7 > .nav > :nth-child(2) > a').click() //Verify Facebook button in the modal
+        cy.get('.col-md-7 > .nav > :nth-child(2) > a').click({force:true}) //Verify Facebook button in the modal
         cy.get('#r-share-facebook').should('contain', 'Share on Facebook')
         
-        cy.get('.col-md-7 > .nav > :nth-child(3) > a').click() //Verify Twitter button in the modal
+        cy.get('.col-md-7 > .nav > :nth-child(3) > a').click({force:true}) //Verify Twitter button in the modal
         cy.get('#r-share-twitter').should('contain', 'Share on Twitter')
     })
 })

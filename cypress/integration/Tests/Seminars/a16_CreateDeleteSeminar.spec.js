@@ -31,7 +31,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         homePage.logout_Account()
     
     })*/
-    it('Create Edit and Delete a Seminar', ()=>{
+    it('Create a Seminar', ()=>{
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
@@ -49,18 +49,33 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         cy.get('#w0-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Automation')
         
-        //Edit Seminar
-        seminars.select_Edit_Seminar()
-        cy.get('#seminar-name').clear()
-        seminars.type_Seminar_Name("Seminar Automation Edited")
-        seminars.select_Publish_Button()
-        cy.get('#w0-success-0').should('contain', 'Seminar has been updated.')
-        cy.get('h4 > a').should('contain', 'Seminar Automation Edited')
-
-        //Cancel the Seminar
-        seminars.select_Cancel_Seminar()
-        cy.get('#w0-success-0').should('contain', 'Seminar has been cancelled.')
      })
+
+     it('Edit a Seminar', ()=>{
+      homePage.select_Login()
+      commons.set_Guide_Credentials_One()
+      homePage.submit_Credentials()
+      dashboard.go_to_Dashboard_From_Menu()
+            
+      //Edit Seminar
+      seminars.select_Edit_Seminar()
+      cy.get('#seminar-name').clear()
+      seminars.type_Seminar_Name("Seminar Automation Edited")
+      seminars.select_Publish_Button()
+      cy.get('#w0-success-0').should('contain', 'Seminar has been updated.')
+      cy.get('h4 > a').should('contain', 'Seminar Automation Edited')
+      
+   })
+
+   it('Delete a Seminar', ()=>{
+    homePage.select_Login()
+    commons.set_Guide_Credentials_One()
+    homePage.submit_Credentials()
+    dashboard.go_to_Dashboard_From_Menu()
+    //Cancel the Seminar
+    seminars.select_Cancel_Seminar()
+    cy.get('#w0-success-0').should('contain', 'Seminar has been cancelled.')
+ })
 
 })     
 

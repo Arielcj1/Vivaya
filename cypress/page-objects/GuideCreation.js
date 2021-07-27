@@ -33,13 +33,17 @@ export class GuideCreation {
     fill_class_choose(val6, val7){
         //YOGA
         cy.get('#step2-form > :nth-child(4)').find('input[type=file]').attachFile('guide.jpg')
+        cy.wait(500)
         cy.get('#step2-form > :nth-child(4)').xpath('/html/body/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/input').type('AutomationYoga')
+        cy.wait(500)
         cy.get('#step2-form > :nth-child(4)').xpath('/html/body/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[3]/div/input').type(val6)
         cy.wait(1000)
         cy.get('#step2-form > :nth-child(4)').find('input[type=checkbox]').click({force:true})
         //MEditation
         cy.get('#step2-form > :nth-child(6)').find('input[type=file]').attachFile('guide.jpg')
+        cy.wait(500)
         cy.get('#step2-form > :nth-child(6)').xpath('/html/body/div[2]/div[2]/div/form/div[2]/div/div[1]/div/div[2]/div/input').type('AutomationMeditation')
+        cy.wait(500)
         cy.get('#step2-form > :nth-child(6)').xpath('/html/body/div[2]/div[2]/div/form/div[2]/div/div[1]/div/div[3]/div/input').type(val7)
         cy.wait(1000)
         cy.get('#step2-form > :nth-child(6)').find('input[type=checkbox]').click({force:true})
@@ -58,11 +62,13 @@ export class GuideCreation {
         cy.get('#guideapplicationstep4-mantra').type('persona mantra - automation')
         cy.get('#w0').attachFile('guidecreate.png')
         cy.get('#guideapplicationstep4-philosophy').type('Philosophy-automation')
+        cy.wait(500)
         //social media
         cy.get('#guideapplicationstep4-facebook_url').type('https://www.facebook.com')
         cy.get('#guideapplicationstep4-twitter_url').type('https://www.twitter.com')
         cy.get('#guideapplicationstep4-linkedin_url').type('https://www.linkedn.com')
         cy.get('#guideapplicationstep4-instagram_url').type('https://www.instagram.com')
+        cy.wait(500)
         cy.get('.next').click({force:true})
     }
 

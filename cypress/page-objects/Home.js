@@ -7,7 +7,7 @@ export class HomePage {
     }
 
     select_Login(){
-        const login = cy.get('.login-link').click()
+        const login = cy.get('.login-link').click({force:true})
         return this
     }
     select_freeTrial(){
@@ -74,6 +74,15 @@ select_First_Event_Upcoming_Section(){
 
     join_Event_From_Home(){
         cy.get('.join-event').click()
+    }
+
+    Fill_newsletter(name,last,email){
+        cy.get('#subscribe-form > .field-subscribeform-firstname > #subscribeform-firstname').type(name)
+        cy.get('#subscribe-form > .field-subscribeform-lastname > #subscribeform-lastname').type(last)
+        cy.get('#subscribe-form > .field-subscribeform-email > #subscribeform-email').type(email)
+        cy.get('#subscribe-form > .btn').click({force:true})
+
+
     }
 
 }

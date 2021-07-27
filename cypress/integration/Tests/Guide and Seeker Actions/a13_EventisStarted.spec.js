@@ -38,6 +38,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         homePage.go_Home()
         cy.scrollTo(0, 1300)   
         homePage.select_First_Event_Upcoming_Section()
+        cy.wait(1000)
         cy.contains('Book Class').click()
         homePage.go_Home()
         cy.scrollTo(0, 1300) 

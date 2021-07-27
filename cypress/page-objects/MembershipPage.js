@@ -35,4 +35,8 @@ export class MembershipPage {
     select_Buy_10Pack(){
         cy.get('[data-slick-index="2"] > .membership-list-item > .btn').click({force:true})
     }
+    selec_checkout(){
+        cy.get('.col-md-12 > .btn').click({force:true})
+        cy.get('#stripe-form-submit').click({force:true})
+        }
 }

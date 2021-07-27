@@ -47,22 +47,28 @@ describe('Add seminar to cart and remove from cart',
         cy.get('#w0-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Automation')
 
-        //add seminar event
-        dashboard.add_NewEvent()
-        dashboard.add_Seminar_Event()
-        seminarEvent.add_Seminar_Event_Name('Seminar Event test one')
-        seminarEvent.add_Description('This is a seminar Event for testing')
-        seminarEvent.add_Custom_Number_Of_Days(10)
-        seminarEvent.custom_End_Time(2)
-        seminarEvent.select_Existing_Seminar('Seminar Automation')
-        seminarEvent.select_Assign_Guide('Manu rex')
-        cy.get('.tt-suggestion').click({force:true})
-        seminarEvent.add_EventSeminar_Price(50)
-        seminarEvent.select_Add_Button()
-        cy.get('#w0-success-0').should('contain', 'Events have been created.')
-
-        homePage.logout_Account()
     })
+
+    it('Create a Seminar event to previous Seminar',()=>{
+      homePage.select_Login()
+      commons.set_Guide_Credentials_One()
+      homePage.submit_Credentials()
+      cy.wait(3000)
+      //add seminar event
+      dashboard.add_NewEvent()
+      dashboard.add_Seminar_Event()
+      seminarEvent.add_Seminar_Event_Name('Seminar Event test one')
+      seminarEvent.add_Description('This is a seminar Event for testing')
+      seminarEvent.add_Custom_Number_Of_Days(10)
+      seminarEvent.custom_End_Time(2)
+      seminarEvent.select_Existing_Seminar('Seminar Automation')
+      seminarEvent.select_Assign_Guide('Manu rex')
+      cy.get('.tt-suggestion').click({force:true})
+      seminarEvent.add_EventSeminar_Price(50)
+      seminarEvent.select_Add_Button()
+      cy.get('#w0-success-0').should('contain', 'Events have been created.')
+
+  })
 
    
     it('Add seminar to cart and remove it', ()=>{
@@ -87,6 +93,7 @@ describe('Add seminar to cart and remove from cart',
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
+        cy.wait(1000)
         seminars.select_Cancel_Seminar()
         cy.get('#w0-success-0').should('contain', 'Seminar has been cancelled.')
      })

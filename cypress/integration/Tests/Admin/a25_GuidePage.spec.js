@@ -132,10 +132,11 @@ describe('Guide Page admin', ()=>{
         cy.get('tr > :nth-child(1) > a').should('be.visible').and('have.text', 'ID')
         cy.get('tr > :nth-child(2) > a').should('be.visible').and('have.text', 'Event Name')
         cy.get('thead > tr > :nth-child(3)').should('be.visible').and('have.text', 'Record')
-        cy.get('thead > tr > :nth-child(4)').should('be.visible').and('have.text', 'Guide Name')
-        cy.get('tr > :nth-child(5) > a').should('be.visible').and('have.text', 'Start Date')
-        cy.get('tr > :nth-child(6) > a').should('be.visible').and('have.text', 'Status')
-        cy.get('tr > :nth-child(7) > a').should('be.visible').and('have.text', 'Zoom Status')
+        cy.get('thead > tr > :nth-child(4)').should('contain', 'Switchboard')
+        cy.get('thead > tr > :nth-child(5)').should('be.visible').and('have.text', 'Guide Name')
+        cy.get('tr > :nth-child(6) > a').should('be.visible').and('have.text', 'Start Date')
+        cy.get('tr > :nth-child(7) > a').should('be.visible').and('have.text', 'Status')
+        cy.get('tr > :nth-child(8) > a').should('be.visible').and('have.text', 'Zoom Status')
     })
 
     it('Guide Edition from admin', ()=>{

@@ -66,7 +66,7 @@ export class EventsPage {
     find_Event(event, value){
         cy.get('#eventsearch-name').type(event+'{enter}')
         cy.wait(1200)
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[8]/a['+value+']/span').click()
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[9]/a['+value+']/span').click()
     }
 
     type_EventName_To_Search(value){
@@ -79,7 +79,8 @@ export class EventsPage {
     
     //Press the first Eye icon from Even List
     press_First_Eye_Icon(){
-        cy.get('#w1 > table > tbody > tr:nth-child(1) > td:nth-child(8) > a > span').first().click()
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[9]').first().click()
+        
     }
 
 }

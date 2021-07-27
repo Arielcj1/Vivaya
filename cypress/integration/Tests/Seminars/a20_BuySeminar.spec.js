@@ -35,7 +35,7 @@ describe('Add seminar to cart and remove from cart',
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
-        cy.wait(3000)
+        cy.wait(1500)
         dashboard.select_Add_Seminar()
         seminars.type_Seminar_Name("Seminar Automation")
         seminars.add_Description("This is a Seminar for Automation Proj")
@@ -49,30 +49,36 @@ describe('Add seminar to cart and remove from cart',
         cy.get('#w0-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Automation')
 
-        //add seminar event
-        dashboard.add_NewEvent()
-        dashboard.add_Seminar_Event()
-        seminarEvent.add_Seminar_Event_Name('Seminar Event test one')
-        seminarEvent.add_Description('This is a seminar Event for testing')
-        seminarEvent.add_Custom_Number_Of_Days(10)
-        seminarEvent.custom_End_Time(2)
-        seminarEvent.select_Existing_Seminar('Seminar Automation')
-        seminarEvent.select_Assign_Guide('Manu rex')
-        cy.get('.tt-suggestion').click({force:true})
-        seminarEvent.add_EventSeminar_Price(50)
-        seminarEvent.select_Add_Button()
-        cy.get('#w0-success-0').should('contain', 'Events have been created.')
-
         homePage.logout_Account()
     })
 
+    it('Create a Seminar Event relate to the previous Seminar',()=>{
+      homePage.select_Login()
+      commons.set_Guide_Credentials_One()
+      homePage.submit_Credentials()
+      cy.wait(1500)
+      dashboard.add_NewEvent()
+      dashboard.add_Seminar_Event()
+      seminarEvent.add_Seminar_Event_Name('Seminar Event test one')
+      seminarEvent.add_Description('This is a seminar Event for testing')
+      seminarEvent.add_Custom_Number_Of_Days(10)
+      seminarEvent.custom_End_Time(2)
+      seminarEvent.select_Existing_Seminar('Seminar Automation')
+      seminarEvent.select_Assign_Guide('Manu rex')
+      cy.get('.tt-suggestion').click({force:true})
+      seminarEvent.add_EventSeminar_Price(50)
+      seminarEvent.select_Add_Button()
+      cy.get('#w0-success-0').should('contain', 'Events have been created.')
+
+      homePage.logout_Account()
+  })
    
     it('Buy Seminar', ()=>{
 
         homePage.select_Login()
         commons.set_Seeker_Credentials_One()
         homePage.submit_Credentials()
-        cy.wait(3000)
+        cy.wait(1500)
         cy.get('.col-lg-9 > #footernav > :nth-child(3) > a').click()
         cy.get(':nth-child(1) > .n').click()
         cy.get(':nth-child(1) > .text-center > .btn').click()
@@ -85,14 +91,14 @@ describe('Add seminar to cart and remove from cart',
         cy.scrollTo(0, 300)
         cy.get('.cancel-seminar').click()
         dashboard.confirm_Cancelation_From_Dashboard()
-        cy.wait(3000)
-        
+               
      })
 
      it('Delete Seminar from Guide Dashboard',()=>{
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
+        cy.wait(1500)
         seminars.select_Cancel_Seminar()
         cy.get('#w0-success-0').should('contain', 'Seminar has been cancelled.')
      })

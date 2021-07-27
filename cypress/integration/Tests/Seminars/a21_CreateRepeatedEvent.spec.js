@@ -59,6 +59,7 @@ describe('Events Creation', ()=>{
     })
 
     it('Delete recurrent Weekly Class',()=>{
+        cy.wait(1000)
         dashboard.cancel_Several_Events_AtOnce()
     })
 
@@ -80,6 +81,7 @@ describe('Events Creation', ()=>{
     })
 
     it('Delete recurrent Weekly by days Class',()=>{
+        cy.wait(1000)
         dashboard.cancel_Several_Events_AtOnce()
     })
 })

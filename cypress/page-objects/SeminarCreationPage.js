@@ -36,20 +36,20 @@ export class SeminarCreationPage {
     }
 
     select_Allow_Independent_Events(){
-        cy.get('#seminar-independent_events').click()
+        cy.get('#seminar-independent_events').click({force:true})
     }
 
     select_Publish_Button(){
-        cy.get('.box-footer > .btn-primary').click()
+        cy.get('.box-footer > .btn-primary').click({force:true})
     }
 
     select_Cancel_Seminar(){
-        cy.get('.cancel-seminar').click()
-        cy.get('.btn-success').click()
+        cy.get('.cancel-seminar').click({force:true})
+        cy.get('.btn-success').click({force:true})
     }
 
     select_Edit_Seminar(){
-        cy.get('.edit-event').click()
+        cy.get('.edit-event').click({force:true})
     }
     
 }
