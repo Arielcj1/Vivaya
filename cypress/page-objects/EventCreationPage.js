@@ -120,5 +120,10 @@ export class EventCreationPage {
         cy.get(':nth-child(7) > label > input').click()
     }
 
+    select_duration_time(value){
+        cy.get('#eventform-durationtime').select(value)
+
+    }
+
 
 }

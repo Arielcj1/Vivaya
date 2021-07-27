@@ -246,7 +246,7 @@ export class Dashboard{
         .then((text)=>{
                 if(text == 'Class1'){
                     cy.log('found')
-                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click()
+                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click({force:true})
                         cy.get('.btn-success').click()
                 }
                 else{
