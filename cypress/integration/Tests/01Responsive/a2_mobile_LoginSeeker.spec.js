@@ -19,7 +19,7 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
           commons.open_Web_Site()
         })
 
-        it.skip('Verify Elements in Seeker Dashboard after Login', ()=>{
+        it('Verify Elements in Seeker Dashboard after Login', ()=>{
             commons.login_As_Seeker_Mobile()
             cy.get('#header').should('contain.html', 'user-item')
             //Verify main menu options

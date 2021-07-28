@@ -60,6 +60,7 @@ describe('Offering page', ()=>{
 
     it('Add Many new records of "Child Offer"',()=>{
         offeringsPage.select_Offering_Option()
+        cy.wait(1000)
         for(var e=1; e<=5; e++){
             offeringsPage.select_Offering_New()
             offeringsPage.type_Offer_name('Child'+e)
@@ -69,12 +70,14 @@ describe('Offering page', ()=>{
             offeringsPage.upload_Offer_Picture('guide.jpg')
             offeringsPage.type_Meta_Title('Auto Yoga'+e)
             offeringsPage.type_Meta_Description('This is an automation meta description')
+            cy.wait(1000)
             offeringsPage.save_New_Offer()
             cy.get('#w1-success').should('contain', 'Offer has been created.')
         }
     })
 
     it('View a Child offer', ()=>{
+        cy.wait(1000)
         offeringsPage.select_Offering_Option()
         offeringsPage.select_Offering_List()
         offeringsPage.search_The_Last_Offer_Created()// Check wheter we have mora than 10 records
@@ -84,6 +87,7 @@ describe('Offering page', ()=>{
     })
 
     it('Edit a Child offer', ()=>{
+        cy.wait(1000)
         offeringsPage.select_Offering_Option()
         offeringsPage.select_Offering_List()
         offeringsPage.search_The_Last_Offer_Created()// Check wheter we have mora than 10 records
