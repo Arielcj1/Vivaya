@@ -19,7 +19,7 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
           commons.open_Web_Site()
         })
 
-        it('Verify Elements in Seeker Dashboard after Login', ()=>{
+        it.skip('Verify Elements in Seeker Dashboard after Login', ()=>{
             commons.login_As_Seeker_Mobile()
             cy.get('#header').should('contain.html', 'user-item')
             //Verify main menu options
@@ -51,7 +51,31 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
 
             cy.get('.col-sm-9 > .your-success > h3').should('be.visible').and('contain.text', 'Your Free Trial')
             cy.get('.col-sm-9 > .your-success > div > .count').contains(/^[0-9]*$/)
-        })        
+        })  
+        
+        it('Verify redirections from Hamburguer Menu in Seeker account', ()=>{
+            commons.login_As_Seeker_Mobile()
+            cy.wait(3000)
+            cy.get('#mainNavCollapseBtn > span.menu > img').click()
+            cy.get('#mainNav > :nth-child(1) > a').click()
+            cy.url().should('eq', 'https://stage.vivayalive.com/schedule')
+            cy.get('#mainNavCollapseBtn > span.menu > img').click()
+            cy.get('#mainNav > :nth-child(2) > a').click()
+            cy.url().should('eq', 'https://stage.vivayalive.com/guides')
+            cy.get('#mainNavCollapseBtn > span.menu > img').click()
+            cy.get('#mainNav > :nth-child(3) > a').click()
+            cy.url().should('eq', 'https://stage.vivayalive.com/offerings')
+            cy.get('#mainNavCollapseBtn > span.menu > img').click()
+            cy.get('#mainNav > :nth-child(4) > a').click()
+            cy.url().should('eq', 'https://stage.vivayalive.com/membership')
+            cy.get('#mainNavCollapseBtn > span.menu > img').click()
+            cy.get('#mainNav > :nth-child(5) > a').click()
+            cy.url().should('eq', 'https://stage.vivayalive.com/corporate')
+            cy.get('#mainNavCollapseBtn > span.menu > img').click()
+            cy.get('#mainNav > :nth-child(6) > a').click()
+            cy.url().should('eq', 'https://stage.vivayalive.com/first-responders')
+
+        })
 
    })   
 
