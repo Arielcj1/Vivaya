@@ -60,6 +60,6 @@ export class OfferingsPage {
     }
     //Options for child offer
     options_For_Child_Offer(option){
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/a['+option+']/span').click()
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/a['+option+']/span').click({force:true})
     }
 }
