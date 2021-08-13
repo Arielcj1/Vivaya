@@ -23,6 +23,8 @@ export class Commons {
     }
 
     set_Seeker_Credentials_One(){
+        cy.get('#loginform-email').click()
+        cy.wait(1000)
         cy.get('#loginform-email').type("automation@test.com")
         cy.wait(2000)
         cy.get('#loginform-password').type("password")

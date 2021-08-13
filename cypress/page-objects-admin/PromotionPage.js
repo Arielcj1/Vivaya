@@ -59,7 +59,7 @@ export class PromotionPage {
     }
 
     save_promotion(){
-        cy.get('.box-footer > .btn').click()
+        cy.get('.box-footer > .btn').click({force:true})
     }
 
 

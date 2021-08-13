@@ -62,6 +62,8 @@ describe('Booking Event and Cancel the Event from Seeker Dashboard', ()=> {
         cy.wait(1500)
         //cy.get('#w0 > div > div.col-md-3.vertical-align.col-xs-6.sm-block').click()
         eventDetailPage.book_Event_from_EventDetail()
+        cy.wait(1000)
+        eventDetailPage.popup_thanks()
         dashboard.go_to_Dashboard_From_Menu()
         dashboard.cancel_Event_As_Seeker()
         dashboard.confirm_Cancelation_From_Dashboard()

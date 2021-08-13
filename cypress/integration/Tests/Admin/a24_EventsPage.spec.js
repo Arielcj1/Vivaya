@@ -67,7 +67,7 @@ describe('Events page', ()=>{
         let reText = new RegExp('/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g')
         let reDate = new RegExp('/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/')
 
-        cy.get('body > div.wrapper > div > section.content-header > h1').should('be.visible')
+        //cy.get('body > div.wrapper > div > section.content-header > h1').should('be.visible')
         cy.get(':nth-child(1) > .box-header > .box-title').should('be.visible')
         cy.get('#w0 > tbody > :nth-child(1) > th').should('have.text', 'ID')
         cy.get('#w0 > tbody > :nth-child(1) > td').should('be.visible').and('contains', reNum)
@@ -129,8 +129,15 @@ describe('Events page', ()=>{
         cy.get('#w1 > tbody > :nth-child(5) > td').should('be.visible').and('contains', reDate)
         cy.get('#w1 > tbody > :nth-child(6) > th').should('be.visible').and('have.text', 'Ended At')
         cy.get('#w1 > tbody > :nth-child(6) > td').should('be.visible').and('contains', reDate)
-        cy.get('#w1 > tbody > tr:nth-child(7) > th').should('be.visible').and('have.text', 'Guide Participated')
-            cy.get(':nth-child(7) > td > .label').each(x =>{
+        cy.get('#w1 > tbody > tr:nth-child(7) > th').should('be.visible').and('have.text', 'Zoom Started At')
+        cy.get('#w1 > tbody > :nth-child(7) > td').should('be.visible').and('contains', reDate)
+        cy.get(':nth-child(8) > th').should('contain', 'Zoom Ended At')
+        cy.get(':nth-child(8) > td').should('be.visible').and('contains', reDate)
+        cy.get(':nth-child(9) > th').should('contain', 'Guide Participated')
+        cy.get(':nth-child(10) > th').should('contain','Zoom Report Done')
+
+
+        cy.get(':nth-child(10) > td').each(x =>{
             expect(x.text()).to.be.oneOf([
                 "Yes",
                 "No"

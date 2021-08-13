@@ -20,5 +20,8 @@ export class EventDetailPage {
         cy.get('.back-button > a').click()
     }
 
+    popup_thanks(){
+        cy.xpath('//*[@id="modal-referral"]/div/div/div[1]/button').click({force:true})
+    }
 
 }

@@ -16,7 +16,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const homePage = new HomePage()
     const guestPage = new GuestPage()
     const seekerCreation = new SeekerCreation()
-    var user = 'guesttest002@user.com'
+    var user = 'guesttest003@user.com'
     
     beforeEach(()=>{
       cy.clearLocalStorage()

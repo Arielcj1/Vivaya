@@ -6,6 +6,7 @@ import {Commons} from "../../../Commons/Common"
 import {SeminarCreationPage} from "../../../page-objects/SeminarCreationPage"
 import {SeminarEventCreationPage} from "../../../page-objects/SeminarEventCreationPage"
 import {CartPage} from "../../../page-objects/CartPage"
+import {EventDetailPage} from "../../../page-objects/EventDetailPage"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
@@ -25,6 +26,7 @@ describe('Add seminar to cart and remove from cart',
     const seminars = new SeminarCreationPage()
     const seminarEvent = new SeminarEventCreationPage()
     const cartPage = new CartPage()
+    const eventDetailPage = new EventDetailPage()
 
     beforeEach(()=>{
         commons.open_Web_Site()
@@ -87,6 +89,8 @@ describe('Add seminar to cart and remove from cart',
         cartPage.select_Confirm_Purchase()
         cy.get('.order-summary').should('contain.text', 'Purchase Confirmation')
         cy.get(':nth-child(2) > .col-md-8').should('contain.text', 'SEMINAR: Seminar Automation')
+        cy.wait(1000)
+        eventDetailPage.popup_thanks()
         cartPage.select_Go_ToDashboard_AfterPurchase()
         cy.scrollTo(0, 300)
         cy.get('.cancel-seminar').click()
