@@ -18,6 +18,14 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
     it('Verify Guide Reports manin page',()=>{
         reports.select_Reports_Tab()
         reports.select_Guides_Option()
+        //Search a guide in a custom date
+        cy.get('#reportssearch-first_name').type('Harvey')
+        cy.get('#reportssearch-fromdate').click()
+        cy.get('#reportssearch-fromdate').clear()
+        cy.get('#reportssearch-fromdate').type('01-01-2021')
+        //reports.custom_Date_From_Date_Guide()
+        cy.get('.box-footer > .btn').click()
+
         cy.get('h1').should('contain', 'Reports')
         cy.get(':nth-child(1) > :nth-child(1) > .form-group > .control-label').should('be.visible').and('have.text', 'First Name')
         cy.get('#reportssearch-first_name').should('be.visible')

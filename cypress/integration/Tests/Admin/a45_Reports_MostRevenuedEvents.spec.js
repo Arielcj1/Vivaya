@@ -16,16 +16,16 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     })
     it('Verify the Report for the most revenued events',()=>{
         reports.select_Reports_Tab()
-        reports.select_Most_Viewed_Events()
-        cy.get('h1').should('contain', 'Most Viewed Events')
+        reports.select_Most_Revenued_Events()
+        cy.get('h1').should('contain', "Last Month's Most Revenued Events")
         cy.get(':nth-child(1) > .form-group > .control-label').should('be.visible').and('have.text', 'From Date')
-        cy.get('#usermembershipeventsearch-fromdate').should('be.visible')
+        cy.get('#reportsearch-fromdate').should('be.visible')
         cy.get(':nth-child(2) > .form-group > .control-label').should('be.visible').and('have.text', 'To Date')
-        cy.get('#usermembershipeventsearch-todate').should('be.visible')
+        cy.get('#reportsearch-todate').should('be.visible')
         cy.get('.box-footer > .btn').should('be.visible').and('have.text', 'Search')
 
         //Verify List elements
-        cy.get(':nth-child(3) > .box-title').should('be.visible').and('have.text', 'List')
+        cy.get(':nth-child(2) > .box-title').should('be.visible').and('have.text', 'List')
 
         cy.get('[style="width:50px;"]').should('be.visible').and('have.text', 'Id Event')
         cy.get('[data-key="0"] > :nth-child(1)').contains(/^[0-9]*$/)

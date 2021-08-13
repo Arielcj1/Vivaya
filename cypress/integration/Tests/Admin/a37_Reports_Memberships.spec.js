@@ -41,7 +41,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('.box-body > .table > thead > tr > :nth-child(2)').should('be.visible').and('have.text', 'Event Type')
         cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(2)').contains(/^[0-9]*$/)
         cy.get('.box-body > .table > thead > tr > :nth-child(3)').should('be.visible').and('have.text', 'Title')
-        cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(3)').contains(/^([a-zA-Z_$][a-zA-Z\\d_$]*)$/)
+        cy.get('body > div.wrapper > div > section.content > div > div:nth-child(2) > div > div > div.box-body.table-responsive.no-padding > table > tbody > tr:nth-child(1) > td:nth-child(3)').should('be.visible')//.contains(/^([a-zA-Z_$][a-zA-Z\\d_$]*)$/)
         cy.get('.box-body > .table > thead > tr > :nth-child(4)').should('be.visible').and('have.text', 'Price')
         cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(4)').should('be.visible')
         cy.get('.box-body > .table > thead > tr > :nth-child(5)').should('be.visible').and('have.text', 'Sold Package')
