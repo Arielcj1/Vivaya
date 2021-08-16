@@ -143,7 +143,7 @@ describe('Events page', ()=>{
                 "No"
                   ]);
                 }); 
-        cy.get(':nth-child(8) > th').should('be.visible').and('have.text', 'Zoom Report Done')    
+        cy.get(':nth-child(10) > th').should('be.visible').and('have.text', 'Zoom Report Done')    
         cy.get(':nth-child(3) > .box-header > .box-title').should('be.visible').and('have.text', 'List of seekers registered for event')
         cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(1)').should('be.visible').and('have.text', 'UID')
         cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(2)').and('have.text', 'Full Name')

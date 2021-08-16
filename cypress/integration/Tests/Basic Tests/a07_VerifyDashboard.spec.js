@@ -51,7 +51,7 @@ describe('Verify the Elements within Dashboard', ()=>{
 
         cy.go('back')
         dashBoard.select_Contact_Vivaya()
-        cy.url().should('eq', 'https://stage.vivayalive.com/site/contact')
+        cy.url().should('eq', 'https://stage.vivayalive.com/contact')
 
         /*cy.go('back')
         dashBoard.select_Write_Blog()
@@ -111,7 +111,7 @@ describe('Verify the Elements within Dashboard', ()=>{
 
         cy.go('back')
         dashBoard.select_Contact_Vivaya_Seeker()
-        cy.url().should('eq', 'https://stage.vivayalive.com/site/contact')
+        cy.url().should('eq', 'https://stage.vivayalive.com/contact')
 
         cy.go('back')
         dashBoard.select_My_Referral()

@@ -64,6 +64,7 @@ export class GuidesPage {
     }
     Select_Switch_to_seeker(){
         cy.get('.uname').click({force:true})
+        cy.wait(1500)
         cy.get('#accountNav > ul > li > ul > li:nth-child(3) > a').click({force:true})
 
     }

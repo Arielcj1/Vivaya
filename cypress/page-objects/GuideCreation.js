@@ -77,6 +77,7 @@ export class GuideCreation {
         const todayDate = moment().add(200, 'days').format('MMM-DD-YYYY')
         cy.get('#step5-form').find('input[type=file]').attachFile('guidecreate.png')
         cy.get('#guideapplicationstep5-insurance_expiry_date').type(todayDate)
+        cy.wait(1500)
         cy.get('.text-center > .next').click({force:true})
     }
 
