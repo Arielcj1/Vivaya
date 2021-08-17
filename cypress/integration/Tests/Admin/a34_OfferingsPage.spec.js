@@ -70,8 +70,9 @@ describe('Offering page', ()=>{
             offeringsPage.upload_Offer_Picture('guide.jpg')
             offeringsPage.type_Meta_Title('Auto Yoga'+e)
             offeringsPage.type_Meta_Description('This is an automation meta description')
-            cy.wait(1000)
+            cy.wait(1500)
             offeringsPage.save_New_Offer()
+            cy.wait(1000)
             cy.get('#w1-success').should('contain', 'Offer has been created.')
         }
     })

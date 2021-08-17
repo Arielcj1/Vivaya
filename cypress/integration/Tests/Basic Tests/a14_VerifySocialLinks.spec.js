@@ -33,4 +33,16 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         .and('include', 'https://www.instagram.com/vivayalive/')
     })
 
+    it('Verify Link to Youtube',()=>{
+        cy.get('.clearfix > .social-links > :nth-child(4) > a')
+        .should('have.attr', 'href')
+        .and('include', 'https://www.youtube.com/channel/UCqmvRhMJsitv4hiFXPzrB9Q')
+    })
+    
+    it('Verify Link to Pinterest',()=>{
+        cy.get('.clearfix > .social-links > :nth-child(5) > a')
+        .should('have.attr', 'href')
+        .and('include', 'https://www.pinterest.com/vivayalive/')
+    })
+
       })

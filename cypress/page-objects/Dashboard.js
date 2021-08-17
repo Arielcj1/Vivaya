@@ -3,7 +3,7 @@
 export class Dashboard{
 
     select_Edit_Event(){
-        cy.xpath("//*[contains(text(), 'Edit Event')]").click()
+        cy.xpath("//*[contains(text(), 'Edit Event')]").click({force:true})
     }
 
     go_to_Dashboard_From_Menu(){
@@ -12,39 +12,39 @@ export class Dashboard{
     }
 
     press_Start_Event_Button(){
-        const startEventButton = cy.get('#fbStart').click()
+        const startEventButton = cy.get('#fbStart').click({force:true})
         return this
     }
 
     add_NewEvent(){
-        const newEvent = cy.get(':nth-child(3) > .btn').click()
+        const newEvent = cy.get(':nth-child(3) > .btn').click({force:true})
         return this
 
     }
 
 
     add_Workshop(){
-        const selectWorkshop = cy.get('[href="/events/workshop/create"]').click()
+        const selectWorkshop = cy.get('[href="/events/workshop/create"]').click({force:true})
         return this
     }
 
     add_One_One(){
-        const selectOnetoOne = cy.get('[href="/events/1-on-1/create"]').click()
+        const selectOnetoOne = cy.get('[href="/events/1-on-1/create"]').click({force:true})
         return this
     }
 
     add_Class(){
-        const selectClass = cy.get('[href="/events/class/create"]').click()
+        const selectClass = cy.get('[href="/events/class/create"]').click({force:true})
         return this
     }
 
     add_Seminar_Event(){
-        const addSeminarEvent = cy.get('[href="/events/seminar/create"]').click()
+        const addSeminarEvent = cy.get('[href="/events/seminar/create"]').click({force:true})
         return this
     }
 
     close_NewEvent_Modal(){
-        const closeNewEvent = cy.get('#modalHeader > .close').click()
+        const closeNewEvent = cy.get('#modalHeader > .close').click({force:true})
         return this
     }
 
