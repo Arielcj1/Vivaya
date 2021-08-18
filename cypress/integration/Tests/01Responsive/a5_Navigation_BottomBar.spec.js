@@ -79,10 +79,10 @@ describe('Elements verification in responsive mode for bottom bar options', ()=>
 
         it('Verify Blog Page', ()=>{
             home.go_To_Blog_From_Bottom()
-            cy.get('#banner').should('be.visible')
-            cy.get('.site-description > p').should('be.visible')
-            cy.get('.col-lg-4 > .btn').should('contain','Filter')
-            cy.url().should('eq', 'https://stage.vivayalive.com/blog')
+            cy.get('p').should('be.visible')
+            cy.get('.big-post-image-top').should('be.visible')
+            cy.get('.big-post-title-inner > .post-title > a').should('contain','How to Build a Yoga routine')
+            cy.url().should('eq', 'https://blog.vivayalive.com/')
         })
 
         it('Verify Contact Page', ()=>{
