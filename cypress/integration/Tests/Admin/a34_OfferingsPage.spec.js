@@ -60,7 +60,7 @@ describe('Offering page', ()=>{
 
     it('Add Many new records of "Child Offer"',()=>{
         offeringsPage.select_Offering_Option()
-        cy.wait(1000)
+        cy.wait(1500)
         for(var e=1; e<=5; e++){
             offeringsPage.select_Offering_New()
             offeringsPage.type_Offer_name('Child'+e)

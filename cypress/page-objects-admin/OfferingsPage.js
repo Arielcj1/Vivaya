@@ -15,6 +15,7 @@ export class OfferingsPage {
         cy.get('#offer-name').type(value)
     }
     type_Offer_slug(value){
+        cy.get('#offer-slug').click({force:true})
         cy.get('#offer-slug').clear().type(value)
     }
     type_Offer_Content(value){

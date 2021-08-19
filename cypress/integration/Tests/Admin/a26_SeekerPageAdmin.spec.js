@@ -44,7 +44,7 @@ describe('Seeker Page admin', ()=>{
         cy.get('tr > :nth-child(2) > a').should('be.visible').and('have.text', 'First name')
         cy.get('tr > :nth-child(3) > a').should('be.visible').and('have.text', 'Last name')
         cy.get('tr > :nth-child(4) > a').should('be.visible').and('have.text', 'Email')
-        cy.get('tr > :nth-child(5) > a').should('contain', 'Mobile number')
+        cy.get('tr > :nth-child(5) > a').should('contain', 'Phone number')
         cy.get('tr > :nth-child(6) > a').should('be.visible').and('have.text', 'Registration Date')
         cy.get('tr > :nth-child(7) > a').should('be.visible').and('have.text', 'Auto renewal')
         cy.get('[style="text-align:center;width:140px;color:#3c8dbc;"]').should('be.visible').and('have.text', 'Auto renewal canceled')

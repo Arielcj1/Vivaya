@@ -28,7 +28,7 @@ describe('Events Creation', ()=>{
         homePage.logout_Account()
     
     })*/
-    it('Create and Cancel Workshop Event', () => {
+    it('Create Workshop Event', () => {
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text) =>{
              cy.log(text)
             if(text != 0){
@@ -46,13 +46,24 @@ describe('Events Creation', ()=>{
                  cy.wait(500)
                  eventCreationPage.press_Add()
                  cy.get('#w0-success-0').should('contain', 'Events have been created.')
-                 dashboard.cancel_Created_Event_Workshop()
-                 cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
             }
         })
     })
 
-    it('Create and Cancel Class Event', () =>{
+    it('Cancel Workshop Event', () => {
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text) =>{
+            cy.log(text)
+           if(text != 0){
+                dashboard.cancel_Created_Event_Workshop()
+                cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
+           }
+           else{
+            cy.wait(100)
+                }
+       })
+   })
+
+    it('Create Cancel Class Event', () =>{
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){
@@ -66,17 +77,27 @@ describe('Events Creation', ()=>{
                 cy.wait(2000)
                 eventCreationPage.add_Description('This is a Test Class')
                 eventCreationPage.add_Custom_Number_Of_Days(2)
-                eventCreationPage.custom_Start_Time(5)
+                eventCreationPage.custom_Start_Time(7)
                 cy.wait(500)
                 eventCreationPage.press_Add()
                 cy.get('#w0-success-0').should('contain', 'Events have been created.')
-                dashboard.cancel_Created_Event_class()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
             }
         })
     })
+    it('Cancel Class Event', () =>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
+            cy.log(text)
+            if(text != 0){
+                dashboard.cancel_Created_Event_class()
+                cy.get('#w0-success-0').should('contain', 'Event has been canceled.') 
+            }
+            else{
+                cy.wait(100)
+                 }
+        })
+    })
 
-    it('Create and Cancel One on One', () =>{
+    it('Create One on One', () =>{
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(6) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){
@@ -96,8 +117,18 @@ describe('Events Creation', ()=>{
                 eventCreationPage.press_Add()
                 cy.wait(500)
                 cy.get('#w0-success-0').should('contain', 'Events have been created.')
+            }
+        })    
+    })
+    it('Cancel One on One', () =>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(6) > .count').invoke('text').then((text)=>{
+            cy.log(text)
+            if(text != 0){
                 dashboard.cancel_Created_Event_one_on_one()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
+                cy.get('#w0-success-0').should('contain', 'Event has been canceled.') 
+            }
+            else{
+                cy.wait(100)
             }
         })    
     })
