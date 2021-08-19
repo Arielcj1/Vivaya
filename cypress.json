@@ -19,14 +19,16 @@
   "projectId": "2127x7",
 
   
+    "defaultCommandTimeout": 10000,
+    "pageLoadTimeout": 90000,
+  
+  
   "retries": {
           
     "runMode": 2,
   
     "openMode": 2
-  },
-  "defaultCommandTimeout":20000
-
-
-
+  }
+ 
+  
 }

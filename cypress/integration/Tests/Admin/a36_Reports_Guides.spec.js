@@ -10,12 +10,19 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
     const commons = new Commons()
     const reports = new ReportsTab()
 
-    beforeEach(()=>{
+   /* beforeEach(()=>{
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
-    })
+    })*/
 
     it('Verify Guide Reports manin page',()=>{
+        cy.visit('https://admin.stage.vivayalive.com')
+        cy.get('#loginform-email').type("manu@manu.com")
+        cy.wait(2000)
+        cy.get('#loginform-password').clear().type("perrodelmal")
+        cy.get('.btn').click()
+
+        
         reports.select_Reports_Tab()
         reports.select_Guides_Option()
         //Search a guide in a custom date
@@ -48,6 +55,12 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
     })
 
     it('Verify Guide Report details page ', ()=>{
+        cy.visit('https://admin.stage.vivayalive.com')
+        cy.get('#loginform-email').type("manu@manu.com")
+        cy.wait(2000)
+        cy.get('#loginform-password').clear().type("perrodelmal")
+        cy.get('.btn').click()
+        
         reports.select_Reports_Tab()
         reports.select_Guides_Option()
         let reDate = new RegExp('^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$')
@@ -60,10 +73,13 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
         cy.get('#reportssearch-fromdate').type('01-01-2021')
         //reports.custom_Date_From_Date_Guide()
         cy.get('.box-footer > .btn').click()
+        //cy.wait(15000)
 
-        cy.wait(10000)
-        cy.get('#w1 > table > tbody > tr > td:nth-child(6) > a:nth-child(1) > span').click()
-        cy.wait(10000)
+        cy.wait(5000)
+        cy.xpath('//*[@id="w1"]/table/tbody/tr/td[6]/a[1]/span').click({ force: true })
+        //cy.wait(5000)
+        //cy.get('#w1 > table > tbody > tr > td:nth-child(6) > a:nth-child(1) > span').click({ force: true })
+        //cy.wait(5000)
         cy.get('h1').should('be.visible').contains('Report details for guide: Harvey Deutch')
         cy.get(':nth-child(1) > .form-group > .control-label').should('be.visible').and('have.text', 'From Date')
         cy.get(':nth-child(2) > .form-group > .control-label').should('be.visible').and('have.text', 'To Date')
