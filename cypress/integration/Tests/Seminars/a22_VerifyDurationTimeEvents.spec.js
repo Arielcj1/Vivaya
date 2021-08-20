@@ -33,7 +33,7 @@ describe('Verify Duration time in Events', ()=>{
             else{
                 dashboard.add_NewEvent()
                 dashboard.add_Class()
-                eventCreationPage.add_EventName('Class1')
+                eventCreationPage.add_EventName('CLASS 60')
                 cy.wait(2000)
                 eventCreationPage.add_Description('This is a Test Class')
                 eventCreationPage.add_Custom_Number_Of_Days(2)
@@ -61,12 +61,12 @@ describe('Verify Duration time in Events', ()=>{
             else{
                 dashboard.add_NewEvent()
                 dashboard.add_Class()
-                eventCreationPage.add_EventName('Class1')
+                eventCreationPage.add_EventName('CLASS 45')
                 cy.wait(2000)
                 eventCreationPage.add_Description('This is a Test Class')
                 eventCreationPage.select_duration_time('45 minutes')
                 eventCreationPage.add_Custom_Number_Of_Days(2)
-                eventCreationPage.custom_Start_Time(5)
+                eventCreationPage.custom_Start_Time(6)
                 eventCreationPage.press_Add()
                 cy.get('#w0-success-0').should('contain', 'Events have been created.')
                 //Verify Time Of Event
@@ -90,12 +90,12 @@ describe('Verify Duration time in Events', ()=>{
             else{
                 dashboard.add_NewEvent()
                 dashboard.add_Class()
-                eventCreationPage.add_EventName('Class1')
+                eventCreationPage.add_EventName('CLASS 75')
                 cy.wait(2000)
                 eventCreationPage.add_Description('This is a Test Class')
                 eventCreationPage.select_duration_time('75 minutes')
                 eventCreationPage.add_Custom_Number_Of_Days(2)
-                eventCreationPage.custom_Start_Time(5)
+                eventCreationPage.custom_Start_Time(7)
                 eventCreationPage.press_Add()
                 cy.get('#w0-success-0').should('contain', 'Events have been created.')
                 //Verify Time Of Event
@@ -119,12 +119,12 @@ describe('Verify Duration time in Events', ()=>{
             else{
                 dashboard.add_NewEvent()
                 dashboard.add_Class()
-                eventCreationPage.add_EventName('Class1')
+                eventCreationPage.add_EventName('CLASS 90')
                 cy.wait(2000)
                 eventCreationPage.add_Description('This is a Test Class')
                 eventCreationPage.select_duration_time('90 minutes')
                 eventCreationPage.add_Custom_Number_Of_Days(2)
-                eventCreationPage.custom_Start_Time(5)
+                eventCreationPage.custom_Start_Time(8)
                 eventCreationPage.press_Add()
                 cy.get('#w0-success-0').should('contain', 'Events have been created.')
                 //Verify Time Of Event

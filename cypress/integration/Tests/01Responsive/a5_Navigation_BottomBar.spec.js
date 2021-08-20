@@ -81,7 +81,6 @@ describe('Elements verification in responsive mode for bottom bar options', ()=>
             home.go_To_Blog_From_Bottom()
             cy.get('p').should('be.visible')
             cy.get('.big-post-image-top').should('be.visible')
-            cy.get('.big-post-title-inner > .post-title > a').should('contain','How to Build a Yoga routine')
             cy.url().should('eq', 'https://blog.vivayalive.com/')
         })
 

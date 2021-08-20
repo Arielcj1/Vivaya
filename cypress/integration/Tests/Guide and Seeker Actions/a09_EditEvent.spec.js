@@ -34,7 +34,7 @@ describe('Events Edition from web page', ()=>{
         cy.wait(2000)
         eventCreationPage.add_Description('This is a class test')
         eventCreationPage.add_Custom_Number_Of_Days(2)
-        eventCreationPage.custom_Start_Time(10)
+        eventCreationPage.custom_Start_Time(12)
         eventCreationPage.press_Add()
         cy.get('#w0-success-0').should('contain', 'Events have been created.')
     })

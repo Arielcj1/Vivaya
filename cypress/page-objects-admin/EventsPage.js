@@ -74,12 +74,13 @@ export class EventsPage {
     }
 
     press_Search_Button(){
-        cy.xpath("//button[@class='btn btn-primary']").click()
+        cy.xpath("//button[@class='btn btn-primary']").click({force: true})
     }
     
     //Press the first Eye icon from Even List
     press_First_Eye_Icon(){
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[9]').first().click()
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[9]/a[1]/span').first().click({force: true})
+        
         
     }
 

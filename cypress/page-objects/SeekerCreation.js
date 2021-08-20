@@ -38,7 +38,7 @@ export class SeekerCreation{
     }
     type_ZipCode(value){
         cy.get('.zc-group > .form-control').type(value)
-        cy.get('#stripe-form-submit').click()
+        cy.get('#stripe-form-submit').click({force:true})
     }
 
     seeker_Account(){

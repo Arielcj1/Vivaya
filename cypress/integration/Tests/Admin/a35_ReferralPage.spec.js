@@ -14,7 +14,7 @@ describe('Admin Referral Page', ()=>{
     const seekerCreation = new SeekerCreation()
     const referralPage = new ReferralPage()
     const seekerpage = new SeekerPage()
-    var user = 'pedro.mota0010@gmail.com'
+    var user = '2pedro.mota01@gmail.com'
 
     it('Verify element within Referral page', ()=>{
         commons.open_Admin_Site()
@@ -44,12 +44,13 @@ describe('Admin Referral Page', ()=>{
         seekerCreation.type_Card_ExpDate('0225')
         seekerCreation.type_Security_Code('123')
         seekerCreation.type_ZipCode('1234')
+        cy.wait(1500)
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
-        cy.get('#mainNav > :nth-child(4) > a').click()
+        cy.get('#mainNav > :nth-child(4) > a').click({force: true})
         cy.reload()
         cy.xpath('/html/body/div[2]/div[2]/div[2]/div/div[1]/div/div/div[2]/div/div/a').click({force: true})
-        cy.get('.col-md-12 > .btn').click()
-        cy.get('#stripe-form-submit').click()
+        cy.get('.col-md-12 > .btn').click({force: true})
+        cy.get('#stripe-form-submit').click({force: true})
         cy.wait(1500)
         cy.get('.order-summary').should('contain', 'Purchase Confirmation')
     })

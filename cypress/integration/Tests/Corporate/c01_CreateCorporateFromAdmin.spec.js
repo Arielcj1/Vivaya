@@ -96,6 +96,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         seekerCreation.type_Card_ExpDate('0225')
         seekerCreation.type_Security_Code('123')
         seekerCreation.type_ZipCode('1234')
+        cy.wait(1500)
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
     })
 

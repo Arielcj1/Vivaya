@@ -16,7 +16,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const homePage = new HomePage()
     const guestPage = new GuestPage()
     const seekerCreation = new SeekerCreation()
-    var user = 'guesttest0010@user.com'
+    var user = '3guesttest@user.com'
     
     beforeEach(()=>{
       cy.clearLocalStorage()
@@ -61,6 +61,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       dashboard.select_LogIn_option_from_PopUp()
       commons.set_Seeker_Credentials_One()
       homePage.submit_Credentials()
-      cy.get('#w0-success-0').should('contain', 'Free event has been booked successfully')
+      cy.get('#w0-success-0').should('be.visible')
     })
 })
