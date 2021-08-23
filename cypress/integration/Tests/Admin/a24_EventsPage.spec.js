@@ -126,25 +126,19 @@ describe('Events page', ()=>{
                       ]);
              });    */
              
-        cy.get('#w1 > tbody > :nth-child(5) > th').should('be.visible').and('have.text', 'Started At')
+        cy.get('#w1 > tbody > :nth-child(5) > th').should('be.visible').and('have.text', 'Real Zoom Started At')
         cy.get('#w1 > tbody > :nth-child(5) > td').should('be.visible').and('contains', reDate)
-        cy.get('#w1 > tbody > :nth-child(6) > th').should('be.visible').and('have.text', 'Ended At')
+        cy.get('#w1 > tbody > :nth-child(6) > th').should('be.visible').and('have.text', 'Real Zoom Ended At')
         cy.get('#w1 > tbody > :nth-child(6) > td').should('be.visible').and('contains', reDate)
-        cy.get('#w1 > tbody > tr:nth-child(7) > th').should('be.visible').and('have.text', 'Zoom Started At')
-        cy.get('#w1 > tbody > :nth-child(7) > td').should('be.visible').and('contains', reDate)
-        cy.get(':nth-child(8) > th').should('contain', 'Zoom Ended At')
-        cy.get(':nth-child(8) > td').should('be.visible').and('contains', reDate)
-        cy.get(':nth-child(9) > th').should('contain', 'Guide Participated')
-        cy.get(':nth-child(10) > th').should('contain','Zoom Report Done')
-
-
-        cy.get(':nth-child(10) > td').each(x =>{
+        cy.get('#w1 > tbody > :nth-child(7) > th').should('contain', 'Guide Participated')
+        cy.get(':nth-child(8) > th').should('contain','Zoom Report Done')
+        cy.get('#w1 > tbody > :nth-child(7) > td').each(x =>{
             expect(x.text()).to.be.oneOf([
                 "Yes",
                 "No"
                   ]);
                 }); 
-        cy.get(':nth-child(10) > th').should('be.visible').and('have.text', 'Zoom Report Done')    
+           
         cy.get(':nth-child(3) > .box-header > .box-title').should('be.visible').and('have.text', 'List of seekers registered for event')
         cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(1)').should('be.visible').and('have.text', 'UID')
         cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(2)').and('have.text', 'Full Name')

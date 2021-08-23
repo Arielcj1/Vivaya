@@ -63,8 +63,8 @@ describe('Offering page', ()=>{
         cy.wait(1500)
         for(var e=1; e<=5; e++){
             offeringsPage.select_Offering_New()
-            offeringsPage.type_Offer_name('4child'+e)
-            offeringsPage.type_Offer_slug('4childauto'+e)
+            offeringsPage.type_Offer_name('8child'+e)
+            offeringsPage.type_Offer_slug('8childauto'+e)
             offeringsPage.type_Offer_Content('This is an automation test for a child offer')
             offeringsPage.select_Parent_Offer('Parent')
             offeringsPage.upload_Offer_Picture('guide.jpg')
@@ -83,7 +83,7 @@ describe('Offering page', ()=>{
         offeringsPage.search_The_Last_Offer_Created()// Check wheter we have mora than 10 records
         offeringsPage.select_The_Last_Offer_Created('1') // num 1 for view
         offeringsPage.options_For_Child_Offer('1') // 1 for view, always catch the first child
-        cy.get('.box-title').should('contain', '4child')
+        cy.get('.box-title').should('contain', '8child')
     })
 
     it('Edit a Child offer', ()=>{

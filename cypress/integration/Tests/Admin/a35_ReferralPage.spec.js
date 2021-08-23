@@ -14,7 +14,7 @@ describe('Admin Referral Page', ()=>{
     const seekerCreation = new SeekerCreation()
     const referralPage = new ReferralPage()
     const seekerpage = new SeekerPage()
-    var user = '2pedro.mota01@gmail.com'
+    var user = '111pedro.mota0010@gmail.com'
 
     it('Verify element within Referral page', ()=>{
         commons.open_Admin_Site()
@@ -33,7 +33,7 @@ describe('Admin Referral Page', ()=>{
     it('Go to a Referral Link', ()=>{
         cy.visit('https://stage.vivayalive.com/?referral=611d3879')//referral link of a test user 
         seekerCreation.select_Free_trial_option()
-        seekerCreation.type_First_Name('Auto')
+        seekerCreation.type_First_Name('referral')
         seekerCreation.type_Last_Name('Mation')
         seekerCreation.type_Seeker_Email(user)
         //seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
@@ -46,13 +46,14 @@ describe('Admin Referral Page', ()=>{
         seekerCreation.type_ZipCode('1234')
         cy.wait(1500)
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
-        cy.get('#mainNav > :nth-child(4) > a').click({force: true})
+        cy.get('#mainNav > :nth-child(4) > a').click()
         cy.reload()
         cy.xpath('/html/body/div[2]/div[2]/div[2]/div/div[1]/div/div/div[2]/div/div/a').click({force: true})
-        cy.get('.col-md-12 > .btn').click({force: true})
-        cy.get('#stripe-form-submit').click({force: true})
+        cy.get('.col-md-12 > .btn').click()
+        cy.get('#stripe-form-submit').click()
         cy.wait(1500)
         cy.get('.order-summary').should('contain', 'Purchase Confirmation')
+        cy.wait(1500)
     })
 
     it('Verify the User within Referral Tracking', ()=>{
@@ -82,8 +83,8 @@ describe('Admin Referral Page', ()=>{
         commons.set_Admin_Credentials()
         referralPage.select_Referral_Option()
         referralPage.select_Referral_Referred_Income_Received()
-        //referralPage.type_Email('dianagonzales123.moreno@gmail.com')
-        //referralPage.search_Button()
+        referralPage.type_Email('automation@test.com')
+        referralPage.search_Button()
         //referralPage.select_the_result()
         cy.get('[style="text-align:center;"] > a > .glyphicon').last().click()//delete this line after fix the issue
         cy.get('tbody > tr > :nth-child(6)').should('be.visible')

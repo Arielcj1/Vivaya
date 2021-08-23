@@ -12,7 +12,7 @@ describe('Guest page is displayed correctly', ()=>{
     const commons = new Commons()
     const guestpage = new GuestPage()
     const seekerPage = new SeekerPage()
-    var user = '3guesttest@user.com'
+    var user = '7guesttest@user.com'
 
     beforeEach(()=>{
         commons.open_Admin_Site()

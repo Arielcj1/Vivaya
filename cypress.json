@@ -19,8 +19,8 @@
   "projectId": "2127x7",
 
   
-    "defaultCommandTimeout": 10000,
-    "pageLoadTimeout": 90000,
+    "defaultCommandTimeout": 15000,
+    "pageLoadTimeout": 95000,
   
   
   "retries": {
