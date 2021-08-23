@@ -169,8 +169,12 @@ export class Dashboard{
     }
 
     free_Event_Confirmation(val, val2, val3){
+        cy.wait(500)
+        cy.get('#guest-firstname').click()
         cy.get('#guest-firstname').type(val)
+        cy.wait(500)
         cy.get('#guest-lastname').type(val2)
+        cy.wait(500)
         cy.get('#guest-email').type(val3).wait(2000).type('{enter}')
     }
 

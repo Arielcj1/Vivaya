@@ -16,7 +16,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const homePage = new HomePage()
     const guestPage = new GuestPage()
     const seekerCreation = new SeekerCreation()
-    var user = '7guesttest@user.com'
+    var user = '12guesttest@user.com'
     
     beforeEach(()=>{
       cy.clearLocalStorage()
@@ -25,8 +25,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     it('Book a Free public Event from Dashboard', ()=>{
         dashboard.select_First_FreePublicEvent()
         dashboard.free_Event_Confirmation('Guest', 'User', user)
-        cy.wait(3000)
-        //cy.get('.title-confirmation').should('contain', 'Free Event Confirmation')
+        cy.wait(2000)
+        cy.get('.title-confirmation').should('be.visible')
     })
 
     it('Verify the Guest creation in admin',()=>{

@@ -14,7 +14,7 @@ describe('Admin Referral Page', ()=>{
     const seekerCreation = new SeekerCreation()
     const referralPage = new ReferralPage()
     const seekerpage = new SeekerPage()
-    var user = '111pedro.mota0010@gmail.com'
+    var user = '11111pedro.mota0010@gmail.com'
 
     it('Verify element within Referral page', ()=>{
         commons.open_Admin_Site()
