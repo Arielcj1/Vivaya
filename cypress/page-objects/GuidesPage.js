@@ -72,4 +72,34 @@ export class GuidesPage {
         cy.get('.uname').click({force:true})
         cy.get('#accountNav > ul > li > ul > li:nth-child(3) > a').click({force:true})
     }
+
+    Select_request_OnetoOne(){
+        cy.get('.container > .btn').click({force:true})
+
+    }
+    form_OnetoOne(value){
+        cy.get('#requestoneononeform-offer').select('Power Yoga')
+        //Date
+        const typeDate = cy.get(':nth-child(4) > .col-sm-offset-1 > .form-group > .col-xs-12 > .input-group > .input-group-addon > .glyphicon').click({force:true})
+        cy.get('[data-date="1630713600000"]').click()
+        //time
+        cy.get(':nth-child(4) > :nth-child(2) > .form-group > .col-xs-12 > .bootstrap-timepicker > .input-group-addon').click({force:true})
+        cy.wait(500)
+        for(let n=0; n<value; n++){
+            cy.xpath('//*[@id="request-one-on-one-form"]/div[2]/div[2]/div/div/div/div/table/tbody/tr[1]/td[3]/a').click({force:true})
+        }
+        cy.wait(500)
+        //send
+        cy.get('#RequestOneOnOne').click({force:true})
+
+        
+
+
+       
+
+
+
+    }
+
+           
 }
