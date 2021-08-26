@@ -22,6 +22,17 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.clearLocalStorage()
       commons.open_Web_Site()
     })
+
+    it('Verify validation "GUEST" of the fields from Site', ()=>{
+      dashboard.select_First_FreePublicEvent()
+      cy.get('.text-center > .btn').click({force:true})
+      cy.wait(1000)
+      cy.get('.field-guest-firstname > .col-sm-9 > .help-block').should('contain','First Name cannot be blank.')
+      cy.get('.field-guest-lastname > .col-sm-9 > .help-block').should('contain','Last Name cannot be blank.')
+      cy.get('.field-guest-email > .col-sm-9 > .help-block').should('contain','Email cannot be blank.')
+
+  })
+
     it('Book a Free public Event from Dashboard', ()=>{
         dashboard.select_First_FreePublicEvent()
         dashboard.free_Event_Confirmation('Guest', 'User', user)

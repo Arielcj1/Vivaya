@@ -22,5 +22,12 @@ export class GuestPage {
     guests_Options(value){
         cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/a['+value+']/span').click()
     }
+    type_Guest_Name_clear(value){
+        cy.get('#guest-name').clear()
+    }
+    type_Guest_email_clear(value){
+        cy.get('#guest-email').clear().type('{enter}')
+    }
+
 
 }
