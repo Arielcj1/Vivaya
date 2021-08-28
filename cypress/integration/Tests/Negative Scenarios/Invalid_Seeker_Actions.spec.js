@@ -13,7 +13,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
       
 
-  it('Verify Negative messages in Login page', ()=>{
+  it('Verify messages validations in seeker actions', ()=>{
     commons.open_Web_Site()
     homePage.select_Login()
     cy.get('#loginform-email').type("horcosio@gmail.com")
@@ -33,19 +33,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     //Verify error messages in Contact Vivaya page
     cy.get('.quick-links > :nth-child(3) > :nth-child(2) > a').click()
     cy.get(':nth-child(7) > .btn').click()
+    cy.get('.field-contactform-name > .help-block').should('be.visible').and('have.text', 'Name cannot be blank.')
+    cy.get('.field-contactform-email > .help-block').should('be.visible').and('have.text', 'Email cannot be blank.')
+    cy.get('.field-contactform-subject > .help-block').should('be.visible').and('have.text', 'Subject cannot be blank.')
+    cy.get('.field-contactform-body > .help-block').should('be.visible').and('have.text', 'Body cannot be blank.')
+    cy.get('.field-contactform-verifycode > .help-block').should('be.visible').and('have.text', 'The verification code is incorrect.')
 
 
 })
 
-  it.skip('Verify Negative messages in Free trial page', ()=>{
-    commons.open_Web_Site()
-    cy.get('.menu > :nth-child(1) > .btn').click()
-    cy.get('.form-group.text-center > .btn').click()
-    cy.get('.field-signupform-first_name > .col-md-8 > .help-block').should('be.visible').and('have.text', 'First name cannot be blank.')
-    cy.get('.field-signupform-last_name > .col-md-8 > .help-block').should('be.visible').and('have.text', 'Last name cannot be blank.')
-    cy.get('.field-signupform-email > .col-md-8 > .help-block').should('be.visible').and('have.text', 'Email cannot be blank.')
-    cy.get('.field-signupform-password > .col-md-8 > .help-block').should('be.visible').and('have.text', 'Password cannot be blank.')
-    cy.get('.withoutLeft > .form-group > .col-md-8 > .help-block').should('be.visible').and('have.text', 'You must accept terms and conditions')
-  })  
-
-})  
+}) 
