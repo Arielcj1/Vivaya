@@ -92,13 +92,10 @@ export class GuidesPage {
         //send
         cy.get('#RequestOneOnOne').click({force:true})
 
-        
+    }
 
-
-       
-
-
-
+    select_write_blog(){
+        cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click({force:true})
     }
 
            

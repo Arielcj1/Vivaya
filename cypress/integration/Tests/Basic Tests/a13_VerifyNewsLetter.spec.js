@@ -8,7 +8,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   });
 
-  describe('Tests to confirm the correct rediection to Schedule and elements',()=>{
+  describe('Test for verify the NewsLetter',()=>{
     const homePage = new HomePage()
     const schedulePage = new SchedulePage()
     const commons = new Commons()
@@ -20,11 +20,21 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-        it('Verify the NewsLetter',()=>{
-            homePage.Fill_newsletter('Automation','test','automation@test.com')
-            cy.get('h2.text-center').should('contain', 'Newsletter')
+    it('Verify the NewsLetter',()=>{
+      homePage.Fill_newsletter('Automation','test','automation@test.com')
+      cy.get('h2.text-center').should('contain', 'Newsletter')
            
-    })
+     })
+
+    it('Verify validation of fields of NewsLetter ',()=>{
+      cy.wait(500)
+      cy.scrollTo(0, 800) 
+      cy.get('#subscribe-form > .btn').click({force:true})
+      cy.get('#subscribe-form > .field-subscribeform-firstname > .help-block').should('contain','First Name cannot be blank.')
+      cy.get('#subscribe-form > .field-subscribeform-lastname > .help-block').should('contain','Last Name cannot be blank.')
+      cy.get('#subscribe-form > .field-subscribeform-email > .help-block').should('contain','Email Address cannot be blank.')
+     
+      })
 
     
 
