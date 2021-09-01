@@ -28,6 +28,11 @@ export class EventsPage {
         const todayDate = moment().add(1, 'days').format('MMM-DD-YYYY')
         const typeDate = cy.get('#eventform-startdate').type(todayDate)
     }
+    type_Start_Date_validarion(){//one day more
+        var moment = require('moment');
+        const todayDate = moment().add(0, 'days').format('MMM-DD-YYYY')
+        const typeDate = cy.get('#eventform-startdate').type(todayDate)
+    }
 
     type_Start_Time(value){
         cy.xpath('//*[@id="w0"]/div/div[4]/div/span').click()
@@ -82,6 +87,10 @@ export class EventsPage {
         cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[9]/a[1]/span').first().click({force: true})
         
         
+    }
+
+    select_Add_gallery(){
+        cy.get('.menu-open > .treeview-menu > :nth-child(5) > a').click({force:true})
     }
 
 }
