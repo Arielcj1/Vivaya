@@ -84,5 +84,9 @@ select_First_Event_Upcoming_Section(){
 
 
     }
+    select_First_classnew(){
+        cy.contains('new class').first().should('be.visible')
+        cy.wait(1000)
+    }
 
 }

@@ -20,7 +20,7 @@ describe('Negative scenarios for Promotions', ()=>{
     })
     
     //This test verify the validation fields when a super Admin attemps to create a new Admin
-    it.skip('Validations for Admin user creation',()=>{
+    it('Validations for Admin user creation',()=>{
         cy.get(':nth-child(2) > [href="#"] > :nth-child(2)').click()
         cy.get('.menu-open > .treeview-menu > :nth-child(2) > a > span').click()
         cy.get('.box-footer > .btn').click()
@@ -35,7 +35,7 @@ describe('Negative scenarios for Promotions', ()=>{
 
     })
     //This test verify and validate the fields while Seeker creation from admin
-    it.skip('Validations for Seeker creation',()=>{
+    it('Validations for Seeker creation',()=>{
         cy.get(':nth-child(3) > [href="#"] > :nth-child(2)').click()
         cy.get('.menu-open > .treeview-menu > :nth-child(2) > a > span').click()
         cy.get('.box-footer > .btn').click()

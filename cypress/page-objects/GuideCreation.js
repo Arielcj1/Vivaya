@@ -61,14 +61,15 @@ export class GuideCreation {
         cy.get('#guideapplicationstep4-about_me').type('information about automation')
         cy.get('#guideapplicationstep4-mantra').type('persona mantra - automation')
         cy.get('#w0').attachFile('guidecreate.png')
+        cy.wait(2000)
         cy.get('#guideapplicationstep4-philosophy').type('Philosophy-automation')
-        cy.wait(500)
+        cy.wait(1000)
         //social media
         cy.get('#guideapplicationstep4-facebook_url').type('https://www.facebook.com')
         cy.get('#guideapplicationstep4-twitter_url').type('https://www.twitter.com')
         cy.get('#guideapplicationstep4-linkedin_url').type('https://www.linkedn.com')
         cy.get('#guideapplicationstep4-instagram_url').type('https://www.instagram.com')
-        cy.wait(500)
+        cy.wait(1000)
         cy.get('.next').click({force:true})
     }
 
@@ -76,8 +77,9 @@ export class GuideCreation {
         var moment = require('moment');
         const todayDate = moment().add(200, 'days').format('MMM-DD-YYYY')
         cy.get('#step5-form').find('input[type=file]').attachFile('guidecreate.png')
+        cy.wait(3500)
         cy.get('#guideapplicationstep5-insurance_expiry_date').type(todayDate)
-        cy.wait(1500)
+        cy.wait(2500)
         cy.get('.text-center > .next').click({force:true})
     }
 

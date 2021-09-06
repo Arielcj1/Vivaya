@@ -18,11 +18,12 @@ describe('Events page', ()=>{
     const eventCreationPage = new EventCreationPage()
 
     beforeEach(()=>{
-        commons.open_Admin_Site()
-        commons.set_Admin_Credentials()
+        
     })
 
     it('Verify all elements within the Events page',()=>{
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
         eventsPage.select_Events_Option()
         eventsPage.select_Events_List()
         //Verify elements in the Events page
@@ -58,6 +59,8 @@ describe('Events page', ()=>{
     })
 
     it('Verify Event Detail page from Events main page',()=>{
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
         eventsPage.select_Events_Option()
         eventsPage.select_Events_List()
         eventsPage.press_First_Eye_Icon()
@@ -148,7 +151,7 @@ describe('Events page', ()=>{
  
     })
 
-    it('Create an Event from Web, locate and Delete from Admin',()=>{
+    it('Create an Event from Web',()=>{
         commons.open_Web_Site()
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
@@ -159,13 +162,26 @@ describe('Events page', ()=>{
         eventCreationPage.add_EventName('Super Event')
         cy.wait(2000)
         eventCreationPage.add_Description('This is a Test Class')
-        eventCreationPage.add_Custom_Number_Of_Days(5)
+        eventCreationPage.add_Custom_Number_Of_Days(0)
         eventCreationPage.custom_Start_Time(2)
         eventCreationPage.press_Add()
         cy.get('#w0-success-0').should('contain', 'Events have been created.')
+          
+    })
 
-        //Go to Admin, locate and delete
+    it('Verify the TAG "New Class"',()=>{
+        
+        commons.open_Web_Site()
+        cy.get('#mainNav > :nth-child(2) > a').click({force:true})
+        homePage.select_First_classnew()
+
+          
+    })
+
+    it('Delete an Event from Admin',()=>{
         commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
+        //Go to Admin, locate and delete
         eventsPage.select_Events_Option()
         eventsPage.select_Events_List()
         eventsPage.type_EventName_To_Search('Super Event')
@@ -176,13 +192,13 @@ describe('Events page', ()=>{
         eventsPage.type_EventName_To_Search('Super Event')
         eventsPage.press_Search_Button()
         cy.get('#w1 > table > tbody > tr > td > div').should('be.visible').and('contain.text', 'No results found.')
-
-        
-
+      
     })
 
 
     it('Create a Free Public Event', ()=>{
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
         eventsPage.select_Events_Option()
         eventsPage.select_Events_New()
         eventsPage.type_Event_Name('Free public Event')
@@ -198,6 +214,8 @@ describe('Events page', ()=>{
 
     
     it('Edit a Free Public Event', ()=>{
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
         eventsPage.select_Events_Option()
         eventsPage.select_Events_List()
         //eventsPage.find_Element_List_Events('2', 'Free public Event') // option 2 is used for edition
@@ -211,6 +229,8 @@ describe('Events page', ()=>{
     })
 
     it('Create a Free Event', ()=>{
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
         eventsPage.select_Events_Option()
         eventsPage.select_Events_New()
         eventsPage.type_Event_Name('Free Event')
@@ -226,6 +246,8 @@ describe('Events page', ()=>{
     })
 
     it('Edit a Free Event', ()=>{
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
         eventsPage.select_Events_Option()
         eventsPage.select_Events_List()
         eventsPage.find_Event('Free Event', '2') // option 2 is used for edition

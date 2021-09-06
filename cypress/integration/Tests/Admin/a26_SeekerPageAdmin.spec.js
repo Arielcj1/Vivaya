@@ -41,16 +41,16 @@ describe('Seeker Page admin', ()=>{
         //Verify List of Seekers Elements
         cy.get('.box > :nth-child(3) > :nth-child(2)').should('be.visible').and('have.text', 'List')
         cy.get('[style="width:50px;"]').should('be.visible').and('have.text', 'ID')
-        cy.get('tr > :nth-child(2) > a').should('be.visible').and('have.text', 'First name')
-        cy.get('tr > :nth-child(3) > a').should('be.visible').and('have.text', 'Last name')
+        cy.get('tr > :nth-child(2) > a').should('be.visible').and('have.text', 'First Name')
+        cy.get('tr > :nth-child(3) > a').should('be.visible').and('have.text', 'Last Name')
         cy.get('tr > :nth-child(4) > a').should('be.visible').and('have.text', 'Email')
-        cy.get('tr > :nth-child(5) > a').should('contain', 'Phone number')
+        cy.get('tr > :nth-child(5) > a').should('contain', 'Phone Number')
         cy.get('tr > :nth-child(6) > a').should('be.visible').and('have.text', 'Registration Date')
-        cy.get('tr > :nth-child(7) > a').should('be.visible').and('have.text', 'Auto renewal')
-        cy.get('[style="text-align:center;width:140px;color:#3c8dbc;"]').should('be.visible').and('have.text', 'Auto renewal canceled')
+        cy.get('tr > :nth-child(7) > a').should('be.visible').and('have.text', 'Auto Renewal')
+        cy.get('[style="text-align:center;width:140px;color:#3c8dbc;"]').should('be.visible').and('have.text', 'Auto Renewal Canceled')
         cy.get('[style="text-align:center;width:160px;color:#3c8dbc;"]').should('be.visible').and('have.text', 'Free Trial Registration Status')
         cy.get('tr > :nth-child(10) > a').should('be.visible').and('have.text', 'Admin Status')
-        cy.get('tr > :nth-child(11) > a').should('be.visible').and('have.text', 'Corporate')
+        cy.get('thead > tr > :nth-child(11)').should('contain', 'Corporate')
     })
 
     it('Seeker creation from admin',()=>{

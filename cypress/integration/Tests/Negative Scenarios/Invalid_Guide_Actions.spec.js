@@ -7,13 +7,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   });
 
-  describe('Negative scenarios for Login and Users creation', ()=>{
+  describe('Negative scenarios for Login and Guide creation', ()=>{
     const commons = new Commons()
     const homePage = new HomePage()
 
       
 
-  it('Verify messages validations in seeker actions', ()=>{
+  it('Verify messages validations in Guide actions', ()=>{
     commons.open_Web_Site()
     homePage.select_Login()
     cy.get('#loginform-email').type("manurex@manu.com")
