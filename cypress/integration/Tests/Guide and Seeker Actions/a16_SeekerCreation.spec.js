@@ -51,7 +51,7 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         homePage.select_Login()
         commons.set_Generic_Seeker('pedrasasmota.luis@gmail.com', 'password')
         seekerCreation.seeker_Account()
-        seekerCreation.seeker_Account_Edition('AutoEdited','MationEdition','Address1','Address2','Cochabamba','Bolivia','13452')
+        seekerCreation.seeker_Account_Edition('AutoEdited','MationEdition')
     })
 
     it('Verify that Seeker changes to Guide', ()=>{
@@ -62,10 +62,10 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         guidecreation.fill_class_for_guide('5','5')
         guidecreation.fill_class_choose('3','3')
         cy.wait(1500)
-        guidecreation.Check_type_of_class()
+        //guidecreation.Check_type_of_class()
         guidecreation.Fill_information_guide()
-        guidecreation.fill_Liability_Insurance()
-        cy.wait(2000)
+        //guidecreation.fill_Liability_Insurance()
+        //cy.wait(2000)
         cy.get('h1.text-center').should('be.visible')
         // go to seeker
         guideweb.Select_Switch_to_seeker()

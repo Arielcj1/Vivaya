@@ -27,27 +27,36 @@ export class GuideCreation {
         cy.get('#guideapplicationstep1offer-1-offer_id').select('Chakra Meditation')
         cy.get('#guideapplicationstep1offer-1-years_teaching').type(val5)
         cy.get('#guideapplicationstep1offer-1-certified').click()
+        cy.get('.btn-default').click({froce:true})
+        cy.wait(400)
+        cy.get('#w0-success-0').should('be.visible')
         cy.get('.next').click({force:true})
         
     }
     fill_class_choose(val6, val7){
         //YOGA
-        cy.get('#step2-form > :nth-child(4)').find('input[type=file]').attachFile('guide.jpg')
+        
+        cy.get('#step2-form > :nth-child(4)').xpath('/html/body/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[1]/div/input').type('AutomationYoga')
         cy.wait(500)
-        cy.get('#step2-form > :nth-child(4)').xpath('/html/body/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/input').type('AutomationYoga')
-        cy.wait(500)
-        cy.get('#step2-form > :nth-child(4)').xpath('/html/body/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[3]/div/input').type(val6)
+        cy.get('#step2-form > :nth-child(4)').xpath('/html/body/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[2]/div/input').type(val6)
         cy.wait(1000)
         cy.get('#step2-form > :nth-child(4)').find('input[type=checkbox]').click({force:true})
         //MEditation
-        cy.get('#step2-form > :nth-child(6)').find('input[type=file]').attachFile('guide.jpg')
+        
+        cy.get('#step2-form > :nth-child(6)').xpath('/html/body/div[2]/div[2]/div/form/div[2]/div/div[1]/div/div[1]/div/input').type('AutomationMeditation')
         cy.wait(500)
-        cy.get('#step2-form > :nth-child(6)').xpath('/html/body/div[2]/div[2]/div/form/div[2]/div/div[1]/div/div[2]/div/input').type('AutomationMeditation')
-        cy.wait(500)
-        cy.get('#step2-form > :nth-child(6)').xpath('/html/body/div[2]/div[2]/div/form/div[2]/div/div[1]/div/div[3]/div/input').type(val7)
+        cy.get('#step2-form > :nth-child(6)').xpath('/html/body/div[2]/div[2]/div/form/div[2]/div/div[1]/div/div[2]/div/input').type(val7)
         cy.wait(1000)
         cy.get('#step2-form > :nth-child(6)').find('input[type=checkbox]').click({force:true})
+        
+
+        //Liability
+        cy.get('#guideapplicationstep2-liability_insurance').check()
+        cy.get('.btn-default').click({force:true})
+        cy.wait(300)
+        cy.get('#w0-success-0').should('be.visible')
         cy.get('.next').click({force:true})
+
     }
 
     Check_type_of_class(){
@@ -69,7 +78,14 @@ export class GuideCreation {
         cy.get('#guideapplicationstep4-twitter_url').type('https://www.twitter.com')
         cy.get('#guideapplicationstep4-linkedin_url').type('https://www.linkedn.com')
         cy.get('#guideapplicationstep4-instagram_url').type('https://www.instagram.com')
-        cy.wait(1000)
+        cy.get('#guideapplicationstep4-video_url').type('https://www.youtube.com')
+        cy.get('#guideapplicationstep4-terms').check()
+        cy.wait(1200)
+        cy.get('.form-group.text-center > .btn-default').click({force:true})
+        cy.wait(300)
+        cy.get('#w1-success-0').should('be.visible')
+
+        cy.get('#guideapplicationstep4-terms').check()
         cy.get('.next').click({force:true})
     }
 

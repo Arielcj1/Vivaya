@@ -30,10 +30,10 @@ describe('Guide creation, Edition from Vivaya page', ()=>{
         guidecreation.fill_Form_For_Guide('Auto','Guide','tomascoca39@gmail.com','2019789745')
         guidecreation.fill_class_for_guide('5','5')
         guidecreation.fill_class_choose('3','3')
-        guidecreation.Check_type_of_class()
+        //guidecreation.Check_type_of_class()
         guidecreation.Fill_information_guide()
-        guidecreation.fill_Liability_Insurance()
-        cy.wait(2500)
+        //guidecreation.fill_Liability_Insurance()
+        //cy.wait(2500)
         cy.get('h1.text-center').should('be.visible')
     })
     it('Activate Guia', ()=>{
