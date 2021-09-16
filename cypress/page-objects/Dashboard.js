@@ -100,7 +100,7 @@ export class Dashboard{
     }
 
     select_Edit_Contact_Info(){
-        cy.get('.quick-links > :nth-child(4) > :nth-child(3) > a').click()
+        cy.get('.quick-links > :nth-child(4) > :nth-child(2) > a').click({force:true})
     }
 
     select_Edit_Profile_Left_Section(){

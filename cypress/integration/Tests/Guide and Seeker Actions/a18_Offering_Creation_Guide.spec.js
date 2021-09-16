@@ -27,7 +27,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         offeringpage.Select_Offering('Kula Yoga')
         offeringpage.type_Years_Teaching('3')
         offeringpage.check_Certified()
-        offeringpage.upload_File()
+        //offeringpage.upload_File()
         offeringpage.name_of_Program('Kula')
         offeringpage.number_Of_Hours('2')
         cy.get('#w0-success-0').should('contain', 'Offer successfully submited')

@@ -54,9 +54,9 @@ describe('Negative scenarios for Promotions', ()=>{
         cy.get('.field-guide-about_me > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'About Me cannot be blank.')
         cy.get('.field-guide-mantra > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'Mantra cannot be blank.')
         cy.get('.field-guide-uploadedpicture > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'Guide Picture cannot be blank.')
-        cy.get('.field-guide-uploadedinsurance > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'Liability Insurance cannot be blank.')
-        cy.get('.field-guide-insurance_expiry_date > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'Insurance Expiry Date cannot be blank.')
-        cy.get('.field-guide-provide_classes > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'You have to select at least 1 option that the guide will provide')
+        //cy.get('.field-guide-uploadedinsurance > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'Liability Insurance cannot be blank.')
+        //cy.get('.field-guide-insurance_expiry_date > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'Insurance Expiry Date cannot be blank.')
+        //cy.get('.field-guide-provide_classes > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'You have to select at least 1 option that the guide will provide')
         
         cy.get('.field-user-first_name > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'First Name cannot be blank.')
         cy.get('.field-user-last_name > .col-sm-6 > .help-block').should('be.visible').and('have.text', 'Last Name cannot be blank.')

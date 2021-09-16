@@ -81,7 +81,7 @@ export class GuidesPage {
         cy.get('#requestoneononeform-offer').select('Power Yoga')
         //Date
         const typeDate = cy.get(':nth-child(4) > .col-sm-offset-1 > .form-group > .col-xs-12 > .input-group > .input-group-addon > .glyphicon').click({force:true})
-        cy.get('[data-date="1630713600000"]').click()
+        cy.get('[data-date="1633737600000"]').click({force:true})
         //time
         cy.get(':nth-child(4) > :nth-child(2) > .form-group > .col-xs-12 > .bootstrap-timepicker > .input-group-addon').click({force:true})
         cy.wait(500)
