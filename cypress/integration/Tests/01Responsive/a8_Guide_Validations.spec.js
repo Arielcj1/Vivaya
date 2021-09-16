@@ -29,7 +29,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           commons.login_As_Guide_Mobile()
         })
 
-        it.skip('Verify validations in Guide Dashboard while creating a class', ()=>{
+        it('Verify validations in Guide Dashboard while creating a class', ()=>{
             cy.get(':nth-child(3) > .btn').click()
             cy.get('[href="/events/class/create"]').click()
 
@@ -51,7 +51,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
             cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Custom Dates cannot be blank.')
         })
 
-        it.skip('Verify validations in Guide Dashboard while creating a workshop', ()=>{
+        it('Verify validations in Guide Dashboard while creating a workshop', ()=>{
           cy.get(':nth-child(3) > .btn').click()
           cy.get('[href="/events/workshop/create"]').click()
           cy.get('#btnCreateEvent').click()
@@ -71,7 +71,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
 
         })  
 
-        it.skip('Verify validations in Guide Dashboard while creating a 1-1', ()=>{
+        it('Verify validations in Guide Dashboard while creating a 1-1', ()=>{
           cy.get(':nth-child(3) > .btn').click()
           cy.get('[href="/events/1-on-1/create"]').click()
           cy.get('#btnCreateEvent').click()
@@ -92,7 +92,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
 
         })  
 
-        it.skip('Verify validations in Guide Dashboard while creating a seminar event', ()=>{
+        it('Verify validations in Guide Dashboard while creating a seminar event', ()=>{
           cy.get(':nth-child(3) > .btn').click()
           cy.get('[href="/events/seminar/create"]').click()
           cy.get('#btnCreateEvent').click()
