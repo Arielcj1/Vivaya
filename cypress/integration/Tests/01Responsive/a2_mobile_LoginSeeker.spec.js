@@ -26,9 +26,9 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
             cy.get('.user-item').click()
             cy.get('.menu-item-expanded > .menu > :nth-child(1) > a').should('be.visible').and('contain.text', 'Dashboard')
             cy.get('.menu > :nth-child(2) > a').should('be.visible').and('contain.text', 'Account')
-            cy.get('.menu > :nth-child(3) > a').should('be.visible').and('contain.text', 'Switch to Guide Profile')
+            //cy.get('.menu > :nth-child(3) > a').should('be.visible').and('contain.text', 'Switch to Guide Profile')
             cy.get('#modal-btn-referral').should('be.visible').and('contain.text', 'Referral Link')
-            cy.get(':nth-child(5) > form > .btn').should('be.visible').and('contain.text', 'Logout')
+            cy.get(':nth-child(4) > form > .btn').should('be.visible').and('contain.text', 'Logout')
             cy.wait(2000)
             cy.get('.user-item').click()
 
@@ -46,7 +46,7 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
             cy.get('.quick-links > :nth-child(3) > :nth-child(1)').should('be.visible').and('have.text', 'Shopping Cart')
             cy.get('.quick-links > :nth-child(3) > :nth-child(2)').should('be.visible').and('have.text', 'Contact VIVAYA')
             cy.get(':nth-child(3) > :nth-child(3) > a').should('be.visible').and('have.text', 'Payment Information')
-            cy.get('.quick-links > :nth-child(4) > :nth-child(1) > a').should('be.visible').and('have.text', 'Switch to Guide Profile')
+            //cy.get('.quick-links > :nth-child(4) > :nth-child(1) > a').should('be.visible').and('have.text', 'Switch to Guide Profile')
             cy.get('#referral-status-link').should('be.visible').and('have.text', 'My Referral')
 
             cy.get('.col-sm-9 > .your-success > h3').should('be.visible').and('contain.text', 'Your Free Trial')

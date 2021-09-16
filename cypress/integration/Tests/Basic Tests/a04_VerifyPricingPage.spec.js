@@ -57,12 +57,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         pricingPage.select_Suscribe_Monthly_5Pack()
         cy.wait(2000)
         cy.get('.remove-button').click()
+        cy.wait(500)
         cartPage.confirm_Remove_From_Cart()
         pricingPage.select_Pricing_When_Login()
         cy.scrollTo(0, 800)
         pricingPage.buy_5Pack_Package({force:true})
         cy.wait(2000)
         cy.get('.remove-button').click({force:true})
+        cy.wait(500)
         cartPage.confirm_Remove_From_Cart()
 
 

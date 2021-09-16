@@ -19,7 +19,7 @@ export class OfferingsPage {
         cy.get('#offer-slug').clear().type(value)
     }
     type_Offer_Content(value){
-        cy.iframe('.cke_wysiwyg_frame').click()
+        cy.iframe('.cke_wysiwyg_frame').click({force:true})
         cy.iframe('.cke_wysiwyg_frame').clear().type(value)
     }
     select_Parent_Offer(value){

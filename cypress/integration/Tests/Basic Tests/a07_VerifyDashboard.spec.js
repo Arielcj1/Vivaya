@@ -61,9 +61,9 @@ describe('Verify the Elements within Dashboard', ()=>{
         dashBoard.select_Edit_My_Offerings()
         cy.url().should('eq', 'https://stage.vivayalive.com/account/offerings')
 
-        cy.go('back')
-        dashBoard.select_Update_LInsurance()
-        cy.url().should('eq', 'https://stage.vivayalive.com/account/liability-insurance')
+        //cy.go('back')
+        //dashBoard.select_Update_LInsurance()
+        //cy.url().should('eq', 'https://stage.vivayalive.com/account/liability-insurance')
 
         cy.go('back')
         dashBoard.select_Edit_Password()
