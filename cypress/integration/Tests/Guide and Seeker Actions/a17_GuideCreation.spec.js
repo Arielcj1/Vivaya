@@ -33,7 +33,7 @@ describe('Guide creation, Edition from Vivaya page', ()=>{
         //guidecreation.Check_type_of_class()
         guidecreation.Fill_information_guide()
         //guidecreation.fill_Liability_Insurance()
-        //cy.wait(2500)
+        cy.wait(1000)
         cy.get('h1.text-center').should('be.visible')
     })
     it('Activate Guia', ()=>{

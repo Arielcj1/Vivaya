@@ -22,6 +22,9 @@ export class Dashboard{
 
     }
 
+    select_toolkit(){
+        cy.get(':nth-child(6) > .col-sm-4 > a').click({force:true})
+    }
 
     add_Workshop(){
         const selectWorkshop = cy.get('[href="/events/workshop/create"]').click({force:true})

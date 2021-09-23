@@ -80,9 +80,9 @@ export class GuideCreation {
         cy.get('#guideapplicationstep4-instagram_url').type('https://www.instagram.com')
         cy.get('#guideapplicationstep4-video_url').type('https://www.youtube.com')
         cy.get('#guideapplicationstep4-terms').check()
-        cy.wait(1200)
+        cy.wait(2000)
         cy.get('.form-group.text-center > .btn-default').click({force:true})
-        cy.wait(300)
+        cy.wait(500)
         cy.get('#w1-success-0').should('be.visible')
 
         cy.get('#guideapplicationstep4-terms').check()

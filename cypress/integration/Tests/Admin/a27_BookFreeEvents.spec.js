@@ -57,8 +57,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       seekerCreation.type_First_Name('Guest')
       seekerCreation.type_Last_Name('User')
       seekerCreation.type_Seeker_Email(user)
+      cy.wait(500)
       //seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
       seekerCreation.marking_Checkbox()
+      cy.wait(500)
       seekerCreation.type_Seeker_Password('password') //always password as last step because it has the Submit option
       seekerCreation.type_Card_Name('Guest User')
       seekerCreation.type_Card_Number('4242424242424242')
