@@ -41,7 +41,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     it('Verify validation "coporate name" from Site',()=>{
         commons.open_Web_Site()
         corporate.select_Corporate_As_Loggedout()
-        corporate.type_Corporate_Email('manu@automation.com')
+        corporate.type_Corporate_Email('manu1@automation.com')
         corporate.select_register_Now()
         corporate.type_First_Name('manu')
         corporate.type_Last_Name('automation')
