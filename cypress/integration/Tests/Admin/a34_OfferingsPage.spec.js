@@ -64,7 +64,9 @@ describe('Offering page', ()=>{
         for(var e=1; e<=5; e++){
             offeringsPage.select_Offering_New()
             offeringsPage.type_Offer_name('9child'+e)
+            cy.wait(200)
             offeringsPage.type_Offer_slug('9childauto'+e)
+            cy.wait(200)
             offeringsPage.type_Offer_Content('This is an automation test for a child offer')
             offeringsPage.select_Parent_Offer('Parent')
             offeringsPage.upload_Offer_Picture('guide.jpg')

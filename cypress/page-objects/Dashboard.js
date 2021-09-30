@@ -182,7 +182,8 @@ export class Dashboard{
     }
 
     free_event_Free_Trial(){
-        cy.xpath('//*[@id="modalHeader"]/div/div/a[3]').click({force:true})
+       // cy.xpath('//*[@id="modalHeader"]/div/div/a[3]').click({force:true})
+        cy.get('.free-event-success > .btn').click({force:true})
     }
 
     /*go_To_Home_Page(){
