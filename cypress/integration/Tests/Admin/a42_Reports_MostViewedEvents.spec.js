@@ -33,17 +33,17 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('[data-key="0"] > :nth-child(2) > a').click()
         cy.url().should('include', '/events/view?id=')
         cy.go('back')
-        cy.get('thead > tr > :nth-child(3)').should('be.visible').and('have.text', 'Start Date')
-        cy.get('[data-key="0"] > :nth-child(3)').should('be.visible')
-        cy.get('thead > tr > :nth-child(4)').should('be.visible').and('have.text', 'Guide Name')
-        cy.get('[data-key="0"] > :nth-child(4)').contains(/[a-zA-Z0-9&._-]/)
-        cy.get('thead > tr > :nth-child(5)').should('be.visible').and('have.text', 'Free Seekers Participated')
-        cy.get('[data-key="0"] > :nth-child(5)').contains(/^[0-9]*$/)
-        cy.get('thead > tr > :nth-child(6)').should('be.visible').and('have.text', 'Seekers Participated')
+        cy.get('tr > :nth-child(4) > a').should('contain','Start Date')
+        cy.get('[data-key="0"] > :nth-child(4)').should('be.visible')
+        cy.get('tr > :nth-child(5) > a').should('be.visible').and('have.text', 'Guide Name')
+        cy.get('[data-key="0"] > :nth-child(5)').contains(/[a-zA-Z0-9&._-]/)
+        cy.get('tr > :nth-child(6) > a').should('be.visible').and('have.text', 'Free Seekers Participated')
         cy.get('[data-key="0"] > :nth-child(6)').contains(/^[0-9]*$/)
-        cy.get('thead > tr > :nth-child(7)').should('be.visible').and('have.text', 'Type')
+        cy.get('tr > :nth-child(7) > a').should('be.visible').and('have.text', 'Seekers Participated')
+        cy.get('[data-key="0"] > :nth-child(7)').contains(/^[0-9]*$/)
+        cy.get('tr > :nth-child(8) > a').should('be.visible').and('have.text', 'Type')
 
-        cy.get('[data-key="0"] > :nth-child(7)').each(x => {
+        cy.get('[data-key="0"] > :nth-child(8)').each(x => {
           expect(x.text()).to.be.oneOf([
             "Class",
             "Workshop",

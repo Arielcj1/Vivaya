@@ -58,7 +58,7 @@ export class Commons {
 
     login_As_Guide_Mobile(){
         cy.get('.open').click()
-        cy.get('#mainNav > .hidden-lg > a').click()
+        cy.get('#mainNav > .hidden-lg > a').click({force:true})
         cy.get('#loginform-email').type('manurex@manu.com')
         cy.get('#loginform-password').type('perrodelmal')
         cy.get('.col-sm-8 > .btn').click()

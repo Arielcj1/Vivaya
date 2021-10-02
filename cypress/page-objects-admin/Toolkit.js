@@ -9,7 +9,7 @@ export class Toolkit {
     }
     
     create_folder_toolkit(value){
-        cy.get('.box-header > button.btn').click({force:true})
+        cy.get('#modal-btn-toolkit').click({force:true})
         cy.get('#folder-name').type(value)
         cy.get('.modal-footer > .btn-primary').click({force:true})
     }

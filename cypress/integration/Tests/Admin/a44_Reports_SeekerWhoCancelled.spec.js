@@ -49,7 +49,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('thead > tr > :nth-child(6)').should('be.visible').and('have.text', 'Autopayment')
         cy.get('[data-key="0"] > :nth-child(6)').contains(/[a-zA-Z0-9&._-]/)
         cy.get('thead > tr > :nth-child(7)').should('be.visible').and('have.text', 'Canceled Date')
-        cy.get('#w1 > :nth-child(2)').should('be.visible')
+        //cy.get('#w1 > :nth-child(2)').should('be.visible')
         cy.get('.summary').should('be.visible')
     })
   })    
