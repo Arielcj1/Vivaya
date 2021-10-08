@@ -91,7 +91,7 @@ export class Dashboard{
     }
 
     select_Edit_My_Offerings(){
-        cy.get('.quick-links > :nth-child(3) > :nth-child(2) > a').click()
+        cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click()
     }
 
     select_Update_LInsurance(){
@@ -99,11 +99,11 @@ export class Dashboard{
     }
 
     select_Edit_Password(){
-        cy.get('.quick-links > :nth-child(3) > :nth-child(3) > a').click()
+        cy.get('.quick-links > :nth-child(3) > :nth-child(2) > a').click()
     }
 
     select_Edit_Contact_Info(){
-        cy.get('.quick-links > :nth-child(4) > :nth-child(2) > a').click({force:true})
+        cy.get('.quick-links > :nth-child(2) > :nth-child(3) > a').click({force:true})
     }
 
     select_Edit_Profile_Left_Section(){

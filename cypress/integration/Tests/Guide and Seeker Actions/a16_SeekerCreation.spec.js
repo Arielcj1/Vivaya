@@ -39,6 +39,8 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         seekerCreation.type_Security_Code('123')
         seekerCreation.type_ZipCode('1234')
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+        cy.wait(500)
+        cy.get('h1').should('contain','Schedule')
     })
 
     it('Verify Membership selected on seeker page', ()=>{

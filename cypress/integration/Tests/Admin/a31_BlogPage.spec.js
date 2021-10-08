@@ -16,7 +16,7 @@ describe('Guest page is displayed correctly', ()=>{
         commons.set_Admin_Credentials()
     })
 
-    it('Verify elements within Blog Page', ()=>{
+    it.skip('Verify elements within Blog Page', ()=>{
         blogPage.select_Blog_Option()
         blogPage.select_Blog_List()
         cy.get('h1').should('contain', 'Blog')
@@ -29,7 +29,7 @@ describe('Guest page is displayed correctly', ()=>{
         cy.get('.box-tools > .btn').should('contain', 'Write new')
     })
 
-    it('Write a new Blog' ,()=>{
+    it.skip('Write a new Blog' ,()=>{
         blogPage.select_Blog_Option()
         blogPage.select_Blog_WriteNew()
         blogPage.type_WriteNew_title('Automation')
@@ -42,7 +42,7 @@ describe('Guest page is displayed correctly', ()=>{
         cy.get('#w2-success').should('be.visible')
     })
 
-    it('Search a new Blog' ,()=>{
+    it.skip('Search a new Blog' ,()=>{
         blogPage.select_Blog_Option()
         blogPage.select_Blog_List()
         blogPage.search_by_title('Automation')
@@ -51,7 +51,7 @@ describe('Guest page is displayed correctly', ()=>{
 
     })
 
-    it('Edit a new Blog' ,()=>{
+    it.skip('Edit a new Blog' ,()=>{
         blogPage.select_Blog_Option()
         blogPage.select_Blog_List()
         blogPage.search_by_title('Automation')
@@ -68,7 +68,7 @@ describe('Guest page is displayed correctly', ()=>{
 
     })
 
-    it('Change the Status to Pending' ,()=>{
+    it.skip('Change the Status to Pending' ,()=>{
         blogPage.select_Blog_Option()
         blogPage.select_Blog_List()
         blogPage.search_by_title('Automation Edit')
@@ -83,7 +83,7 @@ describe('Guest page is displayed correctly', ()=>{
 
     })
 
-    it('Delete a new Blog' ,()=>{
+    it.skip('Delete a new Blog' ,()=>{
         blogPage.select_Blog_Option()
         blogPage.select_Blog_List()
         blogPage.search_by_title('Automation Edit')

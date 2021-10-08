@@ -125,5 +125,15 @@ export class EventCreationPage {
 
     }
 
+    select_Repeater_customdate(){
+        cy.get('#eventform-repeats').select('Select Custom')
+    }
+
+    add_Custom_date(value){
+        var moment = require('moment');
+        const customDate = moment().add(value, 'days').format('MMM-DD-YYYY')
+        const typeDate = cy.get('#w0').clear().type(customDate+'{enter}')
+    }
+
 
 }

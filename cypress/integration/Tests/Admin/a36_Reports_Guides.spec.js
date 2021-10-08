@@ -10,56 +10,13 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
     const commons = new Commons()
     const reports = new ReportsTab()
 
-   /* beforeEach(()=>{
+    beforeEach(()=>{
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
-    })*/
-
-    it('Verify Guide Reports manin page',()=>{
-        cy.visit('https://admin.stage.vivayalive.com')
-        cy.get('#loginform-email').type("manu@manu.com")
-        cy.wait(2000)
-        cy.get('#loginform-password').clear().type("perrodelmal")
-        cy.get('.btn').click()
-
-        
-        reports.select_Reports_Tab()
-        reports.select_Guides_Option()
-        //Search a guide in a custom date
-        cy.get('#reportssearch-first_name').type('Harvey')
-        cy.get('#reportssearch-fromdate').click()
-        cy.get('#reportssearch-fromdate').clear()
-        cy.get('#reportssearch-fromdate').type('01-01-2021')
-        //reports.custom_Date_From_Date_Guide()
-        cy.get('.box-footer > .btn').click()
-
-        cy.get('h1').should('contain', 'Reports')
-        cy.get(':nth-child(1) > :nth-child(1) > .form-group > .control-label').should('be.visible').and('have.text', 'First Name')
-        cy.get('#reportssearch-first_name').should('be.visible')
-        cy.get(':nth-child(2) > .form-group > .control-label').should('be.visible').and('have.text', 'Last Name')
-        cy.get('#reportssearch-last_name').should('be.visible')
-        cy.get(':nth-child(3) > .form-group > .control-label').should('be.visible').and('have.text', 'From Date')
-        cy.get('#reportssearch-fromdate').should('be.visible')
-        cy.get(':nth-child(4) > .form-group > .control-label').should('be.visible').and('have.text', 'To Date')
-        cy.get('#reportssearch-todate').should('be.visible')
-        cy.get(':nth-child(2) > .col-sm-3 > .form-group > .control-label').should('be.visible').and('have.text', 'Email')
-        cy.get('#reportssearch-email').should('be.visible')
-        cy.get('.box-footer > .btn').should('be.visible').and('have.text', 'Search')
-        cy.get('body > div > div > section.content > div > div > div > div > div:nth-child(3) > h3').should('have.text','List')
-        cy.get('[style="width:50px;"] > a').should('be.visible').and('have.text', 'User ID')
-        cy.get('thead > tr > :nth-child(2)').should('be.visible').and('have.text', 'First Name')
-        cy.get('thead > tr > :nth-child(3)').should('be.visible').and('have.text', 'Last Name')
-        cy.get('thead > tr > :nth-child(4)').should('be.visible').and('have.text', 'Email')
-        cy.get('thead > tr > [style="text-align:center;"]').should('be.visible').and('have.text', 'Earned cash')
-    
     })
 
+    
     it('Verify Guide Report details page ', ()=>{
-        cy.visit('https://admin.stage.vivayalive.com')
-        cy.get('#loginform-email').type("manu@manu.com")
-        cy.wait(2000)
-        cy.get('#loginform-password').clear().type("perrodelmal")
-        cy.get('.btn').click()
         
         reports.select_Reports_Tab()
         reports.select_Guides_Option()
@@ -72,12 +29,11 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
         cy.get('#reportssearch-fromdate').clear()
         cy.get('#reportssearch-fromdate').type('01-01-2021')
         //reports.custom_Date_From_Date_Guide()
-        cy.get('.box-footer > .btn').click()
+        cy.get('.box-footer > .btn').click({force:true})
         //cy.wait(15000)
 
-        cy.wait(5000)
-        cy.xpath('//*[@id="w1"]/table/tbody/tr/td[6]/a[1]/span').click({ force: true })
-        //cy.wait(5000)
+        cy.wait(1000)
+        cy.xpath('//*[@id="w1"]/table/tbody/tr/td[6]/a[1]/span').click({force: true})
         //cy.get('#w1 > table > tbody > tr > td:nth-child(6) > a:nth-child(1) > span').click({ force: true })
         //cy.wait(5000)
         cy.get('h1').should('be.visible').contains('Report details for guide: Harvey Deutch')
@@ -132,4 +88,39 @@ describe('This tests verify Guide reports within Reports tab', ()=>{
         cy.get('thead > tr > :nth-child(11)').should('be.visible').and('have.text', 'Payment formula')
 
     })
+    it('Verify Guide Reports manin page',()=>{
+                
+        reports.select_Reports_Tab()
+        reports.select_Guides_Option()
+        //Search a guide in a custom date
+        cy.get('#reportssearch-first_name').type('Harvey')
+        cy.get('#reportssearch-fromdate').click()
+        cy.get('#reportssearch-fromdate').clear()
+        cy.get('#reportssearch-fromdate').type('01-01-2021')
+        //reports.custom_Date_From_Date_Guide()
+        cy.get('.box-footer > .btn').click({force:true})
+
+        cy.get('h1').should('contain', 'Reports')
+        cy.get(':nth-child(1) > :nth-child(1) > .form-group > .control-label').should('be.visible').and('have.text', 'First Name')
+        cy.get('#reportssearch-first_name').should('be.visible')
+        cy.get(':nth-child(2) > .form-group > .control-label').should('be.visible').and('have.text', 'Last Name')
+        cy.get('#reportssearch-last_name').should('be.visible')
+        cy.get(':nth-child(3) > .form-group > .control-label').should('be.visible').and('have.text', 'From Date')
+        cy.get('#reportssearch-fromdate').should('be.visible')
+        cy.get(':nth-child(4) > .form-group > .control-label').should('be.visible').and('have.text', 'To Date')
+        cy.get('#reportssearch-todate').should('be.visible')
+        cy.get(':nth-child(2) > .col-sm-3 > .form-group > .control-label').should('be.visible').and('have.text', 'Email')
+        cy.get('#reportssearch-email').should('be.visible')
+        cy.get('.box-footer > .btn').should('be.visible').and('have.text', 'Search')
+        cy.get('body > div > div > section.content > div > div > div > div > div:nth-child(3) > h3').should('have.text','List')
+        cy.get('[style="width:50px;"] > a').should('be.visible').and('have.text', 'User ID')
+        cy.get('thead > tr > :nth-child(2)').should('be.visible').and('have.text', 'First Name')
+        cy.get('thead > tr > :nth-child(3)').should('be.visible').and('have.text', 'Last Name')
+        cy.get('thead > tr > :nth-child(4)').should('be.visible').and('have.text', 'Email')
+        cy.get('thead > tr > [style="text-align:center;"]').should('be.visible').and('have.text', 'Earned cash')
+        cy.get('.dropdown-toggle').click({force:true})
+        cy.get('.pull-right > .btn > :nth-child(2)').click({force:true})
+    
+    })
+
 })

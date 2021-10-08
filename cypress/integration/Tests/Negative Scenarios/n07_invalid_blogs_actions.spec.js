@@ -19,7 +19,7 @@ describe('Negative scenarios for Blogs', ()=>{
      
     })
 
-    it('Verify validation of fields of Blogs from Admin ' ,()=>{
+    it.skip('Verify validation of fields of Blogs from Admin ' ,()=>{
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
         blogPage.select_Blog_Option()
@@ -31,7 +31,7 @@ describe('Negative scenarios for Blogs', ()=>{
 
     })
 
-    it('Verify validation of fields of Blogs from WebSite',()=>{
+    it.skip('Verify validation of fields of Blogs from WebSite',()=>{
         commons.open_Web_Site()
         homePage.select_Login()
         commons.set_Guide_Credentials_One()

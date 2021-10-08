@@ -114,14 +114,14 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
 
         it('Validate quick links', ()=>{
           //blog link
-          cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click()
-          cy.get('.box-footer > .btn').click()
-          cy.get('.field-blogpost-title > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Title cannot be blank.')
-          cy.get('.col-xs-12 > .help-block').should('be.visible').and('have.text', 'Content cannot be blank.')
-          cy.go('back')
+          //cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click()
+          //cy.get('.box-footer > .btn').click()
+          //cy.get('.field-blogpost-title > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Title cannot be blank.')
+          //cy.get('.col-xs-12 > .help-block').should('be.visible').and('have.text', 'Content cannot be blank.')
+          //cy.go('back')
 
           //edit offerings
-          cy.get('.quick-links > :nth-child(3) > :nth-child(2) > a').click()
+          cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click()
           //cy.scrollIntoView('#addNewOffer')
           cy.get('#addNewOffer').click()
           //cy.wait(2000)
@@ -136,7 +136,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.go('back')
 
           //Edit Password and personal info
-          cy.get('.quick-links > :nth-child(3) > :nth-child(3) > a').click()
+          cy.get('.quick-links > :nth-child(3) > :nth-child(2) > a').click()
           cy.get('#accountinformationform-first_name').clear()
           cy.get('#accountinformationform-last_name').clear()
           cy.get('#accountinformationform-email').clear()
@@ -155,8 +155,9 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.go('back')
 
           //Contact Vivaya
-          cy.get('.quick-links > :nth-child(4) > :nth-child(1) > a').click()
-          cy.get(':nth-child(7) > .btn').click()
+          cy.get(':nth-child(4) > .col-sm-4 > a').click({force:true})
+          cy.wait(500)
+          cy.get(':nth-child(7) > .btn').click({force:true})
 
           cy.get('.field-contactform-name > .help-block').should('be.visible').and('have.text', 'Name cannot be blank.')
           cy.get('.field-contactform-email > .help-block').should('be.visible').and('have.text', 'Email cannot be blank.')

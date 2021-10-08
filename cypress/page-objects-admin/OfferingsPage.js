@@ -2,7 +2,7 @@
 export class OfferingsPage {
   
     select_Offering_Option(){
-        cy.get(':nth-child(13) > [href="#"] > :nth-child(2)').click()
+        cy.get(':nth-child(12) > [href="#"] > :nth-child(2)').click()
     }
     select_Offering_List(){
         cy.get('.menu-open > .treeview-menu > :nth-child(1) > a > span').click()

@@ -39,7 +39,7 @@ describe('Verify the Elements within Dashboard', ()=>{
         
     })
 
-    it('Verify Toolkit from dashboard Guides', () => {  
+    it('Verify Toolkit from Admin', () => {  
         
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
@@ -52,8 +52,39 @@ describe('Verify the Elements within Dashboard', ()=>{
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
         toolkit.Open_toolkit_admin()
+        cy.wait(500)
         toolkit.create_folder_toolkit('automation folder')
         toolkit.search_folder_created('automation folder')
+        cy.get('#w1-success').should('contain','The Folder successfully created')
+
+   
+    })
+
+    it('Verify validation when we create a "new folder"', () => {  
+        
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
+        toolkit.Open_toolkit_admin()
+        cy.wait(500)
+        toolkit.create_folder_toolkit('automation folder')
+        cy.wait(1000)
+        cy.get('.field-toolkitform-foldername > .help-block').should('contain','The name of the folder already exists')
+
+   
+    })
+    it('Verify validation when we create a "new folder" witout name', () => {  
+        
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
+        toolkit.Open_toolkit_admin()
+        cy.wait(500)
+        cy.get('#modal-btn-toolkit').click({force:true})
+        cy.wait(500)
+        cy.get('#submit-create-folder').click({force:true})
+        cy.get('.field-toolkitform-foldername > .help-block').should('contain','Folder Name cannot be blank.')
+
+
+        
 
    
     })
@@ -65,6 +96,16 @@ describe('Verify the Elements within Dashboard', ()=>{
         toolkit.Open_toolkit_admin()
         toolkit.click_folder_created('automation folder')
         cy.get('.box-header').first().should('include.text','My Toolkit/automation folder')
+
+   
+    })
+    it('Verify that we can delete the "folder"', () => {  
+        
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
+        toolkit.Open_toolkit_admin()
+        cy.get(':nth-child(2) > :nth-child(3) > a > .glyphicon').click({force:true})
+        cy.get('#w1-success').should('contain','The Folder successfully deleted')
 
    
     })

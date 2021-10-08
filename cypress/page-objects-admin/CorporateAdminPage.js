@@ -2,7 +2,7 @@
 export class CorporateAdminPage {
 
     select_Corporate_Option(){
-        cy.get(':nth-child(14) > [href="#"] > :nth-child(2)').click()
+        cy.get(':nth-child(13) > [href="#"] > :nth-child(2)').click()
     }
 
     select_Corporate_List(){

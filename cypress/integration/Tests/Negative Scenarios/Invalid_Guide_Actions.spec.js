@@ -113,7 +113,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
     cy.go('back')
     //Verify Offerings
-    cy.get('.quick-links > :nth-child(3) > :nth-child(2) > a').click()
+    cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click()
     cy.get('#addNewOffer').click()
     cy.get(':nth-child(7) > .btn').click()
     cy.get('.error-summary > ul > :nth-child(1)').should('be.visible').and('have.text', 'Offer cannot be blank.')
@@ -134,7 +134,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.wait(3000)
 
     //Verify Offerings
-    cy.get('.quick-links > :nth-child(3) > :nth-child(2) > a').click()
+    cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click()
     cy.get('#addNewOffer').click()
     cy.get(':nth-child(7) > .btn').click()
     cy.get('.error-summary > ul > :nth-child(1)').should('be.visible').and('have.text', 'Offer cannot be blank.')
@@ -144,7 +144,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.go('back')
 
     //contact vivaya
-    cy.get('.quick-links > :nth-child(4) > :nth-child(1) > a').click()
+    cy.get(':nth-child(4) > .col-sm-4 > a').click()
     cy.get(':nth-child(7) > .btn').click()
 
     cy.get('.field-contactform-name > .help-block').should('be.visible').and('have.text', 'Name cannot be blank.')
@@ -156,34 +156,33 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.go('back')
 
     //validate blog
-    cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click()
-    cy.get('.box-footer > .btn').click()
-    cy.get('.field-blogpost-title > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Title cannot be blank.')
-    cy.get('.col-xs-12 > .help-block').should('be.visible').and('have.text', 'Content cannot be blank.')
-    cy.go('back')
+    //cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click()
+    //cy.get('.box-footer > .btn').click()
+    //cy.get('.field-blogpost-title > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Title cannot be blank.')
+    //cy.get('.col-xs-12 > .help-block').should('be.visible').and('have.text', 'Content cannot be blank.')
+    //cy.go('back')
 
     //Accoutn Information
-    cy.get('.quick-links > :nth-child(3) > :nth-child(3) > a').click()
+    cy.get('.quick-links > :nth-child(2) > :nth-child(3) > a').click({force:true})
+    cy.wait(500)
+    cy.get('.secondary-menu > .nav > :nth-child(1) > a').click({force:true})
     cy.get('#accountinformationform-first_name').clear()
     cy.get('#accountinformationform-last_name').clear()
     cy.get('#accountinformationform-email').clear()
     cy.get('#accountinformationform-phone_number').clear()
     cy.get('.text-center > .btn').click()
 
-    cy.get('.error-summary > ul > :nth-child(1)').should('be.visible').and('have.text', 'First name cannot be blank.')
-    cy.get('.error-summary > ul > :nth-child(2)').should('be.visible').and('have.text', 'Last name cannot be blank.')
-    cy.get('.error-summary > ul > :nth-child(3)').should('be.visible').and('have.text', 'Email cannot be blank.')
-    cy.get('.error-summary > ul > :nth-child(4)').should('be.visible').and('have.text', 'Mobile number cannot be blank.')
-
     cy.get('.field-accountinformationform-first_name > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'First name cannot be blank.')
     cy.get('.field-accountinformationform-last_name > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Last name cannot be blank.')
     cy.get('.field-accountinformationform-email > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Email cannot be blank.')
     cy.get('.field-accountinformationform-phone_number > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Mobile number cannot be blank.')
+    cy.go('back')
+
 
     //Pracing
     cy.get('.secondary-menu > .nav > :nth-child(4) > a').click()
     cy.get('#guidepricing-one_on_one_session_price').clear()
-    cy.get('.text-center > .btn').click()
+    cy.get('.text-center > .btn').click({force:true})
     cy.get('.error-summary > ul > li').should('be.visible').and('have.text', 'One On One Session Price cannot be blank.')
     cy.get('.col-sm-6 > .help-block').should('be.visible').and('have.text', 'One On One Session Price cannot be blank.')
    })

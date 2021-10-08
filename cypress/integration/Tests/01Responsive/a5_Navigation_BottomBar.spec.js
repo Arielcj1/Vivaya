@@ -79,9 +79,8 @@ describe('Elements verification in responsive mode for bottom bar options', ()=>
 
         it('Verify Blog Page', ()=>{
             home.go_To_Blog_From_Bottom()
-            cy.get('p').should('be.visible')
-            cy.get('.big-post-image-top').should('be.visible')
-            cy.url().should('eq', 'https://blog.vivayalive.com/')
+            cy.get(':nth-child(1) > .col-12 > p').should('contain','VIVAYA’s Journal is the one space for our readers to get to know our guides, yoga class differences, health and fitness, wellness, nutrition and more all in a chic, contemporary location specializing in all things yoga and wellness.')
+            cy.url().should('eq', 'https://stage.vivayalive.com/blog/')
         })
 
         it('Verify Contact Page', ()=>{

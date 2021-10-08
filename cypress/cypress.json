@@ -16,7 +16,7 @@
         "openMode": 2
       },
     
-      "defaultCommandTimeout":20000
+      "defaultCommandTimeout":30000
 
 }
 

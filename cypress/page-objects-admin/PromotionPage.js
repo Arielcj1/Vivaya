@@ -2,7 +2,7 @@
 export class PromotionPage {
 
     select_Promotions_Option(){
-        cy.get(':nth-child(12) > [href="#"] > :nth-child(2)').click()
+        cy.get(':nth-child(11) > [href="#"] > :nth-child(2)').click()
     }
 
     select_Promotion_New(){
