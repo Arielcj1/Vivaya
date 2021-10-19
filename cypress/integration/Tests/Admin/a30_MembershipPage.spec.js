@@ -69,7 +69,8 @@ describe('Admin Membership Page', ()=>{
         commons.open_Web_Site()
         pricingPage.select_Pricing_When_Logout()
         //Verify the existence of the new Membership
-        cy.get('[data-slick-index="2"] > .membership-list-item').click().type('{leftarrow}') //move the packages one position
+        cy.get('[data-slick-index="2"] > .membership-list-item').click({force:true}).type('{leftarrow}') //move the packages one position
+        cy.wait(500)
         cy.get('.slick-current > .membership-list-item > h2').should('contain', 'automating')
     })
 
