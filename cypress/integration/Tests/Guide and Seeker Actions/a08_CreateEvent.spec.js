@@ -64,7 +64,7 @@ describe('Events Creation', ()=>{
        })
    })
 
-    it('Create Cancel Class Event', () =>{
+    it('Create Class Event', () =>{
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){
