@@ -32,12 +32,12 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.go("back")
     //Verify error messages in Contact Vivaya page
     cy.get('.quick-links > :nth-child(3) > :nth-child(2) > a').click()
-    cy.get(':nth-child(7) > .btn').click()
+    cy.get('.btn-content > .btn').click()
     cy.get('.field-contactform-name > .help-block').should('be.visible').and('have.text', 'Name cannot be blank.')
     cy.get('.field-contactform-email > .help-block').should('be.visible').and('have.text', 'Email cannot be blank.')
     cy.get('.field-contactform-subject > .help-block').should('be.visible').and('have.text', 'Subject cannot be blank.')
     cy.get('.field-contactform-body > .help-block').should('be.visible').and('have.text', 'Body cannot be blank.')
-    cy.get('.field-contactform-verifycode > .help-block').should('be.visible').and('have.text', 'The verification code is incorrect.')
+    //cy.get('.field-contactform-verifycode > .help-block').should('be.visible').and('have.text', 'The verification code is incorrect.')
 
 
 })

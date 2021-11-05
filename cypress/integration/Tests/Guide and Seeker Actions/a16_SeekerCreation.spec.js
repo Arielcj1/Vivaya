@@ -49,11 +49,15 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         cy.get(':nth-child(1) > .dashboard-box > div > :nth-child(2)').should('contain', 'Days Until Start Of Your Monthly Unlimited Membership')
     })
 
-    it('Seeker edition from Account', ()=>{
+    it('Seeker review the cart', ()=>{
         homePage.select_Login()
         commons.set_Generic_Seeker('pedrasasmota.luis@gmail.com', 'password')
         seekerCreation.seeker_Account()
-        seekerCreation.seeker_Account_Edition('AutoEdited','MationEdition')
+        cy.get('h1.text-center').should('contain','Cart')
+        cy.get('.row > :nth-child(1) > h3').should('contain','Product')
+        cy.get('.cart > .row > :nth-child(2) > .pull-right').should('contain','Price')
+
+
     })
 
     it('Verify that Seeker changes to Guide', ()=>{

@@ -157,13 +157,12 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           //Contact Vivaya
           cy.get(':nth-child(4) > .col-sm-4 > a').click({force:true})
           cy.wait(500)
-          cy.get(':nth-child(7) > .btn').click({force:true})
+          cy.get('.btn-content > .btn').click({force:true})
 
           cy.get('.field-contactform-name > .help-block').should('be.visible').and('have.text', 'Name cannot be blank.')
           cy.get('.field-contactform-email > .help-block').should('be.visible').and('have.text', 'Email cannot be blank.')
           cy.get('.field-contactform-subject > .help-block').should('be.visible').and('have.text', 'Subject cannot be blank.')
           cy.get('.field-contactform-body > .help-block').should('be.visible').and('have.text', 'Body cannot be blank.')
-          cy.get('.field-contactform-verifycode > .help-block').should('be.visible').and('have.text', 'The verification code is incorrect.')
           cy.go('back')
 
         })

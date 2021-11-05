@@ -430,19 +430,25 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
         it('Verify Become a Guide Page',()=>{
             home.go_To_BecomeaGuide_TopBar()
-            cy.get('.banner-become').should('be.visible').and('contain.text', 'YOUR NEW HOME FOR LIVE-STREAMING YOGA AND WELLNESS CLASSES, WORKSHOPS AND 1-1 SESSIONS')
-            cy.get('.bag-button > .btn').should('be.visible')
-            cy.get('.become-list > h2.text-center').should('be.visible').and('contain.text','We created VIVAYA for exceptional yogis, teachers and healers like you and we would be honored to have you on board!')
+            cy.get('.col-md-7 > .title').should('be.visible')
+            cy.get('.col-md-7 > .btn-content > .btn').should('be.visible')
             cy.get(':nth-child(2) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
-            cy.get(':nth-child(2) > .col-md-5 > .box-shadow > div > .btn').should('be.visible')
-            cy.get(':nth-child(2) > .col-md-6').should('be.visible').and('contain.text','Why Teach With VIVAYA?')
+            cy.get('.box-shadow > .btn-content > .btn').should('be.visible')
+            cy.get(':nth-child(2) > .col-md-6 > h2').should('be.visible')
             cy.get(':nth-child(3) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
-            cy.get(':nth-child(3) > .col-md-5').should('be.visible').and('contain.text', 'VIVAYA was created with your needs in mind')
             cy.get(':nth-child(3) > .col-md-5 > .box-shadow > div > .btn').should('be.visible')
-            cy.get(':nth-child(3) > .col-md-6').should('be.visible').and('contain.text','VIVAYA Supports You!')
-            cy.get('.become-oportunities').should('be.visible')
-            cy.get('.become-faq > .container').should('be.visible').and('contain.text','FAQs')
-            cy.get('div.text-center > .btn').should('be.visible')
+            cy.get('.container > .title').should('contain','FAQs')
+            cy.get('.guide-description > .title').should('contain','Looking forward to have you join our community!')
+            //signature
+            cy.get('.signature > img').should('be.visible')
+            cy.get('.guide-description > .btn-content > .btn').should('be.visible')
+
+
+
+
+
+
+
 
         })    
            

@@ -43,7 +43,7 @@ export class SeekerCreation{
 
     seeker_Account(){
         cy.get('.uname').click({force:true})
-        cy.get('#accountNav > ul li:nth-child(2) >a').click({force:true})
+        cy.get('#accountNav > ul li:nth-child(3) >a').click({force:true})
     }
     
     seeker_dashboard(){

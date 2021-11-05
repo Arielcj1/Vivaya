@@ -35,7 +35,8 @@ describe('Events duplicate creation', ()=>{
                 eventCreationPage.press_Add()
                 cy.wait(2000)
                 //Go to Upcoming Events
-                cy.get("[href='/dashboard/upcoming']").click()
+                cy.get("[href='/dashboard/upcoming']").click({force:true})
+                cy.wait(500)
                 //duplicate event
                 cy.get('#w0 > table > tbody > tr > td:nth-child(7)').click({ multiple: true})
                 eventCreationPage.add_Custom_Number_Of_Days(4)

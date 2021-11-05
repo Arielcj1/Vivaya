@@ -25,9 +25,9 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
             //Verify main menu options
             cy.get('.user-item').click()
             cy.get('.menu-item-expanded > .menu > :nth-child(1) > a').should('be.visible').and('contain.text', 'Dashboard')
-            cy.get('.menu > :nth-child(2) > a').should('be.visible').and('contain.text', 'Account')
+            cy.get('.menu > :nth-child(2) > a').should('be.visible').and('contain.text', 'Refer a Friend')
             //cy.get('.menu > :nth-child(3) > a').should('be.visible').and('contain.text', 'Switch to Guide Profile')
-            cy.get('#modal-btn-referral').should('be.visible').and('contain.text', 'Referral Link')
+            cy.get('.menu > :nth-child(3) > a').should('contain','Cart')
             cy.get(':nth-child(4) > form > .btn').should('be.visible').and('contain.text', 'Logout')
             cy.wait(2000)
             cy.get('.user-item').click()

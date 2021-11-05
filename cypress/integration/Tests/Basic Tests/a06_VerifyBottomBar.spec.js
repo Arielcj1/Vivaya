@@ -45,10 +45,15 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.scrollTo('bottom')
         bottomBar.select_BecomeAGuide_Link()
         cy.url().should('eq', 'https://stage.vivayalive.com/become-a-guide')
-        cy.get('.col-md-9 > .text-blue').should('contain', 'YOUR NEW HOME FOR LIVE-STREAMING YOGA AND WELLNESS CLASSES, WORKSHOPS AND 1-1 SESSIONS')
-        cy.get('.bag-button > .btn').should('be.visible')
-        cy.get('.become-list > h2.text-center').should('contain', 'We created VIVAYA for exceptional yogis, teachers and healers like you and we would be honored to have you on board!')
-        cy.get('.container > h2.text-center').should('contain', 'FAQs')
+        cy.get('.col-md-7 > .title').should('contain','Your new home for live-streaming yoga and wellness classes, workshops and 1-1 sessions')
+        cy.get('.col-md-7 > .btn-content > .btn').should('be.visible')
+        cy.get(':nth-child(2) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
+        cy.get('.box-shadow > .btn-content > .btn').should('be.visible')
+        cy.get(':nth-child(3) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
+        cy.get('.container > .title').should('contain','FAQs')
+        //signature
+        cy.get('.signature > img').should('be.visible')
+        cy.get('.guide-description > .btn-content > .btn').should('be.visible')
     })
 
     it('Verify the Workshops link',()=>{

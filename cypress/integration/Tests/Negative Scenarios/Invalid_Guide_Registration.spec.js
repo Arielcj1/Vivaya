@@ -16,7 +16,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   it('Verify Negative messages in Guide registarion', ()=>{
     commons.open_Web_Site()
     cy.get('.become-a-guide > a').click()
-    cy.get('.bag-button > .btn').click()
+    cy.get('.col-md-7 > .btn-content > .btn').click()
     cy.get('.form-group.text-center > .btn').click()
 
     cy.get('.field-signupform-first_name > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'First name cannot be blank.')

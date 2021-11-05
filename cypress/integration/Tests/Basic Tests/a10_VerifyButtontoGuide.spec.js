@@ -30,7 +30,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     it('Verify the Button "Become Guide"',()=>{
        seekerpage.Press_Become_guide_menu()
        cy.url().should('eq', 'https://stage.vivayalive.com/become-a-guide')
-       cy.get('.col-md-9 > .text-blue').should('be.visible')
+       cy.get('.col-md-7 > .btn-content > .btn').should('be.visible')
         
     })
 

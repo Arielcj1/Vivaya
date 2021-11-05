@@ -2,10 +2,10 @@
 export class GuideCreation {
 
     become_Guide(){
-        cy.get('.become-a-guide > a').click()           
+        cy.get('.become-a-guide > a').click({force:true})           
     }
     become_Guide_Page(){
-        cy.get('.bag-button > .btn').click()
+        cy.get('.col-md-7 > .btn-content > .btn').click({force:true})
     }
     fill_Form_For_Guide(val,val1,val2,val3){
         cy.get('#signupform-first_name').type(val)

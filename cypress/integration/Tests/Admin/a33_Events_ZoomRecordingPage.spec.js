@@ -54,7 +54,7 @@ describe('Test and Verify Zoom page',()=>{
 
         //Search Harvey's events to verify the recording elements
         zoomRPage.type_Guide_Name('Harvey')
-        zoomRPage.substract_Custom_From_Date(3)
+        zoomRPage.substract_Custom_From_Date(1)
         zoomRPage.type_Current_Date()
         zoomRPage.click_Search_Button()
         cy.wait(3000)
