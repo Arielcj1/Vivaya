@@ -24,6 +24,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         corporate.type_Last_Name('automation')
         corporate.type_Company_Name('Automation corp')
         corporate.continue_From_Step1()
+        cy.wait(500)
         cy.get('#calendly-schedule > iframe').should('be.visible')
         
     })

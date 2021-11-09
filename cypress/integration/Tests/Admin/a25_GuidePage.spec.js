@@ -219,7 +219,7 @@ describe('Guide Page admin', ()=>{
     })
 
      
-    it('Seek elimination', ()=>{
+    it('Seeker elimination', ()=>{
         commons.set_Admin_Credentials()
         seekerpage.select_Seeker_Option()
         seekerpage.select_Seeker_List()

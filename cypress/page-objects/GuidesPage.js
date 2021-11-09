@@ -65,12 +65,12 @@ export class GuidesPage {
     Select_Switch_to_seeker(){
         cy.get('.uname').click({force:true})
         cy.wait(1500)
-        cy.get('#accountNav > ul > li > ul > li:nth-child(3) > a').click({force:true})
+        cy.xpath('//*[@id="accountNav"]/ul/li/ul/li[4]/a').click({force:true})
 
     }
     Select_Switch_to_Guide(){
         cy.get('.uname').click({force:true})
-        cy.xpath('//*[@id="accountNav"]/ul/li/ul/li[4]/a').click({force:true})
+        cy.xpath('//*[@id="accountNav"]/ul/li/ul/li[3]/a').click({force:true})
     }
 
     Select_request_OnetoOne(){

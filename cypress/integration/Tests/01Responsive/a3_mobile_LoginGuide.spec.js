@@ -86,6 +86,7 @@ describe('Elements verification in responsive mode for Guide page', ()=>{
         })  
 
         it('Verify quick link redirections in Guide Dashboard after Login', ()=>{  
+          cy.wait(500)
           cy.get('.quick-links > :nth-child(2) > :nth-child(1)').click()
           cy.get('.text-center').should('have.text', 'Full Class History')
           cy.go('back')
@@ -123,17 +124,6 @@ describe('Elements verification in responsive mode for Guide page', ()=>{
           cy.get('#form-signup > :nth-child(12)').should('be.visible').and('have.text','Change password')
           cy.get('.field-accountinformationform-password > .control-label').should('be.visible').and('have.text','Password')
           cy.get('#accountinformationform-password').should('be.visible')
-          //cy.get('#form-signup > :nth-child(12)').should('be.visible').and('have.text','Address')
-          //cy.get('.field-address-address_one > .control-label').should('be.visible').and('have.text','Address One')
-          //cy.get('#address-address_one').should('be.visible')
-          //cy.get('.field-address-address_two > .control-label').should('be.visible').and('have.text','Address Two')
-          //cy.get('#address-address_two').should('be.visible')
-          //cy.get('.field-address-city > .control-label').should('be.visible').and('have.text','City')
-          //cy.get('#address-city').should('be.visible')
-          //cy.get('.field-address-country > .control-label').should('be.visible').and('have.text','Country')
-          //cy.get('#address-country').should('be.visible')
-          //cy.get('.field-address-zip_code > .control-label').should('be.visible').and('have.text','Zip Code')
-          //cy.get('#address-zip_code').should('be.visible')
           cy.go('back')
 
           cy.get(':nth-child(4) > .col-sm-4 > a').click()
@@ -141,16 +131,11 @@ describe('Elements verification in responsive mode for Guide page', ()=>{
           cy.get(':nth-child(1) > p').should('be.visible').and('have.text','If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.')
           //cy.get('.field-contactform-name > .control-label').should('be.visible').and('have.text','Name')
           cy.get('#contactform-name').should('be.visible')
-          c//y.get('.field-contactform-email > .control-label').should('be.visible').and('have.text','Email')
+          //y.get('.field-contactform-email > .control-label').should('be.visible').and('have.text','Email')
           cy.get('#contactform-email').should('be.visible')
           //cy.get('.field-contactform-subject > .control-label').should('be.visible').and('have.text','Subject')
           cy.get('#contactform-subject').should('be.visible')
           cy.go('back')
-
-          //cy.get('.quick-links > :nth-child(3) > :nth-child(3) > a').click()
-          //cy.get('h1.text-center').should('be.visible').and('have.text','Liability Insurance')
-          //cy.get('.md-fields > .control-label').should('be.visible').and('have.text','Upload File')
-          //cy.go('back')
 
           cy.get('.quick-links > :nth-child(2) > :nth-child(3) > a').click()
           cy.get('h1.text-center').should('be.visible').and('have.text','Profile Information')
