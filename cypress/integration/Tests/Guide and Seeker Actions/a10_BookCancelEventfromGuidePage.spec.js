@@ -87,7 +87,7 @@ describe('Booking Event from Guide', ()=> {
        homePage.submit_Credentials()
        dashboard.go_to_Dashboard_From_Menu()
        dashboard.cancel_Created_Event()
-       cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
+       cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
        
     })
 

@@ -21,7 +21,7 @@ export class SeekerCreation{
         cy.get('#signupform-password').type(value+'{enter}')
     }
     marking_Checkbox(){
-        cy.get('#signupform-terms').check()
+        cy.get('.custom-control-label').click({force:true})
     }
     //Create Card Page
     type_Card_Name(value){

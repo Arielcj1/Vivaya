@@ -35,7 +35,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.wait(2000)
         admin_corporate.add_Corporate_From_Form()
         cy.wait(1000)
-        cy.get('.field-corporate-name > .help-block').should('contain','ActiveCampaign account exists.')
+        cy.get('.field-corporate-domain > .help-block').should('contain','ActiveCampaign account exists.')
     })
 
     it('Verify validation "coporate name" from Site',()=>{
@@ -47,7 +47,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         corporate.type_Last_Name('automation')
         corporate.type_Company_Name('Automation corp')
         corporate.continue_From_Step1()
-        cy.get('.field-corporatesignupform-company_name > .col-sm-9 > .help-block').should('contain','There is already a company registered with this name.')
+        cy.get('.field-corporate-domain > .help-block').should('contain','Your email domain is already registered.')
         
     })
 

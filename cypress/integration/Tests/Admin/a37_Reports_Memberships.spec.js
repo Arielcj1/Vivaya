@@ -64,8 +64,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('[data-key="0"] > :nth-child(5)').contains(/^[0-9]*$/)
         cy.get('#w1 > .table > thead > tr > :nth-child(6)').should('be.visible').and('have.text', 'Price ($)')
         cy.get('[data-key="0"] > :nth-child(6)').contains(/^[0-9]\d*(\.\d+)?$/)
-        cy.get('thead > tr > :nth-child(7)').should('be.visible').and('have.text', 'Total ($)')
-        cy.get('[data-key="0"] > :nth-child(7)').contains(/^[0-9]\d*(\.\d+)?$/)
+        cy.get('tr > :nth-child(8) > a').should('be.visible').and('have.text', 'Total ($)')
+        cy.get('[data-key="0"] > :nth-child(8)').contains(/^[0-9]\d*(\.\d+)?$/)
 
 
     })

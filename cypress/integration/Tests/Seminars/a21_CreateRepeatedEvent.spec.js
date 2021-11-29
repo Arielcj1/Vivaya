@@ -36,7 +36,7 @@ describe('Events Creation', ()=>{
         eventCreationPage.add_Custom_End_Date(10)
         eventCreationPage.select_Repeater_Daily()
         eventCreationPage.press_Add()
-        cy.get('#w0-success-0').should('contain', 'Events have been created.')
+        cy.get('#w1-success-0').should('contain', 'Events have been created.')
     })
 
     it('Delete recurrent Daily Class',()=>{
@@ -55,7 +55,7 @@ describe('Events Creation', ()=>{
         eventCreationPage.add_Custom_End_Date(10)
         eventCreationPage.select_Repeater_Weekly()
         eventCreationPage.press_Add()
-        cy.get('#w0-success-0').should('contain', 'Events have been created.')
+        cy.get('#w1-success-0').should('contain', 'Events have been created.')
     })
 
     it('Delete recurrent Weekly Class',()=>{
@@ -77,7 +77,7 @@ describe('Events Creation', ()=>{
         eventCreationPage.select_Weekday_Monday()
         eventCreationPage.select_Weekday_Saturday()
         eventCreationPage.press_Add()
-        cy.get('#w0-success-0').should('contain', 'Events have been created.')
+        cy.get('#w1-success-0').should('contain', 'Events have been created.')
     })
 
     it('Delete recurrent Weekly by days Class',()=>{

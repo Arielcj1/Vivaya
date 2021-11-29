@@ -39,14 +39,14 @@ describe('Verify Duration time in Events', ()=>{
                 eventCreationPage.add_Custom_Number_Of_Days(2)
                 eventCreationPage.custom_Start_Time(5)
                 eventCreationPage.press_Add()
-                cy.get('#w0-success-0').should('contain', 'Events have been created.')
+                cy.get('#w1-success-0').should('contain', 'Events have been created.')
                 //Verify Time Of Event
                 cy.wait(1000)
                 cy.get('.dashboard-events > :nth-child(3) > :nth-child(4)').should('contain', '60 min')
                 cy.wait(1000)
                 //Delete Event created
                 dashboard.cancel_verify_minEvents()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
+                cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
             }
         })
     })
@@ -68,14 +68,14 @@ describe('Verify Duration time in Events', ()=>{
                 eventCreationPage.add_Custom_Number_Of_Days(2)
                 eventCreationPage.custom_Start_Time(6)
                 eventCreationPage.press_Add()
-                cy.get('#w0-success-0').should('contain', 'Events have been created.')
+                cy.get('#w1-success-0').should('contain', 'Events have been created.')
                 //Verify Time Of Event
                 cy.wait(1000)
                 cy.get('.dashboard-events > :nth-child(3) > :nth-child(4)').should('contain', '45 min')
                 cy.wait(1000)
                 //Delete Event created
                 dashboard.cancel_verify_minEvents()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
+                cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
             }
         })
     })
@@ -97,14 +97,14 @@ describe('Verify Duration time in Events', ()=>{
                 eventCreationPage.add_Custom_Number_Of_Days(2)
                 eventCreationPage.custom_Start_Time(7)
                 eventCreationPage.press_Add()
-                cy.get('#w0-success-0').should('contain', 'Events have been created.')
+                cy.get('#w1-success-0').should('contain', 'Events have been created.')
                 //Verify Time Of Event
                 cy.wait(1000)
                 cy.get('.dashboard-events > :nth-child(3) > :nth-child(4)').should('contain', '75 min')
                 cy.wait(1000)
                 //Delete Event created
                 dashboard.cancel_verify_minEvents()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
+                cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
             }
         })
     })
@@ -114,7 +114,7 @@ describe('Verify Duration time in Events', ()=>{
             cy.log(text)
             if(text != 1){
                 dashboard.cancel_Created_Event_class()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.') 
+                cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
                 dashboard.add_NewEvent()
@@ -126,14 +126,14 @@ describe('Verify Duration time in Events', ()=>{
                 eventCreationPage.add_Custom_Number_Of_Days(2)
                 eventCreationPage.custom_Start_Time(8)
                 eventCreationPage.press_Add()
-                cy.get('#w0-success-0').should('contain', 'Events have been created.')
+                cy.get('#w1-success-0').should('contain', 'Events have been created.')
                 //Verify Time Of Event
                 cy.wait(1000)
                 cy.get('.dashboard-events > :nth-child(3) > :nth-child(4)').should('contain', '90 min')
                 cy.wait(1000)
                 //Delete Event created
                 dashboard.cancel_verify_minEvents()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
+                cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
             }
         })
     })

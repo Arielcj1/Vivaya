@@ -52,15 +52,15 @@ export class OfferingsPage {
         cy.get('.summary > :nth-child(2)').invoke('text').then((text)=>{
             if(text>10){
                 var aux = text-10
-                cy.xpath('//*[@id="w0"]/table/tbody/tr['+aux+']/td[5]/a['+option+']/span').click()
+                cy.xpath('//*[@id="w0"]/table/tbody/tr['+aux+']/td[5]/a['+option+']').click({force:true})
             }
             else{
-                cy.xpath('//*[@id="w0"]/table/tbody/tr['+text+']/td[5]/a['+option+']/span').click()
+                cy.xpath('//*[@id="w0"]/table/tbody/tr['+text+']/td[5]/a['+option+']').click({force:true})
             }
         })
     }
     //Options for child offer
     options_For_Child_Offer(option){
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/a['+option+']/span').click({force:true})
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/a['+option+']').click({force:true})
     }
 }

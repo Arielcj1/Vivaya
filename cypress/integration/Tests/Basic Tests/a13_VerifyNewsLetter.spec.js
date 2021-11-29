@@ -30,9 +30,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.wait(500)
       cy.scrollTo(0, 800) 
       cy.get('#subscribe-form > .btn').click({force:true})
-      cy.get('#subscribe-form > .field-subscribeform-firstname > .help-block').should('contain','First Name cannot be blank.')
-      cy.get('#subscribe-form > .field-subscribeform-lastname > .help-block').should('contain','Last Name cannot be blank.')
-      cy.get('#subscribe-form > .field-subscribeform-email > .help-block').should('contain','Email Address cannot be blank.')
+      cy.get('#subscribe-form > .field-subscribeform-firstname > .invalid-feedback').should('contain','First Name cannot be blank.')
+      cy.get('#subscribe-form > .field-subscribeform-lastname > .invalid-feedback').should('contain','Last Name cannot be blank.')
+      cy.get('#subscribe-form > .field-subscribeform-email > .invalid-feedback').should('contain','Email Address cannot be blank.')
      
       })
 

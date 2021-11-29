@@ -11,7 +11,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   });
 
-describe('Booking Events', ()=> {
+describe('Create Event Running', ()=> {
     const homePage = new HomePage()
     const dashboard = new Dashboard()
     const eventCreationPage = new EventCreationPage()

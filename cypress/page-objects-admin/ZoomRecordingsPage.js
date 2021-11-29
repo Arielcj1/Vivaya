@@ -19,6 +19,7 @@ export class ZoomRecordingsPage {
     //Type the current Date within To Date field
     type_Current_Date(){
         var moment = require('moment');
+        //const currentDate = moment().format('Jan-01-2021')
         const currentDate = moment().format('MMM-DD-YYYY')
         cy.get('#eventsearch-todate').clear()
         cy.get('#eventsearch-todate').type(currentDate)

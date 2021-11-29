@@ -65,7 +65,7 @@ export class EventCreationPage {
     //Set Repeater options
 
     select_Repeater_Checkbox(){
-        cy.get('#eventform-repeatevent').click()
+        cy.get('#eventform-repeatevent').click({force:true})
     }
 
     add_Custom_Start_Date(value){
@@ -93,31 +93,31 @@ export class EventCreationPage {
     }
 
     select_Weekday_Sunday(){
-        cy.get('#eventform-weekdays > :nth-child(1) > label > input').click()
+        cy.get('#eventform-weekdays > :nth-child(1) > .custom-control-label').click({force:true})
     }
     
     select_Weekday_Monday(){
-        cy.get(':nth-child(2) > label > input').click()
+        cy.get('#eventform-weekdays > :nth-child(2) > .custom-control-label').click({force:true})
     }
 
     select_Weekday_Tuesday(){
-        cy.get(':nth-child(3) > label > input').click()
+        cy.get('#eventform-weekdays > :nth-child(3) > .custom-control-label').click({force:true})
     }
 
     select_Weekday_Wednesday(){
-        cy.get(':nth-child(4) > label > input').click()
+        cy.get('#eventform-weekdays > :nth-child(4) > .custom-control-label').click({force:true})
     }
 
     select_Weekday_Thursday(){
-        cy.get(':nth-child(5) > label > input').click()             
+        cy.get('#eventform-weekdays > :nth-child(5) > .custom-control-label').click({force:true})           
     }
 
     select_Weekday_Friday(){
-        cy.get(':nth-child(6) > label > input').click()
+        cy.get('#eventform-weekdays > :nth-child(6) > .custom-control-label').click({force:true})
     }
 
     select_Weekday_Saturday(){
-        cy.get(':nth-child(7) > label > input').click()
+        cy.get('#eventform-weekdays > :nth-child(7) > .custom-control-label').click({force:true})
     }
 
     select_duration_time(value){

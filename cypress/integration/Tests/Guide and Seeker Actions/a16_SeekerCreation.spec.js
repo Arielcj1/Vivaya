@@ -72,13 +72,16 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         guidecreation.Fill_information_guide()
         //guidecreation.fill_Liability_Insurance()
         //cy.wait(2000)
-        cy.get('h1.text-center').should('be.visible')
-        // go to seeker
+        cy.get('#w0-success-0').should('be.visible')
+         //go to seeker
+         guideweb.Select_Switch_to_Guide()
+         cy.get('strong').should('be.visible')
+        // go to guide
         guideweb.Select_Switch_to_seeker()
-        cy.get('.col-sm-3 > .dashboard-box > h3').should('be.visible')
-        //go to Guide
-        guideweb.Select_Switch_to_Guide()
         cy.get('h1.text-center').should('be.visible')
+       
+        
+        
         
    })
  

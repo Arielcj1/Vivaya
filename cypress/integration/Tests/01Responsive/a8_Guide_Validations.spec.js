@@ -36,19 +36,19 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
             cy.get('#btnCreateEvent').click()
 
             //validations
-            cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
-            cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-            cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Body cannot be blank.')
-            cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Name cannot be blank.')
+            cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+            cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
+            cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Body cannot be blank.')
+            cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Name cannot be blank.')
 
-            cy.get('.field-eventform-name > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Name cannot be blank.')
-            cy.get('.col-xs-12 > .help-block').should('be.visible').and('have.text', 'Body cannot be blank.')
-            cy.get('.event-start-date > .form-group > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-            cy.get('.field-eventform-starttime > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
-            cy.get('#eventform-repeatevent').click()
+            cy.get('.field-eventform-name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
+            cy.get('.col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
+            //cy.get('.event-start-date > .form-group > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start Date cannot be blank.')
+            //cy.get('.field-eventform-starttime > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+            cy.get('#eventform-repeatevent').click({force:true})
             cy.get('#eventform-repeats').select('Select Custom')
-            cy.get('#btnCreateEvent').click()
-            cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Custom Dates cannot be blank.')
+            cy.get('#btnCreateEvent').click({force:true})
+            //cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Custom Dates cannot be blank.')
         })
 
         it('Verify validations in Guide Dashboard while creating a workshop', ()=>{
@@ -57,17 +57,17 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.get('#btnCreateEvent').click()
 
           //validations
-          cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Workshop Price cannot be blank.')
-          cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+          cy.get('.error-summary > div > ul > :nth-child(5)').should('be.visible').and('have.text', 'Workshop Price cannot be blank.')
+          cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
           cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-          cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Body cannot be blank.')
-          cy.get('.error-summary > div > ul > :nth-child(5)').should('be.visible').and('have.text', 'Name cannot be blank.')
+          cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Body cannot be blank.')
+          cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Name cannot be blank.')
 
-          cy.get('.field-eventform-name > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Name cannot be blank.')
-          cy.get('.col-xs-12 > .help-block').should('be.visible').and('have.text', 'Body cannot be blank.')
-          cy.get('.event-start-date > .form-group > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-          cy.get('.field-eventform-starttime > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
-          cy.get('.field-eventform-workshop_price > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Workshop Price cannot be blank.')
+          cy.get('.field-eventform-name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
+          cy.get('.col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
+          //cy.get('.event-start-date > .form-group > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start Date cannot be blank.')
+          //cy.get('.field-eventform-starttime > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+          cy.get('.field-eventform-workshop_price > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Workshop Price cannot be blank.')
 
         })  
 
@@ -77,17 +77,17 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.get('#btnCreateEvent').click()
 
           //validations
-          cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Session Offering Id cannot be blank.')
-          cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+          cy.get('.error-summary > div > ul > :nth-child(5)').should('be.visible').and('have.text', 'Session Offering Id cannot be blank.')
+          cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
           cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-          cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Body cannot be blank.')
-          cy.get('.error-summary > div > ul > :nth-child(5)').should('be.visible').and('have.text', 'Name cannot be blank.')
+          cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Body cannot be blank.')
+          cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Name cannot be blank.')
 
-          cy.get('.field-eventform-name > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Name cannot be blank.')
-          cy.get('.col-xs-12 > .help-block').should('be.visible').and('have.text', 'Body cannot be blank.')
-          cy.get('.event-start-date > .form-group > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-          cy.get('.field-eventform-starttime > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
-          cy.get('.field-eventform-session_offering_id > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Session Offering Id cannot be blank.')
+          cy.get('.field-eventform-name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
+          cy.get('.col-sm-12 > .invalid-feedback').and('have.text', 'Body cannot be blank.')
+          //cy.get('.event-start-date > .form-group > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start Date cannot be blank.')
+          //cy.get('.field-eventform-starttime > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+          cy.get(':nth-child(8) > .invalid-feedback').should('be.visible').and('have.text', 'Session Offering Id cannot be blank.')
 
 
         })  
@@ -98,16 +98,16 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.get('#btnCreateEvent').click()
 
           //validations
-          cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Event duration cannot be shorter than 1 hour')
-          cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-          cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Body cannot be blank.')
-          cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Name cannot be blank.')
+          cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Event duration cannot be shorter than 1 hour')
+          cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
+          cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Body cannot be blank.')
+          cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Name cannot be blank.')
 
-          cy.get('.field-eventform-name > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Name cannot be blank.')
-          cy.get('.col-xs-12 > .help-block').should('be.visible').and('have.text', 'Body cannot be blank.')
-          cy.get('.event-start-date > .form-group > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-          cy.get('.field-eventform-starttime > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Event duration cannot be shorter than 1 hour')
-          cy.get(':nth-child(8) > .form-group > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Event duration cannot be shorter than 1 hour')
+          cy.get('.field-eventform-name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
+          cy.get('.col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
+          //cy.get('.event-start-date > .form-group > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start Date cannot be blank.')
+          //cy.get('.field-eventform-starttime > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Event duration cannot be shorter than 1 hour')
+          cy.get(':nth-child(8) > p').should('be.visible').and('have.text', 'Event duration cannot be shorter than 45 minutes')
 
 
         })  
@@ -126,13 +126,13 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.get('#addNewOffer').click()
           //cy.wait(2000)
           cy.get(':nth-child(7) > .btn').click()
-          cy.get('.error-summary > ul > :nth-child(1)').should('be.visible').and('have.text', 'Offer cannot be blank.')
-          cy.get('.error-summary > ul > :nth-child(2)').should('be.visible').and('have.text', 'Years Teaching cannot be blank.')
-          cy.get('.col-sm-5 > .form-group > .col-sm-12 > .help-block').should('be.visible').and('have.text', 'Offer cannot be blank.')
-          cy.get('.col-sm-4 > .form-group > .col-sm-12 > .help-block').should('be.visible').and('have.text', 'Years Teaching cannot be blank.')
+          cy.get('.col-sm-5 > .form-group > .col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Offer cannot be blank.')
+          cy.get('.col-sm-4 > .form-group > .col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Years Teaching cannot be blank.')
+          //cy.get('.col-sm-5 > .form-group > .col-sm-12 > .help-block').should('be.visible').and('have.text', 'Offer cannot be blank.')
+          //cy.get('.col-sm-4 > .form-group > .col-sm-12 > .help-block').should('be.visible').and('have.text', 'Years Teaching cannot be blank.')
           cy.get('#guideadditionaloffer-years_teaching').type('rrrrrr')
           cy.get(':nth-child(7) > .btn').click()
-          cy.get('.col-sm-4 > .form-group > .col-sm-12 > .help-block').should('be.visible').and('have.text', 'Only numbers allowed')
+          cy.get('.col-sm-4 > .form-group > .col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Only numbers allowed')
           cy.go('back')
 
           //Edit Password and personal info
@@ -143,15 +143,15 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.get('#accountinformationform-phone_number').clear()
           cy.get('.text-center > .btn').click()
 
-          cy.get('.error-summary > ul > :nth-child(1)').and('have.text', 'First name cannot be blank.')
-          cy.get('.error-summary > ul > :nth-child(2)').and('have.text', 'Last name cannot be blank.')
-          cy.get('.error-summary > ul > :nth-child(3)').and('have.text', 'Email cannot be blank.')
-          cy.get('.error-summary > ul > :nth-child(4)').and('have.text', 'Mobile number cannot be blank.')
+          cy.get('.alert > ul > :nth-child(1)').and('have.text', 'First name cannot be blank.')
+          cy.get('.alert > ul > :nth-child(2)').and('have.text', 'Last name cannot be blank.')
+          cy.get('.alert > ul > :nth-child(3)').and('have.text', 'Email cannot be blank.')
+          cy.get('.alert > ul > :nth-child(4)').and('have.text', 'Mobile number cannot be blank.')
 
-          cy.get('.field-accountinformationform-first_name > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'First name cannot be blank.')
-          cy.get('.field-accountinformationform-last_name > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Last name cannot be blank.')
-          cy.get('.field-accountinformationform-email > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Email cannot be blank.')
-          cy.get('.field-accountinformationform-phone_number > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Mobile number cannot be blank.')
+          cy.get('.field-accountinformationform-first_name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'First name cannot be blank.')
+          cy.get('.field-accountinformationform-last_name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Last name cannot be blank.')
+          cy.get('.field-accountinformationform-email > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Email cannot be blank.')
+          cy.get('.field-accountinformationform-phone_number > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Mobile number cannot be blank.')
           cy.go('back')
 
           //Contact Vivaya
@@ -159,10 +159,10 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.wait(500)
           cy.get('.btn-content > .btn').click({force:true})
 
-          cy.get('.field-contactform-name > .help-block').should('be.visible').and('have.text', 'Name cannot be blank.')
-          cy.get('.field-contactform-email > .help-block').should('be.visible').and('have.text', 'Email cannot be blank.')
-          cy.get('.field-contactform-subject > .help-block').should('be.visible').and('have.text', 'Subject cannot be blank.')
-          cy.get('.field-contactform-body > .help-block').should('be.visible').and('have.text', 'Body cannot be blank.')
+          cy.get('.field-contactform-name > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
+          cy.get('.field-contactform-email > .invalid-feedback').should('be.visible').and('have.text', 'Email cannot be blank.')
+          cy.get('.field-contactform-subject > .invalid-feedback').should('be.visible').and('have.text', 'Subject cannot be blank.')
+          cy.get('.field-contactform-body > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
           cy.go('back')
 
         })

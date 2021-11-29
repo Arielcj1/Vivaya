@@ -44,7 +44,7 @@ describe('Add seminar to cart and remove from cart',
         seminars.select_Allow_Independent_Events()
         seminars.select_Publish_Button()
 
-        cy.get('#w0-success-0').should('contain', 'Seminar has been created.')
+        cy.get('#w1-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Automation')
 
     })
@@ -66,7 +66,7 @@ describe('Add seminar to cart and remove from cart',
       cy.get('.tt-suggestion').click({force:true})
       seminarEvent.add_EventSeminar_Price(50)
       seminarEvent.select_Add_Button()
-      cy.get('#w0-success-0').should('contain', 'Events have been created.')
+      cy.get('#w1-success-0').should('contain', 'Events have been created.')
 
   })
 
@@ -84,7 +84,7 @@ describe('Add seminar to cart and remove from cart',
         cy.get('.remove-button').click()
         cy.wait(3000)
         cy.get('.btn-success').click()
-        cy.get('#w0-success-0').should('contain.text','\n×\n\nItem has been removed from cart.\n\n')
+        cy.get('#w1-success-0').should('contain.text','\n×\n\nItem has been removed from cart.\n\n')
         cy.get('.cart > .text-center').should('contain.text','There are no items in your cart.')
         
      })
@@ -95,7 +95,7 @@ describe('Add seminar to cart and remove from cart',
         homePage.submit_Credentials()
         cy.wait(1000)
         seminars.select_Cancel_Seminar()
-        cy.get('#w0-success-0').should('contain', 'Seminar has been cancelled.')
+        cy.get('#w1-success-0').should('contain', 'Seminar has been cancelled.')
      })
 
      

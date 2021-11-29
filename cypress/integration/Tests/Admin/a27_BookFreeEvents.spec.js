@@ -27,9 +27,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       dashboard.select_First_FreePublicEvent()
       cy.get('.text-center > .btn').click({force:true})
       cy.wait(1000)
-      cy.get('.field-guest-firstname > .col-sm-9 > .help-block').should('contain','First Name cannot be blank.')
-      cy.get('.field-guest-lastname > .col-sm-9 > .help-block').should('contain','Last Name cannot be blank.')
-      cy.get('.field-guest-email > .col-sm-9 > .help-block').should('contain','Email cannot be blank.')
+      cy.get('.field-guest-firstname > .col-sm-9 > .invalid-feedback').should('contain','First Name cannot be blank.')
+      cy.get('.field-guest-lastname > .col-sm-9 > .invalid-feedback').should('contain','Last Name cannot be blank.')
+      cy.get('.field-guest-email > .col-sm-9 > .invalid-feedback').should('contain','Email cannot be blank.')
 
   })
 
@@ -75,6 +75,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       dashboard.select_LogIn_option_from_PopUp()
       commons.set_Seeker_Credentials_One()
       homePage.submit_Credentials()
-      cy.get('#w0-success-0').should('be.visible')
+      cy.get('#w1-success-0').should('be.visible')
     })
 })

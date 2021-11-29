@@ -50,7 +50,7 @@ describe('Seminar Creation, Cancelation and Seminar Eevnt creation',
         seminars.select_Allow_Independent_Events()
         seminars.select_Publish_Button()
 
-        cy.get('#w0-success-0').should('contain', 'Seminar has been created.')
+        cy.get('#w1-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Automation')
        
      })
@@ -73,7 +73,7 @@ describe('Seminar Creation, Cancelation and Seminar Eevnt creation',
       cy.get('.tt-suggestion').click({force:true})
       seminarEvent.add_EventSeminar_Price(50)
       seminarEvent.select_Add_Button()
-      cy.get('#w0-success-0').should('contain', 'Events have been created.')
+      cy.get('#w1-success-0').should('contain', 'Events have been created.')
      
       
    })
@@ -87,7 +87,7 @@ describe('Seminar Creation, Cancelation and Seminar Eevnt creation',
     cy.wait(3000)
     //Cancel the Seminar
     seminars.select_Cancel_Seminar()
-    cy.get('#w0-success-0').should('contain', 'Seminar has been cancelled.')
+    cy.get('#w1-success-0').should('contain', 'Seminar has been cancelled.')
     
  })
 })     

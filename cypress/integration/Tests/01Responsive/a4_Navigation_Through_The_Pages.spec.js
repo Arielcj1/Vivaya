@@ -25,8 +25,8 @@ describe('Elements verification in responsive mode for main pages navigation', (
         it('Verify Elements and redirection for Schedule page as Logged out', ()=>{
             home.go_To_Schedule_TopBar()
             cy.get('#banner').should('be.visible').and('contain.text', 'Schedule')
-            cy.get(':nth-child(2) > .col-xs-12').should('be.visible')
-            cy.get('.col-sm-8 > h3').should('be.visible').and('contain.text', 'Become a VIVAYA Guide or Teacher')
+            cy.get('.col-sm-12').should('be.visible')
+            cy.get('.col-12 > h3').should('be.visible').and('contain.text', 'Become a VIVAYA Guide or Teacher')
         })
 
         it('Verify Elements and redirection for Guides page as Logged out', ()=>{
@@ -393,13 +393,13 @@ describe('Elements verification in responsive mode for main pages navigation', (
             cy.get('.container-banner > .container > #corporate-entry-form > .from-group > .btn').should('be.visible')
             cy.get('.corporate-offerings').should('be.visible')
             cy.get('.corporate-offerings > .text-blue').should('be.visible').and('contain.text', 'Explore our Diverse Array of Health and Healing Offerings')
-            cy.get(':nth-child(5) > .container').should('be.visible').and('contain.text', 'Why Choose VIVAYA for Business')
+            cy.get(':nth-child(4) > .container > .text-blue').should('be.visible').and('contain.text', 'Why Choose VIVAYA for Business')
             cy.get('.employees-corporate-background > img').should('be.visible')
-            cy.get(':nth-child(1) > .col-md-7').should('be.visible').and('contain.text', 'Customizable Corporate Programs')
+            cy.get(':nth-child(1) > .col-md-7 > .text-blue').should('be.visible').and('contain.text', 'Customizable Corporate Programs')
             cy.get('.employees-variety-background > img').should('be.visible')
-            cy.get(':nth-child(2) > .col-md-7').should('be.visible').and('contain.text', 'Unique Variety of Wellness Offerings')
+            cy.get(':nth-child(2) > .col-md-7 > .text-blue').should('be.visible').and('contain.text', 'Unique Variety of Wellness Offerings')
             cy.get('.employees-trusted-background > img').should('be.visible')
-            cy.get(':nth-child(3) > .col-md-7').should('be.visible').and('contain.text', 'One Trusted Platform for Employees’ Needs')
+            cy.get(':nth-child(3) > .col-md-7 > .text-blue').should('be.visible').and('contain.text', 'One Trusted Platform for Employees’ Needs')
             cy.get('.corporate-plan-background > .container > h2').should('be.visible').and('contain.text', 'Plans as low as $25/month.')
 
         })   

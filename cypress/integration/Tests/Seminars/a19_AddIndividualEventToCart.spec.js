@@ -48,7 +48,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         seminars.select_Allow_Independent_Events()
         seminars.select_Publish_Button()
 
-        cy.get('#w0-success-0').should('contain', 'Seminar has been created.')
+        cy.get('#w1-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Automation')
 
       homePage.logout_Account()
@@ -71,7 +71,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
       cy.get('.tt-suggestion').click({force:true})
       seminarEvent.add_EventSeminar_Price(50)
       seminarEvent.select_Add_Button()
-      cy.get('#w0-success-0').should('contain', 'Events have been created.')
+      cy.get('#w1-success-0').should('contain', 'Events have been created.')
       homePage.logout_Account()
       
    })
@@ -92,7 +92,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
     cy.get('.tt-suggestion').click({force:true})
     seminarEvent.add_EventSeminar_Price(40)
     seminarEvent.select_Add_Button()
-    cy.get('#w0-success-0').should('contain', 'Events have been created.')
+    cy.get('#w1-success-0').should('contain', 'Events have been created.')
     homePage.logout_Account()
  })
 
@@ -110,7 +110,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         cy.get('.remove-button').click()
         cy.wait(1500)
         cy.get('.btn-success').click()
-        cy.get('#w0-success-0').should('contain.text','\n×\n\nItem has been removed from cart.\n\n')
+        cy.get('#w1-success-0').should('contain.text','\n×\n\nItem has been removed from cart.\n\n')
         cy.get('.cart > .text-center').should('contain.text','There are no items in your cart.')
         homePage.logout_Account()
         
@@ -122,7 +122,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         homePage.submit_Credentials()
         cy.wait(1000)
         seminars.select_Cancel_Seminar()
-        cy.get('#w0-success-0').should('contain', 'Seminar has been cancelled.')
+        cy.get('#w1-success-0').should('contain', 'Seminar has been cancelled.')
      })
 
      

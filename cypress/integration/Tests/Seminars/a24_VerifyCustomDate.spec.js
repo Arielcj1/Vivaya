@@ -36,7 +36,7 @@ describe('Verify creation events using "Custom Date"', ()=>{
         eventCreationPage.select_Repeater_customdate()
         eventCreationPage.add_Custom_date(10)
         eventCreationPage.add_Custom_date(12)
-        cy.get('#w0-success-0').should('contain', 'Events have been created.')
+        cy.get('#w1-success-0').should('contain', 'Events have been created.')
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').should('contain','3')
     })
 

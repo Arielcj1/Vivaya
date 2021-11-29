@@ -48,7 +48,7 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         homePage.select_Login()
         commons.set_Generic_Seeker('userautorenewal@gmail.com', 'password')
         dashboard.cancel_autorenewal()
-        cy.get('#w0-success-0').should('include.text','Your Monthly Unlimited Membership has been cancelled')
+        cy.get('#w1-success-0').should('include.text','Your Monthly Unlimited Membership has been cancelled')
         //cy.get('#w0-success-0').should('contain','Your Monthly Unlimited Membership has been cancelled. You can continue participating in all classes of your Free 14 Day Trial')
                 
     })
@@ -72,7 +72,7 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         homePage.select_Login()
         commons.set_Generic_Seeker('userautorenewal@gmail.com', 'password')
         dashboard.cancel_autorenewal()
-        cy.get('#w0-success-0').should('contain','Your Monthly 3 Pack Membership has been cancelled.')
+        cy.get('#w1-success-0').should('contain','Your Monthly 3 Pack Membership has been cancelled.')
         cy.get('.dashboard-events > :nth-child(2) > :nth-child(3)').should('include.text', 'Valid until')
 
        })

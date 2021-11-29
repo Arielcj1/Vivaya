@@ -31,7 +31,7 @@ describe('Elements verification in responsive mode for bottom bar options', ()=>
           cy.get('.wrap > :nth-child(5) > :nth-child(2)').should('be.visible')
           cy.get('#guide-quotes > .container > :nth-child(1)').should('be.visible')
           cy.get('.leadership > h3').should('be.visible').and('contain.text', 'VIVAYA Leadership')
-          cy.get(':nth-child(2) > .col-md-offset-2').should('be.visible').and('contain.text', 'Florian Hartmann')  
+          cy.get('.offset-md-2 > h4').should('be.visible').and('contain.text', 'Florian Hartmann')  
         })
 
         it('Verify elemnts in FAQ page', ()=>{

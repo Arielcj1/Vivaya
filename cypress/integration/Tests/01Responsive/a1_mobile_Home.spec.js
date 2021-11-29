@@ -22,7 +22,7 @@ describe('Elements verification in responsive mode', ()=>{
         it('Verify Elements in Home page', ()=>{
             cy.get('.brand').should('exist').and('be.visible')
             cy.get('.nav-icons > .btn')
-            cy.get('h1').should('be.visible').and('have.text', 'Meet VIVAYA, Your New Home for Live-Streaming Yoga and Wellness')
+            cy.get('.home-description > h1').should('be.visible').and('have.text', 'Meet VIVAYA, Your New Home for Live-Streaming Yoga and Wellness')
             cy.get('.home-description > :nth-child(2) > span').should('be.visible').and('have.text', 'Practice LIVE Yoga, Meditation and Healing Arts with exceptional teachers across the US and worldwide')
             cy.get('.home-description > .btn').should('be.visible')
             cy.get('.player-skin').should('be.visible')
@@ -32,7 +32,7 @@ describe('Elements verification in responsive mode', ()=>{
             cy.get('.testimonials-container > .container').should('be.visible').and('contain.text','Testimonials')
             cy.get('.homepage-guides > .container').scrollIntoView()
             cy.get('.homepage-guides > .container').should('be.visible').and('contain.text','Explore Our Guides')
-            cy.get('.col-sm-8').should('be.visible').and('contain.text','Become a VIVAYA Guide or Teacher')
+            cy.get('.col-12 > h3').should('be.visible').and('contain.text','Become a VIVAYA Guide or Teacher')
             cy.scrollTo("bottom")
             cy.get('.footer-social > .social-links > :nth-child(1) > a').should('exist').and('be.visible')
             cy.get('.footer-social > .social-links > :nth-child(2) > a').should('exist').and('be.visible')

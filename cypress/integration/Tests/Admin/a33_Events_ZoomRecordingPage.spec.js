@@ -42,8 +42,8 @@ describe('Test and Verify Zoom page',()=>{
         cy.get('tr > :nth-child(2) > a').should('be.visible').and('contain.text', 'Event Name')
         cy.get('thead > tr > :nth-child(3)').should('be.visible').and('contain.text', 'Guide Name')
         cy.get('tr > :nth-child(4) > a').should('be.visible').and('contain.text', 'Start Date')
-        cy.get('thead > tr > :nth-child(5)').should('be.visible').and('contain.text', 'Zoom Link')
-        cy.get('thead > tr > :nth-child(6)').should('be.visible').and('contain.text', 'Time Avaliable')
+        cy.get('thead > tr > :nth-child(5)').should('be.visible').and('contain.text', 'Zoom  Link')
+        cy.get('thead > tr > :nth-child(6)').should('be.visible').and('contain.text', 'Time  Avaliable')
         cy.xpath("//tbody[1]/tr[1]//a[.='Save']").should('be.visible').and('contain.text', 'Save')
     
     })
@@ -54,7 +54,8 @@ describe('Test and Verify Zoom page',()=>{
 
         //Search Harvey's events to verify the recording elements
         zoomRPage.type_Guide_Name('Harvey')
-        zoomRPage.substract_Custom_From_Date(1)
+        //zoomRPage.substract_Custom_From_Date(0)
+        cy.get('#eventsearch-fromdate').clear().type('Jan-01-2021')
         zoomRPage.type_Current_Date()
         zoomRPage.click_Search_Button()
         cy.wait(3000)

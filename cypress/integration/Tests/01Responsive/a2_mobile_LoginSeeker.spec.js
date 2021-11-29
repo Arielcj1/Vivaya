@@ -49,7 +49,7 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
             //cy.get('.quick-links > :nth-child(4) > :nth-child(1) > a').should('be.visible').and('have.text', 'Switch to Guide Profile')
             cy.get('#referral-status-link').should('be.visible').and('have.text', 'My Referral')
 
-            cy.get('.col-sm-9 > .your-success > h3').should('be.visible').and('contain.text', 'Your Free Trial')
+            cy.get('.col-md-9 > .your-success > h3').should('be.visible').and('contain.text', 'Your Free Trial')
             cy.get('.col-sm-9 > .your-success > div > .count').contains(/^[0-9]*$/)
         })  
         

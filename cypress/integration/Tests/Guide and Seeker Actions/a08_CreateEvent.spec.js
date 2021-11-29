@@ -33,7 +33,7 @@ describe('Events Creation', ()=>{
              cy.log(text)
             if(text != 0){
                  dashboard.cancel_Created_Event_Workshop()
-                 cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
+                 cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
             }
             else{
                  dashboard.add_NewEvent()
@@ -45,7 +45,7 @@ describe('Events Creation', ()=>{
                  eventCreationPage.add_Price('40')
                  cy.wait(500)
                  eventCreationPage.press_Add()
-                 cy.get('#w0-success-0').should('contain', 'Events have been created.')
+                 cy.get('#w1-success-0').should('contain', 'Events have been created.')
             }
         })
     })
@@ -56,7 +56,7 @@ describe('Events Creation', ()=>{
             cy.log(text)
            if(text != 0){
                 dashboard.cancel_Created_Event_Workshop()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.')
+                cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
            }
            else{
             cy.wait(100)
@@ -69,7 +69,7 @@ describe('Events Creation', ()=>{
             cy.log(text)
             if(text != 0){
                 dashboard.cancel_Created_Event_class()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.') 
+                cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
                 dashboard.add_NewEvent()
@@ -81,7 +81,7 @@ describe('Events Creation', ()=>{
                 eventCreationPage.custom_Start_Time(7)
                 cy.wait(500)
                 eventCreationPage.press_Add()
-                cy.get('#w0-success-0').should('contain', 'Events have been created.')
+                cy.get('#w1-success-0').should('contain', 'Events have been created.')
             }
         })
     })
@@ -91,7 +91,7 @@ describe('Events Creation', ()=>{
             cy.log(text)
             if(text != 0){
                 dashboard.cancel_Created_Event_class()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.') 
+                cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
                 cy.wait(100)
@@ -104,7 +104,7 @@ describe('Events Creation', ()=>{
             cy.log(text)
             if(text != 0){
                 dashboard.cancel_Created_Event_one_on_one()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.') 
+                cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
                 dashboard.add_NewEvent()
@@ -114,13 +114,14 @@ describe('Events Creation', ()=>{
                 eventCreationPage.add_Description('This is a Test for One on One')
                 eventCreationPage.add_Custom_Number_Of_Days(2)
                 eventCreationPage.custom_Start_Time(7)
-                cy.xpath('/html/body/div[2]/div[2]/div/div/div/form/div[10]/div/div/div[1]/label/input').click()
-                cy.xpath('/html/body/div[2]/div[2]/div/div/div/form/div[10]/div/div/div[2]/label/input').click()
+                cy.get('#eventform-session_offering_id > :nth-child(1) > .custom-control-label').click({force:true})
+                //cy.xpath('/html/body/div[2]/div[2]/div/div/div/form/div[10]/div/div/div[1]/label/input').click()
+                //cy.xpath('/html/body/div[2]/div[2]/div/div/div/form/div[10]/div/div/div[2]/label/input').click()
                 eventCreationPage.press_Add()
                 cy.wait(500)
-                cy.get('#w0-success-0').should('contain', 'Events have been created.')
+                cy.get('#w1-success-0').should('contain', 'Events have been created.')
                 dashboard.cancel_Created_Event_one_on_one()
-                cy.get('#w0-success-0').should('contain', 'Event has been canceled.') 
+                cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
             }
         })    
     })
