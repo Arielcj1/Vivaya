@@ -58,7 +58,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
 
           //validations
           cy.get('.error-summary > div > ul > :nth-child(5)').should('be.visible').and('have.text', 'Workshop Price cannot be blank.')
-          cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+          //cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
           cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
           cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Body cannot be blank.')
           cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Name cannot be blank.')
@@ -123,16 +123,23 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           //edit offerings
           cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click()
           //cy.scrollIntoView('#addNewOffer')
-          cy.get('#addNewOffer').click()
+          cy.get('#addNewOffer').click({force:true})
           //cy.wait(2000)
-          cy.get(':nth-child(7) > .btn').click()
+          cy.get('#offering-form > :nth-child(7) > .btn').click()
           cy.get('.col-sm-5 > .form-group > .col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Offer cannot be blank.')
           cy.get('.col-sm-4 > .form-group > .col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Years Teaching cannot be blank.')
           //cy.get('.col-sm-5 > .form-group > .col-sm-12 > .help-block').should('be.visible').and('have.text', 'Offer cannot be blank.')
           //cy.get('.col-sm-4 > .form-group > .col-sm-12 > .help-block').should('be.visible').and('have.text', 'Years Teaching cannot be blank.')
           cy.get('#guideadditionaloffer-years_teaching').type('rrrrrr')
-          cy.get(':nth-child(7) > .btn').click()
+          cy.get('#offering-form > :nth-child(7) > .btn').click()
           cy.get('.col-sm-4 > .form-group > .col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Only numbers allowed')
+          //Other Certifications
+          cy.get('#addNewCertification').click({force:true})
+          cy.get('#certification-form > :nth-child(7) > .btn').click()
+          cy.get(':nth-child(6) > :nth-child(1) > .form-group > .col-sm-12 > .invalid-feedback').should('contain','Certification cannot be blank.')
+          cy.get(':nth-child(6) > :nth-child(2) > .form-group > .col-sm-12 > .invalid-feedback').should('contain','Name of Program cannot be blank.')
+          cy.get(':nth-child(6) > :nth-child(3) > .form-group > .col-sm-12 > .invalid-feedback').should('contain','Number of Hours cannot be blank.')
+
           cy.go('back')
 
           //Edit Password and personal info
@@ -155,7 +162,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.go('back')
 
           //Contact Vivaya
-          cy.get(':nth-child(4) > .col-sm-4 > a').click({force:true})
+          cy.get('.quick-links > :nth-child(4) > :nth-child(1) > a').click({force:true})
           cy.wait(500)
           cy.get('.btn-content > .btn').click({force:true})
 
@@ -164,6 +171,14 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.get('.field-contactform-subject > .invalid-feedback').should('be.visible').and('have.text', 'Subject cannot be blank.')
           cy.get('.field-contactform-body > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
           cy.go('back')
+
+          //FAQs
+          cy.get('.link').click({force:true})
+          cy.get('.text-center').should('contain','FAQs')
+          cy.get('.container > :nth-child(2)').should('contain','Free Trial & Membership')
+
+
+
 
         })
         

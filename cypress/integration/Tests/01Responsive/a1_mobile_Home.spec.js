@@ -43,14 +43,23 @@ describe('Elements verification in responsive mode', ()=>{
             cy.get('#subscribe-form-mobile > .field-subscribeform-email > #subscribeform-email').should('be.visible')
             cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(1) > a').should('be.visible').and('have.text','About')
             cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(2) > a').should('be.visible').and('have.text','FAQ')
-            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(3) > a').should('be.visible').and('have.text','Become a Guide')
-            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(4) > a').should('be.visible').and('have.text','Workshops')
-            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(5) > a').should('be.visible').and('have.text','Seminars')
-            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(6) > a').should('be.visible').and('have.text','Blog')
-            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(7) > a').should('be.visible').and('have.text','Contact')
-            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(8) > a').should('be.visible').and('have.text','Privacy Policy')
-            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(9) > a').should('be.visible').and('have.text','Terms & Conditions')
+            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(3) > a').should('be.visible').and('have.text','First Responders')
+            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(4) > a').should('be.visible').and('have.text','Become a Guide')
+            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(5) > a').should('be.visible').and('have.text','Workshops')
+            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(6) > a').should('be.visible').and('have.text','Seminars')
+            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(7) > a').should('be.visible').and('have.text','Blog')
+            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(8) > a').should('be.visible').and('have.text','Contact')
+            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(9) > a').should('be.visible').and('have.text','Privacy Policy')
+            cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(10) > a').should('be.visible').and('have.text','Terms & Conditions')
+        })
+
+        it('Verify Logos in home Page', ()=>{
+          cy.get('.pb-md-3').should('contain','AS SEEN ON')
+          cy.get('.logos > .slick-list > .slick-track').should('be.visible')
+          cy.get('.logos > .slick-dots').should('be.visible')
         })
     })
+
+    
 
 })

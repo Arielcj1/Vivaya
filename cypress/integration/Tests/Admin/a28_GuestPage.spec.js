@@ -17,6 +17,7 @@ describe('Guest page is displayed correctly', ()=>{
     beforeEach(()=>{
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
+
     })
 
     it('Verify element within Guest page',()=>{
@@ -37,6 +38,25 @@ describe('Guest page is displayed correctly', ()=>{
        cy.get('tr > :nth-child(3) > a').should('be.visible').and('have.text', 'Email')
        cy.get('tr > :nth-child(4) > a').should('be.visible').and('have.text', 'Is Converted') 
        
+    })
+
+    it('Create Guest from Admin site',()=>{
+        guestpage.select_Guest_Option()
+        guestpage.select_guest_add()
+        guestpage.fill_guest_name('Guest admin')
+        guestpage.fill_guest_lastname('last name')
+        guestpage.type_Guest_email('automation@guest.com')
+        cy.wait(500)
+        cy.get('#w2-success').should('contain','Guest has been created.')
+        
+     })
+
+     it('Delete the Guest user created in Admin Site', ()=>{
+        guestpage.select_Guest_Option()
+        guestpage.select_Guest_List()
+        guestpage.make_a_Search_by_email('automation@guest.com')
+        guestpage.guests_Options('2') // num 2 in order to delete guest
+        cy.get('#w2-success').should('be.visible')
     })
 
     it('Verify the Convertion of a Guest user to a Seeker',()=>{

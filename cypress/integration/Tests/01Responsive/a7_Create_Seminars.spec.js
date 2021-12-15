@@ -39,17 +39,17 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
                  var moment = require('moment');
                  const endDate = moment().add(15, 'days').format('MMM-DD-YYYY')
                  const typeDate = cy.get('#seminar-enddate').type(endDate)
-                 cy.get('.field-seminar-price > .help-block').click()
+                 cy.get('.custom-control-label').click({force:true})
             seminars.select_Main_Offering('Yoga')
             seminars.add_Seminar_Price(150)
             seminars.select_Allow_Independent_Events()
             seminars.select_Publish_Button()
     
-            cy.get('#w0-success-0').should('contain', 'Seminar has been created.')
+            cy.get('#w1-success-0').should('contain', 'Seminar has been created.')
             cy.get('h4 > a').should('contain', 'Seminar Automation')
 
             seminars.select_Cancel_Seminar()
-            cy.get('#w0-success-0').should('contain', 'Seminar has been cancelled.')
+            cy.get('#w1-success-0').should('contain', 'Seminar has been cancelled.')
 
         })
         

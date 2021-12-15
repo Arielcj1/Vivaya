@@ -38,39 +38,42 @@ export class Home {
     }
 
     go_To_About_BottomBar(){
-        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(1) > a').click()
+        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(1) > .nav-link').click()
     }
 
     go_To_FAQ(){
-        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(2) > a').click()
+        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(2) > .nav-link').click()
     }
 
     go_To_BecomeaGuide_From_Bottom(){
-        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(3) > a').click()
+        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(4) > .nav-link').click()
     }
 
     go_To_Workshops_From_Bottom(){
-        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(4) > a').click()
+        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(5) > .nav-link').click()
     }
 
     go_To_Seminars_From_Bottom(){
-        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(5) > a').click()
+        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(6) > .nav-link').click()
     }
 
     go_To_Blog_From_Bottom(){
-        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(6) > a').click()
+        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(7) > .nav-link').click()
     }
 
     go_To_Contact_From_Bottom(){
-        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(7) > a').click()
+        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(8) > .nav-link').click()
     }
 
     go_To_PPolicy_From_Bottom(){
-        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(8) > a').click()
+        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(9) > .nav-link').click()
     }
 
     go_To_TermsConditions_From_Bottom(){
-        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(9) > a').click()
+        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(10) > .nav-link').click()
+    }
+    go_to_first_responders(){
+        cy.get('.menu-mobile-footer-part > :nth-child(1) > #footernav > :nth-child(3) > .nav-link').click()
     }
 
 

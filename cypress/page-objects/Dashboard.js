@@ -6,6 +6,12 @@ export class Dashboard{
         cy.xpath("//*[contains(text(), 'Edit Event')]").click({force:true})
     }
 
+    find_the_free_booked(){
+        cy.contains('This event has been booked.').first().should('be.visible')
+        cy.wait(1000)
+    }
+
+
     go_to_Dashboard_From_Menu(){
         //cy.get('.uname').click()
         cy.get('#accountNav > ul > li > ul > li:nth-child(1) > a').click({ force: true })

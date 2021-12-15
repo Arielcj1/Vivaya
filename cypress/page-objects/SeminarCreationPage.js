@@ -36,7 +36,7 @@ export class SeminarCreationPage {
     }
 
     select_Allow_Independent_Events(){
-        cy.get('#seminar-independent_events').click({force:true})
+        cy.get('.custom-control-label').click({force:true})
     }
 
     select_Publish_Button(){

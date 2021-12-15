@@ -204,7 +204,7 @@ describe('Guide Page admin', ()=>{
         cy.get(':nth-child(1) > .dashboard-box > h3').should('be.visible')
         //Change to Guide
         guideweb.Select_Switch_to_Guide()
-        cy.get('.col-sm-9 > :nth-child(3) > h3').should('be.visible')
+        cy.get('strong').should('be.visible')
                
     })
 

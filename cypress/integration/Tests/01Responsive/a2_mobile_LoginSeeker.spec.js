@@ -31,8 +31,8 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
             cy.get(':nth-child(4) > form > .btn').should('be.visible').and('contain.text', 'Logout')
             cy.wait(2000)
             cy.get('.user-item').click()
-
-            cy.get('.profile-box > h2').should('be.visible').and('contain.text', 'manurojirim')
+            
+            cy.get('.profile-box > h2').should('include.text','Auto')
             cy.get('.dashboard-credits > h3').should('be.visible').and('have.text', 'Your Membership Status:')
             cy.get('.normal-classes-wrapper > h3').should('be.visible').and('have.text', 'Your Schedule:')
             cy.get('.replay-links-wrapper > h3').scrollIntoView()
@@ -50,7 +50,7 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
             cy.get('#referral-status-link').should('be.visible').and('have.text', 'My Referral')
 
             cy.get('.col-md-9 > .your-success > h3').should('be.visible').and('contain.text', 'Your Free Trial')
-            cy.get('.col-sm-9 > .your-success > div > .count').contains(/^[0-9]*$/)
+            cy.get('.col-md-9 > .your-success > div > .count').contains(/^[0-9]*$/)
         })  
         
         it('Verify redirections from Hamburguer Menu in Seeker account', ()=>{
@@ -72,8 +72,8 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
             cy.get('#mainNav > :nth-child(5) > a').click()
             cy.url().should('eq', 'https://stage.vivayalive.com/corporate')
             cy.get('#mainNavCollapseBtn > span.menu > img').click()
-            cy.get('#mainNav > :nth-child(6) > a').click()
-            cy.url().should('eq', 'https://stage.vivayalive.com/first-responders')
+            //cy.get('#mainNav > :nth-child(6) > a').click()
+            //cy.url().should('eq', 'https://stage.vivayalive.com/first-responders')
 
         })
 

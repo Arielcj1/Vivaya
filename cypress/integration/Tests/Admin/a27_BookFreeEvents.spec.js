@@ -39,6 +39,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         dashboard.free_Event_Confirmation('Guest', 'User', user)
         cy.wait(1500)
         cy.get('.title-confirmation').should('be.visible')
+        cy.wait(500)
+        cy.get('.brand').click({force:true})
+        dashboard.find_the_free_booked()
+
     })
 
     it('Verify the Guest creation in admin',()=>{

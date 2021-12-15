@@ -42,14 +42,14 @@ describe('Elements verification in responsive mode for main pages navigation', (
         it('Verify Elements and redirection for What We Offer page as Logged out', ()=>{
             home.go_To_WhatWeOffer_TopBar()
             cy.get('.text-center > strong').should('be.visible').and('have.text', 'VIVAYA Offerings')
-            cy.get('.container > .box-shadow > .lazy').should('be.visible').and('contain.text', 'Yoga')
-            cy.get(':nth-child(1) > :nth-child(1) > .box-shadow > .lazy').should('be.visible').and('contain.text', 'Meditation')
-            cy.get(':nth-child(1) > :nth-child(2) > .box-shadow > .lazy').should('be.visible').and('contain.text', 'Coaching')
-            cy.get(':nth-child(1) > :nth-child(3) > .box-shadow > .lazy').should('be.visible').and('contain.text', 'Restorative Fitness')
-            cy.get(':nth-child(3) > :nth-child(2) > :nth-child(1) > .box-shadow > .lazy').should('be.visible').and('contain.text', 'Nutrition')
-            cy.get(':nth-child(2) > :nth-child(2) > .box-shadow > .lazy').should('be.visible').and('contain.text', 'Astrology and Spiritual Counseling')
-            cy.get(':nth-child(2) > :nth-child(3) > .box-shadow > .lazy').should('be.visible').and('contain.text', 'Healing Arts and Reiki')
-            cy.get(':nth-child(3) > .col-md-4 > .box-shadow > .lazy').should('be.visible').and('contain.text', 'Movement & Dance')
+            cy.get('.container > .box-shadow > .main-offering-image > .textUp > strong > a').should('be.visible').and('contain.text', 'Yoga')
+            cy.get(':nth-child(1) > :nth-child(1) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Meditation')
+            cy.get(':nth-child(1) > :nth-child(2) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Coaching')
+            cy.get(':nth-child(1) > :nth-child(3) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Restorative Fitness')
+            cy.get(':nth-child(2) > :nth-child(1) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Nutrition')
+            cy.get(':nth-child(2) > :nth-child(2) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Astrology and Spiritual Counseling')
+            cy.get(':nth-child(2) > :nth-child(3) > .box-shadow > .main-offering-image > .main-offering-title').should('be.visible').and('contain.text', 'Healing Arts and Reiki')
+            cy.get(':nth-child(3) > :nth-child(1) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Movement & Dance')
         
             
         })
@@ -147,7 +147,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
             home.go_To_WhatWeOffer_TopBar()
 
-            cy.get(':nth-child(1) > :nth-child(1) > .box-shadow > .lazy').click()
+            cy.get(':nth-child(1) > :nth-child(1) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').click()
             cy.get('#banner').should('be.visible').and('contain.text', 'Meditation')
             cy.go('back')
 
@@ -186,7 +186,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
             home.go_To_WhatWeOffer_TopBar()
 
-            cy.get(':nth-child(1) > :nth-child(2) > .box-shadow > .lazy').click()
+            cy.get(':nth-child(1) > :nth-child(2) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').click()
             cy.get('#banner').should('be.visible').and('contain.text', 'Coaching')
             cy.go('back')
 
@@ -217,7 +217,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
             home.go_To_WhatWeOffer_TopBar()
 
-            cy.get(':nth-child(1) > :nth-child(3) > .box-shadow > .lazy > .main-offering-title > strong > a').click()
+            cy.get(':nth-child(1) > :nth-child(3) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').click()
             cy.get('#banner').should('be.visible').and('contain.text', 'Restorative Fitness')
             cy.go('back')
 
@@ -240,7 +240,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
             home.go_To_WhatWeOffer_TopBar()
 
-            cy.get(':nth-child(3) > :nth-child(2) > :nth-child(1) > .box-shadow > .lazy').click()
+            cy.get(':nth-child(2) > :nth-child(1) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').click()
             cy.get('#banner').should('be.visible').and('contain.text', 'Nutrition')
             cy.go('back')
 
@@ -275,7 +275,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
             home.go_To_WhatWeOffer_TopBar()
 
-            cy.get(':nth-child(2) > :nth-child(2) > .box-shadow > .lazy').click()
+            cy.get(':nth-child(2) > :nth-child(2) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').click()
             cy.get('#banner').should('be.visible').and('contain.text', 'Astrology and Spiritual Counseling')
             cy.go('back')
 
@@ -306,7 +306,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
             home.go_To_WhatWeOffer_TopBar()
 
-            cy.get(':nth-child(2) > :nth-child(3) > .box-shadow > .lazy').click()
+            cy.get(':nth-child(2) > :nth-child(3) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').click()
             cy.get('#banner').should('be.visible').and('contain.text', 'Healing Arts and Reiki')
             cy.go('back')
 
@@ -340,7 +340,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
             home.go_To_WhatWeOffer_TopBar()
 
-            cy.get(':nth-child(3) > :nth-child(1) > .box-shadow > .lazy').click()
+            cy.get(':nth-child(3) > :nth-child(1) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').click()
             cy.get('#banner').should('be.visible').and('contain.text', 'Movement & Dance')
             cy.go('back')
 
@@ -394,17 +394,13 @@ describe('Elements verification in responsive mode for main pages navigation', (
             cy.get('.corporate-offerings').should('be.visible')
             cy.get('.corporate-offerings > .text-blue').should('be.visible').and('contain.text', 'Explore our Diverse Array of Health and Healing Offerings')
             cy.get(':nth-child(4) > .container > .text-blue').should('be.visible').and('contain.text', 'Why Choose VIVAYA for Business')
-            cy.get('.employees-corporate-background > img').should('be.visible')
             cy.get(':nth-child(1) > .col-md-7 > .text-blue').should('be.visible').and('contain.text', 'Customizable Corporate Programs')
-            cy.get('.employees-variety-background > img').should('be.visible')
-            cy.get(':nth-child(2) > .col-md-7 > .text-blue').should('be.visible').and('contain.text', 'Unique Variety of Wellness Offerings')
-            cy.get('.employees-trusted-background > img').should('be.visible')
             cy.get(':nth-child(3) > .col-md-7 > .text-blue').should('be.visible').and('contain.text', 'One Trusted Platform for Employees’ Needs')
             cy.get('.corporate-plan-background > .container > h2').should('be.visible').and('contain.text', 'Plans as low as $25/month.')
 
         })   
         
-        it('Verify Corporate Page',()=>{
+        it.skip('Verify Corporate Page',()=>{
             home.go_To_FResponders_TopBar()
             cy.get('.free-months').should('be.visible').and('contain.text', 'Our Gift of Gratitude to First Responders, Healthcare and Emergency Workers')
             cy.get(':nth-child(2) > .img-responsive').should('be.visible')
@@ -432,11 +428,6 @@ describe('Elements verification in responsive mode for main pages navigation', (
             home.go_To_BecomeaGuide_TopBar()
             cy.get('.col-md-7 > .title').should('be.visible')
             cy.get('.col-md-7 > .btn-content > .btn').should('be.visible')
-            cy.get(':nth-child(2) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
-            cy.get('.box-shadow > .btn-content > .btn').should('be.visible')
-            cy.get(':nth-child(2) > .col-md-6 > h2').should('be.visible')
-            cy.get(':nth-child(3) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
-            cy.get(':nth-child(3) > .col-md-5 > .box-shadow > div > .btn').should('be.visible')
             cy.get('.container > .title').should('contain','FAQs')
             cy.get('.guide-description > .title').should('contain','Looking forward to have you join our community!')
             //signature
