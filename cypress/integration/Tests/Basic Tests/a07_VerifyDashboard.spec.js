@@ -73,9 +73,9 @@ describe('Verify the Elements within Dashboard', ()=>{
         dashBoard.select_Edit_Contact_Info()
         cy.url().should('eq', 'https://stage.vivayalive.com/account/profile')
 
-        /*cy.go('back')
-        dashBoard.select_Edit_Profile_Left_Section()
-        cy.url().should('eq', 'https://stage.vivayalive.com/account')*/
+        cy.go('back')
+        dashBoard.select_faqs()
+        cy.url().should('eq', 'https://stage.vivayalive.com/faqs')
 
         
         cy.go('back')
@@ -94,10 +94,10 @@ describe('Verify the Elements within Dashboard', ()=>{
         commons.set_Seeker_Credentials_One()
         homePage.submit_Credentials()
 
-        dashBoard.select_Book_More()
+        /*dashBoard.select_Book_More()
         cy.url().should('eq', 'https://stage.vivayalive.com/schedule')
+        cy.go('back')*/
 
-        cy.go('back')
         dashBoard.select_View_FullClass_History()
         cy.url().should('eq', 'https://stage.vivayalive.com/dashboard/history')
 
@@ -128,6 +128,11 @@ describe('Verify the Elements within Dashboard', ()=>{
         cy.go('back')
         dashBoard.select_Edit_Profile_Left_Section_Seeker()
         cy.url().should('eq', 'https://stage.vivayalive.com/account')
+
+        cy.go('back')
+        dashBoard.select_faq_seeker()
+        cy.url().should('eq', 'https://stage.vivayalive.com/faqs')
+
 
 
     })

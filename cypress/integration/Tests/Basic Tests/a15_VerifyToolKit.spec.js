@@ -35,7 +35,8 @@ describe('Verify the Elements within Dashboard', ()=>{
         homePage.submit_Credentials()
         
         dashBoard.select_toolkit()
-        cy.get('.col-sm-9 > .dashboard-box > h3').should('contain', 'My Toolkit')
+        cy.wait(500)
+        cy.get('.col-md-9 > .dashboard-box > h3').should('contain', 'My Toolkit')
         
     })
 

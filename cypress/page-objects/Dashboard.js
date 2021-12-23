@@ -112,8 +112,8 @@ export class Dashboard{
         cy.get('.quick-links > :nth-child(2) > :nth-child(3) > a').click({force:true})
     }
 
-    select_Edit_Profile_Left_Section(){
-        cy.get('.profile-box > [href="/account"]').click()
+    select_faqs(){
+        cy.get('.link').click()
     }
 
     select_Public_Profile_Left_Section(){
@@ -152,6 +152,10 @@ export class Dashboard{
 
     select_Payment_Info(){
         cy.get(':nth-child(3) > :nth-child(3) > a').click()
+    }
+
+    select_faq_seeker(){
+        cy.get('#link').click()
     }
 
     select_Edit_Profile_Left_Section_Seeker(){

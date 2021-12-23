@@ -25,9 +25,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.url().should('eq', 'https://stage.vivayalive.com/become-a-guide')
         cy.get('.col-md-7 > .title').should('contain','Your new home for live-streaming yoga and wellness classes, workshops and 1-1 sessions')
         cy.get('.col-md-7 > .btn-content > .btn').should('be.visible')
-        cy.get(':nth-child(2) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
-        cy.get('.box-shadow > .btn-content > .btn').should('be.visible')
-        cy.get(':nth-child(3) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
+        cy.get('.lazyloaded').should('be.visible')
+        cy.get('.box-shadow > picture > .lazyload').should('be.visible')
         cy.get('.container > .title').should('contain','FAQs')
         //signature
         cy.get('.signature > img').should('be.visible')

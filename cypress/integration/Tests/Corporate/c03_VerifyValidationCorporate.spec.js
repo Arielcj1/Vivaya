@@ -21,7 +21,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-    it('Verify validation "coporate name" from Admin',()=>{
+    it('Verify validation "corporate name" from Admin',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
@@ -35,7 +35,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.wait(2000)
         admin_corporate.add_Corporate_From_Form()
         cy.wait(1000)
-        cy.get('.field-corporate-domain > .help-block').should('contain','ActiveCampaign account exists.')
+        cy.get('.field-corporate-name > .help-block').should('contain','ActiveCampaign account exists.')
+        cy.get('.field-corporate-domain > .help-block').should('contain','Your email domain is already registered.')
+
     })
 
     it('Verify validation "coporate name" from Site',()=>{
@@ -43,15 +45,16 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         corporate.select_Corporate_As_Loggedout()
         corporate.type_Corporate_Email('manu1@automation.com')
         corporate.select_register_Now()
+        cy.get('.de-help > .btn-primary').click({force:true})
         corporate.type_First_Name('manu')
         corporate.type_Last_Name('automation')
         corporate.type_Company_Name('Automation corp')
         corporate.continue_From_Step1()
-        cy.get('.field-corporate-domain > .help-block').should('contain','Your email domain is already registered.')
+        cy.get('.field-corporatesignupform-company_name > .col-sm-9 > .invalid-feedback').should('contain','There is already a company registered with this name.')
         
     })
 
-    it('Delete the last corporated created',()=>{
+    it.skip('Delete the last corporated created',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()

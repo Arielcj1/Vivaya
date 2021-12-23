@@ -18,7 +18,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     it('The Corp user creates his Corporation from the Front end',()=>{
         commons.open_Web_Site()
         corporate.select_Corporate_As_Loggedout()
-        corporate.type_Corporate_Email('manu@automation.com')
+        corporate.type_Corporate_Email('manu@automation2.com')
         corporate.select_register_Now()
         corporate.type_First_Name('manu')
         corporate.type_Last_Name('automation')

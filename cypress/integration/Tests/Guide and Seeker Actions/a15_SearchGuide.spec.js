@@ -26,7 +26,7 @@ describe('Search a Guide', ()=> {
         guidesPage.perform_a_Search('manu rex')
         cy.wait(3000)
         cy.get('#w0 > div.row > div > a.img > img').click()
-        cy.get('h1').contains('manu rex')
+        cy.get('h1').should('include.text', 'Manu Rex')
         
     })
 
@@ -36,10 +36,10 @@ describe('Search a Guide', ()=> {
         homePage.submit_Credentials()
         cy.wait(2000)
         guidesPage.select_Guide_Tab_when_Login()
-        guidesPage.perform_a_Search('manu rex')
+        guidesPage.perform_a_Search('Manu Rex')
         cy.wait(3000)
         cy.get('#w0 > div.row > div > a.img > img').click()
-        cy.get('h1').contains('manu rex')
+        cy.get('h1').should('include.text', 'Manu Rex')
     })
 
 

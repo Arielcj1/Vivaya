@@ -50,7 +50,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
                 ]);
              });
 
-        cy.get('#w1 > :nth-child(2)').should('be.visible')
+        cy.get('tr > :nth-child(8) > a').should('contain','Revenue')
         cy.get('.summary').should('be.visible')     
     })
     

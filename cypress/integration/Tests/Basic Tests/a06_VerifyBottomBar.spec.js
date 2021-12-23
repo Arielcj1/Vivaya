@@ -27,10 +27,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.url().should('eq', 'https://stage.vivayalive.com/about')
         cy.get('#banner').should('be.visible')
         cy.get('.orange-text-color').should('contain', 'VIVAYA is the first interactive live-streaming Yoga and Wellness Center to share a vast array of holistic practices like yoga, meditation, nutrition, healing arts and coaching.' )
-        cy.get('.about-page-jumbotron > picture > .lazy').should('be.visible')
-        cy.get(':nth-child(2) > .col-md-offset-2 > picture > .lazy').should('be.visible')
-        cy.get(':nth-child(2) > :nth-child(2) > picture > .lazy').should('be.visible')
-        cy.get(':nth-child(5) > .col-md-4 > picture > .lazy').should('be.visible')
+        
         
     })
 
@@ -47,9 +44,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.url().should('eq', 'https://stage.vivayalive.com/become-a-guide')
         cy.get('.col-md-7 > .title').should('contain','Your new home for live-streaming yoga and wellness classes, workshops and 1-1 sessions')
         cy.get('.col-md-7 > .btn-content > .btn').should('be.visible')
-        cy.get(':nth-child(2) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
-        cy.get('.box-shadow > .btn-content > .btn').should('be.visible')
-        cy.get(':nth-child(3) > .col-md-5 > .box-shadow > picture > .lazy').should('be.visible')
+        cy.get('.lazyloaded').should('be.visible')
+        cy.get('.box-shadow > picture > .lazyload').should('be.visible')
         cy.get('.container > .title').should('contain','FAQs')
         //signature
         cy.get('.signature > img').should('be.visible')
@@ -68,5 +64,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         bottomBar.select_Seminars_Link()
         cy.url().should('eq', 'https://stage.vivayalive.com/seminars')
         cy.get('#banner').should('contain', 'Seminars')
+    })
+
+    it('Verify the Seminars First Responders',()=>{
+        cy.scrollTo('bottom')
+        bottomBar.select_first_responders_link()
+        cy.url().should('eq', 'https://stage.vivayalive.com/first-responders')
+        cy.get('.free-months').should('be.visible')
+        cy.get('.free-months > .btn').should('be.visible')
     })
   })

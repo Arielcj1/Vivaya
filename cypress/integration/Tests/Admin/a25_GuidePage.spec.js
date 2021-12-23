@@ -42,7 +42,7 @@ describe('Guide Page admin', ()=>{
         cy.get('#guidesearch-wizard_completed').should('be.visible')
         cy.get(':nth-child(2) > :nth-child(2) > .form-group > .control-label').should('have.text','Show On Homepage')
         cy.get('#guidesearch-show_on_homepage').should('be.visible')
-        cy.get(':nth-child(2) > :nth-child(3) > .form-group > .control-label').should('have.text','Approved as Guide')
+        cy.get(':nth-child(2) > :nth-child(3) > .form-group > .control-label').should('have.text','Guide Status')
         cy.get('#guidesearch-approved').should('be.visible')
         cy.get('.box-footer > .btn').should('be.visible').and('have.text', 'Search')
         cy.get('body > div > div > section.content > div > div > div > div > div:nth-child(3) > h3').should('have.text','List')
@@ -53,7 +53,7 @@ describe('Guide Page admin', ()=>{
         cy.get('tr > :nth-child(5) > a').should('be.visible').and('have.text', 'Registration Date')
         cy.get('tr > :nth-child(6) > a').should('be.visible').and('have.text', 'Show On Homepage')
         cy.get('tr > :nth-child(7) > a').should('be.visible').and('have.text', 'Wizard Completed')
-        cy.get('tr > :nth-child(8) > a').should('be.visible').and('have.text', 'Approved as Guide')
+        cy.get('tr > :nth-child(8) > a').should('be.visible').and('have.text', 'Guide Status')
         cy.get('thead > tr > :nth-child(9)').should('be.visible').and('have.text', 'Status')
     })
 

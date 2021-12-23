@@ -76,7 +76,7 @@ export class SeekerCreation{
     }
 
     Press_Become_guide_menu(){
-        cy.xpath('/html/body/div[2]/div[2]/ul/li[7]/a').click({force:true})
+        cy.get('.become-a-guide > .nav-link').click({force:true})
     }
 
     Press_become_guide_from_quicklink(){
