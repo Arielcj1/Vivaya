@@ -29,9 +29,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
         cy.get('.box > .box-header > .box-title').should('be.visible').and('have.text', 'Seekers Dropping List')
 
-        cy.get('thead > tr > :nth-child(1)').should('be.visible').and('have.text', 'Id')
+        cy.get('.table > thead > tr > :nth-child(1)').should('be.visible').and('have.text', 'Id')
         cy.get('[data-key="0"] > :nth-child(1)').contains(/^[0-9]*$/)
-        cy.get('thead > tr > :nth-child(2)').should('be.visible').and('have.text', 'Full Name')
+        cy.get('.table > thead > tr > :nth-child(2)').should('be.visible').and('have.text', 'Full Name')
 
         cy.get('[data-key="0"] > :nth-child(2) > .profile-link').click()
         cy.url().should('include', '/seekers/view?id=')

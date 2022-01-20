@@ -23,13 +23,13 @@ export class GuideCreation {
         cy.get('#guideapplicationstep1offer-0-years_teaching').type(val4)
         cy.get('#guideapplicationstep1offer-0-certified').click()
         //Meditation
-        cy.get(':nth-child(2) > .panel-heading > .panel-title > .collapse-toggle').click({force:true})
+        cy.get('#w1').click({force:true})
         cy.get('#guideapplicationstep1offer-1-offer_id').select('Chakra Meditation')
         cy.get('#guideapplicationstep1offer-1-years_teaching').type(val5)
         cy.get('#guideapplicationstep1offer-1-certified').click()
         cy.get('.btn-default').click({froce:true})
         cy.wait(400)
-        cy.get('#w0-success-0').should('be.visible')
+        cy.get('#w10-success-0').should('be.visible')
         cy.get('.next').click({force:true})
         
     }
@@ -54,7 +54,7 @@ export class GuideCreation {
         cy.get('#guideapplicationstep2-liability_insurance').check()
         cy.get('.btn-default').click({force:true})
         cy.wait(300)
-        cy.get('#w0-success-0').should('be.visible')
+        cy.get('#w1-success-0').should('be.visible')
         cy.get('.next').click({force:true})
 
     }
@@ -83,7 +83,7 @@ export class GuideCreation {
         cy.wait(2000)
         cy.get('.form-group.text-center > .btn-default').click({force:true})
         cy.wait(500)
-        cy.get('#w1-success-0').should('be.visible')
+        cy.get('#w2-success-0').should('be.visible')
 
         cy.get('#guideapplicationstep4-terms').check()
         cy.get('.next').click({force:true})

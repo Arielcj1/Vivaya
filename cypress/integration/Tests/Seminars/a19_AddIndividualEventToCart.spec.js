@@ -103,7 +103,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         commons.set_Seeker_Credentials_One()
         homePage.submit_Credentials()
         cy.wait(1500)
-        cy.get('.col-lg-9 > #footernav > :nth-child(3) > a').click()
+        cy.get('.col-xl-9 > #footernav > :nth-child(4) > .nav-link').click()
         cy.get(':nth-child(1) > .n').click()
         cy.xpath("//div[@class='list-view']/div[1]//a[.='Buy Workshop']").click()
         cy.get('.product > :nth-child(2) > h4').should('contain.text','Workshop: Seminar Event test one')

@@ -84,7 +84,7 @@ export class GuidesPage {
         const todayDate = moment().add(7, 'days').format('MMM-DD-YYYY')
         const typeDate = cy.get('#requestoneononeform-startdate1').type(todayDate)                
         //time
-        cy.get(':nth-child(4) > :nth-child(2) > .form-group > .col-xs-12 > .bootstrap-timepicker > .input-group-addon').click({force:true})
+        cy.get(':nth-child(4) > :nth-child(2) > .form-group > div.col-sm-12 > .bootstrap-timepicker > .input-group-addon').click({force:true})
         cy.wait(500)
         for(let n=0; n<value; n++){
             cy.xpath('//*[@id="request-one-on-one-form"]/div[2]/div[2]/div/div/div/div/table/tbody/tr[1]/td[3]/a').click({force:true})

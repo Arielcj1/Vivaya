@@ -49,7 +49,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
     })
 
-    it('Verify validation of the "Email" Corporate from WebSite',()=>{
+    it.skip('Verify validation of the "Email" Corporate from WebSite',()=>{
         commons.open_Web_Site()
         corporate.select_Corporate_As_Loggedout()
         cy.get('.container-banner > .container > #corporate-entry-form > .from-group > .btn').click({force:true})
@@ -57,7 +57,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-    it('Verify validation of the "Email" Corporate from WebSite',()=>{
+    it.skip('Verify validation of the "Email" Corporate from WebSite',()=>{
         commons.open_Web_Site()
         corporate.select_Corporate_As_Loggedout()
         corporate.type_Corporate_Email('manu@automation.com')
@@ -69,7 +69,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-    it('Delete the last corporated created',()=>{
+    it.skip('Delete the last corporated created',()=>{
         commons.open_Admin_Site()
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()

@@ -54,7 +54,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         .type('{downarrow}')
         .type('{enter}')
         admin_promo_code.type_Promotion_Discount('25')
-        cy.get('#promotion-expiration_date').type('31-Dec-2021')
+        cy.get('#promotion-expiration_date').type('31-Dec-2022')
         cy.wait(500)
         cy.get('.box-footer > .btn').click()
         cy.get('#w0-success').should('contain', 'Promotion for Corporate has been created.')

@@ -15,7 +15,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         commons.set_Admin_Credentials()
     })
 
-    it('Verify the Most Active Seekers report',()=>{
+    it.skip('Verify the Most Active Seekers report',()=>{
         reports.select_Reports_Tab()
         reports.select_Most_Active_Seekers()
 

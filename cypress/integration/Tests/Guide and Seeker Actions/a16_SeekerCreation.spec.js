@@ -72,7 +72,7 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         guidecreation.Fill_information_guide()
         //guidecreation.fill_Liability_Insurance()
         //cy.wait(2000)
-        cy.get('#w0-success-0').should('be.visible')
+        cy.get('#w1-success-0').should('be.visible')
          //go to seeker
          guideweb.Select_Switch_to_Guide()
          cy.get('strong').should('be.visible')
@@ -102,7 +102,7 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         homePage.select_Login()
         commons.put_credentials_guide('pedrasasmota.guide@gmail.com','password')
         cy.get('.guide-reminder > .btn').click()
-        cy.get('.col-sm-9 > :nth-child(2) > h3').should('be.visible')
+        cy.get('.col-md-9 > :nth-child(3) > h3').should('be.visible')
     })
 
     it('Seeker elimination from admin', ()=>{

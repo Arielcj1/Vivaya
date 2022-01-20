@@ -40,13 +40,13 @@ describe('Negative scenarios for Offerings', ()=>{
         homepage.submit_Credentials()
         dashboard.select_Edit_My_Offerings()
         offeringpage.Request_add_offering()
-        cy.get(':nth-child(7) > .btn').click({force:true})
+        cy.get('#offering-form > :nth-child(7) > .btn').click({force:true})
         //error
-        cy.get('.error-summary > ul > :nth-child(1)').should('contain','Offer cannot be blank.')
-        cy.get('.error-summary > ul > :nth-child(2)').should('contain','Years Teaching cannot be blank.')
+        cy.get('.alert > ul > :nth-child(1)').should('contain','Offer cannot be blank.')
+        cy.get('.alert > ul > :nth-child(2)').should('contain','Years Teaching cannot be blank.')
         //fields
-        cy.get('.col-sm-5 > .form-group > .col-sm-12 > .help-block').should('contain','Offer cannot be blank.')
-        cy.get('.col-sm-4 > .form-group > .col-sm-12 > .help-block').should('contain','Years Teaching cannot be blank.')
+        cy.get('.col-sm-5 > .form-group > .col-sm-12 > .invalid-feedback').should('contain','Offer cannot be blank.')
+        cy.get('.col-sm-4 > .form-group > .col-sm-12 > .invalid-feedback').should('contain','Years Teaching cannot be blank.')
 
 
     })

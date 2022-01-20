@@ -43,7 +43,7 @@ describe('Guide creation, Edition from Vivaya page', ()=>{
       guidepage.select_Guide_List()
       guidepage.find_EmailGuide('tomascoca39@gmail.com', '2')
       guidepage.Approve_Guide()
-      cy.get('#w2-success').should('be.visible')
+      cy.get('#w2-success').should('include.text','Guide successfully updated')
 
 
     })
@@ -56,7 +56,7 @@ describe('Guide creation, Edition from Vivaya page', ()=>{
         guidesPage.select_Guide_Tab_when_Login()
         guidesPage.perform_a_Search('Auto Guide')
         cy.wait(500)
-        cy.get('.label').should('contain','new guide')
+        cy.get('.badge').should('contain','new guide')
 
         
 

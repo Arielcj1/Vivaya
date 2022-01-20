@@ -24,6 +24,8 @@ export class SeminarEventCreationPage{
         for(let n=0; n<value; n++){
             cy.get(':nth-child(7) > .form-group > .col-sm-9 > .bootstrap-timepicker > .bootstrap-timepicker-widget > table > tbody > :nth-child(1) > :nth-child(1) > a > .glyphicon').click()
         }
+        cy.get('.control-label').click()
+
     }
 
     select_Existing_Seminar(value){

@@ -47,7 +47,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('.box-body > .table > thead > tr > :nth-child(5)').should('be.visible').and('have.text', 'Sold Package')
         cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(5)').contains(/^[0-9]*$/)
         cy.get('.box-body > .table > thead > tr > :nth-child(6)').should('be.visible').and('have.text', 'Total ($)')
-        cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(6)').contains(/^[1-9]\d*(\.\d+)?$/)
+        cy.get('.box-body > .table > tbody > :nth-child(1) > :nth-child(6)').should('be.visible')
         cy.get('.box-body > .table > tfoot > tr > :nth-child(2)').should('be.visible')
 
         cy.get(':nth-child(3) > .col-xs-12 > .box > .box-header > .box-title').should('be.visible').and('have.text', 'Membership Report')

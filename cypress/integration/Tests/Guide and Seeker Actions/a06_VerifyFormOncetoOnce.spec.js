@@ -40,13 +40,11 @@ describe('Verify form of One to One', ()=> {
         guidesPage.Select_request_OnetoOne()
         cy.wait(1500)
         cy.get('.mheader-title').should('contain','REQUEST 1-1 SESSION')
-        cy.get('.col-sm-10 > .form-group > .control-label').should('contain','Guide Offerings')
-        cy.get(':nth-child(4) > .col-sm-offset-1 > .form-group > .control-label').should('contain','Start Date1')
-        cy.get(':nth-child(4) > :nth-child(2) > .form-group > .control-label').should('contain','Start Time1')
-        cy.get(':nth-child(5) > .col-sm-offset-1 > .form-group > .control-label').should('contain','Start Date2')
-        cy.get(':nth-child(5) > :nth-child(2) > .form-group > .control-label').should('contain','Start Time2')
-        cy.get('#RequestOneOnOne').should('contain','REQUEST 1-1 SESSION')
-        
+        cy.get('#request-one-on-one-form > p').should('contain','Please select an offering and up to 3 possible dates for a 1-1 session with manu rex')
+        cy.get('#requestoneononeform-offer').should('be.visible')
+        cy.get(':nth-child(4) > .offset-sm-1 > .form-group > label.col-sm-12').contains('Start Date1')
+        cy.get(':nth-child(4) > :nth-child(2) > .form-group > label.col-sm-12').contains('Start Time1')
+        cy.get('#RequestOneOnOne').contains('REQUEST 1-1 SESSION')
     })
 
     it('Verify form "one to one" is sent', ()=>{
@@ -63,7 +61,7 @@ describe('Verify form of One to One', ()=> {
         cy.wait(1500)
         cy.get('.mheader-title').should('contain','REQUEST 1-1 SESSION')
         guidesPage.form_OnetoOne(5)
-        cy.get('#w2-success-0').should('contain','The request has been sent, we will send you an email soon.')
+        cy.get('#w3-success-0').should('contain','The request has been sent, we will send you an email soon.')
         
     })
 

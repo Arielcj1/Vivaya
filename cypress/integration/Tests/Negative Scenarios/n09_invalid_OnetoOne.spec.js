@@ -38,13 +38,9 @@ describe('Negative scenarios for Form One to One ', ()=> {
         guidesPage.Select_request_OnetoOne()
         cy.wait(1500)
         cy.get('#RequestOneOnOne').click({force:true})
-        cy.get('.col-sm-10 > .form-group > .col-xs-12 > .help-block').should('contain','Offer cannot be blank.')
-        cy.get(':nth-child(4) > .col-sm-offset-1 > .form-group > .col-xs-12 > .help-block').should('contain','Start Date1 cannot be blank.')
+        cy.get('.col-sm-10 > .form-group > .col-sm-12 > .invalid-feedback').should('contain','Offer cannot be blank.')
 
 
-
-
-        
     })
 
    

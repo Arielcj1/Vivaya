@@ -119,6 +119,8 @@ export class GuidePage {
     }
 
     Approve_Guide(){
-        cy.get('#guide-approved > :nth-child(1) > input').click().type('{enter}')
+        cy.get('#guide-approved').select('Online')
+        //update
+        cy.get('.box-footer > .btn').click({force:true})
     }
 }

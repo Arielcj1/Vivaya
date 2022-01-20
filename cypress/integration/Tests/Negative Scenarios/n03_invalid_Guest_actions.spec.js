@@ -30,10 +30,9 @@ describe('Negative scenarios for GUEST', ()=>{
         guestpage.select_Guest_Option()
         guestpage.select_Guest_List()
         guestpage.guests_Options('1')
-        guestpage.type_Guest_Name_clear()
-        guestpage.type_Guest_email_clear()
-        cy.get('.field-guest-name > .help-block').should('contain','Name cannot be blank.')
-        cy.get('.field-guest-email > .help-block').should('contain','Email cannot be blank.')
+        cy.get('.box-footer > .btn').click()
+        cy.get('.field-guest-firstname > .help-block').should('contain','First Name cannot be blank.')
+        cy.get('.field-guest-lastname > .help-block').should('contain','Last Name cannot be blank.')
       
      })
 
