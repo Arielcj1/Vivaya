@@ -34,6 +34,7 @@ export class CorporatePromotionPage {
         cy.get('.box-footer > .btn').click()
     }
     disable_last_Promo_created(){
-        cy.get(':nth-child(1) > :nth-child(7) > .glyphicon-remove').click()
+       // cy.get(':nth-child(1) > :nth-child(7) > .glyphicon-remove').click()
+        cy.get(':nth-child(1) > :nth-child(6) > .glyphicon-remove').click()
     }
 }

@@ -120,6 +120,7 @@ export class GuidePage {
 
     Approve_Guide(){
         cy.get('#guide-approved').select('Online')
+        cy.wait(500)
         //update
         cy.get('.box-footer > .btn').click({force:true})
     }

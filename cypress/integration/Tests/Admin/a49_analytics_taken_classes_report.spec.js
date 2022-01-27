@@ -34,6 +34,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         //Graphics
         cy.get('#areaChart').should('be.visible')
         cy.get('thead > tr > :nth-child(1)').should('contain','Date')
-        cy.get('thead > tr > :nth-child(2)').should('contain','Classes Taken')
+        cy.get('thead > tr > :nth-child(2)').should('include.text','Classes  Taken')
     })
   })        

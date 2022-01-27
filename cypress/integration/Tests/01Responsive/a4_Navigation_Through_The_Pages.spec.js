@@ -387,16 +387,14 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
         it('Verify Corporate Page',()=>{
             home.go_To_Corporate_TopBar()
-            cy.get('.container-banner > .container').should('be.visible').and('contain.text', 'Healthy Body, Mind & Soul - Healthy Business')
-            cy.get('.container-banner > .container').should('be.visible').and('contain.text', 'Join us for a free corporate trial of live and interactive yoga and wellness classes.')
-            cy.get('.container-banner > .container > #corporate-entry-form > .form-group > #corporateentryform-emailfrontend').should('be.visible')
-            cy.get('.container-banner > .container > #corporate-entry-form > .from-group > .btn').should('be.visible')
-            cy.get('.corporate-offerings').should('be.visible')
-            cy.get('.corporate-offerings > .text-blue').should('be.visible').and('contain.text', 'Explore our Diverse Array of Health and Healing Offerings')
-            cy.get(':nth-child(4) > .container > .text-blue').should('be.visible').and('contain.text', 'Why Choose VIVAYA for Business')
-            cy.get(':nth-child(1) > .col-md-7 > .text-blue').should('be.visible').and('contain.text', 'Customizable Corporate Programs')
-            cy.get(':nth-child(3) > .col-md-7 > .text-blue').should('be.visible').and('contain.text', 'One Trusted Platform for Employees’ Needs')
-            cy.get('.corporate-plan-background > .container > h2').should('be.visible').and('contain.text', 'Plans as low as $25/month.')
+            cy.get('.container-banner > .container > .text-blue').should('contain','Healthy Body, Mind & Soul - Healthy Business')
+            cy.get('.container-banner > .container > p').should('contain','Connect and learn about Vivaya’s FREE Corporate Trial, Employee Membership Plans, Employee Discounts, or Book a Demo.')
+            cy.get('.container-banner > .container > .btn').should('contain','Contact Us')
+            cy.get(':nth-child(4) > .container > .text-blue').should('contain','Why Choose VIVAYA for Business')
+            cy.get('.corporate-quote > .bold').should('contain','COVID-19 has sparked an unprecedented amount of employees transitioning to working full time at home.')
+            cy.get('.corporate-plan-background > .container > p').should('contain','Connect and learn about Vivaya’s FREE Corporate Trial, Employee Membership Plans, Employee Discounts, or Book a Demo')
+
+            
 
         })   
         

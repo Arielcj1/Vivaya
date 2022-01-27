@@ -41,7 +41,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#w0-success').should('contain', 'Corporate has been created.')
     })
 
-    it('Create and Delete a Promo Code for last created Corporation',()=>{
+    it('Create a Promo Code for last created Corporation',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_promo_code.select_Corporate_Promotions_From_List()
@@ -54,9 +54,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         .type('{downarrow}')
         .type('{enter}')
         admin_promo_code.type_Promotion_Discount('25')
-        cy.get('#promotion-expiration_date').type('31-Dec-2022')
         cy.wait(500)
-        cy.get('.box-footer > .btn').click()
+        //cy.get('.box-footer > .btn').click()
         cy.get('#w0-success').should('contain', 'Promotion for Corporate has been created.')
     })
 

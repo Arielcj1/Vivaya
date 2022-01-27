@@ -43,25 +43,21 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     it('Verify validation "coporate name" from Site',()=>{
         commons.open_Web_Site()
         corporate.select_Corporate_As_Loggedout()
-        corporate.type_Corporate_Email('manu1@automation.com')
-        corporate.select_register_Now()
-        cy.get('.de-help > .btn-primary').click({force:true})
+        corporate.click_contact_us()
         corporate.type_First_Name('manu')
         corporate.type_Last_Name('automation')
         corporate.type_Company_Name('Automation corp')
-        corporate.continue_From_Step1()
+        corporate.type_email_corporate('manu@automation2.com')
+        corporate.type_message_corporate('this is a message test')
+        corporate.continue_From_Step2()
+        cy.wait(300)
         cy.get('.field-corporatesignupform-company_name > .col-sm-9 > .invalid-feedback').should('contain','There is already a company registered with this name.')
+        cy.get('.field-corporatesignupform-email > .col-sm-9 > .invalid-feedback').should('include.text','Your email domain is already registered. Please contact us at corporate@vivayalive.com to continue the conversation')
+        
+
         
     })
-
-    it.skip('Delete the last corporated created',()=>{
-        commons.set_Admin_Credentials()
-        admin_corporate.select_Corporate_Option()
-        admin_corporate.select_Corporate_List()
-        cy.get('.table').find('.glyphicon-trash').first().click()
-        cy.get('#w0-success').should('be.visible')
-    })
-    
+       
 })   
   
 

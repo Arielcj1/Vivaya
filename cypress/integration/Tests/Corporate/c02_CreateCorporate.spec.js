@@ -18,13 +18,27 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     it('The Corp user creates his Corporation from the Front end',()=>{
         commons.open_Web_Site()
         corporate.select_Corporate_As_Loggedout()
-        corporate.type_Corporate_Email('manu@automation2.com')
-        corporate.select_register_Now()
+        corporate.click_contact_us()
         corporate.type_First_Name('manu')
         corporate.type_Last_Name('automation')
         corporate.type_Company_Name('Automation corp')
-        corporate.continue_From_Step1()
+        corporate.type_email_corporate('manu@automation2.com')
+        corporate.type_message_corporate('this is a message test')
+        corporate.continue_From_Step2()
         cy.wait(500)
+        //Step2
+        cy.get('.step3').should('be.visible')
+        cy.get('.col-md-7 > h3').should('contain','Thank you for sending your details. We look forward to sharing VIVAYA with you! To book a Demo click on the link below.')
+        cy.get('[href="/site/index"]').should('contain','Finish')
+        cy.xpath('/html/body/div[2]/div[2]/div/div/div[1]/div[1]/div[2]/a[2]').should('contain','Book a demo')
+        cy.xpath('/html/body/div[2]/div[2]/div/div/div[1]/div[1]/div[2]/a[2]').click({froce:true})
+        cy.wait(300)
+        //step3
+        cy.get('.step2').should('be.visible')
+        cy.get('h4').should('contain','Introduction to VIVAYA for Business')
+        cy.get('.info-step2 > :nth-child(1)').should('contain','Learn about Vivaya’s amazing platform along with an overview of our corporate options to suit any business need')
+
+        //Calendly
         cy.get('#calendly-schedule > iframe').should('be.visible')
         
     })

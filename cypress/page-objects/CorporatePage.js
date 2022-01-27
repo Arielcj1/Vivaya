@@ -5,8 +5,9 @@ export class CorporatePage {
         cy.get('#mainNav > :nth-child(6) > a').click()
     }
 
-    type_Corporate_Email(value){
-        cy.get('.container-banner > .container > #corporate-entry-form > .form-group > #corporateentryform-emailfrontend').type(value)
+    click_contact_us(){
+        cy.get('.container-banner > .container > .btn').click({force:true})
+        
     }
 
     select_register_Now(){
@@ -24,7 +25,15 @@ export class CorporatePage {
         cy.get('#corporatesignupform-company_name').type(value)
     }
 
-    continue_From_Step1(){
+    type_email_corporate(value){
+        cy.get('#corporatesignupform-email').type(value)
+    }
+
+    type_message_corporate(value){
+        cy.get('#corporatesignupform-body').type(value)
+    }
+
+    continue_From_Step2(){
         cy.get('#continueStep1').click()
     }
 
