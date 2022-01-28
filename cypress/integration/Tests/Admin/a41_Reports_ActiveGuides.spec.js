@@ -32,6 +32,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('[data-key="0"] > :nth-child(2) > a').click()
         cy.url().should('include', '/events/index?guideId=')
         cy.go('back')
+        cy.wait(300)
         cy.get('thead > tr > :nth-child(3)').should('be.visible').and('have.text', 'Email')
         cy.get('[data-key="0"] > :nth-child(3)').contains(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
         cy.get('thead > tr > :nth-child(4)').should('be.visible').and('have.text', 'Number of Events')
