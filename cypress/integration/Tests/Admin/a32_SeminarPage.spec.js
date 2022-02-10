@@ -108,6 +108,6 @@ describe('Verify Seminar Page admin', ()=>{
         cy.get('tr > :nth-child(4) > a').should('be.visible').and('have.text', 'Email')
         cy.get('tr > :nth-child(5) > a').should('be.visible').and('have.text', 'Seminar Name')
         cy.get('tr > :nth-child(6) > a').should('be.visible').and('have.text', 'Price')
-        cy.get('[style="width:50px;"]').should('be.visible').and('have.text', 'Refund  Status')
+        cy.get('[style="width:50px;"]').should('be.visible').and('include.text', 'Refund Status')
     })
 })    

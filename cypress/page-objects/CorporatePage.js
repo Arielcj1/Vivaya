@@ -6,7 +6,7 @@ export class CorporatePage {
     }
 
     click_contact_us(){
-        cy.get('.container-banner > .container > .btn').click({force:true})
+        cy.get('.container-banner > .container > #corporate-entry-form > .from-group > .btn').click({force:true})
         
     }
 
@@ -27,6 +27,10 @@ export class CorporatePage {
 
     type_email_corporate(value){
         cy.get('#corporatesignupform-email').type(value)
+    }
+
+    type_email_corporate_webSite(value){
+        cy.get('.container-banner > .container > #corporate-entry-form > .form-group > #corporateentryform-emailfrontend').type(value)
     }
 
     type_message_corporate(value){

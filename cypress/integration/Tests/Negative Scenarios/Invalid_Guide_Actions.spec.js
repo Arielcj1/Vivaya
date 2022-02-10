@@ -36,7 +36,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.get(':nth-child(3) > .btn').click()
     cy.get('[href="/events/class/create"]').click()
     cy.get('#btnCreateEvent').click()
-    cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+    //cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
     cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
     cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Body cannot be blank.')
     cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Name cannot be blank.')

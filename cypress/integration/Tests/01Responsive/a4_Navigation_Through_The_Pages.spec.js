@@ -388,11 +388,11 @@ describe('Elements verification in responsive mode for main pages navigation', (
         it('Verify Corporate Page',()=>{
             home.go_To_Corporate_TopBar()
             cy.get('.container-banner > .container > .text-blue').should('contain','Healthy Body, Mind & Soul - Healthy Business')
-            cy.get('.container-banner > .container > p').should('contain','Connect and learn about Vivaya’s FREE Corporate Trial, Employee Membership Plans, Employee Discounts, or Book a Demo.')
-            cy.get('.container-banner > .container > .btn').should('contain','Contact Us')
+            cy.get('.container-banner > .container > p').should('include.text','Connect and learn about VIVAYA’s FREE corporate trial, employee membership plans, employee discounts,')
+            cy.get('.container-banner > .container > #corporate-entry-form > .from-group > .btn').should('contain','Contact Us')
             cy.get(':nth-child(4) > .container > .text-blue').should('contain','Why Choose VIVAYA for Business')
             cy.get('.corporate-quote > .bold').should('contain','COVID-19 has sparked an unprecedented amount of employees transitioning to working full time at home.')
-            cy.get('.corporate-plan-background > .container > p').should('contain','Connect and learn about Vivaya’s FREE Corporate Trial, Employee Membership Plans, Employee Discounts, or Book a Demo')
+            cy.get('.corporate-plan-background > .container > p').should('contain','Connect and learn about VIVAYA’s FREE Corporate Trial, Employee Membership Plans, Employee Discounts, or Book a Demo')
 
             
 

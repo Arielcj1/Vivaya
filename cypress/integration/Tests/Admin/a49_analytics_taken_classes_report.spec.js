@@ -30,6 +30,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         //Buttons
         cy.get('.btn-success').should('contain','Export to CSV')
         cy.get('.btn-primary').should('contain','Search')
+        cy.wait(500)
 
         //Graphics
         cy.get('#areaChart').should('be.visible')

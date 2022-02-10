@@ -24,6 +24,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
          cy.get('#reportsearch-fromdate').click()
          cy.get('#reportsearch-fromdate').clear()
          reports.custom_Date_From_Date_Membership()
+         
+         cy.get('#reportsearch-fromdate').clear().type('01-Jan-2022')
+         cy.wait(300)
          cy.get(':nth-child(3) > .col-xs-12 > .box > .box-header > .box-title').click()
          cy.get('#w0 > div.box-footer > button').click()
 

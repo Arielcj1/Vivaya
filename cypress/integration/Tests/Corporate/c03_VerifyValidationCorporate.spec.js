@@ -43,11 +43,12 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     it('Verify validation "coporate name" from Site',()=>{
         commons.open_Web_Site()
         corporate.select_Corporate_As_Loggedout()
+        corporate.type_email_corporate_webSite('manu@automation2.com')
         corporate.click_contact_us()
         corporate.type_First_Name('manu')
         corporate.type_Last_Name('automation')
         corporate.type_Company_Name('Automation corp')
-        corporate.type_email_corporate('manu@automation2.com')
+        //corporate.type_email_corporate('manu@automation2.com')
         corporate.type_message_corporate('this is a message test')
         corporate.continue_From_Step2()
         cy.wait(300)

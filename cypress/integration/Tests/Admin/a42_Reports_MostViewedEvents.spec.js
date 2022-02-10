@@ -18,6 +18,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     it('Verify the most Active Guides report',()=>{
         reports.select_Reports_Tab()
         reports.select_Most_Viewed_Events()
+        cy.get('#usermembershipeventsearch-fromdate').clear().type('01-Jan-2021')
+        cy.get('.row > :nth-child(2) > :nth-child(2)').click({force:true})
+        cy.get('.box-footer > .btn').click()
+        cy.wait(500)
         cy.get('h1').should('contain', 'Most Viewed Events')
         cy.get(':nth-child(1) > .form-group > .control-label').should('be.visible').and('have.text', 'From Date')
         cy.get(':nth-child(2) > .form-group > .control-label').should('be.visible').and('have.text', 'To Date')

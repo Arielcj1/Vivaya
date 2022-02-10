@@ -42,9 +42,9 @@ describe('Test and Verify Zoom page',()=>{
         cy.get('tr > :nth-child(2) > a').should('be.visible').and('contain.text', 'Event Name')
         cy.get('thead > tr > :nth-child(3)').should('be.visible').and('contain.text', 'Guide Name')
         cy.get('tr > :nth-child(4) > a').should('be.visible').and('contain.text', 'Start Date')
-        cy.get('thead > tr > :nth-child(5)').should('be.visible').and('contain.text', 'Zoom  Link')
-        cy.get('thead > tr > :nth-child(6)').should('be.visible').and('contain.text', 'Time  Avaliable')
-        cy.xpath("//tbody[1]/tr[1]//a[.='Save']").should('be.visible').and('contain.text', 'Save')
+        cy.get('.table > thead > tr > :nth-child(5)').should('include.text', 'Zoom Link')
+        cy.get('thead > tr > :nth-child(6)').should('include.text', 'Time Avaliable')
+        cy.xpath("//tbody[1]/tr[1]//a[.='Save']").should('include.text', 'Save')
     
     })
 
@@ -55,16 +55,17 @@ describe('Test and Verify Zoom page',()=>{
         //Search Harvey's events to verify the recording elements
         zoomRPage.type_Guide_Name('Harvey')
         //zoomRPage.substract_Custom_From_Date(0)
-        cy.get('#eventsearch-fromdate').clear().type('Jan-01-2021')
+        cy.get('#eventsearch-fromdate').clear().type('Jan-01-2020')
         zoomRPage.type_Current_Date()
         zoomRPage.click_Search_Button()
         cy.wait(3000)
 
         cy.get('#w1').should('be.visible')
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/div/a').should('be.visible').and('contain.text', 'View Recording 1')
-        cy.get('#w1 > table > tbody > tr:nth-child(1) > td:nth-child(5) > div > a').should('have.attr', 'href').and('include', 'https://vivaya.zoom.us/rec/play')
-
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/div/a').click() //select first View recording in the list
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/div/a').should('be.visible').and('include.text', 'View Recording 1')
+        cy.get('[data-key="6697"] > :nth-child(5) > div > a').should('be.visible').contains('View Recording 1')
+        //cy.get('[data-key="6697"] > :nth-child(5) > div > a').should('have.attr', 'href').and('include.text', 'https://vivaya.zoom.us/rec/play')
+        cy.get('[data-key="6697"] > :nth-child(5) > div > a').click()
+        //cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/div/a').click() //select first View recording in the list
         
     })
         
