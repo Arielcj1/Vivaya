@@ -35,8 +35,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.wait(2000)
         admin_corporate.add_Corporate_From_Form()
         cy.wait(1000)
-        cy.get('.field-corporate-name > .help-block').should('contain','ActiveCampaign account exists.')
-        cy.get('.field-corporate-domain > .help-block').should('contain','Your email domain is already registered.')
+        cy.get('.field-corporate-name > .help-block').should('include.text','ActiveCampaign account exists.')
+        cy.get('.field-corporate-domain > .help-block').should('include.text','Your email domain is already registered.')
 
     })
 
@@ -52,7 +52,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         corporate.type_message_corporate('this is a message test')
         corporate.continue_From_Step2()
         cy.wait(300)
-        cy.get('.field-corporatesignupform-company_name > .col-sm-9 > .invalid-feedback').should('contain','There is already a company registered with this name.')
+        cy.get('.field-corporatesignupform-company_name > .col-sm-9 > .invalid-feedback').should('include.text','Your corporate name is already registered. Please contact us at corporate@vivayalive.com to continue the conversation')
         cy.get('.field-corporatesignupform-email > .col-sm-9 > .invalid-feedback').should('include.text','Your email domain is already registered. Please contact us at corporate@vivayalive.com to continue the conversation')
         
 

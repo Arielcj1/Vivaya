@@ -197,6 +197,7 @@ describe('Guide Page admin', ()=>{
         seekercreation.type_Card_ExpDate('0225')
         seekercreation.type_Security_Code('123')
         seekercreation.type_ZipCode('1234')
+        cy.wait(300)
         //Change to Seeker
         cy.get('.wrap > :nth-child(3) > .alert').should('be.visible')
         guideweb.Select_Switch_to_seeker()
