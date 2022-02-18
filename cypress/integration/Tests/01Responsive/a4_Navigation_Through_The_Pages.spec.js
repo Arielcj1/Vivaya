@@ -377,11 +377,11 @@ describe('Elements verification in responsive mode for main pages navigation', (
             cy.get('.memberships > :nth-child(1) > :nth-child(1) > strong').should('be.visible').and('contain.text', 'New Student')
             cy.get('.col-md-4').should('be.visible').and('contain.text', 'Free 14 Day Trial')
             cy.get('.col-md-4').should('be.visible').and('contain.text', 'Unlimited classes')
-            cy.get('picture > img').should('be.visible')
-            cy.get('.membership-access-content > .container').should('be.visible').and('contain.text', 'Yoga and Wellness on Your Terms')
-            cy.get('.membership-access-content > .container').should('be.visible').and('contain.text', 'Our memberships and packages give access to all classes')
-            cy.get('.membership-timebased > .container').should('be.visible').and('contain.text', 'Memberships')
-            cy.get('.content-other-offerings > .container').should('be.visible').and('contain.text', 'All Other Offerings')
+            cy.get('.col-md-7 > img').should('be.visible')
+            cy.get('.container > .row > :nth-child(1) > h2 > strong').should('be.visible').and('contain.text', 'Yoga and Wellness on Your Terms')
+            cy.get('.row > :nth-child(1) > p').should('be.visible').and('contain.text', 'Our memberships and packages give access to all classes')
+            cy.get('.membership-timebased > .container > :nth-child(1) > strong').should('be.visible').and('contain.text', 'Memberships')
+            cy.get('.content-other-offerings > .container > h2 > strong').should('be.visible').and('contain.text', 'All Other Offerings')
 
         })    
 
@@ -392,7 +392,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
             cy.get('.container-banner > .container > #corporate-entry-form > .from-group > .btn').should('contain','Contact Us')
             cy.get(':nth-child(4) > .container > .text-blue').should('contain','Why Choose VIVAYA for Business')
             cy.get('.corporate-quote > .bold').should('contain','COVID-19 has sparked an unprecedented amount of employees transitioning to working full time at home.')
-            cy.get('.corporate-plan-background > .container > p').should('contain','Connect and learn about VIVAYA’s FREE Corporate Trial, Employee Membership Plans, Employee Discounts, or Book a Demo')
+            cy.get('.corporate-plan-background > .container > p').should('contain','Connect and learn about VIVAYA’s FREE corporate trial, employee membership plans, employee discounts, or book a demo')
 
             
 
