@@ -19,7 +19,7 @@ describe('Elements verification in responsive mode', ()=>{
           commons.open_Web_Site()
         })
 
-        it('Verify Elements in Home page', ()=>{
+        it('Verify Elements in Home page from mobile', ()=>{
             cy.get('.brand').should('exist').and('be.visible')
             cy.get('.nav-icons > .btn')
             cy.get('.home-description > h1').should('be.visible').and('have.text', 'Meet VIVAYA, Your New Home for Live-Streaming Yoga and Wellness')
