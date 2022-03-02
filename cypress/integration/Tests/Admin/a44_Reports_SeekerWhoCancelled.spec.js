@@ -30,6 +30,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get(':nth-child(2) > :nth-child(2) > .form-group > .control-label').should('be.visible').and('have.text', 'To Date')
         cy.get('#reportsearch-todate').should('be.visible') 
         cy.get('.box-footer > .btn').should('be.visible').and('have.text', 'Search')
+        cy.get('.box-footer > .btn').click()   //Click on the button Search
 
         //verify list elements
         cy.get(':nth-child(3) > .box-title').should('be.visible').and('have.text', 'List')

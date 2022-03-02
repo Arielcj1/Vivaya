@@ -29,7 +29,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get(':nth-child(2) > th').should('be.visible').and('have.text', 'Converted seekers')
         cy.get('[style="margin-top: 10px"] > .table > tbody > :nth-child(2) > td').contains(/^[0-9]*$/)
         cy.get(':nth-child(3) > th').should('be.visible').and('have.text', 'Percentage of converted seekers')
-        cy.get('[style="margin-top: 10px"] > .table > tbody > :nth-child(3) > td').contains(/^((100)|(\d{1,2}(.\d*)?))%$/)
+        cy.get('[style="margin-top: 10px"] > .table > tbody > :nth-child(3) > td').contains(/^((100)|(\d{1,2}(.\d*)?))/)
+        
 
         cy.get('.box > .box-header > .box-title').should('be.visible').and('have.text', 'List of Free Trial converted to Membership')
         cy.get('thead > tr > :nth-child(1)').should('be.visible').and('have.text', 'Id')
