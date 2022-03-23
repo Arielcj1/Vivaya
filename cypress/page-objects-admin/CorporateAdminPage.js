@@ -4,6 +4,9 @@ export class CorporateAdminPage {
     select_Corporate_Option(){
         cy.get(':nth-child(13) > [href="#"] > :nth-child(2)').click()
     }
+    select_Corporate_level3(){
+        cy.get('.menu-open > .treeview-menu > :nth-child(6) > a > span').click({force:true})
+    }
 
     select_Corporate_List(){
         cy.get('.menu-open > .treeview-menu > :nth-child(1) > a > span').click()
