@@ -4,6 +4,7 @@ import { Commons } from "../../../Commons/Common";
 import { CorporateAdminPage } from "../../../page-objects-admin/CorporateAdminPage";
 import { CorporatePromotionPage } from "../../../page-objects-admin/CorporatePromotionPage";
 import { SeekerCreation } from "../../../page-objects/SeekerCreation";
+import { SeekerCreationSingle } from "../../../page-objects/SeekerCreationSingle";
 
 
 
@@ -17,6 +18,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const admin_corporate = new CorporateAdminPage()
     const admin_promo_code = new CorporatePromotionPage()
     const seekerCreation = new SeekerCreation()
+    const seekerCreationSingle = new SeekerCreationSingle()
 
     beforeEach(()=>{
         
@@ -58,26 +60,59 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('#w0-success').should('contain', 'Promotion for Level 3 Corporate has been created.')
     })
 
-    it('Create a Corporate user, using the "Corporate Promotion Lvl3" code',()=>{
-      commons.open_Web_Site()
-      seekerCreation.select_Free_trial_option()
+    it.skip('Create a Corporate user, using the "Corporate Promotion Lvl3" code',()=>{
+      cy.visit('https://stage.vivayalive.com/signup/seeker/form')
       seekerCreation.type_First_Name('Auto Lvl3')
       seekerCreation.type_Last_Name('Mation2')
       seekerCreation.type_Seeker_Email('automation2@testlvl3.com')
-      //seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+   
       seekerCreation.marking_Checkbox()
       seekerCreation.type_Seeker_Password('password')
       //adding the promo code
       seekerCreation.promo_code_option()
       seekerCreation.type_promo_code('promo lvl3')
-      cy.get('#promoCollapse', {timeout:1000}).should('be.visible')
-      //adding card information
-      // seekerCreation.type_Card_Name('Auto Mation')
-      // seekerCreation.type_Card_Number('4242424242424242')
-      // seekerCreation.type_Card_ExpDate('0225')
-      // seekerCreation.type_Security_Code('123')
-      // seekerCreation.type_ZipCode()
+      
       cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+      cy.wait(4000)
+      seekerCreation.seeker_dashboard()
+      cy.contains('Monthly Unlimited Membership').should("be.visible")
+    })
+
+    it('Create a Corporate user with a corporate email Level three', () =>{
+      cy.visit('https://stage.vivayalive.com/signup/seeker/form')
+      seekerCreation.type_First_Name('Auto Lvl3')
+      seekerCreation.type_Last_Name('Mation1')
+      seekerCreation.type_Seeker_Email('automation2@automationlvl3.com')
+   
+      seekerCreation.marking_Checkbox()
+      seekerCreation.type_Seeker_Password('password')
+
+      cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+      cy.wait(4000)
+      seekerCreation.seeker_dashboard()
+      cy.contains('Monthly Unlimited Membership').should("be.visible")
+    })
+
+    it.skip('A/B testing', () => {
+
+      cy.visit('https://stage.vivayalive.com/signup/seeker/single')
+      //Seeker Data
+      seekerCreationSingle.type_First_Name_Single('Auto Lvl3')
+      seekerCreationSingle.type_Last_Name_Single('Mation2')
+      seekerCreationSingle.type_Seeker_Email_Single('automation2@testlvl3.com')
+      seekerCreationSingle.type_Seeker_Password_Single('password')
+      //Apply corporate promotion Lvl3
+      seekerCreationSingle.promo_code_option()
+      seekerCreationSingle.type_promo_code('promo lvl3')
+      seekerCreationSingle.apply_Code()
+
+      //Credit Card
+      seekerCreationSingle.type_Card_Name_Single('Auto Mation Lvl3')
+      seekerCreationSingle.type_Card_Number_Single('4242424242424242')
+      seekerCreationSingle.type_Card_ExpDate_Single('0225')
+      seekerCreationSingle.type_Security_Code_Single('1234')
+      seekerCreationSingle.marking_Checkbox()
+      //seekerCreationSingle.click_On_Submit()
     })
 
   })

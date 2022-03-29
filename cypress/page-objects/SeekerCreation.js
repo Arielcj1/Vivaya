@@ -63,7 +63,7 @@ export class SeekerCreation{
     }
     promo_code_option(){
         cy.get('#promoCollapse').click()
-         }
+    }
 
     type_promo_code(value){
         cy.get('input[name=corporate-code]').type(value+'{enter}')
@@ -82,5 +82,16 @@ export class SeekerCreation{
     Press_become_guide_from_quicklink(){
         cy.get('#seeker-become-a-guide').click({force:true})
     }
+
+    A_B_Testing(){
+        cy.xpath('/html/body/div[2]/div[2]/div/div/div[1]/div[2]/form/div[4]/div/div[1]/div[1]/div[1]/h2').invoke('text').then((text) =>{
+            cy.log(text)
+            if(text == 'Choose Your Subscription Plan'){
+                cy.log('Single Page')
+            }else cy.log('Form page')
+        })
+    }
+
+    
 
 }
