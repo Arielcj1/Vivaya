@@ -80,4 +80,5 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
     })
 
+  
   })
