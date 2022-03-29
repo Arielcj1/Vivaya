@@ -89,4 +89,19 @@ select_First_Event_Upcoming_Section(){
         cy.wait(1000)
     }
 
+    verificarExistenciaElemento(contenedor, elemento) {
+        cy.get(contenedor).then((body) => {
+          if (body.find(elemento).length > 0) {
+            let a = 8
+            
+            cy.log( 'EXISTE EL ELEMENTO');
+          } else {
+            let a = 5
+            
+            cy.log( 'NO EXISTE EL ELEMENTO');
+          }
+        });
+    }
+    
+
 }
