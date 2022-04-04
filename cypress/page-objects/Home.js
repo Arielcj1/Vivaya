@@ -95,10 +95,38 @@ select_First_Event_Upcoming_Section(){
             let a = 8
             
             cy.log( 'EXISTE EL ELEMENTO');
+            cy.get('#seekersinglesignupform-first_name').type('Auto')
+            cy.get('#seekersinglesignupform-last_name').type('Mation')
+            cy.get('#seekersinglesignupform-email').type('single@automation.com')
+            cy.get('#seekersinglesignupform-password').type('password')
+
+            cy.get('#seekersinglesignupform-cardholder').type('Auto Mation')
+            cy.get('#seekersinglesignupform-cardnumber').type('4242424242424242')
+            cy.get('#seekersinglesignupform-expiration').type('0225')
+            cy.get('#seekersinglesignupform-cvc').type('1234')
+            cy.get('.custom-control-label').click({force:true})
+            cy.get('#stripe-form-submit').click()
+
+            cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+            cy.wait(500)
+            cy.get('h1').should('contain','Schedule')
           } else {
             let a = 5
             
             cy.log( 'NO EXISTE EL ELEMENTO');
+            cy.get('#signupform-first_name').type('Auto')
+            cy.get('#signupform-last_name').type('Mation')
+            cy.get('#signupform-email').type('single@automation.com')
+            cy.get('.custom-control-label').click({force:true})
+            cy.get('#signupform-password').type('password'+'{enter}')
+            cy.get('.n-group > .form-control').type('Auto Mation')
+            cy.get('.cn-group > .input-group > .form-control').type('4242424242424242')
+            cy.get('.expiration-date > .form-group > .form-control').type('0225')
+            cy.get('.security-code > .form-group > .input-group > .form-control').type('1234')
+            cy.get('#stripe-form-submit').click({force:true})
+            cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+            cy.wait(500)
+            cy.get('h1').should('contain','Schedule')
           }
         });
     }

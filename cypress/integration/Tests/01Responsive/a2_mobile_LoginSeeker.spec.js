@@ -50,7 +50,7 @@ describe('Elements verification in responsive mode for Seeker page', ()=>{
             cy.get('#referral-status-link').should('be.visible').and('have.text', 'My Referral')
 
             cy.get('.col-md-9 > .your-success > h3').should('be.visible').and('contain.text', 'Your Free Trial')
-            cy.get('.col-md-9 > .your-success > div > .count').contains(/^[0-9]*$/)
+            //cy.get('.col-md-9 > .your-success > div > .count').contains(/^[0-9]*$/)
         })  
         
         it('Verify redirections from Hamburguer Menu in Seeker account', ()=>{
