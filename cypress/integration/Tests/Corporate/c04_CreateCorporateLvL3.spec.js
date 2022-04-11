@@ -23,6 +23,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const seekerPage = new SeekerPage()
 
     beforeEach(()=>{
+      
         
         commons.open_Admin_Site()
         
