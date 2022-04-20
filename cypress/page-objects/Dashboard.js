@@ -365,7 +365,7 @@ export class Dashboard{
     }
 
     cancel_Several_Events_AtOnce(){
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{ //only works for classes
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{ //only works for classes
         for(var e=1; e<text; e++){
             cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[1]/div[3]/div[2]/div[2]')
             .contains('Cancel Event')
@@ -373,7 +373,30 @@ export class Dashboard{
             .then((text) => {
                 if(text == 'Cancel Event'){
                     cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[1]/div[3]/div[2]/div[2]').contains('Cancel Event').click({force:true})
+                    cy.get('.cancel-event').click({force:true})
+                    cy.wait(100)
                     cy.get('.btn-success').click({force:true})
+                }
+            })
+        }
+        })
+    }
+    cancel_Several_Events_AtOnce_bulk(){
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{ //only works for classes
+        for(var e=1; e<text; e++){
+            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[1]/div[3]/div[2]/div[2]')
+            .contains('Cancel Event')
+            .invoke('text')
+            .then((text) => {
+                if(text == 'Cancel Event'){
+                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[1]/div[3]/div[2]/div[2]').contains('Cancel Event').click({force:true})
+                    cy.get('#modalBodyBulk > ul > :nth-child(2) > a').click({force:true})
+                    cy.wait(100)
+                    cy.get('.box-footer > .btn').click({force:true})
+                    cy.wait(100)
+                    cy.get('.btn-success').click({force:true})
+
+
                 }
             })
         }
