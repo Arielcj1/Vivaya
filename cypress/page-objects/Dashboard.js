@@ -441,6 +441,13 @@ export class Dashboard{
     }
 
 
-
+    cancel_Several_Events(){
+        cy.get('#eventButtons-11410 > p > .cancel-bulk-event').click()
+        cy.get('#modalBodyBulk > ul > :nth-child(2) > a').click()
+        cy.wait(1500)
+        cy.get('.box-footer > .btn').click()
+        cy.get('.btn-success').click()
+        
+    }
 
 }

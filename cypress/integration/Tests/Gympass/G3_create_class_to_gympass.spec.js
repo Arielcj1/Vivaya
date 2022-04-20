@@ -26,7 +26,7 @@ describe('Events Creation for Gympass', ()=>{
     })
 
     it('Create class for Gympass', () =>{
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 1){
                 dashboard.cancel_Created_Event_class()
@@ -44,7 +44,8 @@ describe('Events Creation for Gympass', ()=>{
                 cy.get('#w1-success-0').should('contain', 'Events have been created.')
                 //Verify Time Of Event
                 cy.wait(1000)
-                cy.get('.dashboard-events > :nth-child(3) > :nth-child(4)').should('contain', '60 min')
+                //cy.get('.dashboard-events > :nth-child(3) > :nth-child(4)').should('contain', '60 min')
+                cy.get('.col-lg-4 > :nth-child(4)').should('contain', '60 min')
                 
             }
         })

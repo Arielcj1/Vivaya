@@ -9,7 +9,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
 })
 
-describe('Negative scenarios for Blogs', ()=>{
+describe.skip('Negative scenarios for Blogs', ()=>{
     const commons = new Commons()
     const blogPage = new BlogPage()
     const homePage = new HomePage()

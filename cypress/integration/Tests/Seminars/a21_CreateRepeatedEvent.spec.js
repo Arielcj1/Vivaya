@@ -41,7 +41,9 @@ describe('Events Creation', ()=>{
 
     it('Delete recurrent Daily Class',()=>{
         cy.wait(1500)
-        dashboard.cancel_Several_Events_AtOnce()
+        dashboard.cancel_Several_Events()
+        cy.get('#w1-success-0').should('contain','Events have been canceled.')
+        //dashboard.cancel_Several_Events_AtOnce()
     })
 
     it('Create a recurrent Weekly Class', () => { 
@@ -60,7 +62,8 @@ describe('Events Creation', ()=>{
 
     it('Delete recurrent Weekly Class',()=>{
         cy.wait(1000)
-        dashboard.cancel_Several_Events_AtOnce()
+        dashboard.cancel_Several_Events()
+        //dashboard.cancel_Several_Events_AtOnce()
     })
 
     it('Create a Weekly Class by days', () => { 
@@ -82,6 +85,7 @@ describe('Events Creation', ()=>{
 
     it('Delete recurrent Weekly by days Class',()=>{
         cy.wait(1000)
-        dashboard.cancel_Several_Events_AtOnce()
+        dashboard.cancel_Several_Events()
+        //dashboard.cancel_Several_Events_AtOnce()
     })
 })
