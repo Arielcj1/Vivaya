@@ -29,9 +29,10 @@ describe('Events Creation', ()=>{
     
     })*/
     it('Create Workshop Event', () => {
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text) =>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(5) > .count').invoke('text').then((text) =>{
              cy.log(text)
             if(text != 0){
+                cy.wait(300)
                  dashboard.cancel_Created_Event_Workshop()
                  cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
             }
@@ -52,9 +53,10 @@ describe('Events Creation', ()=>{
 
     it('Cancel Workshop Event', () => {
         cy.wait(1200)
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text) =>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(5) > .count').invoke('text').then((text) =>{
             cy.log(text)
            if(text != 0){
+            cy.wait(300)
                 dashboard.cancel_Created_Event_Workshop()
                 cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
            }
@@ -65,7 +67,7 @@ describe('Events Creation', ()=>{
    })
 
     it('Create Class Event', () =>{
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){
                 dashboard.cancel_Created_Event_class()
@@ -87,7 +89,7 @@ describe('Events Creation', ()=>{
     })
     it('Cancel Class Event', () =>{
         cy.wait(1200)
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){
                 dashboard.cancel_Created_Event_class()
@@ -100,7 +102,7 @@ describe('Events Creation', ()=>{
     })
 
     it('Create and Cancel One on One', () =>{
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(6) > .count').invoke('text').then((text)=>{
+        cy.get(':nth-child(7) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){
                 dashboard.cancel_Created_Event_one_on_one()
