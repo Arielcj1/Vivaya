@@ -107,7 +107,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
           cy.get('.col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
           //cy.get('.event-start-date > .form-group > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Start Date cannot be blank.')
           //cy.get('.field-eventform-starttime > .col-sm-9 > .help-block').should('be.visible').and('have.text', 'Event duration cannot be shorter than 1 hour')
-          cy.get(':nth-child(8) > p').should('be.visible').and('have.text', 'Event duration cannot be shorter than 45 minutes')
+          cy.get(':nth-child(8) > p').should('be.visible').and('have.text', 'Event duration cannot be shorter than 1 hour')
 
 
         })  

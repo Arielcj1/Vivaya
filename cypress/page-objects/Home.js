@@ -97,7 +97,7 @@ select_First_Event_Upcoming_Section(){
             cy.log( 'EXISTE EL ELEMENTO');
             cy.get('#seekersinglesignupform-first_name').type('Auto')
             cy.get('#seekersinglesignupform-last_name').type('Mation')
-            cy.get('#seekersinglesignupform-email').type('single@automation.com')
+            cy.get('#seekersinglesignupform-email').type('single@testautomation.com')
             cy.get('#seekersinglesignupform-password').type('password')
 
             cy.get('#seekersinglesignupform-cardholder').type('Auto Mation')
@@ -116,7 +116,7 @@ select_First_Event_Upcoming_Section(){
             cy.log( 'NO EXISTE EL ELEMENTO');
             cy.get('#signupform-first_name').type('Auto')
             cy.get('#signupform-last_name').type('Mation')
-            cy.get('#signupform-email').type('single@automation.com')
+            cy.get('#signupform-email').type('single@testautomation.com')
             cy.get('.custom-control-label').click({force:true})
             cy.get('#signupform-password').type('password'+'{enter}')
             cy.get('.n-group > .form-control').type('Auto Mation')

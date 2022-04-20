@@ -42,7 +42,7 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         commons.set_Admin_Credentials()
         seekerpage.select_Seeker_Option()
         seekerpage.select_Seeker_List()
-        seekerpage.type_Seeker_Email('single@automation.com ')
+        seekerpage.type_Seeker_Email('single@testautomation.com')
         seekerpage.select_Seeker_options('5') // num 5 for elimination from DB
         cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
     })
