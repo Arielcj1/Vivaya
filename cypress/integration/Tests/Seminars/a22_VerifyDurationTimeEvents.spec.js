@@ -24,7 +24,7 @@ describe('Verify Duration time in Events', ()=>{
     })
 
     it('Create and Cancel Class Event with 60 min by default', () =>{
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 1){
                 dashboard.cancel_Created_Event_class()
@@ -52,7 +52,7 @@ describe('Verify Duration time in Events', ()=>{
     })
     
     it('Create and Cancel Class Event with 45 min', () =>{
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 1){
                 dashboard.cancel_Created_Event_class()
@@ -81,7 +81,7 @@ describe('Verify Duration time in Events', ()=>{
     })
 
     it('Create and Cancel Class Event with 75 min', () =>{
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 1){
                 dashboard.cancel_Created_Event_class()
@@ -110,7 +110,7 @@ describe('Verify Duration time in Events', ()=>{
     })
 
     it('Create and Cancel Class Event with 90 min', () =>{
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(3) > .count').invoke('text').then((text)=>{
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 1){
                 dashboard.cancel_Created_Event_class()

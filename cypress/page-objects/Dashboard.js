@@ -464,13 +464,22 @@ export class Dashboard{
     }
 
 
-    cancel_Several_Events(){
-        cy.get('#eventButtons-11410 > p > .cancel-bulk-event').click()
-        cy.get('#modalBodyBulk > ul > :nth-child(2) > a').click()
-        cy.wait(1500)
-        cy.get('.box-footer > .btn').click()
-        cy.get('.btn-success').click()
-        
+    edit_Several_Events_AtOnce_bulk(){
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{ //only works for classes
+       // for(var e=1; e<text; e++){
+            cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[1]/div[3]/div[2]/div[2]')
+            .contains('Edit Event')
+            .invoke('text')
+            .then((text) => {
+                if(text == 'Edit Event'){
+                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[1]/div[3]/div[2]/div[2]').contains('Edit Event').click({force:true})
+                    cy.get('#modalBodyBulk > ul > :nth-child(2) > a').click({force:true})
+                    cy.wait(100)
+                    
+                }
+            })
+       // }
+        })
     }
 
 }

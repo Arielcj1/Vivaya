@@ -24,7 +24,7 @@ describe('Events Creation', ()=>{
         
     })
 
-    it.skip('Create a recurrent Daily Class', () => { 
+    it('Create a recurrent Daily Class', () => { 
         dashboard.verify_events()
         dashboard.add_NewEvent()
         dashboard.add_Class()
@@ -39,14 +39,13 @@ describe('Events Creation', ()=>{
         cy.get('#w1-success-0').should('contain', 'Events have been created.')
     })
 
-    it.skip('Delete recurrent Daily Class',()=>{
+    it('Delete recurrent Daily Class',()=>{
         cy.wait(1500)
-        dashboard.cancel_Several_Events()
-        cy.get('#w1-success-0').should('contain','Events have been canceled.')
-        //dashboard.cancel_Several_Events_AtOnce()
+        dashboard.cancel_Several_Events_AtOnce()
+        cy.get('#w1-success-0').should('contain','Event has been canceled.')
     })
 
-    it.skip('Create a recurrent Weekly Class', () => { 
+    it('Create a recurrent Weekly Class', () => { 
         dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Class1')
@@ -60,13 +59,12 @@ describe('Events Creation', ()=>{
         cy.get('#w1-success-0').should('contain', 'Events have been created.')
     })
 
-    it.skip('Delete recurrent Weekly Class',()=>{
+    it('Delete recurrent Weekly Class',()=>{
         cy.wait(1000)
-        dashboard.cancel_Several_Events()
-        //dashboard.cancel_Several_Events_AtOnce()
+        dashboard.cancel_Several_Events_AtOnce()
     })
 
-    it.skip('Create a Weekly Class by days', () => { 
+    it('Create a Weekly Class by days', () => { 
         dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Class1')
@@ -83,13 +81,12 @@ describe('Events Creation', ()=>{
         cy.get('#w1-success-0').should('contain', 'Events have been created.')
     })
 
-    it.skip('Delete recurrent Weekly by days Class',()=>{
+    it('Delete recurrent Weekly by days Class',()=>{
         cy.wait(1000)
-        dashboard.cancel_Several_Events()
-        //dashboard.cancel_Several_Events_AtOnce()
+        dashboard.cancel_Several_Events_AtOnce()
     })
 
-    it('Create class and delte using Bulk', () => { 
+    it('Create Repeated class Bulk', () => { 
         dashboard.verify_events()
         dashboard.add_NewEvent()
         dashboard.add_Class()
@@ -104,9 +101,19 @@ describe('Events Creation', ()=>{
         cy.get('#w1-success-0').should('contain', 'Events have been created.')
     })
 
+    it('Edit class with bulk', () => {
+        cy.wait(1500)
+        dashboard.edit_Several_Events_AtOnce_bulk()
+        eventCreationPage.edit_New_Start_Date(1)    
+        cy.get('#w1').clear().type('11:58 PM')   //Edit hour
+        cy.get('.text-center > .btn').click()    //click on the button "Update"
+        cy.wait(1500)
+        cy.get('#w1-success-0').should('contain','Bulk Events has been updated.')
+    }) 
+
     it('Delete class with bulk',()=>{
         cy.wait(1500)
         dashboard.cancel_Several_Events_AtOnce_bulk()
-        cy.get('#w1-success-0').should('include.text','Events have been canceled.')
+        //cy.get('#w1-success-0').should('include.text','Events have been canceled.')
     })
 })

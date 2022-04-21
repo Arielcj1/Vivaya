@@ -135,5 +135,10 @@ export class EventCreationPage {
         const typeDate = cy.get('#w0').clear().type(customDate+'{enter}')
     }
 
+    edit_New_Start_Date(value){
+        var moment = require('moment');
+        const customDate = moment().add(value, 'days').format('MMM-DD-YYYY')
+        const typeDate = cy.get('#w0').type(customDate)
+    }
 
 }
