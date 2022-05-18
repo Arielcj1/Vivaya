@@ -61,8 +61,8 @@ describe('Test and Verify Zoom page',()=>{
         cy.wait(3000)
 
         cy.get('#w1').should('be.visible')
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/div/a').should('be.visible').and('include.text', 'View Recording 1')
-        cy.get('[data-key="6697"] > :nth-child(5) > div > a').should('be.visible').contains('View Recording 1')
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/div/a').should('be.visible').and('include.text', 'View Recording')
+        cy.get('[data-key="6697"] > :nth-child(5) > div > a').should('be.visible').contains('View Recording')
         //cy.get('[data-key="6697"] > :nth-child(5) > div > a').should('have.attr', 'href').and('include.text', 'https://vivaya.zoom.us/rec/play')
         cy.get('[data-key="6697"] > :nth-child(5) > div > a').click()
         //cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[5]/div/a').click() //select first View recording in the list
