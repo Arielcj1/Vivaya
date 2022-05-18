@@ -42,7 +42,6 @@ describe('Events Creation', ()=>{
     it('Delete recurrent Daily Class',()=>{
         cy.wait(1500)
         dashboard.cancel_Several_Events_AtOnce()
-        cy.get('#w1-success-0').should('contain','Event has been canceled.')
     })
 
     it('Create a recurrent Weekly Class', () => { 
@@ -86,7 +85,7 @@ describe('Events Creation', ()=>{
         dashboard.cancel_Several_Events_AtOnce()
     })
 
-    it('Create Repeated class Bulk', () => { 
+    it('Create class and delte using Bulk', () => { 
         dashboard.verify_events()
         dashboard.add_NewEvent()
         dashboard.add_Class()
@@ -101,19 +100,9 @@ describe('Events Creation', ()=>{
         cy.get('#w1-success-0').should('contain', 'Events have been created.')
     })
 
-    it('Edit class with bulk', () => {
-        cy.wait(1500)
-        dashboard.edit_Several_Events_AtOnce_bulk()
-        eventCreationPage.edit_New_Start_Date(1)    
-        cy.get('#w1').clear().type('11:58 PM')   //Edit hour
-        cy.get('.text-center > .btn').click()    //click on the button "Update"
-        cy.wait(1500)
-        cy.get('#w1-success-0').should('contain','Bulk Events has been updated.')
-    }) 
-
     it('Delete class with bulk',()=>{
         cy.wait(1500)
         dashboard.cancel_Several_Events_AtOnce_bulk()
-        //cy.get('#w1-success-0').should('include.text','Events have been canceled.')
+        cy.get('#w1-success-0').should('include.text','Events have been canceled.')
     })
 })

@@ -29,7 +29,7 @@ export class GuideCreation {
         cy.get('#guideapplicationstep1offer-1-certified').click()
         cy.get('.btn-default').click({froce:true})
         cy.wait(400)
-        cy.get('#w12-success-0').should('be.visible')
+        cy.get('#w10-success-0').should('be.visible')
         cy.get('.next').click({force:true})
         
     }

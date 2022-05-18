@@ -23,6 +23,7 @@ describe('Events Creation for Gympass', ()=>{
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
+        cy.wait(100)
     })
 
     it('Create class for Gympass', () =>{
