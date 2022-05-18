@@ -4,7 +4,6 @@ import { Commons } from "../../../Commons/Common";
 import { EventsPage } from "../../../page-objects-admin/EventsPage";
 import { GuestPage } from "../../../page-objects-admin/GuestPage";
 import { SeekerPage } from "../../../page-objects-admin/SeekerPage";
-import { SeekerCreation } from "../../../page-objects/SeekerCreation";
 
 
 
