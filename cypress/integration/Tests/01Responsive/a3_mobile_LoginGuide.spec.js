@@ -35,13 +35,13 @@ describe('Elements verification in responsive mode for Guide page', ()=>{
 
              cy.get('.circle-box').should('be.visible')
              cy.get('.profile-box > h2').should('include.text', 'Manu  Rex')
-             cy.get('.col-md-9 > :nth-child(1) > h3').should('be.visible').and('have.text', 'Your Schedule:')
+             cy.get('.col-md-9 > :nth-child(2) > h3').should('be.visible').and('have.text', 'Your Schedule:')
              cy.get(':nth-child(3) > :nth-child(1) > .btn').should('be.visible')
              cy.get(':nth-child(2) > .btn').should('be.visible').and('have.text', 'Edit 1-1 availability')
              cy.get(':nth-child(3) > .btn').should('be.visible').and('have.text', 'Add new event')
              cy.get(':nth-child(4) > .btn').should('be.visible').and('have.text', 'Add Seminar')
              cy.get('.quick-links > h3').scrollIntoView()
-             cy.get('.col-md-9 > :nth-child(2) > h3').should('be.visible').and('have.text', 'Your Seminars:')
+             cy.get('.col-md-9 > :nth-child(3) > h3').should('be.visible').and('have.text', 'Your Seminars:')
              cy.get('.quick-links > h3').should('be.visible').and('have.text', 'Quick Links')
              //quick links
              cy.get('.quick-links > :nth-child(2) > :nth-child(1)').should('be.visible').and('have.text', 'View My Full Class History')
@@ -66,7 +66,7 @@ describe('Elements verification in responsive mode for Guide page', ()=>{
         })
         
         it('Verify Event buttons in Guide Dashboard after Login', ()=>{  
-          cy.get(':nth-child(3) > :nth-child(1) > .btn').click({force:true})
+          cy.get(':nth-child(2) > :nth-child(3) > :nth-child(1) > .btn').click({force:true})
           cy.get('.text-center').should('be.visible').and('have.text', 'Upcoming events')
           cy.go('back')
           cy.get(':nth-child(2) > .btn').click()
