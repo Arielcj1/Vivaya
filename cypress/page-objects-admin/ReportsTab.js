@@ -22,6 +22,14 @@ select_Guides_Option(){
     cy.get('.menu-open > .treeview-menu > :nth-child(1) > a > span').click()
 }
 
+select_GymPass_Option(){
+    cy.get('.menu-open > .treeview-menu > :nth-child(2) > a > span').click()
+}
+
+select_Corporate_Lvl3(){
+    cy.get('.menu-open > .treeview-menu > :nth-child(3) > a > span').click()
+}
+
 //Membership option
 select_Membership_Option(){
     cy.get('.menu-open > .treeview-menu > :nth-child(4) > a').click()
@@ -49,29 +57,33 @@ select_Active_Guides_Option(){
     cy.get('.treeview-menu > :nth-child(9) > a').click()
 }
 
+select_Promotional_Report(){
+    cy.get('.treeview-menu > :nth-child(10) > a > span').click()
+}
+
  // Most Viewed Events
  select_Most_Viewed_Events(){
-    cy.get('.treeview-menu > :nth-child(10) > a').click()
+    cy.get('.treeview-menu > :nth-child(11) > a').click()
  }   
 
  // Seekers who spent more
  select_Seeker_Who_Spent_More(){
-    cy.get('.treeview-menu > :nth-child(11) > a').click()
+    cy.get('.treeview-menu > :nth-child(12) > a').click()
  }
 
  //Seeker who Cancelled
  select_Seeker_Who_Cancelled(){
-    cy.get('.treeview-menu > :nth-child(12) > a').click()
+    cy.get('.treeview-menu > :nth-child(13) > a').click()
  }
 
  //Most revenued events
  select_Most_Revenued_Events(){
-    cy.get('.treeview-menu > :nth-child(13) > a').click()
+    cy.get('.treeview-menu > :nth-child(14) > a').click()
  }
 
  //Corporate Level One
  select_Corporate_Lvl_One(){
-    cy.get('.treeview-menu > :nth-child(14) > a').click()
+    cy.get('.treeview-menu > :nth-child(15) > a').click()
  }
 
 }

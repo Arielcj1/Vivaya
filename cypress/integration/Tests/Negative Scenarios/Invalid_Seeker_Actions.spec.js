@@ -16,9 +16,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   it('Verify messages validations in seeker actions', ()=>{
     commons.open_Web_Site()
     homePage.select_Login()
-    cy.get('#loginform-email').type("horcosio@gmail.com")
+    cy.get('#loginform-email').type("milton.paredes.mp@gmail.com")
     cy.wait(2000)
-    cy.get('#loginform-password').type("perrodelmal")
+    cy.get('#loginform-password').type("password")
     homePage.submit_Credentials()
     cy.wait(3000)
     cy.get('.quick-links > :nth-child(2) > :nth-child(3) > a').click()

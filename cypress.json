@@ -19,7 +19,7 @@
   "projectId": "2127x7",
 
   
-    "defaultCommandTimeout": 20000,
+    "defaultCommandTimeout": 25000,
     "pageLoadTimeout": 100000,
   
   

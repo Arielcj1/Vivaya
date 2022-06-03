@@ -86,7 +86,7 @@ describe('Buy Plans from membership', ()=>{
         cy.get('#w1-success-0').contains('Item has been removed from cart.')
      })
 
-     it('Buy 5 Package', () => {  
+     it.skip('Buy 5 Package', () => {  
         cy.wait(3000) 
         membershipPage.select_MShip_Tab()
         cy.scrollTo(0,300)
@@ -98,7 +98,7 @@ describe('Buy Plans from membership', ()=>{
         cy.get('#w1-success-0').contains('Item has been removed from cart.')
      })
 
-     it('Buy 10 Package', () => {  
+     it.skip('Buy 10 Package', () => {  
         cy.wait(3000) 
         membershipPage.select_MShip_Tab()
         cy.scrollTo(0,300)
