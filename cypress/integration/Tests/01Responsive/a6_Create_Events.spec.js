@@ -37,8 +37,8 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
             eventCreationPage.custom_Start_Time(5)
             eventCreationPage.press_Add()
             cy.get('#w1-success-0').should('contain', 'Events have been created.')
-            dashboard.cancel_Created_Event_class()
-            cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
+            dashboard.cancel_event_mobile()
+            cy.get('#w1-success-0').should('be.visible')
 
         })
 
@@ -52,7 +52,8 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
             eventCreationPage.add_Price('40')
             eventCreationPage.press_Add()
             cy.get('#w1-success-0').should('contain', 'Events have been created.')
-            dashboard.cancel_Created_Event_Workshop()
+            cy.get('#w1-success-0 > .close').click()
+            dashboard.cancel_event_mobile()
             cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
 
         })    
@@ -70,7 +71,8 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
                 //cy.xpath('/html/body/div[2]/div[2]/div/div/div/form/div[11]/div/div/div[2]').click()
                 eventCreationPage.press_Add()
                 cy.get('#w1-success-0').should('contain', 'Events have been created.')
-                dashboard.cancel_Created_Event_one_on_one()
+                cy.get('#w1-success-0 > .close').click()
+                dashboard.cancel_event_mobile()
                 cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
 
 

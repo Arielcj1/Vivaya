@@ -219,6 +219,12 @@ export class Dashboard{
         cy.get('.btn-success').click({force:true})
     }
 
+    cancel_event_mobile(){
+        cy.get('.cancel-event').click({force:true})
+            cy.get('.btn-success').click({force:true})
+            cy.get('#w1-success-0').should('be.visible')
+    }
+
 
     cancel_Created_Event_one_on_one(){
         var row = 1
