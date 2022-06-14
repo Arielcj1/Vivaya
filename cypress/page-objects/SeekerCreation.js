@@ -6,35 +6,43 @@ export class SeekerCreation{
         cy.get('.menu > :nth-child(1) > .btn').click()
     }
     type_First_Name(value){
-        cy.get('#signupform-first_name').type(value)
+        //cy.get('#signupform-first_name').type(value)
+        cy.get('#seekersinglesignupform-first_name').type(value)
     }
     type_Last_Name(value){
-        cy.get('#signupform-last_name').type(value)
+        //cy.get('#signupform-last_name').type(value)
+        cy.get('#seekersinglesignupform-last_name').type(value)
     }
     type_Seeker_Email(value){
-        cy.get('#signupform-email').type(value)
+        //cy.get('#signupform-email').type(value)
+        cy.get('#seekersinglesignupform-email').type(value)
     }
-    select_Time_Zone(value){
-        cy.get('#signupform-timezone').select(value)
-    }
+    // select_Time_Zone(value){
+    //     cy.get('#signupform-timezone').select(value)
+    // }
     type_Seeker_Password(value){
-        cy.get('#signupform-password').type(value+'{enter}')
+        //cy.get('#signupform-password').type(value+'{enter}')
+        cy.get('#seekersinglesignupform-password').type(value)
     }
     marking_Checkbox(){
         cy.get('.custom-control-label').click({force:true})
     }
     //Create Card Page
     type_Card_Name(value){
-        cy.get('.n-group > .form-control').type(value)
+        //cy.get('.n-group > .form-control').type(value)
+        cy.get('#seekersinglesignupform-cardholder').type(value)
     }
     type_Card_Number(value){
-        cy.get('.cn-group > .input-group > .form-control').type(value)
+        //cy.get('.cn-group > .input-group > .form-control').type(value)
+        cy.get('#seekersinglesignupform-cardnumber').type(value)
     }
     type_Card_ExpDate(value){
-        cy.get('.expiration-date > .form-group > .form-control').type(value)
+        //cy.get('.expiration-date > .form-group > .form-control').type(value)
+        cy.get('#seekersinglesignupform-expiration').type(value)
     }
     type_Security_Code(value){
-        cy.get('.security-code > .form-group > .input-group > .form-control').type(value)
+        //cy.get('.security-code > .form-group > .input-group > .form-control').type(value)
+        cy.get('#seekersinglesignupform-cvc').type(value)
     }
     type_ZipCode(value){
         //cy.get('.zc-group > .form-control').type(value)
@@ -71,8 +79,10 @@ export class SeekerCreation{
     }
 
     Fill_promo_code(value1){
-        cy.get('.col-md-7 > .form-control').type(value1)
-        cy.get('.col-md-5 > .btn').click()
+        //cy.get('.col-md-7 > .form-control').type(value1)
+        cy.get('#seekersinglesignupform-discountcode').type(value1)
+        cy.get('#apply-code').click()
+        //cy.get('.col-md-5 > .btn').click()
     }
 
     Press_Become_guide_menu(){

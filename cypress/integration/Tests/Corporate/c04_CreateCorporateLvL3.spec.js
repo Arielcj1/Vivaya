@@ -75,7 +75,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       seekerCreation.type_Seeker_Password('password')
       //adding the promo code
       seekerCreation.promo_code_option()
-      seekerCreation.type_promo_code('Promo L3')
+      //seekerCreation.type_promo_code('Promo L3')
+      seekerCreation.Fill_promo_code('Promo L3')
       
       cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
       cy.wait(4000)
@@ -90,9 +91,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       seekerCreation.type_First_Name('Auto Lvl3')
       seekerCreation.type_Last_Name('Mation1')
       seekerCreation.type_Seeker_Email('automation2@automationL3.com')
-   
-      seekerCreation.marking_Checkbox()
       seekerCreation.type_Seeker_Password('password')
+      seekerCreation.marking_Checkbox()
+      cy.get('#corporate-form-submit').click()
 
       cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
       cy.wait(4000)

@@ -80,6 +80,7 @@ describe('Promotions page', ()=>{
         promotionPage.find_Element_List_Promo_Renewal('4') //num 4 para eliminar, posicion de xpath
         cy.get('#w0-success').should('be.visible')
     })
+
     it('Create a Promo Trial Extended', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promo_Trial_extended()
@@ -106,12 +107,13 @@ describe('Promotions page', ()=>{
     it('Create seeker using the Trial Extended', ()=>{
        commons.open_Web_Site()
        seekerCreation.select_Free_trial_option()
+
         seekerCreation.type_First_Name('Auto')
         seekerCreation.type_Last_Name('Mation')
         seekerCreation.type_Seeker_Email('trialextended@gmail.com')
-        //seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
-        seekerCreation.marking_Checkbox()
         seekerCreation.type_Seeker_Password('password')
+        //seekerCreation.select_Time_Zone('(UTC-04:00) Georgetown, La Paz, Manaus, San Juan')
+        
         seekerCreation.promo_code_option()
         seekerCreation.Fill_promo_code('EXTENDED')
         cy.wait(1500)
@@ -119,8 +121,13 @@ describe('Promotions page', ()=>{
         seekerCreation.type_Card_Number('4242424242424242')
         seekerCreation.type_Card_ExpDate('0225')
         seekerCreation.type_Security_Code('123')
+        seekerCreation.marking_Checkbox()
         seekerCreation.type_ZipCode('1234')
-        cy.get('.seeker-registration-content > h2').should('be.visible')
+
+        cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+        cy.wait(500)
+        cy.get('h1').should('contain','Schedule')
+        //cy.get('.seeker-registration-content > h2').should('be.visible')
         //cy.wait(1500)
         //seekerCreation.seeker_dashboard()
         //cy.get(':nth-child(1) > .dashboard-box > div > .count').should('contain', '24')

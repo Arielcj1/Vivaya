@@ -31,7 +31,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         pricingPage.select_Pricing_When_Logout()
         cy.url().should('eq', 'https://stage.vivayalive.com/membership')
         cy.get('.membership-timebased > .container > :nth-child(1) > strong').should('contain','Memberships')
-        cy.get('.membership-normal-type > .container > :nth-child(1) > strong').should('contain','Packages')
+        cy.get('.membership-normal-type > .container > :nth-child(1) > strong').should('contain','Drop-In Class')
         cy.get('.content-other-offerings > .container > h2 > strong').should('contain','All Other Offerings')
     })
 
@@ -42,7 +42,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.wait(2000) 
         pricingPage.select_Pricing_When_Login()
         cy.get('.membership-timebased > .container > :nth-child(1) > strong').should('contain','Memberships')
-        cy.get('.membership-normal-type > .container > :nth-child(1) > strong').should('contain','Packages')
+        cy.get('.membership-normal-type > .container > :nth-child(1) > strong').should('contain','Drop-In Class')
         cy.get('.content-other-offerings > .container > h2 > strong').should('contain','All Other Offerings') 
 
 
@@ -59,13 +59,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('.remove-button').click()
         cy.wait(500)
         cartPage.confirm_Remove_From_Cart()
-        pricingPage.select_Pricing_When_Login()
-        cy.scrollTo(0, 800)
-        pricingPage.buy_5Pack_Package({force:true})
-        cy.wait(2000)
-        cy.get('.remove-button').click({force:true})
-        cy.wait(500)
-        cartPage.confirm_Remove_From_Cart()
+        // pricingPage.select_Pricing_When_Login()
+        // cy.scrollTo(0, 800)
+        // pricingPage.buy_5Pack_Package({force:true})
+        // cy.wait(2000)
+        // cy.get('.remove-button').click({force:true})
+        // cy.wait(500)
+        // cartPage.confirm_Remove_From_Cart()
 
 
     })

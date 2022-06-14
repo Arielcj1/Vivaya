@@ -28,8 +28,9 @@ export class HomePage {
     }
 
     submit_Credentials(){
-        cy.get('.col-sm-8 > .btn').click()
-        return this
+        cy.get('.col-12 > .btn').click()
+        //cy.get('.col-sm-8 > .btn').click()
+        //return this
     }
 
     logout_Account(){

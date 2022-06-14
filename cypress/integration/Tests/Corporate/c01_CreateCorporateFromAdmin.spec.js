@@ -70,8 +70,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         seekerCreation.type_Seeker_Password('password')
         //adding the promo code
         seekerCreation.promo_code_option()
-        seekerCreation.type_promo_code('pr automation')
-        cy.get('#promoCollapse', {timeout:1000}).should('be.visible')
+        //seekerCreation.type_promo_code('pr automation')
+        seekerCreation.Fill_promo_code('pr automation')
+        //cy.get('#promoCollapse', {timeout:1000}).should('be.visible')
         //adding card information
         seekerCreation.type_Card_Name('Auto Mation')
         seekerCreation.type_Card_Number('4242424242424242')
@@ -91,7 +92,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         seekerCreation.marking_Checkbox()
         seekerCreation.type_Seeker_Password('password')
         //Verification the discount for being a corporate email
-        cy.get('.monthly-unlimited-box > .panel-body > .p-membership > .right > .amount').should('contain', '$67.50')
+        //cy.get('.monthly-unlimited-box > .panel-body > .p-membership > .right > .amount').should('contain', '$67.50')
+        cy.get('.monthly-unlimited-box > .panel-body > .p-corporate > .right > .amount-total').should('contain','$67.50')
         //adding card information
         seekerCreation.type_Card_Name('Auto Mation')
         seekerCreation.type_Card_Number('4242424242424242')

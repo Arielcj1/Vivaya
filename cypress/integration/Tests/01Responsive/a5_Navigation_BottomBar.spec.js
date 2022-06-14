@@ -128,7 +128,7 @@ describe('Elements verification in responsive mode for bottom bar options', ()=>
             cy.get(':nth-child(79)').should('be.visible')
             cy.get(':nth-child(82)').should('be.visible')
             cy.get(':nth-child(92)').should('be.visible')
-            cy.get(':nth-child(93) > strong').should('be.visible')
+            cy.get(':nth-child(93)').should('be.visible')
         })    
 
         it('Verify Terms and Conditions Page', ()=>{

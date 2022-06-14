@@ -17,7 +17,7 @@ describe('Admin Membership Page', ()=>{
         commons.open_Admin_Site()
     })
 
-    it('Verify element within Memberships Page',()=>{
+    it.skip('Verify element within Memberships Page',()=>{
         commons.set_Admin_Credentials()
         adminMembership.select_Membership_Option()
         adminMembership.select_Membership_List()
@@ -31,7 +31,7 @@ describe('Admin Membership Page', ()=>{
        cy.get('.box-tools > .btn').should('contain', 'Add new')
     })
 
-    it('Create a New Membership', ()=>{
+    it.skip('Create a New Membership', ()=>{
         commons.set_Admin_Credentials()
         adminMembership.select_Membership_Option()
         adminMembership.select_Membership_List()
@@ -49,7 +49,7 @@ describe('Admin Membership Page', ()=>{
         cy.get('#w2-success').should('contain', 'Membership has been created.')
     })
 
-    it('Edit the Membership record',()=>{
+    it.skip('Edit the Membership record',()=>{
         commons.set_Admin_Credentials()
         adminMembership.select_Membership_Option()
         adminMembership.select_Membership_List()
@@ -69,9 +69,10 @@ describe('Admin Membership Page', ()=>{
         commons.open_Web_Site()
         pricingPage.select_Pricing_When_Logout()
         //Verify the existence of the new Membership
-        cy.get('[data-slick-index="2"] > .membership-list-item').click({force:true}).type('{leftarrow}') //move the packages one position
+        cy.get('[data-slick-index="1"] > .membership-list-item').click({force:true}).type('{leftarrow}') //move the packages one position
         cy.wait(500)
-        cy.get('.slick-current > .membership-list-item > h2').should('contain', 'automating')
+        //cy.get('.slick-current > .membership-list-item > h2').should('contain', 'automating')
+        cy.contains('Automating').should('be.visible')
     })
 
     it('Delete The Membership created', ()=>{

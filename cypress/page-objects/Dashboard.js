@@ -227,7 +227,7 @@ export class Dashboard{
 
 
     cancel_Created_Event_one_on_one(){
-        var row = 1
+        var row = 2
         var col = 3
         cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/h4/a')
         .invoke('text')
@@ -274,7 +274,7 @@ export class Dashboard{
     }
 
     cancel_Created_Event_class(){
-        var row = 1
+        var row = 2
         var col = 3
         cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/h4/a')
         .invoke('text')
@@ -323,14 +323,16 @@ export class Dashboard{
     
 
    cancel_Created_Event_Workshop(){
-        var row = 1
+        var row = 2
         var col = 3
+              //    /html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div/h4/a
         cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/h4/a')
         .invoke('text')
         .then((text)=>{
             cy.log(text)
                 if(text == 'Workshop1'){
                     cy.log('found')
+                          //    /html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div/div[2]/p/a[1]
                     cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click({force:true})
                     cy.get('.btn-success').click({force:true})
                 }
