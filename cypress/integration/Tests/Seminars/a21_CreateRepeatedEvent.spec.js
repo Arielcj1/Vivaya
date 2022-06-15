@@ -41,7 +41,7 @@ describe('Events Creation', ()=>{
 
     it('Delete recurrent Daily Class',()=>{
         cy.wait(1500)
-        dashboard.cancel_Several_Events_AtOnce()
+        dashboard.cancel_Several_Events_AtOnce_repeat()
     })
 
     it('Create a recurrent Weekly Class', () => { 
@@ -59,8 +59,8 @@ describe('Events Creation', ()=>{
     })
 
     it('Delete recurrent Weekly Class',()=>{
-        cy.wait(1000)
-        dashboard.cancel_Several_Events_AtOnce()
+        cy.wait(1500)
+        dashboard.cancel_Several_Events_AtOnce_repeat()
     })
 
     it('Create a Weekly Class by days', () => { 
@@ -81,8 +81,8 @@ describe('Events Creation', ()=>{
     })
 
     it('Delete recurrent Weekly by days Class',()=>{
-        cy.wait(1000)
-        dashboard.cancel_Several_Events_AtOnce()
+        cy.wait(1500)
+        dashboard.cancel_Several_Events_AtOnce_repeat()
     })
 
     it('Create class and delte using Bulk', () => { 
@@ -102,7 +102,7 @@ describe('Events Creation', ()=>{
 
     it('Delete class with bulk',()=>{
         cy.wait(1500)
-        dashboard.cancel_Several_Events_AtOnce_bulk()
+        dashboard.cancel_Several_Events_AtOnce_repeat()
         //cy.get('#w1-success-0').should('include.text','Events have been canceled.')
     })
 })
