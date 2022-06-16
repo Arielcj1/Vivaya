@@ -10,7 +10,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   });
 
-describe('Create Event Running', ()=> {
+describe('Simplity Purchase', ()=> {
     
     const commons = new Commons()
     const seekerCreation = new SeekerCreation()

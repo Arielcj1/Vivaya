@@ -9,14 +9,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
 })
 
-describe('Admin Referral Page', ()=>{
+describe('Greenchef Register', ()=>{
     const commons = new Commons()
     const seekerCreation = new SeekerCreation()
     const seekerpage = new SeekerPage()    
     const homePage = new HomePage()
 
       it('Go to a GreenChef Link and create a new seeker', ()=>{
-        cy.visit('https://stage.vivayalive.com/signup/seeker/form?greenchef=true')//referral link of a test user 
+        cy.visit('https://stage.vivayalive.com/signup/seeker/form?greenchef=true')//Greenchef link of a test user 
         cy.get('.title-subscription > :nth-child(2) > .badge').should('include.text','Risk free 30 day trial')
         seekerCreation.type_First_Name('Green')
         seekerCreation.type_Last_Name('Chef')
