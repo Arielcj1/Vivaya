@@ -17,7 +17,7 @@ describe('Admin Membership Page', ()=>{
         commons.open_Admin_Site()
     })
 
-    it.skip('Verify element within Memberships Page',()=>{
+    it('Verify element within Memberships Page',()=>{
         commons.set_Admin_Credentials()
         adminMembership.select_Membership_Option()
         adminMembership.select_Membership_List()
@@ -31,7 +31,7 @@ describe('Admin Membership Page', ()=>{
        cy.get('.box-tools > .btn').should('contain', 'Add new')
     })
 
-    it.skip('Create a New Membership', ()=>{
+    it('Create a New Membership', ()=>{
         commons.set_Admin_Credentials()
         adminMembership.select_Membership_Option()
         adminMembership.select_Membership_List()
@@ -49,7 +49,7 @@ describe('Admin Membership Page', ()=>{
         cy.get('#w2-success').should('contain', 'Membership has been created.')
     })
 
-    it.skip('Edit the Membership record',()=>{
+    it('Edit the Membership record',()=>{
         commons.set_Admin_Credentials()
         adminMembership.select_Membership_Option()
         adminMembership.select_Membership_List()

@@ -77,6 +77,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       seekerCreation.promo_code_option()
       //seekerCreation.type_promo_code('Promo L3')
       seekerCreation.Fill_promo_code('Promo L3')
+      cy.get('#corporate-form-submit').click()
       
       cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
       cy.wait(4000)

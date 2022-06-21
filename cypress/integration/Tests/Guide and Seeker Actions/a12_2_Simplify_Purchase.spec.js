@@ -118,8 +118,10 @@ describe('Simplity Purchase', ()=> {
         seekerCreation.select_Free_trial_option()
         seekerCreation.type_First_Name('Auto')
         seekerCreation.type_Last_Name('Mation')
-        seekerCreation.type_Seeker_Email('automation3@corpol3.com')
+        seekerCreation.type_Seeker_Email('autoc3@corpol3.com')
+        
         seekerCreation.type_Seeker_Password('password')
+        cy.wait(3000)
         
         seekerCreation.marking_Checkbox()
         
@@ -167,7 +169,7 @@ describe('Simplity Purchase', ()=> {
         cy.wait(500)
         cy.get('#guestprebuyeventform-first_name').type('Auto')
         cy.get('#guestprebuyeventform-last_name').type('Mation')
-        cy.get('#guestprebuyeventform-email').type('automation3@corpol3.com')
+        cy.get('#guestprebuyeventform-email').type('autoc3@corpol3.com')
         cy.wait(500)
         cy.get('.n-group > .form-control').type('Auto Card')
         cy.get(':nth-child(2) > .input-group > .form-control').type('4242424242424242')
@@ -189,7 +191,7 @@ describe('Simplity Purchase', ()=> {
         seekerPage.type_Seeker_Email('automation1@corpol1.com')
         seekerPage.select_Seeker_options('5') //num 5 for elimination
         cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
-        seekerPage.type_Seeker_Email('automation3@corpol3.com')
+        seekerPage.type_Seeker_Email('autoc3@corpol3.com')
         seekerPage.select_Seeker_options('5') //num 5 for elimination
         cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
     })
@@ -211,7 +213,7 @@ describe('Simplity Purchase', ()=> {
         guestpage.guests_Options('2') // num 2 in order to delete guest
         cy.get('#w2-success').should('be.visible')
 
-        guestpage.make_a_Search_by_email('automation3@corpol3.com')
+        guestpage.make_a_Search_by_email('autoc3@corpol3.com')
         guestpage.guests_Options('2') // num 2 in order to delete guest
         cy.get('#w2-success').should('be.visible')
     })
