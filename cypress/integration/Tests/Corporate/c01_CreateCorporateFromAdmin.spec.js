@@ -5,6 +5,7 @@ import {CorporateAdminPage } from "../../../page-objects-admin/CorporateAdminPag
 import {CorporatePromotionPage} from "../../../page-objects-admin/CorporatePromotionPage"
 import {SeekerCreation} from "../../../page-objects/SeekerCreation"
 import {SeekerPage} from "../../../page-objects-admin/SeekerPage"
+import { HomePage } from "../../../page-objects/Home"
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -17,6 +18,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const admin_promo_code = new CorporatePromotionPage()
     const seekerCreation = new SeekerCreation()
     const seekerPage = new SeekerPage()
+    const homePage = new HomePage()
 
     beforeEach(()=>{
         
@@ -25,7 +27,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-    it('The Admin is able to create a Corporation from admin',()=>{
+    it.skip('The Admin is able to create a Corporation from admin',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
@@ -41,7 +43,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#w0-success').should('contain', 'Corporate has been created.')
     })
 
-    it('Create a Promo Code for last created Corporation',()=>{
+    it.skip('Create a Promo Code for last created Corporation',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_promo_code.select_Corporate_Promotions_From_List()
@@ -59,7 +61,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#w0-success').should('contain', 'Promotion for Corporate has been created.')
     })
 
-    it('Create a Corporate user, using the Corp Code Level One',()=>{
+    it.skip('Create a Corporate user, using the Corp Code Level One',()=>{
         commons.open_Web_Site()
         seekerCreation.select_Free_trial_option()
         seekerCreation.type_First_Name('Auto')
@@ -72,7 +74,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         seekerCreation.promo_code_option()
         //seekerCreation.type_promo_code('pr automation')
         seekerCreation.Fill_promo_code('pr automation')
-        //cy.get('#promoCollapse', {timeout:1000}).should('be.visible')
+        
         //adding card information
         seekerCreation.type_Card_Name('Auto Mation')
         seekerCreation.type_Card_Number('4242424242424242')
@@ -102,6 +104,36 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         seekerCreation.type_ZipCode('1234')
         cy.wait(1500)
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+    })
+
+    it('Verify that corporate user can buy a workshop', () => {
+        commons.open_Web_Site()
+        homePage.select_Login()
+       
+        cy.get('#loginform-email').click()
+        cy.wait(1000)
+        cy.get('#loginform-email').type("automation1@automation.com")
+        cy.wait(1000)
+        cy.get('#loginform-password').type("password")
+        homePage.submit_Credentials()
+        cy.wait(1000)
+        cy.get('#mainNav > :nth-child(1) > .nav-link').click()
+        cy.get(':nth-child(2) > .form-group > .SumoSelect > .CaptionCont > label > i').click()
+        cy.get(':nth-child(2) > .form-group > .SumoSelect > .optWrapper > .options > :nth-child(2) > label').click()
+        //cy.get('.wrap').click()
+        cy.wait(2000)
+        cy.get('#eventButtons-11393 > .btn').click()
+
+        cy.get('.form-group > h3').should('be.visible')
+        cy.get('.col-md-12 > .btn').click()   //Click on Checkout button
+        cy.get('#stripe-form-submit').click()    //click on confirm button
+        cy.get('.close > span').click()
+        cy.get('.order-summary').should('contain','Purchase Confirmation')
+        cy.get('a > .btn').click()   //Click on Go to Dashboard button
+        cy.get('p > .btn').click()   //click on Cancel button
+        cy.get('.btn-success').click()
+        cy.wait(2000)
+        cy.get('#w1-success-0').should('contain','Event has been canceled.')
     })
 
     it('Delete corp users Level One',()=>{

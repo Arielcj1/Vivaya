@@ -4,6 +4,7 @@ import { Commons } from "../../../Commons/Common";
 import { CorporateAdminPage } from "../../../page-objects-admin/CorporateAdminPage";
 import { CorporatePromotionPage } from "../../../page-objects-admin/CorporatePromotionPage";
 import { SeekerPage } from "../../../page-objects-admin/SeekerPage";
+import { HomePage } from "../../../page-objects/Home";
 import { SeekerCreation } from "../../../page-objects/SeekerCreation";
 import { SeekerCreationSingle } from "../../../page-objects/SeekerCreationSingle";
 
@@ -21,6 +22,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const seekerCreation = new SeekerCreation()
     const seekerCreationSingle = new SeekerCreationSingle()
     const seekerPage = new SeekerPage()
+    const homePage = new HomePage()
 
     beforeEach(()=>{
       
@@ -29,7 +31,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-    it('The Admin is able to create a Corporation LvL3 from admin',()=>{
+    it.skip('The Admin is able to create a Corporation LvL3 from admin',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
@@ -46,7 +48,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#w0-success').should('contain', 'Corporate has been created.')
     })
 
-    it('Create a Corporate Promotion LvL3 for last created Corporation',()=>{
+    it.skip('Create a Corporate Promotion LvL3 for last created Corporation',()=>{
       commons.set_Admin_Credentials()
       admin_corporate.select_Corporate_Option()
       cy.get('.menu-open > .treeview-menu > :nth-child(5) > a > span').click()   //click on "Corporate Promotion LvL3"
@@ -63,11 +65,11 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('#w0-success').should('contain', 'Promotion for Level 3 Corporate has been created.')
     })
 
-    it('Create a Corporate user, using the "Corporate Promotion Lvl3" code',()=>{
+    it.skip('Create a Corporate user, using the "Corporate Promotion Lvl3" code',()=>{
       //cy.visit('https://stage.vivayalive.com/signup/seeker/form')
       commons.open_Web_Site()
       seekerCreation.select_Free_trial_option()
-      seekerCreation.type_First_Name('Auto Lvl3')
+      seekerCreation.type_First_Name('Auto')
       seekerCreation.type_Last_Name('Mation')
       seekerCreation.type_Seeker_Email('automation2@testlvl3.com')
    
@@ -89,8 +91,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       //cy.visit('https://stage.vivayalive.com/signup/seeker/form')
       commons.open_Web_Site()
       seekerCreation.select_Free_trial_option()
-      seekerCreation.type_First_Name('Auto Lvl3')
-      seekerCreation.type_Last_Name('Mation1')
+      seekerCreation.type_First_Name('Auto')
+      seekerCreation.type_Last_Name('Mation')
       seekerCreation.type_Seeker_Email('automation2@automationL3.com')
       seekerCreation.type_Seeker_Password('password')
       seekerCreation.marking_Checkbox()
@@ -101,6 +103,41 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       seekerCreation.seeker_dashboard()
       cy.contains('Monthly Unlimited Membership').should("be.visible")
     })
+
+    it('Verify that corporate user can buy a workshop', () => {
+      commons.open_Web_Site()
+      homePage.select_Login()
+     
+      cy.get('#loginform-email').click()
+      cy.wait(1000)
+      cy.get('#loginform-email').type("automation2@automationL3.com")
+      cy.wait(1000)
+      cy.get('#loginform-password').type("password")
+      homePage.submit_Credentials()
+      cy.wait(1000)
+      cy.get('#mainNav > :nth-child(1) > .nav-link').click()
+      cy.get(':nth-child(2) > .form-group > .SumoSelect > .CaptionCont > label > i').click()
+      cy.get(':nth-child(2) > .form-group > .SumoSelect > .optWrapper > .options > :nth-child(2) > label').click()
+      //cy.get('.wrap').click()
+      cy.wait(2000)
+      cy.get('#eventButtons-11393 > .btn').click()
+
+      
+      cy.get('.col-md-12 > .btn').click()   //Click on Checkout button
+      cy.get('#stripe-form > :nth-child(2) > .form-control').type('Auto Mation')
+      cy.get('.input-group > .form-control').type('4242424242424242')
+      cy.get(':nth-child(5) > :nth-child(1) > .form-group > .form-control').type('0225')
+      cy.get(':nth-child(2) > .form-group > .form-control').type('123')
+      cy.get('#stripe-form-submit').click()    //click on confirm button
+      cy.wait(2000)
+      cy.get('.close > span').click()
+      cy.get('.order-summary').should('contain','Purchase Confirmation')
+      cy.get('a > .btn').click()   //Click on Go to Dashboard button
+      cy.get('p > .btn').click()   //click on Cancel button
+      cy.get('.btn-success').click()
+      cy.wait(2000)
+      cy.get('#w1-success-0').should('contain','Event has been canceled.')
+  })
 
     it('Delete corporate users Level Three',()=>{
       commons.set_Admin_Credentials()

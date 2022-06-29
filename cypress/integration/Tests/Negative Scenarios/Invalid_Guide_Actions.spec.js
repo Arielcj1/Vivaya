@@ -186,6 +186,12 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.get('.alert > ul > li').should('be.visible').and('have.text', 'One On One Session Price cannot be blank.')
     cy.get('.col-lg-9 > .invalid-feedback').should('be.visible').and('have.text', 'One On One Session Price cannot be blank.')
    })
+
+   it('Verify that the url of a deleted guide redirects to the list of guides', () => {
+      commons.open_Web_Site()
+      cy.visit('https://stage.vivayalive.com/guides/5983')
+      cy.contains('Explore our VIVAYA Guides').should('be.visible')
+   })
   
 
 }) 
