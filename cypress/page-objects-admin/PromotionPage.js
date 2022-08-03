@@ -34,7 +34,7 @@ export class PromotionPage {
     }
 
     type_Promotion_Code_Name(value){
-        cy.get('#promotion-code').type('{selectall}'+value)
+        cy.get('#promotion-code_aliases').type('{selectall}'+value)
     }
 
     type_Promotion_Discount(value){
@@ -185,53 +185,53 @@ export class PromotionPage {
             find_Element_List_Promo_trial_Extended(value){
                 var x = value
                 var e = 1
-                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')                
+                cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')                
                 
                 .then((text)=>{
                     if(text=='AutCode'){
-                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[6]/a['+x+']').click()
+                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click({force:true})
                     }else{
                         e++
-                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text') 
+                        cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text') 
                         .then((text)=>{
                             if(text=='AutCode'){
-                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[6]/a['+x+']').click()
+                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click({force:true})
                             }else{
                                 e++
-                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+                                cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
                 .then((text)=>{
                     if(text=='AutCode'){
-                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[6]/a['+x+']').click()
+                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click({force:true})
                     }else{
                         e++
-                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+                        cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
                         .then((text)=>{
                             if(text=='AutCode'){
-                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[6]/a['+x+']').click()
+                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click({force:true})
                             }else{
                                 e++
-                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+                                cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
                 .then((text)=>{
                     if(text=='AutCode'){
-                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[6]/a['+x+']').click()
+                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click({force:true})
                     }else{
                         e++
-                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+                        cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
                         .then((text)=>{
                             if(text=='AutCode'){
-                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[6]/a['+x+']').click()
+                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click({force:true})
                             }else{
                                 e++
-                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+                                cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
                 .then((text)=>{
                     if(text=='AutCode'){
-                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[6]/a['+x+']').click()
+                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click({force:true})
                     }else{
                         e++
-                        cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
+                        cy.xpath('/html/body/div/div/section[2]/table/tbody/tr['+e+']/td[1]/a').invoke('text')
                         .then((text)=>{
                             if(text=='AutCode'){
-                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[6]/a['+x+']').click()
+                                cy.xpath('/html/body/div[1]/div/section[2]/table/tbody/tr['+e+']/td[7]/a['+x+']').click({force:true})
                             }
                         })}
                 })}
