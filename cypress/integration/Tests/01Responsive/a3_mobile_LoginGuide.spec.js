@@ -101,7 +101,8 @@ describe('Elements verification in responsive mode for Guide page', ()=>{
           cy.get('.img-responsive').should('be.visible')
           cy.get('.col-md-4 > h3').should('be.visible').and('have.text','OFFERINGS')
           cy.get('.col-md-3 > h3').should('be.visible').and('have.text','CERTIFICATIONS')
-          cy.get('.col-sm-12 > h2').should('be.visible').and('have.text','My Philosophy')
+          cy.get('.col-md-12 > h2').should('be.visible').and('have.text','My Philosophy')
+          //cy.get('.col-md-12 > h2.text-center')
           cy.go('back')
           
           cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click({force:true})

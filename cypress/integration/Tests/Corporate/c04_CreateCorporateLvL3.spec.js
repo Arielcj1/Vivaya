@@ -4,6 +4,7 @@ import { Commons } from "../../../Commons/Common";
 import { CorporateAdminPage } from "../../../page-objects-admin/CorporateAdminPage";
 import { CorporatePromotionPage } from "../../../page-objects-admin/CorporatePromotionPage";
 import { SeekerPage } from "../../../page-objects-admin/SeekerPage";
+import { Dashboard } from "../../../page-objects/Dashboard";
 import { HomePage } from "../../../page-objects/Home";
 import { SeekerCreation } from "../../../page-objects/SeekerCreation";
 import { SeekerCreationSingle } from "../../../page-objects/SeekerCreationSingle";
@@ -23,6 +24,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const seekerCreationSingle = new SeekerCreationSingle()
     const seekerPage = new SeekerPage()
     const homePage = new HomePage()
+    const dashboard =new Dashboard
 
     beforeEach(()=>{
       
@@ -31,7 +33,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-    it.skip('The Admin is able to create a Corporation LvL3 from admin',()=>{
+    it('The Admin is able to create a Corporation LvL3 from admin',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
@@ -48,7 +50,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#w0-success').should('contain', 'Corporate has been created.')
     })
 
-    it.skip('Create a Corporate Promotion LvL3 for last created Corporation',()=>{
+    it('Create a Corporate Promotion LvL3 for last created Corporation',()=>{
       commons.set_Admin_Credentials()
       admin_corporate.select_Corporate_Option()
       cy.get('.menu-open > .treeview-menu > :nth-child(5) > a > span').click()   //click on "Corporate Promotion LvL3"
@@ -65,7 +67,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('#w0-success').should('contain', 'Promotion for Level 3 Corporate has been created.')
     })
 
-    it.skip('Create a Corporate user, using the "Corporate Promotion Lvl3" code',()=>{
+    it('Create a Corporate user, using the "Corporate Promotion Lvl3" code',()=>{
       //cy.visit('https://stage.vivayalive.com/signup/seeker/form')
       commons.open_Web_Site()
       seekerCreation.select_Free_trial_option()
@@ -108,7 +110,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       commons.open_Web_Site()
       homePage.select_Login()
      
-      cy.get('#loginform-email').click()
       cy.wait(1000)
       cy.get('#loginform-email').type("automation2@automationL3.com")
       cy.wait(1000)
@@ -116,12 +117,11 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       homePage.submit_Credentials()
       cy.wait(1000)
       cy.get('#mainNav > :nth-child(1) > .nav-link').click()
-      cy.get(':nth-child(2) > .form-group > .SumoSelect > .CaptionCont > label > i').click()
-      cy.get(':nth-child(2) > .form-group > .SumoSelect > .optWrapper > .options > :nth-child(2) > label').click()
-      //cy.get('.wrap').click()
-      cy.wait(2000)
-      cy.get('#eventButtons-11393 > .btn').click()
+      cy.get('#eventsearch-q').type('Workshop Automation{enter}')
 
+      cy.xpath('/html/body/div[2]/div[4]/div[2]/div/div[1]/div/div[8]/div[1]/a').click({ force: true })
+
+      cy.wait(2000)
       
       cy.get('.col-md-12 > .btn').click()   //Click on Checkout button
       cy.get('#stripe-form > :nth-child(2) > .form-control').type('Auto Mation')
@@ -166,6 +166,20 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       //admin_promo_code.disable_last_Promo_created()
       cy.get(':nth-child(1) > :nth-child(7) > .glyphicon-remove').click()
       cy.get('#w0-success').should('be.visible')
+  })
+
+  it('Cancel Workshop Event', () => {
+    commons.open_Web_Site()
+    homePage.select_Login()
+    commons.set_Guide_Credentials_One()
+    homePage.submit_Credentials()
+    cy.wait(1200)
+
+    cy.get('.cancel-event').click({force:true})
+    cy.get('.btn-success').click()
+    
+    cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
+ 
   })
 
   

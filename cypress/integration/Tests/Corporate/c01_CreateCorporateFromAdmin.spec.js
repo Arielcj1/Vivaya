@@ -6,6 +6,8 @@ import {CorporatePromotionPage} from "../../../page-objects-admin/CorporatePromo
 import {SeekerCreation} from "../../../page-objects/SeekerCreation"
 import {SeekerPage} from "../../../page-objects-admin/SeekerPage"
 import { HomePage } from "../../../page-objects/Home"
+import { Dashboard } from "../../../page-objects/Dashboard"
+import { EventCreationPage } from "../../../page-objects/EventCreationPage"
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -19,15 +21,17 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const seekerCreation = new SeekerCreation()
     const seekerPage = new SeekerPage()
     const homePage = new HomePage()
+    const dashboard = new Dashboard()
+    const eventCreationPage = new EventCreationPage()
+    
 
     beforeEach(()=>{
         
         commons.open_Admin_Site()
-        //cy.wait(4000)
         
     })
 
-    it.skip('The Admin is able to create a Corporation from admin',()=>{
+    it('The Admin is able to create a Corporation from admin',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
@@ -43,7 +47,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#w0-success').should('contain', 'Corporate has been created.')
     })
 
-    it.skip('Create a Promo Code for last created Corporation',()=>{
+    it('Create a Promo Code for last created Corporation',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_promo_code.select_Corporate_Promotions_From_List()
@@ -61,7 +65,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#w0-success').should('contain', 'Promotion for Corporate has been created.')
     })
 
-    it.skip('Create a Corporate user, using the Corp Code Level One',()=>{
+    it('Create a Corporate user, using the Corp Code Level One',()=>{
         commons.open_Web_Site()
         seekerCreation.select_Free_trial_option()
         seekerCreation.type_First_Name('Auto')
@@ -106,11 +110,37 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
     })
 
+    it('Create Workshop Event', () => {
+        commons.open_Web_Site()
+        homePage.select_Login()
+        commons.set_Guide_Credentials_One()
+        homePage.submit_Credentials()
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(5) > .count').invoke('text').then((text) =>{
+             cy.log(text)
+            if(text != 0){
+                cy.wait(300)
+                 dashboard.cancel_Created_Event_Workshop()
+                 cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
+            }
+            else{
+                 dashboard.add_NewEvent()
+                 dashboard.add_Workshop()
+                 eventCreationPage.add_EventName('Workshop Automation')
+                 cy.wait(2000)
+                 eventCreationPage.add_Description('This is a Test Workshop')
+                 eventCreationPage.add_Custom_Number_Of_Days(2)
+                 eventCreationPage.add_Price('40')
+                 cy.wait(500)
+                 eventCreationPage.press_Add()
+                 cy.get('#w1-success-0').should('contain', 'Events have been created.')
+            }
+        })
+    })
+
     it('Verify that corporate user can buy a workshop', () => {
         commons.open_Web_Site()
         homePage.select_Login()
        
-        cy.get('#loginform-email').click()
         cy.wait(1000)
         cy.get('#loginform-email').type("automation1@automation.com")
         cy.wait(1000)
@@ -118,11 +148,11 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         homePage.submit_Credentials()
         cy.wait(1000)
         cy.get('#mainNav > :nth-child(1) > .nav-link').click()
-        cy.get(':nth-child(2) > .form-group > .SumoSelect > .CaptionCont > label > i').click()
-        cy.get(':nth-child(2) > .form-group > .SumoSelect > .optWrapper > .options > :nth-child(2) > label').click()
-        //cy.get('.wrap').click()
-        cy.wait(2000)
-        cy.get('#eventButtons-11393 > .btn').click()
+        cy.get('#eventsearch-q').type('Workshop Automation{enter}')
+
+        cy.xpath('/html/body/div[2]/div[4]/div[2]/div/div[1]/div/div[8]/div[1]/a').click({ force: true })
+
+        cy.wait(1000)
 
         cy.get('.form-group > h3').should('be.visible')
         cy.get('.col-md-12 > .btn').click()   //Click on Checkout button

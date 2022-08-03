@@ -50,7 +50,8 @@ describe('Negative scenarios for Promotions', ()=>{
         promotionPage.select_Promo_Trial_extended()
         cy.get('.box-footer > .btn').click({force:true})
         cy.get('.field-promotion-name > .help-block').should('contain', 'Name cannot be blank.')
-        cy.get('.field-promotion-code > .help-block').should('contain', 'Code cannot be blank.')
+        cy.get('.field-promotion-code_aliases > .help-block').should('contain', 'Code Aliases cannot be blank.')
+        //cy.get('.field-promotion-code > .help-block')
         cy.get('.field-promotion-times_limit_use > .help-block').should('contain', 'Limit number of uses cannot be blank.')
         cy.get('.field-promotion-expiration_date > .help-block').should('contain', 'Expiration Date cannot be blank.')
 
