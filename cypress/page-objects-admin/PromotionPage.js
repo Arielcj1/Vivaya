@@ -33,8 +33,11 @@ export class PromotionPage {
         cy.get('#promotion-name').type('{selectall}'+value)
     }
 
-    type_Promotion_Code_Name(value){
+    type_Promotion_Code_Name_free(value){
         cy.get('#promotion-code_aliases').type('{selectall}'+value)
+    }
+    type_Promotion_Code_Name(value){
+        cy.get('#promotion-code').type('{selectall}'+value)
     }
 
     type_Promotion_Discount(value){
