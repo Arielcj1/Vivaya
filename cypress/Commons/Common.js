@@ -36,6 +36,12 @@ export class Commons {
         cy.get('#loginform-password').type("password")
     }
 
+    set_Guide_Influencer(){
+        cy.get('#loginform-email').type("influencerGuide@automation.com")
+        cy.wait(2000)
+        cy.get('#loginform-password').type("password")
+    }
+
     set_Admin_Credentials(){
         cy.get('#loginform-email').type('manu@manu.com')
         cy.get('#loginform-password').type('perrodelmal')
