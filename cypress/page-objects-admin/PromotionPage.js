@@ -55,10 +55,14 @@ export class PromotionPage {
         const typeDate = cy.get('#promotion-expiration_date').type(todayDate)*/
     }
     type_Promotion_ExpDate_trial(value){
-        cy.get('#promotion-expiration_date').type('{selectall}'+value+'{enter}')
+        cy.get('#promotion-expiration_date').click().type(value+'{enter}')
         /*var moment = require('moment');
         const todayDate = moment().add(1, 'days').format('MMM-DD-YYYY')
         const typeDate = cy.get('#promotion-expiration_date').type(todayDate)*/
+    }
+
+    select_tagAC(value){
+        cy.get('.select2-selection').click().type(value+'{enter}')
     }
 
     save_promotion(){

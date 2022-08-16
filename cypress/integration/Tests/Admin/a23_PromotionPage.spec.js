@@ -161,4 +161,69 @@ describe('Promotions page', ()=>{
             cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
         })    
 
+
+        it('Create a Promo Trial Extended for influencer', ()=>{
+            promotionPage.select_Promotions_Option()
+            promotionPage.select_Promo_Trial_extended()
+            promotionPage.type_Promotion_Name('AutCode')
+            promotionPage.type_Promotion_Code_Name_free('codes1,codes2')
+            promotionPage.type_Promotion_Limit('9')
+            cy.wait(200)
+            promotionPage.type_Promotion_ExpDate_trial('28-Sep-2025')
+            cy.wait(200)
+            promotionPage.select_tagAC('influencer')
+
+            promotionPage.save_promotion()
+            cy.get('#w0-success').should('be.visible')
+    
+        })
+
+        it('Create seeker using the Code', ()=>{
+            cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=codes2')//link promotion code
+            seekerCreation.type_First_Name('seeker')
+            seekerCreation.type_Last_Name('influencer')
+            seekerCreation.type_Seeker_Email('influencer@seeker.com')
+            cy.get('.your-membership').should('contain','Your Free Trial')
+            cy.get('.monthly-unlimited-box > .panel-body > .p-free-trial > .left').should('contain','Total Due Now (Free trial + PROMO EXTENDED)')
+            seekerCreation.type_Seeker_Password('password')
+            cy.get('.custom-control-label').click({force:true})
+            cy.get('#corporate-form-submit').click({force:true})
+            cy.wait(1500)
+            cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
+            
+        })
+
+        it('Verify days of the free trial influencer', ()=>{
+            commons.open_Web_Site()
+            homePage.select_Login()
+            commons.set_Generic_Seeker('influencer@seeker.com', 'password')
+            cy.get(':nth-child(1) > .dashboard-box > div > .count').should('contain', '23')
+           
+             })
+
+        it('Verify that the code only have one use', ()=>{
+                cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=codes1')//link promotion code
+                
+                cy.get('#w2-error-0').should('contain','The promotion code has been used before.')
+            })
+
+        it('Seeker influencer elimination from admin', ()=>{
+                commons.open_Admin_Site()
+                commons.set_Admin_Credentials()
+                seekerpage.select_Seeker_Option()
+                seekerpage.select_Seeker_List()
+                seekerpage.type_Seeker_Email('influencer@seeker.com')
+                seekerpage.select_Seeker_options('5') // num 5 for elimination from DB
+                cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
+            }) 
+
+        it('Delete a Promo Trial Extended type influencer', ()=>{
+                promotionPage.select_Promotions_Option()
+                promotionPage.select_Promo_Trial_extended_list()
+                promotionPage.find_Element_List_Promo_trial_Extended('4')
+                cy.get('#w0-success').should('be.visible')
+            
+            
+                })
+
 })
