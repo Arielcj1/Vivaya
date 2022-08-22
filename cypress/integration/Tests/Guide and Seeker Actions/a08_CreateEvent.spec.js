@@ -24,10 +24,6 @@ describe('Events Creation', ()=>{
         //dashboard.go_to_Dashboard_From_Menu()
     })
 
-    /*after(()=>{
-        homePage.logout_Account()
-    
-    })*/
     it('Create Workshop Event', () => {
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(5) > .count').invoke('text').then((text) =>{
              cy.log(text)

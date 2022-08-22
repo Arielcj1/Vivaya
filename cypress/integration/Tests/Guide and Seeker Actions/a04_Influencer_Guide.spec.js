@@ -36,7 +36,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       guidePage.type_Guide_Firstname('guide')
       guidePage.type_Guide_Lastname('test')
       guidePage.type_Guide_Email('influencerGuide@automation.com')
-      guidePage.type_Guide_Number('+59172744457')
+      guidePage.type_Guide_Number('+59172744400')
       guidePage.select_TimeZone('(UTC-04:00) La Paz')
 
       guidePage.select_Guide_State('Texas')

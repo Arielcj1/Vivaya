@@ -229,12 +229,14 @@ export class Dashboard{
     cancel_Created_Event_one_on_one(){
         var row = 2
         var col = 3
-        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/h4/a')
+                 // /html/body/div[2]/div[3]/div[2]/div[2]/div[2]/div[3]/div/div/div/h4/a
+        cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/div/div/h4/a')
         .invoke('text')
         .then((text)=>{
                 if(text == 'One-One'){
                     cy.log('found')
-                    cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div['+row+']/div['+col+']/div/div[2]').contains('Cancel Event').click({force:true})
+                              ///html/body/div[2]/div[3]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[2]/p/a[1]
+                    cy.xpath('/html/body/div[2]/div[3]/div[2]/div[2]/div['+row+']/div['+col+']/div/div/div/div[2]/p/a[1]').contains('Cancel Event').click({force:true})
                         cy.get('.btn-success').click({force:true})
                 }
                 else{
