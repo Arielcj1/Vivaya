@@ -23,7 +23,7 @@ describe('Promotions page', ()=>{
         commons.set_Admin_Credentials()
     })
 
-    it.skip('Create a promotion code', ()=>{
+    it('Create a promotion code', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promotion_New()
         promotionPage.type_Promotion_Name('AutCode')
@@ -34,7 +34,7 @@ describe('Promotions page', ()=>{
         cy.get('#w0-success').should('contain','Promotion has been created.')
     })
 
-    it.skip('Edit the promotion code', ()=>{
+    it('Edit the promotion code', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promotion_List()
         promotionPage.find_Element_List_Promo('2') // num 2 para editar, es la posicion en el xpath
@@ -45,14 +45,14 @@ describe('Promotions page', ()=>{
         cy.get('#w0-success').should('contain','Promotion has been updated.')
     })
 
-    it.skip('Delete the promotion', ()=>{
+    it('Delete the promotion', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promotion_List()
         promotionPage.find_Element_List_Promo('4') //num 4 para eliminar, posicion de xpath
         cy.get('#w0-success').should('be.visible')
     })
 
-    it.skip('Create a Promo Auto Renewal', ()=>{
+    it('Create a Promo Auto Renewal', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_PromoRenewal_New()
         promotionPage.type_Promotion_Name('AutCode')
@@ -63,7 +63,7 @@ describe('Promotions page', ()=>{
         cy.get('#w0-success').should('contain','Promotion auto renewal has been created.')
     })
 
-    it.skip('Edit a Promo Auto Renewal', ()=>{
+    it('Edit a Promo Auto Renewal', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_PromoRenewal_List()
         promotionPage.find_Element_List_Promo_Renewal('2') // num 2 para editar, es la posicion en el xpath
@@ -74,14 +74,14 @@ describe('Promotions page', ()=>{
         cy.get('#w0-success').should('contain','Promotion has been updated.')
     })
 
-    it.skip('Delete a Promo Auto Renewal', ()=>{
+    it('Delete a Promo Auto Renewal', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_PromoRenewal_List()
         promotionPage.find_Element_List_Promo_Renewal('4') //num 4 para eliminar, posicion de xpath
         cy.get('#w0-success').should('be.visible')
     })
 
-    it.skip('Create a Promo Trial Extended', ()=>{
+    it('Create a Promo Trial Extended', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promo_Trial_extended()
         promotionPage.type_Promotion_Name('AutCode')
@@ -92,7 +92,7 @@ describe('Promotions page', ()=>{
         cy.get('#w0-success').should('be.visible')
 
     })
-    it.skip('EDIT a Promo Trial Extended', ()=>{
+    it('EDIT a Promo Trial Extended', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promo_Trial_extended_list()
         promotionPage.find_Element_List_Promo_trial_Extended('2')
@@ -104,7 +104,7 @@ describe('Promotions page', ()=>{
 
     })
 
-    it.skip('Create seeker using the Trial Extended', ()=>{
+    it('Create seeker using the Trial Extended', ()=>{
        commons.open_Web_Site()
        seekerCreation.select_Free_trial_option()
 
@@ -134,7 +134,7 @@ describe('Promotions page', ()=>{
       
         })
         
-    it.skip('Verify days of the trial', ()=>{
+    it('Verify days of the trial', ()=>{
         commons.open_Web_Site()
         homePage.select_Login()
         commons.set_Generic_Seeker('trialextended@gmail.com', 'password')
@@ -142,7 +142,7 @@ describe('Promotions page', ()=>{
        
          })
 
-    it.skip('Delete a Promo Trial Extended', ()=>{
+    it('Delete a Promo Trial Extended', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promo_Trial_extended_list()
         promotionPage.find_Element_List_Promo_trial_Extended('4')
@@ -151,7 +151,7 @@ describe('Promotions page', ()=>{
     
         })
 
-    it.skip('Seeker elimination from admin', ()=>{
+    it('Seeker elimination from admin', ()=>{
             commons.open_Admin_Site()
             commons.set_Admin_Credentials()
             seekerpage.select_Seeker_Option()
@@ -224,6 +224,6 @@ describe('Promotions page', ()=>{
                 cy.get('#w0-success').should('be.visible')
             
             
-                })
+            })
 
 })
