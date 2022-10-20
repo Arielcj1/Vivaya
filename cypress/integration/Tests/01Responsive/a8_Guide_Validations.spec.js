@@ -30,8 +30,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
         })
 
         it('Verify validations in Guide Dashboard while creating a class', ()=>{
-            cy.get(':nth-child(3) > .btn').click()
-            cy.get('[href="/events/class/create"]').click()
+          cy.get(':nth-child(5) > .btn').click({force:true})
 
             cy.get('#btnCreateEvent').click()
 
@@ -52,8 +51,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
         })
 
         it('Verify validations in Guide Dashboard while creating a workshop', ()=>{
-          cy.get(':nth-child(3) > .btn').click()
-          cy.get('[href="/events/workshop/create"]').click()
+          cy.get(':nth-child(3) > .btn').click({force:true})
           cy.get('#btnCreateEvent').click()
 
           //validations
@@ -72,8 +70,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
         })  
 
         it('Verify validations in Guide Dashboard while creating a 1-1', ()=>{
-          cy.get(':nth-child(3) > .btn').click()
-          cy.get('[href="/events/1-on-1/create"]').click()
+          cy.get(':nth-child(4) > .btn').click({force:true})
           cy.get('#btnCreateEvent').click()
 
           //validations
@@ -92,7 +89,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
 
         })  
 
-        it('Verify validations in Guide Dashboard while creating a seminar event', ()=>{
+        it.skip('Verify validations in Guide Dashboard while creating a seminar event', ()=>{
           cy.get(':nth-child(3) > .btn').click()
           cy.get('[href="/events/seminar/create"]').click()
           cy.get('#btnCreateEvent').click()
