@@ -33,8 +33,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.get('.field-accountinformationform-phone_number > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Mobile number cannot be blank.')
     cy.go('back')
     //validate event creation fields
-    cy.get(':nth-child(3) > .btn').click()
-    cy.get('[href="/events/class/create"]').click()
+    cy.get(':nth-child(5) > .btn').click()
+
     cy.get('#btnCreateEvent').click()
     //cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
     cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
@@ -44,13 +44,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.get('.field-eventform-name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
     cy.get('.col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
     cy.get('.event-start-date > .form-group > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-    cy.get('.field-eventform-starttime > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+    //cy.get('.field-eventform-starttime > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
 
     cy.go('back')
     cy.go('back')
     //validate Workshop creation fields
     cy.get(':nth-child(3) > .btn').click()
-    cy.get('[href="/events/workshop/create"]').click()
+
     cy.get('#btnCreateEvent').click()
     cy.get('.error-summary > div > ul > :nth-child(5)').should('be.visible').and('have.text', 'Workshop Price cannot be blank.')
     cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
@@ -61,14 +61,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.get('.field-eventform-name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
     cy.get('.col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
     cy.get('.event-start-date > .form-group > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-    cy.get('.field-eventform-starttime > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+    //cy.get('.field-eventform-starttime > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
     cy.get('.field-eventform-workshop_price > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Workshop Price cannot be blank.')
 
     cy.go('back')
     cy.go('back')
     //validate 1-1 creation fields
-    cy.get(':nth-child(3) > .btn').click()
-    cy.get('[href="/events/1-on-1/create"]').click()
+    cy.get(':nth-child(4) > .btn').click()
+
     cy.get('#btnCreateEvent').click()
     cy.get('.error-summary > div > ul > :nth-child(5)').should('be.visible').and('have.text', 'Session Offering Id cannot be blank.')
     cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
@@ -79,12 +79,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.get('.field-eventform-name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
     cy.get('.col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
     cy.get('.event-start-date > .form-group > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-    cy.get('.field-eventform-starttime > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+    //cy.get('.field-eventform-starttime > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
     cy.get(':nth-child(8) > .invalid-feedback').should('be.visible').and('have.text', 'Session Offering Id cannot be blank.')
 
     cy.go('back')
     cy.go('back')
     //validate event seminar creation fields
+    /*
     cy.get(':nth-child(3) > .btn').click()
     cy.get('[href="/events/seminar/create"]').click()
     cy.get('#btnCreateEvent').click()
@@ -112,6 +113,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.get('.field-seminar-price > .invalid-feedback').should('be.visible').and('have.text', 'Price cannot be blank.')
 
     cy.go('back')
+    */
     //Verify Offerings
     cy.get('.quick-links > :nth-child(2) > :nth-child(2) > a').click()
     cy.get('#addNewOffer').click()

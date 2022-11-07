@@ -25,7 +25,7 @@ describe('Events duplicate creation', ()=>{
     })
 
     it('Create an Event and Duplicate the event', () => {
-                dashboard.add_NewEvent()
+                //dashboard.add_NewEvent()
                 dashboard.add_Class()
                 eventCreationPage.add_EventName('Class1')
                 cy.wait(2000)

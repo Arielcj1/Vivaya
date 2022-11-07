@@ -61,7 +61,7 @@ describe('Verify form of One to One', ()=> {
         cy.wait(1500)
         cy.get('.mheader-title').should('contain','REQUEST 1-1 SESSION')
         guidesPage.form_OnetoOne(5)
-        cy.get('#w3-success-0').should('contain','The request has been sent, we will send you an email soon.')
+        cy.get('#w4-success-0').should('contain','The request has been sent, we will send you an email soon.')
         
     })
 

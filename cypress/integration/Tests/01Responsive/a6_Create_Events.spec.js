@@ -27,8 +27,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
         })
 
         it('Verify Elements in Guide Dashboard after create a class', ()=>{
-            cy.get(':nth-child(3) > .btn').click()
-            cy.get('[href="/events/class/create"]').click()
+            cy.get(':nth-child(5) > .btn').click()
 
             eventCreationPage.add_EventName('Class1')
             cy.wait(2000)
@@ -44,7 +43,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
 
         it('Verify Elements in Guide Dashboard after create a Dashboard', ()=>{
             cy.get(':nth-child(3) > .btn').click()
-            cy.get('[href="/events/workshop/create"]').click()
+
             eventCreationPage.add_EventName('Workshop1')
             cy.wait(2000)
             eventCreationPage.add_Description('This is a Test Workshop')
@@ -59,8 +58,8 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
         })    
 
         it('Verify Elements in Guide Dashboard after create a 1-1', ()=>{
-            cy.get(':nth-child(3) > .btn').click()
-            cy.get('[href="/events/1-on-1/create"]').click()
+            cy.get(':nth-child(4) > .btn').click({force:true})
+
             eventCreationPage.add_EventName('One-One')
                 cy.wait(2000)
                 eventCreationPage.add_Description('This is a Test for One on One')

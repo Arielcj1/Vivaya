@@ -29,11 +29,13 @@ describe('Events Creation', ()=>{
              cy.log(text)
             if(text != 0){
                 cy.wait(300)
-                 dashboard.cancel_Created_Event_Workshop()
+                cy.get('.cancel-event').click()
+                cy.get('.btn-success').click({force:true})
+                 //dashboard.cancel_Created_Event_Workshop()
                  cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
             }
             else{
-                 dashboard.add_NewEvent()
+                 //dashboard.add_NewEvent()
                  dashboard.add_Workshop()
                  eventCreationPage.add_EventName('Workshop1')
                  cy.wait(2000)
@@ -53,7 +55,10 @@ describe('Events Creation', ()=>{
             cy.log(text)
            if(text != 0){
             cy.wait(300)
-                dashboard.cancel_Created_Event_Workshop()
+            cy.get('.cancel-event').click({force:true})
+            cy.wait(100)
+            cy.get('.btn-success').click({force:true})
+                //dashboard.cancel_Created_Event_Workshop()
                 cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
            }
            else{
@@ -66,11 +71,14 @@ describe('Events Creation', ()=>{
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){
-                dashboard.cancel_Created_Event_class()
+                cy.get('.cancel-event').click({force:true})
+            cy.wait(100)
+            cy.get('.btn-success').click({force:true})
+                //dashboard.cancel_Created_Event_class()
                 cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
-                dashboard.add_NewEvent()
+                //dashboard.add_NewEvent()
                 dashboard.add_Class()
                 eventCreationPage.add_EventName('Class1')
                 cy.wait(2000)
@@ -88,7 +96,10 @@ describe('Events Creation', ()=>{
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){
-                dashboard.cancel_Created_Event_class()
+                cy.get('.cancel-event').click({force:true})
+            cy.wait(100)
+            cy.get('.btn-success').click({force:true})
+                //dashboard.cancel_Created_Event_class()
                 cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
@@ -101,11 +112,14 @@ describe('Events Creation', ()=>{
         cy.get(':nth-child(7) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){
-                dashboard.cancel_Created_Event_one_on_one()
+                cy.get('.cancel-event').click({force:true})
+                cy.wait(100)
+                cy.get('.btn-success').click({force:true})
+                //dashboard.cancel_Created_Event_one_on_one()
                 cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
-                dashboard.add_NewEvent()
+                //dashboard.add_NewEvent()
                 dashboard.add_One_One()
                 eventCreationPage.add_EventName('One-One')
                 cy.wait(2000)
@@ -119,7 +133,10 @@ describe('Events Creation', ()=>{
                 cy.wait(1000)
                 //cy.get('#w1-success-0').should('contain', 'Events have been created.')
                 //cy.contains('Events have been created.').should('be.visible')
-                dashboard.cancel_Created_Event_one_on_one()
+                cy.get('.cancel-event').click({force:true})
+                cy.wait(100)
+                cy.get('.btn-success').click({force:true})
+                //dashboard.cancel_Created_Event_one_on_one()
                 //cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
             }
         })    
