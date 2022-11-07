@@ -77,7 +77,8 @@ export class Dashboard{
     }
 
     select_Add_Seminar(){
-        cy.get(':nth-child(4) > .btn').click()
+        //cy.get(':nth-child(4) > .btn').click()
+        cy.get(':nth-child(2) > :nth-child(2) > :nth-child(2) > .btn').click()
     }
 
     select_View_FullClass_History(){

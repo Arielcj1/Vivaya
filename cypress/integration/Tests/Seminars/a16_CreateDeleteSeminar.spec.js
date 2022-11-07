@@ -35,7 +35,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
-        dashboard.go_to_Dashboard_From_Menu()
+        cy.wait(1500)
         dashboard.select_Add_Seminar()
         seminars.type_Seminar_Name("Seminar Automation")
         seminars.add_Description("This is a Seminar for Automation Proj")
@@ -44,9 +44,9 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         seminars.select_Main_Offering('Yoga')
         seminars.add_Seminar_Price(150)
         seminars.select_Allow_Independent_Events()
-        seminars.select_Publish_Button()
+        seminars.select_Save_Progress()
 
-        cy.get('#w1-success-0').should('contain', 'Seminar has been created.')
+        cy.get('#w2-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Automation')
         
      })
@@ -55,14 +55,15 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
       homePage.select_Login()
       commons.set_Guide_Credentials_One()
       homePage.submit_Credentials()
-      dashboard.go_to_Dashboard_From_Menu()
+      //dashboard.go_to_Dashboard_From_Menu()
             
       //Edit Seminar
       seminars.select_Edit_Seminar()
       cy.get('#seminar-name').clear()
       seminars.type_Seminar_Name("Seminar Automation Edited")
-      seminars.select_Publish_Button()
-      cy.get('#w1-success-0').should('contain', 'Seminar has been updated.')
+      //seminars.select_Publish_Button()
+      seminars.select_Save_Progress()
+      cy.get('#w2-success-0').should('contain', 'Seminar has been updated.')
       cy.get('h4 > a').should('contain', 'Seminar Automation Edited')
       
    })
@@ -71,10 +72,11 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
     homePage.select_Login()
     commons.set_Guide_Credentials_One()
     homePage.submit_Credentials()
-    dashboard.go_to_Dashboard_From_Menu()
+    //dashboard.go_to_Dashboard_From_Menu()
+    
     //Cancel the Seminar
     seminars.select_Cancel_Seminar()
-    cy.get('#w1-success-0').should('contain', 'Seminar has been cancelled.')
+    cy.get('#w2-success-0').should('contain', 'Seminar has been cancelled.')
  })
 
 })     

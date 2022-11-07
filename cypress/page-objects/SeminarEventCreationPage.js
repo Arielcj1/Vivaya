@@ -44,6 +44,17 @@ export class SeminarEventCreationPage{
         cy.get('#btnCreateEvent').click()
     }
 
+    select_Done(){
+        cy.get('.box-footer > .btn-primary').click()
+    }
 
+    //Are you ready to publish this seminar?
+    select_Save_for_Later(){
+        cy.get('#seminar-later').click()
+    }
+
+    select_Yes(){
+        cy.get('#seminar-done').click()
+    }
 
 }

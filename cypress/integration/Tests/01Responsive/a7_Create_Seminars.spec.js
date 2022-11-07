@@ -30,7 +30,8 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
         })
 
         it('Verify Elements in Guide Dashboard after create a class', ()=>{
-            cy.get(':nth-child(4) > .btn').click()
+            //cy.get(':nth-child(4) > .btn').click()
+            dashboard.select_Add_Seminar()
             seminars.type_Seminar_Name("Seminar Automation")
             seminars.add_Description("This is a Seminar for Automation Proj")
             seminars.add_Custom_Start_Date(8)
@@ -43,13 +44,15 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
             seminars.select_Main_Offering('Yoga')
             seminars.add_Seminar_Price(150)
             seminars.select_Allow_Independent_Events()
-            seminars.select_Publish_Button()
+            //seminars.select_Publish_Button()
+            seminars.select_Save_Progress()
     
-            cy.get('#w1-success-0').should('contain', 'Seminar has been created.')
+            cy.get('#w2-success-0').should('contain', 'Seminar has been created.')
             cy.get('h4 > a').should('contain', 'Seminar Automation')
 
+            cy.wait(2000)
             seminars.select_Cancel_Seminar()
-            cy.get('#w1-success-0').should('contain', 'Seminar has been cancelled.')
+            cy.get('#w2-success-0').should('contain', 'Seminar has been cancelled.')
 
         })
         

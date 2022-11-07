@@ -48,32 +48,35 @@ describe('Seminar Creation, Cancelation and Seminar Eevnt creation',
         seminars.select_Main_Offering('Yoga')
         seminars.add_Seminar_Price(150)
         seminars.select_Allow_Independent_Events()
-        seminars.select_Publish_Button()
+        seminars.select_Save_Progress()
 
-        cy.get('#w1-success-0').should('contain', 'Seminar has been created.')
+        cy.get('#w2-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Automation')
        
      })
 
      it('Create Seminar Event related to a previous seminar', ()=>{
-
       homePage.select_Login()
       commons.set_Guide_Credentials_One()
       homePage.submit_Credentials()
       cy.wait(3000)
       //add seminar event
-      dashboard.add_NewEvent()
-      dashboard.add_Seminar_Event()
+      seminars.select_Edit_Seminar()
+      cy.wait(1500)
+      seminars.select_Add_Event()
       seminarEvent.add_Seminar_Event_Name('Seminar Event test one')
       seminarEvent.add_Description('This is a seminar Event for testing')
       seminarEvent.add_Custom_Number_Of_Days(10)
       seminarEvent.custom_End_Time(2)
-      seminarEvent.select_Existing_Seminar('Seminar Automation')
+      //seminarEvent.select_Existing_Seminar('Seminar Automation')
       seminarEvent.select_Assign_Guide('Manu rex')
       cy.get('.tt-suggestion').click({force:true})
       seminarEvent.add_EventSeminar_Price(50)
-      seminarEvent.select_Add_Button()
-      cy.get('#w1-success-0').should('contain', 'Events have been created.')
+      //seminarEvent.select_Add_Button()
+      seminarEvent.select_Done()
+      cy.wait(1500)
+      seminarEvent.select_Save_for_Later()
+      cy.get('#w2-success-0').should('contain', 'Events have been created.')
      
       
    })
@@ -87,7 +90,7 @@ describe('Seminar Creation, Cancelation and Seminar Eevnt creation',
     cy.wait(3000)
     //Cancel the Seminar
     seminars.select_Cancel_Seminar()
-    cy.get('#w1-success-0').should('contain', 'Seminar has been cancelled.')
+    cy.get('#w2-success-0').should('contain', 'Seminar has been cancelled.')
     
  })
 })     
