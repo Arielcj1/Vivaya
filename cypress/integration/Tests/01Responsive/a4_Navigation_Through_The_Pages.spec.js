@@ -24,6 +24,9 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
         it('Verify Elements and redirection for Schedule page as Logged out', ()=>{
             home.go_To_Schedule_TopBar()
+            cy.get('#mainNav > :nth-child(2) > a').click()
+            cy.wait(1500)
+            cy.get('#w1 > [href="/schedule"]').click()
             cy.get('#banner').should('be.visible').and('contain.text', 'Schedule')
             cy.get('.col-sm-12').should('be.visible')
             cy.get('.col-12 > h3').should('be.visible').and('contain.text', 'Become a VIVAYA Guide or Teacher')

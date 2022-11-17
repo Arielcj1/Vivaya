@@ -32,7 +32,7 @@ describe('Events Creation', ()=>{
                 cy.get('.cancel-event').click()
                 cy.get('.btn-success').click({force:true})
                  //dashboard.cancel_Created_Event_Workshop()
-                 cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
+                 cy.get('#w2-success-0').should('contain', 'Event has been canceled.')
             }
             else{
                  //dashboard.add_NewEvent()
@@ -44,7 +44,7 @@ describe('Events Creation', ()=>{
                  eventCreationPage.add_Price('40')
                  cy.wait(500)
                  eventCreationPage.press_Add()
-                 cy.get('#w1-success-0').should('contain', 'Events have been created.')
+                 cy.get('#w2-success-0').should('contain', 'Events have been created.')
             }
         })
     })
@@ -59,7 +59,7 @@ describe('Events Creation', ()=>{
             cy.wait(100)
             cy.get('.btn-success').click({force:true})
                 //dashboard.cancel_Created_Event_Workshop()
-                cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
+                cy.get('#w2-success-0').should('contain', 'Event has been canceled.')
            }
            else{
             cy.wait(100)
@@ -75,7 +75,7 @@ describe('Events Creation', ()=>{
             cy.wait(100)
             cy.get('.btn-success').click({force:true})
                 //dashboard.cancel_Created_Event_class()
-                cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
+                cy.get('#w2-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
                 //dashboard.add_NewEvent()
@@ -87,7 +87,7 @@ describe('Events Creation', ()=>{
                 eventCreationPage.custom_Start_Time(7)
                 cy.wait(500)
                 eventCreationPage.press_Add()
-                cy.get('#w1-success-0').should('contain', 'Events have been created.')
+                cy.get('#w2-success-0').should('contain', 'Events have been created.')
             }
         })
     })
@@ -100,7 +100,7 @@ describe('Events Creation', ()=>{
             cy.wait(100)
             cy.get('.btn-success').click({force:true})
                 //dashboard.cancel_Created_Event_class()
-                cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
+                cy.get('#w2-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
                 cy.wait(100)
@@ -116,7 +116,7 @@ describe('Events Creation', ()=>{
                 cy.wait(100)
                 cy.get('.btn-success').click({force:true})
                 //dashboard.cancel_Created_Event_one_on_one()
-                cy.get('#w1-success-0').should('contain', 'Event has been canceled.') 
+                cy.get('#w2-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
                 //dashboard.add_NewEvent()

@@ -63,9 +63,10 @@ describe('Verify Seminar Page admin', ()=>{
         seminars.select_Main_Offering('Yoga')
         seminars.add_Seminar_Price(150)
         seminars.select_Allow_Independent_Events()
-        seminars.select_Publish_Button()
+        seminars.select_Save_Progress()
+        //seminars.select_Publish_Button()
 
-        cy.get('#w1-success-0').should('contain', 'Seminar has been created.')
+        cy.get('#w2-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Manu')
 
     })  

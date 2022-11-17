@@ -33,7 +33,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-    it('The Admin is able to create a Corporation LvL3 from admin',()=>{
+    it.skip('The Admin is able to create a Corporation LvL3 from admin',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
@@ -50,7 +50,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#w0-success').should('contain', 'Corporate has been created.')
     })
 
-    it('Create a Corporate Promotion LvL3 for last created Corporation',()=>{
+    it.skip('Create a Corporate Promotion LvL3 for last created Corporation',()=>{
       commons.set_Admin_Credentials()
       admin_corporate.select_Corporate_Option()
       cy.get('.menu-open > .treeview-menu > :nth-child(5) > a > span').click()   //click on "Corporate Promotion LvL3"
@@ -67,7 +67,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('#w0-success').should('contain', 'Promotion for Level 3 Corporate has been created.')
     })
 
-    it('Create a Corporate user, using the "Corporate Promotion Lvl3" code',()=>{
+    it.skip('Create a Corporate user, using the "Corporate Promotion Lvl3" code',()=>{
       //cy.visit('https://stage.vivayalive.com/signup/seeker/form')
       commons.open_Web_Site()
       seekerCreation.select_Free_trial_option()
@@ -89,7 +89,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.contains('Monthly Unlimited Membership').should("be.visible")
     })
 
-    it('Create a Corporate user with a corporate email Level three', () =>{
+    it.skip('Create a Corporate user with a corporate email Level three', () =>{
       //cy.visit('https://stage.vivayalive.com/signup/seeker/form')
       commons.open_Web_Site()
       seekerCreation.select_Free_trial_option()
@@ -106,7 +106,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.contains('Monthly Unlimited Membership').should("be.visible")
     })
 
-    it('Verify that corporate user can buy a workshop', () => {
+    it.skip('Verify that corporate user can buy a workshop', () => {
       commons.open_Web_Site()
       homePage.select_Login()
      
@@ -117,6 +117,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       homePage.submit_Credentials()
       cy.wait(1000)
       cy.get('#mainNav > :nth-child(1) > .nav-link').click()
+      cy.get('#mainNav > :nth-child(1) > .nav-link').click()
+      cy.get('[href="/schedule"]').click()
       cy.get('#eventsearch-q').type('Workshop Automation{enter}')
 
       cy.xpath('/html/body/div[2]/div[4]/div[2]/div/div[1]/div/div[8]/div[1]/a').click({ force: true })
@@ -136,7 +138,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('p > .btn').click()   //click on Cancel button
       cy.get('.btn-success').click()
       cy.wait(2000)
-      cy.get('#w1-success-0').should('contain','Event has been canceled.')
+      cy.get('#w2-success-0').should('contain','Event has been canceled.')
   })
 
     it('Delete corporate users Level Three',()=>{
@@ -178,7 +180,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.get('.cancel-event').click({force:true})
     cy.get('.btn-success').click()
     
-    cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
+    cy.get('#w2-success-0').should('contain', 'Event has been canceled.')
  
   })
 

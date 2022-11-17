@@ -41,7 +41,8 @@ export class Dashboard{
     }
 
     add_Class(){
-        cy.get(':nth-child(2) > :nth-child(2) > :nth-child(5) > .btn').click({force:true})
+       // cy.get(':nth-child(2) > :nth-child(2) > :nth-child(5) > .btn').click({force:true})
+        cy.get(':nth-child(5) > .btn').click({force:true})
     }
 
     add_Seminar_Event(){
@@ -75,7 +76,8 @@ export class Dashboard{
 
     select_Add_Seminar(){
         //cy.get(':nth-child(4) > .btn').click()
-        cy.get(':nth-child(2) > :nth-child(2) > :nth-child(2) > .btn').click()
+        cy.get(':nth-child(2) > .btn').click()
+        //cy.get(':nth-child(2) > :nth-child(2) > :nth-child(2) > .btn').click()
     }
 
     select_View_FullClass_History(){
@@ -220,7 +222,7 @@ export class Dashboard{
     cancel_event_mobile(){
         cy.get('.cancel-event').click({force:true})
             cy.get('.btn-success').click({force:true})
-            cy.get('#w1-success-0').should('be.visible')
+            cy.get('#w2-success-0').should('be.visible')
     }
 
 

@@ -33,13 +33,13 @@ describe('Verify the Elements within Dashboard', ()=>{
         dashBoard.select_UpcomingEvents()
         cy.url().should('eq', 'https://stage.vivayalive.com/dashboard/upcoming')
 
-        cy.go('back')
-        dashBoard.select_One_One_Availability()
-        cy.url().should('eq', 'https://stage.vivayalive.com/dashboard/calendar')
+        //cy.go('back')
+        //dashBoard.select_One_One_Availability()
+        //cy.url().should('eq', 'https://stage.vivayalive.com/dashboard/calendar')
 
-        cy.go('back')
-        dashBoard.select_Add_Seminar()
-        cy.url().should('eq', 'https://stage.vivayalive.com/seminars/add')
+        //cy.go('back')
+        //dashBoard.select_Add_Seminar()
+        //cy.url().should('eq', 'https://stage.vivayalive.com/seminars/add')
 
         cy.go('back')
         dashBoard.select_View_FullClass_History()

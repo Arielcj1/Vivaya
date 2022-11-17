@@ -120,10 +120,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
             if(text != 0){
                 cy.wait(300)
                  dashboard.cancel_Created_Event_Workshop()
-                 cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
+                 cy.get('#w2-success-0').should('contain', 'Event has been canceled.')
             }
             else{
-                 dashboard.add_NewEvent()
+                 //dashboard.add_NewEvent()
                  dashboard.add_Workshop()
                  eventCreationPage.add_EventName('Workshop Automation')
                  cy.wait(2000)
@@ -132,7 +132,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
                  eventCreationPage.add_Price('40')
                  cy.wait(500)
                  eventCreationPage.press_Add()
-                 cy.get('#w1-success-0').should('contain', 'Events have been created.')
+                 cy.get('#w2-success-0').should('contain', 'Events have been created.')
             }
         })
     })
@@ -148,6 +148,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         homePage.submit_Credentials()
         cy.wait(1000)
         cy.get('#mainNav > :nth-child(1) > .nav-link').click()
+        cy.get('#mainNav > :nth-child(1) > .nav-link').click()
+        cy.get('[href="/schedule"]').click()
         cy.get('#eventsearch-q').type('Workshop Automation{enter}')
 
         cy.xpath('/html/body/div[2]/div[4]/div[2]/div/div[1]/div/div[8]/div[1]/a').click({ force: true })
@@ -163,7 +165,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('p > .btn').click()   //click on Cancel button
         cy.get('.btn-success').click()
         cy.wait(2000)
-        cy.get('#w1-success-0').should('contain','Event has been canceled.')
+        cy.get('#w2-success-0').should('contain','Event has been canceled.')
     })
 
     it('Delete corp users Level One',()=>{

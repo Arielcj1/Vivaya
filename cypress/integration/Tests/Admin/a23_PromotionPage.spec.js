@@ -166,10 +166,10 @@ describe('Promotions page', ()=>{
             promotionPage.select_Promotions_Option()
             promotionPage.select_Promo_Trial_extended()
             promotionPage.type_Promotion_Name('AutCode')
-            promotionPage.type_Promotion_Code_Name_free('code1x,code2x')
+            promotionPage.type_Promotion_Code_Name_free('codigo1x,codigo2x')   //Change promocode 
             promotionPage.type_Promotion_Limit('9')
             cy.wait(200)
-            promotionPage.type_Promotion_ExpDate_trial('28-Sep-2025')
+            promotionPage.type_Promotion_ExpDate_trial('30-Nov-2022')
             cy.wait(200)
             promotionPage.select_tagAC('influencer')
 
@@ -179,7 +179,7 @@ describe('Promotions page', ()=>{
         })
 
         it('Create seeker using the Code', ()=>{
-            cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=code2x')//link promotion code
+            cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=codigo2x')//link promotion code
             seekerCreation.type_First_Name('seeker')
             seekerCreation.type_Last_Name('influencer')
             seekerCreation.type_Seeker_Email('influencer@seeker.com')
@@ -202,9 +202,9 @@ describe('Promotions page', ()=>{
              })
 
         it('Verify that the code only have one use', ()=>{
-                cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=code2x')//link promotion code
+                cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=codigo2x')//link promotion code
                 
-                cy.get('#w2-error-0').should('contain','The promotion code has been used before.')
+                cy.get('#w3-error-0').should('contain','The promotion code has been used before.')
             })
 
         it('Seeker influencer elimination from admin', ()=>{

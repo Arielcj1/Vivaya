@@ -33,7 +33,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         homePage.logout_Account()
     
     })*/
-    it.skip('Create Seminar', ()=>{
+    it('Create Seminar', ()=>{
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
@@ -55,7 +55,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         
     })
 
-     it.skip('Seminar Event relate to the previous Seminar ONE', ()=>{
+     it('Seminar Event relate to the previous Seminar ONE', ()=>{
       homePage.select_Login()
       commons.set_Guide_Credentials_One()
       homePage.submit_Credentials()
@@ -79,7 +79,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
       
    })
 
-   it.skip('Seminar Event relate to the previous Seminar TWO', ()=>{
+   it('Seminar Event relate to the previous Seminar TWO', ()=>{
     homePage.select_Login()
     commons.set_Guide_Credentials_One()
     homePage.submit_Credentials()

@@ -50,6 +50,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       guidePage.type_Price_OneOne('100')
       cy.get('#guide-tiktok_url').type('https://tiktok.com/yoga')
       cy.get('#guide-influencer > :nth-child(1) > input').click()  //Check Influencer option
+      cy.get('#guide-influencer_donate > :nth-child(1) > input').click()  //Check Donate option
       cy.get('#guide-influencer_video_url').type('https://www.youtube.com/watch?v=I9RDYqSXjHA')
       cy.get('#guide-influencer_description').type('Yoga for beginner')
 
@@ -105,17 +106,21 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       commons.set_Guide_Influencer()
       homePage.submit_Credentials()
 
-      cy.get('.dashboard-events > .col-lg-4 > :nth-child(1)').should('be.visible')
-      dashboard.add_NewEvent()
-      dashboard.add_Class()
+      //cy.get('.dashboard-events > .col-lg-4 > :nth-child(1)').should('be.visible')
+      //dashboard.add_NewEvent()
+      //dashboard.add_Class()
+      cy.wait(3000)
+      cy.get(':nth-child(2) > :nth-child(2) > :nth-child(5) > .btn').click()
+      //cy.get(':nth-child(5) > .btn').click()
       eventCreationPage.add_EventName('Class Free event')
       cy.wait(2000)
       eventCreationPage.add_Description('This is a Test Class')
       eventCreationPage.add_Custom_Number_Of_Days(2)
       eventCreationPage.custom_Start_Time(5)
       eventCreationPage.press_Add()
-      cy.get('#w1-success-0').should('contain','Events have been created.')
-      cy.get('.dashboard-events > :nth-child(3) > :nth-child(1)').should('be.visible')
+      cy.get('#w2-success-0').should('contain','Events have been created.')
+      //cy.get('#guide_dashboard_events_workshop > :nth-child(2) > :nth-child(1)').should('be.visible')
+      //cy.get('.dashboard-events > :nth-child(3) > :nth-child(1)').should('be.visible')
     })
 
     it('Verify that description and video can be added to the influencer guide.' , ()=> {
@@ -134,7 +139,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       homePage.select_Login()
       commons.set_Guide_Influencer()
       homePage.submit_Credentials()
-      dashboard.add_NewEvent()
+      //dashboard.add_NewEvent()
       dashboard.add_Workshop()
       eventCreationPage.add_EventName('Workshop1')
       cy.wait(2000)
@@ -143,7 +148,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       eventCreationPage.add_Price('40')
       cy.wait(500)
       eventCreationPage.press_Add()
-      cy.get('#w1-success-0').should('contain', 'Events have been created.')
+      cy.get('#w2-success-0').should('contain', 'Events have been created.')
 
       
     })

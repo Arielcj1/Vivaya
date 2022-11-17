@@ -31,7 +31,9 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
 
         it('Verify Elements in Guide Dashboard after create a class', ()=>{
             //cy.get(':nth-child(4) > .btn').click()
+            cy.wait(3000)
             dashboard.select_Add_Seminar()
+            //cy.get(':nth-child(2) > .btn').click()
             seminars.type_Seminar_Name("Seminar Automation")
             seminars.add_Description("This is a Seminar for Automation Proj")
             seminars.add_Custom_Start_Date(8)

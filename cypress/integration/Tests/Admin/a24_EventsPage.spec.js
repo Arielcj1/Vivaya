@@ -157,7 +157,7 @@ describe('Events page', ()=>{
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
 
-        dashboard.add_NewEvent()
+        //dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Super Event')
         cy.wait(2000)
@@ -165,7 +165,7 @@ describe('Events page', ()=>{
         eventCreationPage.add_Custom_Number_Of_Days(0)
         eventCreationPage.custom_Start_Time(5)
         eventCreationPage.press_Add()
-        cy.get('#w1-success-0').should('contain', 'Events have been created.')
+        cy.get('#w2-success-0').should('contain', 'Events have been created.')
           
     })
 
@@ -173,6 +173,8 @@ describe('Events page', ()=>{
         
         commons.open_Web_Site()
         cy.get('#mainNav > :nth-child(2) > a').click({force:true})
+        cy.get('#mainNav > :nth-child(2) > a').click({force:true})
+        cy.get('#w1 > [href="/schedule"]').click()
         homePage.select_First_classnew()
 
           

@@ -79,6 +79,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       dashboard.select_LogIn_option_from_PopUp()
       commons.set_Seeker_Credentials_One()
       homePage.submit_Credentials()
-      cy.get('#w1-success-0').should('be.visible')
+      cy.get('#w2-success-0').should('be.visible')
     })
 })
