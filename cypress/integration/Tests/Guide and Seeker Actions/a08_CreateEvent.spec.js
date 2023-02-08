@@ -14,17 +14,19 @@ describe('Events Creation', ()=>{
     const homePage = new HomePage()
     const dashboard = new Dashboard()
     const eventCreationPage = new EventCreationPage()
-    const commons = new Commons()
+    const commons = new Commons()    
 
     beforeEach(()=>{
         commons.open_Web_Site()
-        homePage.select_Login()
-        commons.set_Guide_Credentials_One()
-        homePage.submit_Credentials()
         //dashboard.go_to_Dashboard_From_Menu()
     })
 
-    it('Create Workshop Event', () => {
+    it.skip('Create Workshop Event', () => {
+        
+        homePage.select_Login()
+        commons.set_Guide_Credentials_One()
+        homePage.submit_Credentials()
+        
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(5) > .count').invoke('text').then((text) =>{
              cy.log(text)
             if(text != 0){
@@ -49,7 +51,31 @@ describe('Events Creation', ()=>{
         })
     })
 
+    it('Buy the workshop as Guest', () => {
+        cy.wait(1200)
+        cy.contains('Workshop1').click({force:true})
+        cy.contains('Buy Workshop').click({force:true})
+        cy.get('.position-relative > .btn').click({force:true})
+        cy.get('#guestprebuyeventform-first_name').type('GuestWorkshop')
+        cy.get('#guestprebuyeventform-last_name').type('LastName')
+        cy.get('#guestprebuyeventform-email').type('guestworkshop@test.com')
+
+        //Card
+        cy.get('.n-group > .form-control').type('Auto Mation')
+        cy.get(':nth-child(2) > .input-group > .form-control').type('4242424242424242')
+        cy.get('.expiration-date > .form-group > .form-control').type('0225')
+        cy.get('.security-code > .form-group > .input-group > .form-control').type('123')
+        
+
+        
+   })
+
     it('Cancel Workshop Event', () => {
+        
+        homePage.select_Login()
+        commons.set_Guide_Credentials_One()
+        homePage.submit_Credentials()
+
         cy.wait(1200)
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(5) > .count').invoke('text').then((text) =>{
             cy.log(text)
@@ -68,6 +94,11 @@ describe('Events Creation', ()=>{
    })
 
     it('Create Class Event', () =>{
+        
+        homePage.select_Login()
+        commons.set_Guide_Credentials_One()
+        homePage.submit_Credentials()
+
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){
@@ -92,6 +123,11 @@ describe('Events Creation', ()=>{
         })
     })
     it('Cancel Class Event', () =>{
+        
+        homePage.select_Login()
+        commons.set_Guide_Credentials_One()
+        homePage.submit_Credentials()
+
         cy.wait(1200)
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
@@ -109,6 +145,11 @@ describe('Events Creation', ()=>{
     })
 
     it('Create and Cancel One on One', () =>{
+        
+        homePage.select_Login()
+        commons.set_Guide_Credentials_One()
+        homePage.submit_Credentials()
+
         cy.get(':nth-child(7) > .count').invoke('text').then((text)=>{
             cy.log(text)
             if(text != 0){

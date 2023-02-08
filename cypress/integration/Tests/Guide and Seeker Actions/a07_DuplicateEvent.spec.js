@@ -45,7 +45,7 @@ describe('Events duplicate creation', ()=>{
                 
                 
                 for (let i = 0; i<2; i++){
-                    cy.xpath("//*[contains(text(), 'Cancel Event')]").eq(0).click({ multiple: true}).should('not.exist')
+                    cy.xpath("//*[contains(text(), 'Cancel')]").eq(0).click({ multiple: true}).should('not.exist')
                     cy.get('.btn-success').click()
                 }                
                 
