@@ -154,7 +154,7 @@ describe('Events Creation', ()=>{
 
         cy.get('h1.text-center').should('contain','Activate Account')
         cy.get('#resetpasswordform-password').type('password')
-        cy.wait(4000)
+        cy.wait(2000)
         cy.get('.text-center > .btn').click()
         cy.get('#w3-success-0').should('contain','Thank you for activating your account .')
 
