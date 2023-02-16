@@ -146,7 +146,7 @@ describe('Events Creation', ()=>{
         cy.get('.expiration-date > .form-group > .form-control').type('0225')
         cy.get('.security-code > .form-group > .input-group > .form-control').type('123')
 
-        cy.wait(6000)
+        cy.wait(2000)
         cy.get('#stripe-form-submit').click()
 
         cy.get('.logoVivaya').should('be.visible')
