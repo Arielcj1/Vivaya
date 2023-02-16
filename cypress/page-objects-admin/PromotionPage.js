@@ -29,6 +29,19 @@ export class PromotionPage {
         cy.get('.menu-open > .treeview-menu > :nth-child(5) > a').click()
     }
 
+    select_List_Free_Book_Promotion(){
+        cy.get('.menu-open > .treeview-menu > :nth-child(7) > a > span').click()
+    }
+
+    select_New_Free_Book_Promotion(){
+        cy.get('.menu-open > .treeview-menu > :nth-child(8) > a > span').click()
+    }
+
+    select_Event_Types(){
+        cy.get('.select2-selection').click()
+        cy.get('#s2-togall-w1 > .text-success').click()
+    }
+
     type_Promotion_Name(value){
         cy.get('#promotion-name').type('{selectall}'+value)
     }

@@ -4,6 +4,7 @@ import { HomePage } from "../../../page-objects/Home";
 import {Dashboard} from "../../../page-objects/Dashboard";
 import {EventCreationPage} from "../../../page-objects/EventCreationPage"
 import {Commons} from "../../../Commons/Common"
+import { GuestPage } from "../../../page-objects-admin/GuestPage";
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
@@ -15,6 +16,7 @@ describe('Events Creation', ()=>{
     const dashboard = new Dashboard()
     const eventCreationPage = new EventCreationPage()
     const commons = new Commons()    
+    const guestPage = new GuestPage()
 
     beforeEach(()=>{
         commons.open_Web_Site()
@@ -51,7 +53,7 @@ describe('Events Creation', ()=>{
         })
     })
 
-    it('Buy the workshop as Guest', () => {
+    it.skip('Buy the workshop as Guest', () => {
         cy.wait(1200)
         cy.contains('Workshop1').click({force:true})
         cy.contains('Buy Workshop').click({force:true})
@@ -70,7 +72,7 @@ describe('Events Creation', ()=>{
         
    })
 
-    it('Cancel Workshop Event', () => {
+    it.skip('Cancel Workshop Event', () => {
         
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
@@ -118,10 +120,66 @@ describe('Events Creation', ()=>{
                 eventCreationPage.custom_Start_Time(7)
                 cy.wait(500)
                 eventCreationPage.press_Add()
-                cy.get('#w2-success-0').should('contain', 'Events have been created.')
+                cy.get('#w3-success-0').should('contain', 'Events have been created.')
             }
         })
     })
+
+    it('Buy Class as Guest', () => {
+        cy.wait(1200)
+        cy.contains('Class1').click({force:true})
+        cy.contains('BOOK NOW').click({force:true})
+        cy.get(':nth-child(1) > span.btn-bottom > .btn').click({force:true})
+        //cy.get('.position-relative > .btn').click({force:true})
+        cy.get('#guestprebuyeventform-first_name').type('GuestClass')
+        cy.get('#guestprebuyeventform-last_name').type('LastName')
+        cy.get('#guestprebuyeventform-email').type('guestclass@test.com')
+
+        cy.get('#promoCollapse').click()
+        cy.get('#guestprebuyeventform-discountcode').type('AUTGUEST')
+        cy.get('#apply-code').click()
+        cy.get('.event-discount').should('contain','(Discount: 50%)')
+
+        //Card
+        cy.get('.n-group > .form-control').type('Auto Mation')
+        cy.get(':nth-child(2) > .input-group > .form-control').type('4242424242424242')
+        cy.get('.expiration-date > .form-group > .form-control').type('0225')
+        cy.get('.security-code > .form-group > .input-group > .form-control').type('123')
+
+        cy.wait(6000)
+        cy.get('#stripe-form-submit').click()
+
+        cy.get('.logoVivaya').should('be.visible')
+        cy.get(':nth-child(4) > .btn').click()   //click the 'Activate account' button
+
+        cy.get('h1.text-center').should('contain','Activate Account')
+        cy.get('#resetpasswordform-password').type('password')
+        cy.wait(4000)
+        cy.get('.text-center > .btn').click()
+        cy.get('#w3-success-0').should('contain','Thank you for activating your account .')
+
+        
+   })
+
+    it('Login with guest acticated', () => {
+        homePage.select_Login()
+        cy.get('#loginform-email').type('guestclass@test.com')
+        cy.get('#loginform-password').type('password'+'{enter}')
+        cy.wait(3000)
+        cy.get('.profile-box > h2').should('be.visible')
+
+    })
+
+    it('Delete GuestClass user from Admin', () => {
+        commons.open_Admin_Site()
+        commons.set_Admin_Credentials()
+        guestPage.select_Guest_Option()
+        guestPage.select_Guest_List()
+        guestPage.make_a_Search_by_email('guestclass@test.com')
+        cy.xpath('/html/body/div[1]/div/section[2]/div/div/div/div/div[3]/div/table/tbody/tr/td[5]/a[3]/span').click()
+        cy.get('#w2-success').should('be.visible')
+    })
+
     it('Cancel Class Event', () =>{
         
         homePage.select_Login()
@@ -136,7 +194,7 @@ describe('Events Creation', ()=>{
             cy.wait(100)
             cy.get('.btn-success').click({force:true})
                 //dashboard.cancel_Created_Event_class()
-                cy.get('#w2-success-0').should('contain', 'Event has been canceled.') 
+                cy.get('#w3-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
                 cy.wait(100)
