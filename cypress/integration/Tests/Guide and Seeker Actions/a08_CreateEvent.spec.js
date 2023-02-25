@@ -23,7 +23,7 @@ describe('Events Creation', ()=>{
         //dashboard.go_to_Dashboard_From_Menu()
     })
 
-    it.skip('Create Workshop Event', () => {
+    it('Create Workshop Event', () => {
         
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
@@ -36,7 +36,7 @@ describe('Events Creation', ()=>{
                 cy.get('.cancel-event').click()
                 cy.get('.btn-success').click({force:true})
                  //dashboard.cancel_Created_Event_Workshop()
-                 cy.get('#w2-success-0').should('contain', 'Event has been canceled.')
+                 cy.get('#w3-success-0').should('contain', 'Event has been canceled.')
             }
             else{
                  //dashboard.add_NewEvent()
@@ -48,12 +48,12 @@ describe('Events Creation', ()=>{
                  eventCreationPage.add_Price('40')
                  cy.wait(500)
                  eventCreationPage.press_Add()
-                 cy.get('#w2-success-0').should('contain', 'Events have been created.')
+                 cy.get('#w3-success-0').should('contain', 'Events have been created.')
             }
         })
     })
 
-    it.skip('Buy the workshop as Guest', () => {
+    it('Buy the workshop as Guest', () => {
         cy.wait(1200)
         cy.contains('Workshop1').click({force:true})
         cy.contains('Buy Workshop').click({force:true})
@@ -62,17 +62,47 @@ describe('Events Creation', ()=>{
         cy.get('#guestprebuyeventform-last_name').type('LastName')
         cy.get('#guestprebuyeventform-email').type('guestworkshop@test.com')
 
-        //Card
-        cy.get('.n-group > .form-control').type('Auto Mation')
-        cy.get(':nth-child(2) > .input-group > .form-control').type('4242424242424242')
-        cy.get('.expiration-date > .form-group > .form-control').type('0225')
-        cy.get('.security-code > .form-group > .input-group > .form-control').type('123')
-        
+        //prmotion
+        cy.get('#promoCollapse').click({force:true})
+        cy.get('#guestprebuyeventform-discountcode').type('FREECODE')
+        cy.get('#apply-code').click({force:true})
 
-        
+        cy.wait(2000)
+        cy.get('#free-book-submit').click({force:true})
+        cy.wait(2000)
+        cy.get('.logoVivaya').should('be.visible')
+        cy.get(':nth-child(4) > .btn').click({force:true})  //click the 'Activate account' button
+
+        cy.get('h1.text-center').should('contain','Activate Account')
+        cy.get('#resetpasswordform-password').type('password')
+        cy.wait(2000)
+        cy.get('.text-center > .btn').click()
+        cy.get('#w3-success-0').should('contain','Thank you for activating your account .')
+
+      
    })
 
-    it.skip('Cancel Workshop Event', () => {
+   it('Login with guest acticated - workshop', () => {
+    homePage.select_Login()
+    cy.get('#loginform-email').type('guestworkshop@test.com')
+    cy.get('#loginform-password').type('password'+'{enter}')
+    cy.wait(3000)
+    cy.get('.profile-box > h2').should('be.visible')
+
+})
+
+it('Delete GuestClass user from Admin - workshop', () => {
+    commons.open_Admin_Site()
+    cy.wait(100)
+    commons.set_Admin_Credentials()
+    guestPage.select_Guest_Option()
+    guestPage.select_Guest_List()
+    guestPage.make_a_Search_by_email('guestworkshop@test.com')
+    cy.xpath('/html/body/div[1]/div/section[2]/div/div/div/div/div[3]/div/table/tbody/tr/td[5]/a[3]/span').click()
+    cy.get('#w2-success').should('be.visible')
+})
+
+    it('Cancel Workshop Event', () => {
         
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
@@ -87,7 +117,7 @@ describe('Events Creation', ()=>{
             cy.wait(100)
             cy.get('.btn-success').click({force:true})
                 //dashboard.cancel_Created_Event_Workshop()
-                cy.get('#w2-success-0').should('contain', 'Event has been canceled.')
+                cy.get('#w3-success-0').should('contain', 'Event has been canceled.')
            }
            else{
             cy.wait(100)
@@ -95,7 +125,7 @@ describe('Events Creation', ()=>{
        })
    })
 
-    it('Create Class Event', () =>{
+   it('Create Class Event', () =>{
         
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
@@ -124,7 +154,6 @@ describe('Events Creation', ()=>{
             }
         })
     })
-
     it('Buy Class as Guest', () => {
         cy.wait(1200)
         cy.contains('Class1').click({force:true})
@@ -148,7 +177,7 @@ describe('Events Creation', ()=>{
 
         cy.wait(2000)
         cy.get('#stripe-form-submit').click()
-
+        cy.wait(2000)
         cy.get('.logoVivaya').should('be.visible')
         cy.get(':nth-child(4) > .btn').click()   //click the 'Activate account' button
 
@@ -161,7 +190,7 @@ describe('Events Creation', ()=>{
         
    })
 
-    it('Login with guest acticated', () => {
+    it('Login with guest acticated - Class', () => {
         homePage.select_Login()
         cy.get('#loginform-email').type('guestclass@test.com')
         cy.get('#loginform-password').type('password'+'{enter}')
@@ -170,8 +199,9 @@ describe('Events Creation', ()=>{
 
     })
 
-    it('Delete GuestClass user from Admin', () => {
+    it('Delete GuestClass user from Admin - Class', () => {
         commons.open_Admin_Site()
+        cy.wait(100)
         commons.set_Admin_Credentials()
         guestPage.select_Guest_Option()
         guestPage.select_Guest_List()
