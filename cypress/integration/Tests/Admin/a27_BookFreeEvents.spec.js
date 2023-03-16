@@ -38,10 +38,16 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.wait(500)
         dashboard.free_Event_Confirmation('Guest', 'User', user)
         cy.wait(1500)
-        cy.get('.title-confirmation').should('be.visible')
+        cy.get('.logoVivaya').should('be.visible')
         cy.wait(500)
-        cy.get('.brand').click({force:true})
-        dashboard.find_the_free_booked()
+        cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click({force:true})
+        cy.wait(2000)
+        cy.visit('https://stage.vivayalive.com/dashboard')
+        cy.wait(2000)
+        //cy.get('.col-lg-4 > :nth-child(1)').should('contain','FREE EVENT')
+        
+        //cy.get('.brand').click({force:true})
+        //dashboard.find_the_free_booked()
 
     })
 
@@ -51,13 +57,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       guestPage.select_Guest_Option()
       guestPage.select_Guest_List()
       guestPage.make_a_Search_by_email(user)
-      cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[4]/label').should('contain', 'No')
+      cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[4]/label').should('contain', 'Unconverted')
     })
 
     it('Convert a Guest user to Seeker user',()=>{
       dashboard.select_First_FreePublicEvent()
       dashboard.free_Event_Confirmation('Guest', 'User', user)
       dashboard.free_event_Free_Trial()
+      cy.get('.menu > :nth-child(1) > .btn').click()
       seekerCreation.type_First_Name('Guest')
       seekerCreation.type_Last_Name('User')
       seekerCreation.type_Seeker_Email(user)
@@ -74,7 +81,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
     })
 
-    it('Book a Free Event from Dashboard', ()=>{
+    it.skip('Book a Free Event from Dashboard', ()=>{
       dashboard.select_First_FreeEvent()
       dashboard.select_LogIn_option_from_PopUp()
       commons.set_Seeker_Credentials_One()

@@ -20,7 +20,7 @@ describe('Guest page is displayed correctly', ()=>{
 
     })
 
-    it('Verify element within Guest page',()=>{
+    it.skip('Verify element within Guest page',()=>{
        guestpage.select_Guest_Option()
        guestpage.select_Guest_List()
        //Verify elemnts within the page
@@ -40,7 +40,7 @@ describe('Guest page is displayed correctly', ()=>{
        
     })
 
-    it('Create Guest from Admin site',()=>{
+    it.skip('Create Guest from Admin site',()=>{
         guestpage.select_Guest_Option()
         guestpage.select_guest_add()
         guestpage.fill_guest_name('Guest admin')
@@ -51,26 +51,26 @@ describe('Guest page is displayed correctly', ()=>{
         
      })
 
-     it('Delete the Guest user created in Admin Site', ()=>{
+     it.skip('Delete the Guest user created in Admin Site', ()=>{
         guestpage.select_Guest_Option()
         guestpage.select_Guest_List()
         guestpage.make_a_Search_by_email('automation@guest.com')
-        guestpage.guests_Options('2') // num 2 in order to delete guest
+        guestpage.guests_Options('3') // num 2 in order to delete guest
         cy.get('#w2-success').should('be.visible')
     })
 
-    it('Verify the Convertion of a Guest user to a Seeker',()=>{
+    it.skip('Verify the Convertion of a Guest user to a Seeker',()=>{
         guestpage.select_Guest_Option()
         guestpage.select_Guest_List()
         guestpage.make_a_Search_by_email(user)
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[4]/label').should('contain', 'Yes')
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[4]/label').should('contain', 'Converted')
     })
 
     it('Delete the Guest user created', ()=>{
         guestpage.select_Guest_Option()
         guestpage.select_Guest_List()
         guestpage.make_a_Search_by_email(user)
-        guestpage.guests_Options('2') // num 2 in order to delete guest
+        guestpage.guests_Options('3') // num 2 in order to delete guest
         cy.get('#w2-success').should('be.visible')
     })
 

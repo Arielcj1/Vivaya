@@ -159,13 +159,13 @@ describe('Events page', ()=>{
 
         //dashboard.add_NewEvent()
         dashboard.add_Class()
-        eventCreationPage.add_EventName('Super Event')
+        eventCreationPage.add_EventName('Super Event 1')
         cy.wait(2000)
         eventCreationPage.add_Description('This is a Test Class')
         eventCreationPage.add_Custom_Number_Of_Days(0)
         eventCreationPage.custom_Start_Time(5)
         eventCreationPage.press_Add()
-        cy.get('#w2-success-0').should('contain', 'Events have been created.')
+        cy.get('#w3-success-0').should('contain', 'Events have been created.')
           
     })
 
@@ -174,7 +174,7 @@ describe('Events page', ()=>{
         commons.open_Web_Site()
         cy.get('#mainNav > :nth-child(2) > a').click({force:true})
         cy.get('#mainNav > :nth-child(2) > a').click({force:true})
-        cy.get('#w1 > [href="/schedule"]').click()
+        cy.get('#w1 > [href="/schedule"]').click({force:true})
         homePage.select_First_classnew()
 
           
@@ -186,12 +186,12 @@ describe('Events page', ()=>{
         //Go to Admin, locate and delete
         eventsPage.select_Events_Option()
         eventsPage.select_Events_List()
-        eventsPage.type_EventName_To_Search('Super Event')
+        eventsPage.type_EventName_To_Search('Super Event 1')
         eventsPage.press_Search_Button()
         cy.wait(2000)
         //Delete the event and verify is not longer available
         cy.xpath('//*[@id="w1"]/table/tbody/tr/td[9]/a[3]/span').click()
-        eventsPage.type_EventName_To_Search('Super Event')
+        eventsPage.type_EventName_To_Search('Super Event 1')
         eventsPage.press_Search_Button()
         cy.get('#w1 > table > tbody > tr > td > div').should('be.visible').and('contain.text', 'No results found.')
       

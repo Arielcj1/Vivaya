@@ -41,7 +41,8 @@ export class SeekerCreation{
         cy.get('#seekersinglesignupform-expiration').type(value)
     }
     type_Security_Code(value){
-        //cy.get('.security-code > .form-group > .input-group > .form-control').type(value)
+        //cy.get('.expiration-date > .form-group > .form-control').type(value)
+        
         cy.get('#seekersinglesignupform-cvc').type(value)
     }
     type_ZipCode(value){

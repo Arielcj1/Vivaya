@@ -172,7 +172,7 @@ export class Dashboard{
     }
 
     select_First_FreePublicEvent(){
-        cy.contains('FREE PUBLIC EVENT').first().click()
+        cy.contains('FREE EVENT').first().click()
         cy.wait(1000)
     }
 
@@ -182,10 +182,10 @@ export class Dashboard{
     }
 
     free_Event_Confirmation(val, val2, val3){
-        cy.wait(500)
+       
         cy.get('#guest-firstname').click({force:true})
         cy.get('#guest-firstname').type(val)
-        cy.wait(500)
+        
         cy.get('#guest-lastname').type(val2)
         cy.wait(500)
         cy.get('#guest-email').type(val3).wait(2000).type('{enter}')

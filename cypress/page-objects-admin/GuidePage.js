@@ -61,7 +61,7 @@ export class GuidePage {
         cy.get('#guide-revenue_porcentage').clear().type(value)
     }
     type_Price_OneOne(value){
-        cy.get('#guide-one_on_one_session_price').clear().type(value)
+        cy.get('#guide-revenue_one_on_one').clear().type(value)
     }
     check_Classes_Guide(){
         cy.get('#guide-provide_workshops > :nth-child(1) > input').check()
