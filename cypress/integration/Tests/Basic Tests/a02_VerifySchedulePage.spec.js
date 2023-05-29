@@ -28,7 +28,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     it('Verify the Schedule page as Logged out',()=>{
         schedulePage.select_Schedule_Tab_When_Logout()
         cy.get('#mainNav > :nth-child(2) > a').click({force:true})
-        cy.get('#w1 > [href="/schedule"]').click()
+        cy.get('#w1 > [href="/schedule"]').click({force:true})
         cy.url().should('eq', 'https://stage.vivayalive.com/schedule')
     })
 
@@ -38,8 +38,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         homePage.submit_Credentials()
         cy.wait(2000) 
         schedulePage.select_Schedule_Tab_When_Login()
-        cy.get('#mainNav > :nth-child(1) > a').click({force:true})
-        cy.get('[href="/schedule"]').click()
+        
+        cy.get('#w1 > [href="/schedule"]').click({force:true})
         cy.url().should('eq', 'https://stage.vivayalive.com/schedule')   
 
     })

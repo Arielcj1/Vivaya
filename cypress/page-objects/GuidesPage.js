@@ -13,11 +13,13 @@ export class GuidesPage {
     }
 
     select_Guide_Tab_when_Login(){
-        cy.get('#mainNav > :nth-child(2) > a').click()
+        //cy.get('#mainNav > :nth-child(2) > a').click()
+        cy.get('#mainNav > :nth-child(3) > .nav-link').click()
     }
 
     select_Guide_Tab_when_Logout(){
-        cy.get('#mainNav > :nth-child(3) > a').click()
+        //cy.get('#mainNav > :nth-child(3) > a').click()
+        cy.get('#mainNav > :nth-child(4) > .nav-link').click()
     }
 
     perform_a_Search(guideName){
