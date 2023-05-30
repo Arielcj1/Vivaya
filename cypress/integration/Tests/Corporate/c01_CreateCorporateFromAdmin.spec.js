@@ -62,7 +62,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         admin_promo_code.type_Promotion_Discount('25')
         cy.wait(500)
         //cy.get('.box-footer > .btn').click()
-        cy.get('#w0-success').should('contain', 'Promotion for Corporate has been created.')
+        cy.get('#w1-success').should('contain', 'Promotion for Corporate has been created.')
     })
 
     it('Create a Corporate user, using the Corp Code Level One',()=>{
@@ -132,7 +132,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
                  eventCreationPage.add_Price('40')
                  cy.wait(500)
                  eventCreationPage.press_Add()
-                 cy.get('#w2-success-0').should('contain', 'Events have been created.')
+                 cy.get('#w3-success-0').should('contain', 'Events have been created.')
             }
         })
     })
@@ -147,9 +147,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('#loginform-password').type("password")
         homePage.submit_Credentials()
         cy.wait(1000)
-        cy.get('#mainNav > :nth-child(1) > .nav-link').click()
-        cy.get('#mainNav > :nth-child(1) > .nav-link').click()
-        cy.get('[href="/schedule"]').click()
+        //cy.get('[href="/schedule"]').click({ force: true })
+        cy.visit('https://stage.vivayalive.com/schedule')
         cy.get('#eventsearch-q').type('Workshop Automation{enter}')
 
         cy.xpath('/html/body/div[2]/div[4]/div[2]/div/div[1]/div/div[8]/div[1]/a').click({ force: true })
@@ -162,10 +161,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('.close > span').click()
         cy.get('.order-summary').should('contain','Purchase Confirmation')
         cy.get('a > .btn').click()   //Click on Go to Dashboard button
-        cy.get('p > .btn').click()   //click on Cancel button
+        cy.get('.b-options > .btn').click()   //click on Cancel button
         cy.get('.btn-success').click()
         cy.wait(2000)
-        cy.get('#w2-success-0').should('contain','Event has been canceled.')
+        cy.get('#w3-success-0').should('contain','Event has been canceled.')
     })
 
     it('Delete corp users Level One',()=>{
@@ -184,15 +183,17 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
+        cy.wait(1000)
         cy.get('.table').find('.glyphicon-trash').first().click()
-        cy.get('#w0-success').should('be.visible')
+        cy.wait(1000)
+        cy.get('#w0-success').should('contain', 'Corporate successfully deleted')
     })
     it('Delete the Corporate Promotion Code', ()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_promo_code.select_Corporate_Promotions_From_List()
         admin_promo_code.disable_last_Promo_created()
-        cy.get('#w0-success').should('be.visible')
+        cy.get('#w1-success').should('contain', 'The Promotion is now disabled')
     })
 })   
   

@@ -29,7 +29,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       
     })
 
-    it.skip('Verify that a Guest can book a Free event and Workshop from the HomePage.', () => {
+    it('Verify that a Guest can book a Free event and Workshop from the HomePage.', () => {
       cy.xpath('/html/body/div[2]/div[4]/div/div[2]/div/div[1]/div[7]/span/a').click()
       cy.wait(2000)
       dashboard.free_Event_Confirmation('Guest', 'User', user)
@@ -59,7 +59,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('#w2-success-0').should('contain','Event has been booked successfully')
     })
 
-    it.skip('Verify that a Seeker with a free trial can book a free event from the Schedule, Profile of the Guide and the details of the event', ()=>{
+    it('Verify that a Seeker with a free trial can book a free event from the Schedule, Profile of the Guide and the details of the event', ()=>{
       seekerCreation.select_Free_trial_option()
       seekerCreation.type_First_Name('Auto')
       seekerCreation.type_Last_Name('Mation')
@@ -90,7 +90,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('#w0-success-0').should('contain','Thanks for booking your class!')
     })
 
-    it.skip('Verify that a corporate Seeker can book a free event from the Schedule, Profile of the Guide and the details of the event.', () => {
+    it('Verify that a corporate Seeker can book a free event from the Schedule, Profile of the Guide and the details of the event.', () => {
       seekerCreation.select_Free_trial_option()
       seekerCreation.type_First_Name('Auto')
       cy.wait(3000)

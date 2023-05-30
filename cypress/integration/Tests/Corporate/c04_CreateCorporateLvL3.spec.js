@@ -33,24 +33,24 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-    it.skip('The Admin is able to create a Corporation LvL3 from admin',()=>{
+    it('The Admin is able to create a Corporation LvL3 from admin',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
         admin_corporate.select_Add_New_Corporate()
-        admin_corporate.type_Corporate_Name('Corporate L3')
-        admin_corporate.type_Corporate_Domain('automationL3.com')
+        admin_corporate.type_Corporate_Name('CorporateL3')
+        admin_corporate.type_Corporate_Domain('automationll3.com')
         admin_corporate.type_Corporate_Address('Address automation3')
         admin_corporate.type_Corporate_PhoneNumber('73575919')
         admin_corporate.type_Corporate_ContactName('Corporate L3 automation')
-        admin_corporate.type_Corporate_ContactEmail('manuel.rojas@automationL3.com')
+        admin_corporate.type_Corporate_ContactEmail('manuel.rojas@automationll3.com')
         cy.get('#corporate-level').select('Level 3 (Partnership)')
         cy.wait(2000)
         admin_corporate.add_Corporate_From_Form()
         cy.get('#w0-success').should('contain', 'Corporate has been created.')
     })
 
-    it.skip('Create a Corporate Promotion LvL3 for last created Corporation',()=>{
+    it('Create a Corporate Promotion LvL3 for last created Corporation',()=>{
       commons.set_Admin_Credentials()
       admin_corporate.select_Corporate_Option()
       cy.get('.menu-open > .treeview-menu > :nth-child(5) > a > span').click()   //click on "Corporate Promotion LvL3"
@@ -58,7 +58,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       admin_promo_code.type_Promotion_Name('promo automation L3')
       admin_promo_code.type_Promotion_Code('Promo L3')
 
-      cy.get('#w1').type('Corporate L3').wait(3000).type('{downarrow}').type('{enter}')
+      cy.get('#w1').type('CorporateL3').wait(3000).type('{downarrow}').type('{enter}')
       cy.get('#promotion-price').type('600')
       //cy.get('#promotion-membership_id').select('MONTHLY UNLIMITED MEMBERSHIP')
       cy.get('.box-footer > .btn').click()
@@ -67,7 +67,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('#w0-success').should('contain', 'Promotion for Level 3 Corporate has been created.')
     })
 
-    it.skip('Create a Corporate user, using the "Corporate Promotion Lvl3" code',()=>{
+    it('Create a Corporate user, using the "Corporate Promotion Lvl3" code',()=>{
       //cy.visit('https://stage.vivayalive.com/signup/seeker/form')
       commons.open_Web_Site()
       seekerCreation.select_Free_trial_option()
@@ -89,13 +89,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.contains('Monthly Unlimited Membership').should("be.visible")
     })
 
-    it.skip('Create a Corporate user with a corporate email Level three', () =>{
+    it('Create a Corporate user with a corporate email Level three', () =>{
       //cy.visit('https://stage.vivayalive.com/signup/seeker/form')
       commons.open_Web_Site()
       seekerCreation.select_Free_trial_option()
       seekerCreation.type_First_Name('Auto')
       seekerCreation.type_Last_Name('Mation')
-      seekerCreation.type_Seeker_Email('automation2@automationL3.com')
+      seekerCreation.type_Seeker_Email('automation2@automationll3.com')
       seekerCreation.type_Seeker_Password('password')
       seekerCreation.marking_Checkbox()
       cy.get('#corporate-form-submit').click()
@@ -106,19 +106,18 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.contains('Monthly Unlimited Membership').should("be.visible")
     })
 
-    it.skip('Verify that corporate user can buy a workshop', () => {
+    it('Verify that corporate user can buy a workshop', () => {
       commons.open_Web_Site()
       homePage.select_Login()
      
       cy.wait(1000)
-      cy.get('#loginform-email').type("automation2@automationL3.com")
+      cy.get('#loginform-email').type("automation2@automationll3.com")
       cy.wait(1000)
       cy.get('#loginform-password').type("password")
       homePage.submit_Credentials()
       cy.wait(1000)
-      cy.get('#mainNav > :nth-child(1) > .nav-link').click()
-      cy.get('#mainNav > :nth-child(1) > .nav-link').click()
-      cy.get('[href="/schedule"]').click()
+      //cy.get('[href="/schedule"]').click()
+      cy.visit('https://stage.vivayalive.com/schedule')
       cy.get('#eventsearch-q').type('Workshop Automation{enter}')
 
       cy.xpath('/html/body/div[2]/div[4]/div[2]/div/div[1]/div/div[8]/div[1]/a').click({ force: true })
@@ -135,10 +134,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('.close > span').click()
       cy.get('.order-summary').should('contain','Purchase Confirmation')
       cy.get('a > .btn').click()   //Click on Go to Dashboard button
-      cy.get('p > .btn').click()   //click on Cancel button
+      cy.get('.b-options > .btn').click()   //click on Cancel button
       cy.get('.btn-success').click()
       cy.wait(2000)
-      cy.get('#w2-success-0').should('contain','Event has been canceled.')
+      cy.get('#w3-success-0').should('contain','Event has been canceled.')
   })
 
     it('Delete corporate users Level Three',()=>{
@@ -147,9 +146,11 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       seekerPage.select_Seeker_List()
       seekerPage.type_Seeker_Email('automation2@testlvl3.com')
       seekerPage.select_Seeker_options('5') //num 5 for elimination
+      cy.wait(2000)
       cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
-      seekerPage.type_Seeker_Email('automation2@automationL3.com')
+      seekerPage.type_Seeker_Email('automation2@automationll3.com')
       seekerPage.select_Seeker_options('5') //num 5 for elimination
+      cy.wait(2000)
       cy.get('#w3-success').should('contain', 'Seeker removed completely successful')
   })
 
@@ -158,6 +159,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       admin_corporate.select_Corporate_Option()
       admin_corporate.select_Corporate_List()
       cy.get('.table').find('.glyphicon-trash').first().click()
+      cy.wait(2000)
       cy.get('#w0-success').should('be.visible')
   })
   it('Delete the Corporate Promotion Code', ()=>{
@@ -167,6 +169,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('.menu-open > .treeview-menu > :nth-child(5) > a > span').click()
       //admin_promo_code.disable_last_Promo_created()
       cy.get(':nth-child(1) > :nth-child(7) > .glyphicon-remove').click()
+      cy.wait(2000)
       cy.get('#w0-success').should('be.visible')
   })
 
@@ -180,7 +183,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.get('.cancel-event').click({force:true})
     cy.get('.btn-success').click()
     
-    cy.get('#w2-success-0').should('contain', 'Event has been canceled.')
+    cy.get('#w3-success-0').should('contain', 'Event has been canceled.')
  
   })
 

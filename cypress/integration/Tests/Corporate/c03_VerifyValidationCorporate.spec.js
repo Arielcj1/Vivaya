@@ -52,8 +52,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         corporate.type_message_corporate('this is a message test')
         corporate.continue_From_Step2()
         cy.wait(300)
-        cy.get('.field-corporatesignupform-company_name > .col-sm-9 > .invalid-feedback').should('include.text','Your corporate name is already registered. Please contact us at corporate@vivayalive.com to continue the conversation')
-        cy.get('.field-corporatesignupform-email > .col-sm-9 > .invalid-feedback').should('include.text','Your email domain is already registered. Please contact us at corporate@vivayalive.com to continue the conversation')
+        cy.get('.field-corporatesignupform-company_name > .col-sm-9 > .invalid-feedback').should('include.text','Your corporate name is already registered. Please contact us at corporates@vivayalive.com to continue the conversation')
+        cy.get('.field-corporatesignupform-email > .col-sm-9 > .invalid-feedback').should('include.text','Your email domain is already registered. Please contact us at corporates@vivayalive.com to continue the conversation')
         
 
         

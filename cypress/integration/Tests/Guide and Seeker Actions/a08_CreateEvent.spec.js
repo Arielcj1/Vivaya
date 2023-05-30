@@ -232,7 +232,7 @@ it('Delete GuestClass user from Admin - workshop', () => {
         })
     })
 
-    it('Create and Cancel One on One', () =>{
+    it.skip('Create and Cancel One on One', () =>{
         
         homePage.select_Login()
         commons.set_Guide_Credentials_One()

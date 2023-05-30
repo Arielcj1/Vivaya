@@ -15,7 +15,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       
     })
 
-    it.skip('Verify that a Seeker with Free trial can access the recording by pressing the Play Recording button.', () => {
+    it('Verify that a Seeker with Free trial can access the recording by pressing the Play Recording button.', () => {
         cy.get('.login-link').click()
         commons.set_Seeker_Credentials_One()
         cy.get('.col-12 > .btn').click()
@@ -27,7 +27,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-    it.skip('Verify that a seeker with Monthly Unlimited Membership can access the recording from the event detail with the Play Recording button.', () => {
+    it('Verify that a seeker with Monthly Unlimited Membership can access the recording from the event detail with the Play Recording button.', () => {
         cy.get('.login-link').click()
         
         cy.wait(1000)
