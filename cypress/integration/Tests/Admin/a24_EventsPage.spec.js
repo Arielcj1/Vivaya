@@ -51,8 +51,8 @@ describe('Events page', ()=>{
         cy.get('thead > tr > :nth-child(5)').should('be.visible').and('have.text', 'Guide Name')
 
         cy.get('tr > :nth-child(6) > a').should('be.visible').and('have.text', 'Start Date')
-        cy.get('tr > :nth-child(7) > a').should('be.visible').and('have.text', 'Status')
-        cy.get('tr > :nth-child(8) > a').should('be.visible').and('have.text', 'Zoom Status')
+        cy.get('tr > :nth-child(8) > a').should('be.visible').and('have.text', 'Status')
+        cy.get('tr > :nth-child(9) > a').should('be.visible').and('have.text', 'Zoom Status')
 
 
 
@@ -190,7 +190,7 @@ describe('Events page', ()=>{
         eventsPage.press_Search_Button()
         cy.wait(2000)
         //Delete the event and verify is not longer available
-        cy.xpath('//*[@id="w1"]/table/tbody/tr/td[9]/a[3]/span').click()
+        cy.xpath('//*[@id="w1"]/table/tbody/tr/td[10]/a[3]/span').click()
         eventsPage.type_EventName_To_Search('Super Event 1')
         eventsPage.press_Search_Button()
         cy.get('#w1 > table > tbody > tr > td > div').should('be.visible').and('contain.text', 'No results found.')

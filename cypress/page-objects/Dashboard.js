@@ -113,7 +113,7 @@ export class Dashboard{
     }
 
     select_faqs(){
-        cy.get('.link').click()
+        cy.get(':nth-child(2) > .link').click()
     }
 
     select_Public_Profile_Left_Section(){

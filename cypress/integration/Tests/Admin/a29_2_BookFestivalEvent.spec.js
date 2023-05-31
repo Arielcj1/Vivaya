@@ -44,7 +44,7 @@ describe('Events page', ()=>{
         guestPage.select_Guest_Option()
         guestPage.select_Guest_List()
         guestPage.make_a_Search_by_email(user)
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[4]/label').should('contain', 'No')
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[4]/label').should('contain', 'Unconverted')
     })
 
     it('Convert a Guest user to Seeker user',()=>{
@@ -75,6 +75,6 @@ describe('Events page', ()=>{
         guestPage.select_Guest_Option()
         guestPage.select_Guest_List()
         guestPage.make_a_Search_by_email(user)
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[4]/label').should('contain', 'Yes')
+        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[4]/label').should('contain', 'Converted')
     })
 })
