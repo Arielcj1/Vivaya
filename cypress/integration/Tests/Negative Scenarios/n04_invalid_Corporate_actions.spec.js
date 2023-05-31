@@ -44,7 +44,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         cy.get('.box-footer > .btn').click({force:true})
         cy.get('.field-promotion-name > .help-block').should('contain','Name cannot be blank.')
         cy.get('.field-promotion-code > .help-block').should('contain','Code cannot be blank.')
-        cy.get(':nth-child(3) > .form-group > .help-block').should('contain','Select Corporate Name cannot be blank.')
+        cy.get('.corporate-single > .form-group > .help-block').should('contain','Select Corporate Name cannot be blank.')
         cy.get('.field-promotion-discount > .help-block').should('contain','Discount cannot be blank.')
 
     })

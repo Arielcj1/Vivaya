@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-import {Commons} from "../../../Commons/common"
+import {Commons} from "../../../Commons/Common";
 import {GuestPage} from "../../../page-objects-admin/GuestPage"
 import {SeekerPage} from "../../../page-objects-admin/SeekerPage"
 
@@ -29,7 +29,7 @@ describe('Negative scenarios for GUEST', ()=>{
     it('Verify validation in fields from Admin',()=>{
         guestpage.select_Guest_Option()
         guestpage.select_Guest_List()
-        guestpage.guests_Options('1')
+        cy.get('.box-tools > .btn').click()
         cy.get('.box-footer > .btn').click()
         cy.get('.field-guest-firstname > .help-block').should('contain','First Name cannot be blank.')
         cy.get('.field-guest-lastname > .help-block').should('contain','Last Name cannot be blank.')
