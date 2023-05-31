@@ -19,7 +19,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         commons.set_Admin_Credentials()
     })
 
-    it.skip('Create List Promotion code of 50% ', ()=>{
+    it('Create List Promotion code of 50% ', ()=>{
         promotionPage.select_Promotions_Option()
         promotionPage.select_Promotion_New()
         promotionPage.type_Promotion_Name('AutCode')

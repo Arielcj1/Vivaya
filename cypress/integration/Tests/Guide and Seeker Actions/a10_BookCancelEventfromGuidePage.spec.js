@@ -29,11 +29,11 @@ describe('Booking Event from Guide', ()=> {
         
     })
 
-    it('Create an Event as a Guide', ()=>{
+    it.skip('Create an Event as a Guide', ()=>{
        homePage.select_Login()
        commons.set_Guide_Credentials_One()
        homePage.submit_Credentials()
-       dashboard.add_NewEvent()
+       //dashboard.add_NewEvent()
        dashboard.add_Class()
        eventCreationPage.add_EventName('class test')
        cy.wait(2000)

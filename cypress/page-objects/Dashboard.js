@@ -3,7 +3,9 @@
 export class Dashboard{
 
     select_Edit_Event(){
-        cy.xpath("//*[contains(text(), 'Edit Event')]").click({force:true})
+        //cy.xpath("//*[contains(text(), 'Edit')]").click({force:true})
+        //cy.contains('Edit').click({force:true})
+        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[3]/div/div[1]/div[3]/div/p/a[2]').click({force:true})
     }
 
     find_the_free_booked(){

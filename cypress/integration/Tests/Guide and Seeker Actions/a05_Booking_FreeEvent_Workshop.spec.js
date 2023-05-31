@@ -22,7 +22,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const guestpage = new GuestPage
     const eventsPage = new EventsPage
     const guidePage = new GuidePage
-    var user = 'guestuser@auto.com'
+    var user = 'guestuserx@auto.com'
 
     beforeEach(()=>{
       commons.open_Web_Site()
@@ -37,9 +37,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get('.logoVivaya').should('be.visible')
       cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click()
       cy.get('h1 > strong').should('be.visible')
-      cy.get('.waiting-free-event').should('contain', 'This event has been booked.')
-      cy.wait(4000)
-      cy.go('back')
+      cy.get('.b-booked > .btn').should('contain', 'Booked')
+      //cy.get('.waiting-free-event').should('contain', 'This event has been booked.')
+      //cy.wait(4000)
+      //cy.go('back')
+      
+    })
+
+    it('Verify that a Guest can buy a workshop from the Homepage.', () =>{
       cy.xpath('/html/body/div[2]/div[4]/div/div[2]/div/div[2]/div[7]/div[1]/a').click()
       cy.get('.col-md-12 > h1').should('contain','Book Workshop')
       cy.wait(2000)
@@ -52,11 +57,16 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.get(':nth-child(2) > .input-group > .form-control').type('4242424242424242')
       cy.get('.expiration-date > .form-group > .form-control').type('0525')
       cy.get('.security-code > .form-group > .input-group > .form-control').type('123')
-      cy.get('#stripe-form-submit').click()
+      cy.wait(1000)
+      //cy.get('#stripe-form-submit').click({ force: true })
+      //cy.get('#stripe-form-submit').click({ force: true })
+      cy.xpath('/html/body/div[2]/div[2]/div/div/div[1]/div/form/div[5]/div/div/div[5]/div/button').click()
+      cy.wait(1000)
+      cy.xpath('/html/body/div[2]/div[2]/div/div/div[1]/div/form/div[5]/div/div/div[5]/div/button').click()
       cy.wait(1000)
       //cy.get('.logoVivaya').should('be.visible')
       cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click()
-      cy.get('#w2-success-0').should('contain','Event has been booked successfully')
+      cy.get('#w3-success-0').should('contain','Your Workshop has been booked successfully')
     })
 
     it('Verify that a Seeker with a free trial can book a free event from the Schedule, Profile of the Guide and the details of the event', ()=>{
@@ -87,7 +97,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.wait(1000)
       cy.get('.logoVivaya').should('be.visible')
       cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click()
-      cy.get('#w0-success-0').should('contain','Thanks for booking your class!')
+      cy.get('#w3-success-0').should('contain','Thanks for booking your class!')
     })
 
     it('Verify that a corporate Seeker can book a free event from the Schedule, Profile of the Guide and the details of the event.', () => {
@@ -105,20 +115,21 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.wait(1500)
       cy.get('.seeker-registration-content > h2').should('contain', 'Thank You')
 
-      cy.get('#mainNav > :nth-child(2) > .nav-link').click()
+      cy.get('#mainNav > :nth-child(3) > .nav-link').click()
       
       cy.get('#guidesearch-q').type('Nameaut{enter}')
       cy.wait(2000)
       cy.get('.img-circle').click()
       cy.wait(3000)
       //cy.xpath('/html/body/div[2]/div[2]/div[2]/div[8]/div[1]/div[9]/span/a').click({ force: true })
-      cy.get(':nth-child(1) > .col-md-3 > .n').click({ force: true })
-      cy.contains('FREE EVENT').click({ force: true })
+      //cy.get(':nth-child(1) > .col-md-3 > .n').click({ force: true })
+      cy.get('#w0 > .row > .col-md-3 > .n').click({ force: true })
+      cy.contains('BOOK CLASS').click({ force: true })
       cy.get('.close > span').click()
       cy.wait(3000)
       cy.get('.logoVivaya').should('be.visible')
       cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click()
-      cy.get('#w2-success-0').should('contain','Thanks for booking your class!')
+      cy.get('#w3-success-0').should('contain','Thanks for booking your class!')
     })
 
     it('Delete seeker and corporate', ()=> {
@@ -140,7 +151,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       guestpage.select_Guest_Option()
       guestpage.select_Guest_List()
       guestpage.make_a_Search_by_email(user)
-      guestpage.guests_Options('2') // num 2 in order to delete guest
+      guestpage.guests_Options('3') // num 3 in order to delete guest
       cy.get('#w2-success').should('be.visible')
     })
 

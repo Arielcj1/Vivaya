@@ -71,7 +71,8 @@ export class EventsPage {
     find_Event(event, value){
         cy.get('#eventsearch-name').type(event+'{enter}')
         cy.wait(1200)
-        cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[9]/a['+value+']/span').click()
+        //cy.xpath('//*[@id="w1"]/table/tbody/tr[1]/td[9]/a['+value+']/span').click()
+        cy.xpath('/html/body/div[1]/div/section[2]/div/div/div/div/div[3]/div/table/tbody/tr/td[10]/a['+value+']/span').click()
     }
 
     type_EventName_To_Search(value){

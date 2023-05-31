@@ -60,6 +60,7 @@ export class EventCreationPage {
 
     press_Update_After_Edit(){
         cy.get('.box-footer > .btn').click()
+        cy.wait(1000)
     }    
 
     //Set Repeater options

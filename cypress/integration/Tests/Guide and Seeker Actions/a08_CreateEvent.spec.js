@@ -69,6 +69,7 @@ describe('Events Creation', ()=>{
 
         cy.wait(2000)
         cy.get('#free-book-submit').click({force:true})
+        cy.get('#free-book-submit').click({force:true})
         cy.wait(2000)
         cy.get('.logoVivaya').should('be.visible')
         cy.get(':nth-child(4) > .btn').click({force:true})  //click the 'Activate account' button
@@ -125,7 +126,7 @@ it('Delete GuestClass user from Admin - workshop', () => {
        })
    })
 
-   it('Create Class Event', () =>{
+   it.skip('Create Class Event', () =>{
         
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
@@ -133,12 +134,12 @@ it('Delete GuestClass user from Admin - workshop', () => {
 
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{
             cy.log(text)
-            if(text != 0){
+            if(text != 2){
                 cy.get('.cancel-event').click({force:true})
             cy.wait(100)
             cy.get('.btn-success').click({force:true})
                 //dashboard.cancel_Created_Event_class()
-                cy.get('#w2-success-0').should('contain', 'Event has been canceled.') 
+                cy.get('#w3-success-0').should('contain', 'Event has been canceled.') 
             }
             else{
                 //dashboard.add_NewEvent()
@@ -154,6 +155,24 @@ it('Delete GuestClass user from Admin - workshop', () => {
             }
         })
     })
+
+    it('Create Class Event', () =>{
+        homePage.select_Login()
+        commons.set_Guide_Credentials_One()
+        homePage.submit_Credentials()
+
+        dashboard.add_Class()
+        eventCreationPage.add_EventName('Class1')
+        cy.wait(2000)
+        eventCreationPage.add_Description('This is a Test Class')
+        eventCreationPage.add_Custom_Number_Of_Days(2)
+        eventCreationPage.custom_Start_Time(7)
+        cy.wait(500)
+        eventCreationPage.press_Add()
+        cy.get('#w3-success-0').should('contain', 'Events have been created.')
+
+    })
+
     it('Buy Class as Guest', () => {
         cy.wait(1200)
         cy.contains('Class1').click({force:true})
@@ -177,6 +196,8 @@ it('Delete GuestClass user from Admin - workshop', () => {
 
         cy.wait(2000)
         cy.get('#stripe-form-submit').click()
+        cy.wait(1000)
+        cy.get('#stripe-form-submit').click({force:true})
         cy.wait(2000)
         cy.get('.logoVivaya').should('be.visible')
         cy.get(':nth-child(4) > .btn').click()   //click the 'Activate account' button

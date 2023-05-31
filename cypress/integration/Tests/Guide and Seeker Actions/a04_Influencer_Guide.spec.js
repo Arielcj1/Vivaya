@@ -46,6 +46,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       guidePage.type_Guide_Password('password')
       guidePage.type_Guide_ConfirmPassword('password')
       guidePage.type_Revenue_Percentage('65')
+      cy.get('#guide-one_on_one_session_price').type('80')
 
       guidePage.type_Price_OneOne('100')
       cy.get('#guide-tiktok_url').type('https://tiktok.com/yoga')
@@ -106,9 +107,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       commons.set_Guide_Influencer()
       homePage.submit_Credentials()
 
-      //cy.get('.dashboard-events > .col-lg-4 > :nth-child(1)').should('be.visible')
-      //dashboard.add_NewEvent()
-      //dashboard.add_Class()
       cy.wait(3000)
       cy.get(':nth-child(2) > :nth-child(2) > :nth-child(5) > .btn').click()
       //cy.get(':nth-child(5) > .btn').click()
@@ -118,9 +116,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       eventCreationPage.add_Custom_Number_Of_Days(2)
       eventCreationPage.custom_Start_Time(5)
       eventCreationPage.press_Add()
-      cy.get('#w2-success-0').should('contain','Events have been created.')
-      //cy.get('#guide_dashboard_events_workshop > :nth-child(2) > :nth-child(1)').should('be.visible')
-      //cy.get('.dashboard-events > :nth-child(3) > :nth-child(1)').should('be.visible')
+      cy.get('#w3-success-0').should('contain','Events have been created.')
+      
     })
 
     it('Verify that description and video can be added to the influencer guide.' , ()=> {
@@ -139,7 +136,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       homePage.select_Login()
       commons.set_Guide_Influencer()
       homePage.submit_Credentials()
-      //dashboard.add_NewEvent()
+      
       dashboard.add_Workshop()
       eventCreationPage.add_EventName('Workshop1')
       cy.wait(2000)
@@ -148,7 +145,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       eventCreationPage.add_Price('40')
       cy.wait(500)
       eventCreationPage.press_Add()
-      cy.get('#w2-success-0').should('contain', 'Events have been created.')
+      cy.get('#w3-success-0').should('contain', 'Events have been created.')
 
       
     })
@@ -163,14 +160,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
     it('Verify that there is a donate button in the Guide Profile.' , ()=> {
       commons.open_Web_Site()
-      cy.get('#mainNav > :nth-child(3) > .nav-link').click()
+      cy.get('#mainNav > :nth-child(4) > .nav-link').click()
       cy.get('#guidesearch-q').type('Nameaut{enter}')
       cy.wait(2000)
       cy.get('.img-circle').click()
       cy.wait(1000)
       cy.get(':nth-child(3) > .btn').should('contain','DONATE')
       cy.wait(1000)
-      cy.get(':nth-child(3) > .btn').click()
+      cy.get('.guide-view > :nth-child(3) > .btn').click()
       cy.get('.donation-container > h3').should('contain','Your Contribution is Appreciated')
     })
 
