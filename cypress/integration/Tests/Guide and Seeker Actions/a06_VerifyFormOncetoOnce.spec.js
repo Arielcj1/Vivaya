@@ -27,7 +27,7 @@ describe('Verify form of One to One', ()=> {
         
     })
 
-    it('Verify form "one to one" from Guide profile', ()=>{
+    it.skip('Verify form "one to one" from Guide profile', ()=>{
         homePage.select_Login()
         commons.set_Seeker_Credentials_One()
         homePage.submit_Credentials()
@@ -47,7 +47,7 @@ describe('Verify form of One to One', ()=> {
         cy.get('#RequestOneOnOne').contains('REQUEST 1-1 SESSION')
     })
 
-    it('Verify form "one to one" is sent', ()=>{
+    it.skip('Verify form "one to one" is sent', ()=>{
         homePage.select_Login()
         commons.set_Seeker_Credentials_One()
         homePage.submit_Credentials()

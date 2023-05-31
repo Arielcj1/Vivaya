@@ -35,6 +35,7 @@ export class CorporatePromotionPage {
     }
     disable_last_Promo_created(){
        // cy.get(':nth-child(1) > :nth-child(7) > .glyphicon-remove').click()
-        cy.get(':nth-child(1) > :nth-child(6) > .glyphicon-remove').click()
+        //cy.get(':nth-child(1) > :nth-child(6) > .glyphicon-remove').click()
+        cy.get('.table-hover > tbody > :nth-child(1) > :nth-child(6) > .glyphicon-remove').click()
     }
 }

@@ -37,7 +37,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         //step3
         cy.get('.step2').should('be.visible')
         cy.get('h4').should('contain','Introduction to VIVAYA for Business')
-        cy.get('.info-step2 > :nth-child(1)').should('contain','Learn about VIVAYA’S amazing platform along with an overview of our corporate options to suit any business need')
+        cy.get('.info-step2 > :nth-child(1)').should('contain','Learn about VIVAYA’s LIVE interactive, real-time platform for your teams. Together, we will determine the best options for your company to meet your specific business needs')
 
         //Calendly
         cy.get('#calendly-schedule > iframe').should('be.visible')

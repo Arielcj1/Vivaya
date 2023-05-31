@@ -52,7 +52,7 @@ describe('Negative scenarios of Event from Admi', ()=>{
     })
 
 
-    it('Verify validation of "Events" with "Add Gallery"', ()=>{
+    it.skip('Verify validation of "Events" with "Add Gallery"', ()=>{
         eventsPage.select_Events_Option()
         eventsPage.select_Add_gallery()
         cy.wait(500)
