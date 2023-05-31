@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-import {Commons} from "../../../Commons/common"
+import {Commons} from "../../../Commons/Common"
 import {GuidePage} from "../../../page-objects-admin/GuidePage"
 import {HomePage} from "../../../page-objects/Home"
 import {GuidesPage} from "../../../page-objects/GuidesPage"
@@ -133,8 +133,9 @@ describe('Guide Page admin', ()=>{
         cy.get('thead > tr > :nth-child(4)').should('contain', 'Switchboard')
         cy.get('thead > tr > :nth-child(5)').should('be.visible').and('have.text', 'Guide Name')
         cy.get('tr > :nth-child(6) > a').should('be.visible').and('have.text', 'Start Date')
-        cy.get('tr > :nth-child(7) > a').should('be.visible').and('have.text', 'Status')
-        cy.get('tr > :nth-child(8) > a').should('be.visible').and('have.text', 'Zoom Status')
+        cy.get('thead > tr > :nth-child(7)').should('be.visible').and('have.text', 'Class Length (minutes)')
+        cy.get('tr > :nth-child(8) > a').should('be.visible').and('have.text', 'Status')
+        cy.get('tr > :nth-child(9) > a').should('be.visible').and('have.text', 'Zoom Status')
     })
 
     it('Guide Edition from admin', ()=>{
@@ -194,7 +195,7 @@ describe('Guide Page admin', ()=>{
         cy.get('.n-group > .form-control').type('Auto Mation')
         //seekercreation.type_Card_Number('4242424242424242')
         cy.get('.cn-group > .input-group > .form-control').type('4242424242424242')
-        seekercreation.type_Card_ExpDate('0225')
+        cy.get('.expiration-date > .form-group > .form-control').type('0225')
         //cy.get('.expiration-date > .form-group > .form-control').type('0225')
         cy.get('.security-code > .form-group > .input-group > .form-control').type('123')
         seekercreation.type_ZipCode('1234')

@@ -27,7 +27,7 @@ describe('Events page', ()=>{
         guestpage.select_Guest_Option()
         guestpage.select_Guest_List()
         guestpage.make_a_Search_by_email(user)
-        guestpage.guests_Options('2') // num 2 in order to delete guest
+        guestpage.guests_Options('3') // num 2 in order to delete guest
         cy.get('#w2-success').should('be.visible')
     })
 

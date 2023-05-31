@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-import {Commons} from "../../../Commons/common"
+import {Commons} from "../../../Commons/Common"
 import {AdminMembershipPage} from "../../../page-objects-admin/AdminMembershipPage"
 import {PricingPage} from "../../../page-objects/PricingPage"
 
