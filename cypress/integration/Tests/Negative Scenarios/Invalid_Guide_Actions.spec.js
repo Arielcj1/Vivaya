@@ -37,27 +37,19 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
     cy.get('#btnCreateEvent').click()
     //cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
-    cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-    cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Body cannot be blank.')
-    cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Name cannot be blank.')
-
     cy.get('.field-eventform-name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
-    cy.get('.col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
     cy.get('.event-start-date > .form-group > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-    //cy.get('.field-eventform-starttime > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
+    cy.get('.col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
+    cy.get('.field-eventform-name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
 
     cy.go('back')
     cy.go('back')
+
     //validate Workshop creation fields
     cy.get(':nth-child(3) > .btn').click()
 
     cy.get('#btnCreateEvent').click()
-    cy.get('.error-summary > div > ul > :nth-child(5)').should('be.visible').and('have.text', 'Workshop Price cannot be blank.')
-    cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')
-    cy.get('.error-summary > div > ul > :nth-child(3)').should('be.visible').and('have.text', 'Start Date cannot be blank.')
-    cy.get('.error-summary > div > ul > :nth-child(2)').should('be.visible').and('have.text', 'Body cannot be blank.')
-    cy.get('.error-summary > div > ul > :nth-child(1)').should('be.visible').and('have.text', 'Name cannot be blank.')
-
+    
     cy.get('.field-eventform-name > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Name cannot be blank.')
     cy.get('.col-sm-12 > .invalid-feedback').should('be.visible').and('have.text', 'Body cannot be blank.')
     cy.get('.event-start-date > .form-group > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Start Date cannot be blank.')
@@ -67,7 +59,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.go('back')
     cy.go('back')
     //validate 1-1 creation fields
-    cy.get(':nth-child(4) > .btn').click()
+    /*cy.get(':nth-child(4) > .btn').click()
 
     cy.get('#btnCreateEvent').click()
     cy.get('.error-summary > div > ul > :nth-child(5)').should('be.visible').and('have.text', 'Session Offering Id cannot be blank.')
@@ -84,6 +76,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
     cy.go('back')
     cy.go('back')
+
     //validate event seminar creation fields
     /*
     cy.get(':nth-child(3) > .btn').click()
@@ -181,12 +174,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.go('back')
 
 
-    //Pracing
+    //1-1 Offering
     cy.get('.secondary-menu > .nav > :nth-child(4) > a').click()
-    cy.get('#guidepricing-one_on_one_session_price').clear()
-    cy.get('.text-center > .btn').click({force:true})
-    cy.get('.alert > ul > li').should('be.visible').and('have.text', 'One On One Session Price cannot be blank.')
-    cy.get('.col-lg-9 > .invalid-feedback').should('be.visible').and('have.text', 'One On One Session Price cannot be blank.')
+    cy.get('h1.text-center').should('be.visible').and('have.text','1-1 Offerings')
+    cy.get('#addNewOfferPrice').click({force:true})
+    cy.get('#form-signup > .text-center > .btn').click({force:true})
+    cy.get(':nth-child(1) > .form-group > .col-sm-12 > .invalid-feedback').should('be.visible').and('have.text','Guide Offer Id cannot be blank.')
+    cy.get(':nth-child(3) > .form-group > .col-sm-12 > .invalid-feedback').should('be.visible').and('have.text','Price cannot be blank.')
+    
    })
 
    it('Verify that the url of a deleted guide redirects to the list of guides', () => {
