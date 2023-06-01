@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-import {Commons} from "../../../Commons/common"
+import {Commons} from "../../../Commons/Common"
 import {SeminarPage} from "../../../page-objects-admin/SeminarPage"
 import { HomePage } from "../../../page-objects/Home";
 import {Dashboard} from "../../../page-objects/Dashboard";
@@ -66,7 +66,7 @@ describe('Verify Seminar Page admin', ()=>{
         seminars.select_Save_Progress()
         //seminars.select_Publish_Button()
 
-        cy.get('#w2-success-0').should('contain', 'Seminar has been created.')
+        cy.get('#w3-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Manu')
 
     })  

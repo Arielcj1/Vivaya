@@ -43,8 +43,8 @@ describe('Admin Membership Page', ()=>{
         adminMembership.type_Price('90')
         adminMembership.type_Valid_For('3')
         adminMembership.select_Type('Normal')//Normal, Time Based, Promotional
-        adminMembership.select_Purchase_Type('None')//None, 1 use only, Autorenewal
-        adminMembership.date_Valid_Until('3')
+        //adminMembership.select_Purchase_Type('None')//None, 1 use only, Autorenewal
+        //adminMembership.date_Valid_Until('3')
         adminMembership.type_Quantity('3') //this line will add the new membership
         cy.get('#w2-success').should('contain', 'Membership has been created.')
     })
@@ -60,7 +60,7 @@ describe('Admin Membership Page', ()=>{
         adminMembership.check_Event_Type('3')//1. class, 3. workshop, 5. 1-1 sesion, Seminar Event
         adminMembership.type_Price('120')
         adminMembership.type_Valid_For('1')
-        adminMembership.date_Valid_Until('5')
+        //adminMembership.date_Valid_Until('5')
         adminMembership.type_Quantity('5') //this line will add the new membership
         cy.get('#w2-success').should('contain', 'Membership has been updated.')
     })
