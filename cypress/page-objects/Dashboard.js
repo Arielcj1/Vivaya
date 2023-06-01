@@ -58,7 +58,8 @@ export class Dashboard{
     }
 
     cancel_Event_As_Seeker(){
-        cy.get('p > .btn').click({force:true})
+        //cy.get('p > .btn').click({force:true})
+        cy.get('.b-options > .btn').click({force:true})
     }
 
     confirm_Cancelation_From_Dashboard(){

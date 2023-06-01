@@ -6,7 +6,8 @@ export class SchedulePage {
     }
 
     select_Schedule_Tab_When_Login(){
-      cy.get('#mainNav > :nth-child(1) > a').click({force:true})
+      //cy.get('#mainNav > :nth-child(1) > a').click({force:true})
+      cy.xpath('/html/body/div[2]/div[2]/ul/li[1]/div/a[1]').click({force:true})
       
     }
 

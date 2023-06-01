@@ -30,7 +30,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         //offeringpage.upload_File()
         offeringpage.name_of_Program('Kula')
         offeringpage.number_Of_Hours('2')
-        cy.get('#w1-success-0').should('contain', 'Offer successfully submited')
+        cy.get('#w3-success-0').should('contain', 'Offer successfully submited')
     })
 
     it('Approve all pending Offerings', ()=>{

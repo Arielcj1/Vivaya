@@ -8,8 +8,8 @@ export class GuidesPage {
     }
 
     select_Guide_Tab(){
-
-        cy.get('#mainNav > :nth-child(3) > a').click()
+        cy.get('#mainNav > :nth-child(4) > .nav-link').click()
+        //cy.get('#mainNav > :nth-child(3) > a').click()
     }
 
     select_Guide_Tab_when_Login(){
@@ -30,26 +30,27 @@ export class GuidesPage {
 
     select_an_event(){
         var x=1
-    cy.xpath('/html/body/div[2]/div[2]/div[2]/div[6]/div['+x+']/div[1]/a')
+              
+    cy.xpath('/html/body/div[2]/div[2]/div[2]/div[8]/div[1]/div/div/div['+x+']/div[1]/a')
     .invoke('text')
     .then((text)=>{
                 if(text == 'class test'){
-                    cy.xpath('/html/body/div[2]/div[2]/div[2]/div[6]/div['+x+']/div[1]/a').click()
+                    cy.xpath('/html/body/div[2]/div[2]/div[2]/div[8]/div[1]/div/div/div['+x+']/div[1]/a').click()
                 }
                 else{
                     x++
-                    cy.xpath('/html/body/div[2]/div[2]/div[2]/div[6]/div['+x+']/div[1]/a')
+                    cy.xpath('/html/body/div[2]/div[2]/div[2]/div[8]/div[1]/div/div/div['+x+']/div[1]/a')
                     .invoke('text').then((text)=>{
                         if(text == 'class test'){
-                            cy.xpath('/html/body/div[2]/div[2]/div[2]/div[6]/div['+x+']/div[1]/a').click()
+                            cy.xpath('/html/body/div[2]/div[2]/div[2]/div[8]/div[1]/div/div/div['+x+']/div[1]/a').click()
                         }
                         else{
                             x++
-                            cy.xpath('/html/body/div[2]/div[2]/div[2]/div[6]/div['+x+']/div[1]/a')
+                            cy.xpath('/html/body/div[2]/div[2]/div[2]/div[8]/div[1]/div/div/div['+x+']/div[1]/a')
                             .invoke('text').then((text)=>{
                                 if(text == 'class test'){
                                     cy.log(x)
-                                    cy.xpath('/html/body/div[2]/div[2]/div[2]/div[6]/div['+x+']/div[1]/a').click()
+                                    cy.xpath('/html/body/div[2]/div[2]/div[2]/div[8]/div[1]/div/div/div['+x+']/div[1]/a').click()
                                 }
                             })
                         }

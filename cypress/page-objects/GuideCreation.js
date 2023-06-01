@@ -29,7 +29,7 @@ export class GuideCreation {
         cy.get('#guideapplicationstep1offer-1-certified').click()
         cy.get('.btn-default').click({froce:true})
         cy.wait(400)
-        cy.get('#w10-success-0').should('be.visible')
+        cy.get('#w12-success-0').should('be.visible')
         cy.get('.next').click({force:true})
         
     }
@@ -54,7 +54,7 @@ export class GuideCreation {
         cy.get('#guideapplicationstep2-liability_insurance').check()
         cy.get('.btn-default').click({force:true})
         cy.wait(300)
-        cy.get('#w1-success-0').should('be.visible')
+        cy.get('#w3-success-0').should('be.visible')
         cy.get('.next').click({force:true})
 
     }
@@ -83,7 +83,7 @@ export class GuideCreation {
         cy.wait(2000)
         cy.get('.form-group.text-center > .btn-default').click({force:true})
         cy.wait(500)
-        cy.get('#w2-success-0').should('be.visible')
+        cy.get('#w4-success-0').should('be.visible')
 
         cy.get('#guideapplicationstep4-terms').check()
         cy.get('.next').click({force:true})

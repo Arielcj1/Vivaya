@@ -37,7 +37,7 @@ describe('Create Event Running', ()=> {
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
-        dashboard.add_NewEvent()
+        //dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Class1')
         eventCreationPage.add_Description('This is a class test')

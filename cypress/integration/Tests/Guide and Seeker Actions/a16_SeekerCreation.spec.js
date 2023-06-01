@@ -1,19 +1,20 @@
 /// <reference types = "cypress"/>
 
-import {Commons} from "../../../Commons/common"
+//import {Commons} from "../../../Commons/common"
 import {SeekerCreation} from "../../../page-objects/SeekerCreation"
 import {HomePage} from "../../../page-objects/Home"
 import {SeekerPage} from "../../../page-objects-admin/SeekerPage"
 import {GuideCreation} from "../../../page-objects/GuideCreation"
 import {GuidesPage} from "../../../page-objects/GuidesPage"
 import {GuidePage} from "../../../page-objects-admin/GuidePage"
+import { Commons } from "../../../Commons/Common"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
 })
 
 describe('Seeker creation, Edition from Vivaya page', ()=>{
-    const commons = new Commons()
+    const commons = new Commons
     const seekerCreation = new SeekerCreation()
     const homePage = new HomePage()
     const seekerpage = new SeekerPage()
@@ -72,7 +73,7 @@ describe('Seeker creation, Edition from Vivaya page', ()=>{
         guidecreation.Fill_information_guide()
         //guidecreation.fill_Liability_Insurance()
         //cy.wait(2000)
-        cy.get('#w1-success-0').should('be.visible')
+        cy.get('#w3-success-0').should('be.visible')
          //go to seeker
          guideweb.Select_Switch_to_Guide()
          cy.get('strong').should('be.visible')

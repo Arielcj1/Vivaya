@@ -37,7 +37,7 @@ describe('Booking Event and Cancel the Event from Seeker Dashboard', ()=> {
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
-        dashboard.add_NewEvent()
+        //dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('class test')
         cy.wait(2000)
@@ -67,7 +67,7 @@ describe('Booking Event and Cancel the Event from Seeker Dashboard', ()=> {
         dashboard.go_to_Dashboard_From_Menu()
         dashboard.cancel_Event_As_Seeker()
         dashboard.confirm_Cancelation_From_Dashboard()
-        cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
+        cy.get('#w3-success-0').should('contain', 'Event has been canceled.')
     })
 
     it('Guide delete the Event from his Dashboard',()=>{
@@ -75,7 +75,7 @@ describe('Booking Event and Cancel the Event from Seeker Dashboard', ()=> {
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
         dashboard.cancel_Created_Event()
-        cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
+        cy.get('#w3-success-0').should('contain', 'Event has been canceled.')
         
      })
 

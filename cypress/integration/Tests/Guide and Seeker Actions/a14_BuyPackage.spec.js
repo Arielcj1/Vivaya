@@ -38,7 +38,7 @@ describe('Buy Plans from membership', ()=>{
        cy.get('#checkout-form > div:nth-child(2) > div:nth-child(2) > h4').contains('Monthly 3 Pack Membership').should('be.visible')
        cy.get('.remove-button').click()
        cartPage.confirm_Remove_From_Cart()
-       cy.get('#w1-success-0').contains('Item has been removed from cart.')
+       cy.get('#w3-success-0').contains('Item has been removed from cart.')
     })
 
     it('Buy Monthly 5 Pack Membership', () => {  
@@ -49,7 +49,7 @@ describe('Buy Plans from membership', ()=>{
         cy.get('#checkout-form > div:nth-child(2) > div:nth-child(2) > h4').contains('Monthly 5 Pack Membership').should('be.visible')
         cy.get('.remove-button').click()
         cartPage.confirm_Remove_From_Cart()
-        cy.get('#w1-success-0').contains('Item has been removed from cart.')
+        cy.get('#w3-success-0').contains('Item has been removed from cart.')
      })
     
      it('Buy Monthly Unlimited Membership', () => {  
@@ -60,7 +60,7 @@ describe('Buy Plans from membership', ()=>{
         cy.get('.product > :nth-child(2) > h4').contains('MONTHLY UNLIMITED MEMBERSHIP').should('be.visible')
         cy.get('.remove-button').click()
         cartPage.confirm_Remove_From_Cart()
-        cy.get('#w1-success-0').contains('Item has been removed from cart.')
+        cy.get('#w3-success-0').contains('Item has been removed from cart.')
      })
 
      it('Buy Annual Unlimited Membership', () => {  
@@ -71,7 +71,7 @@ describe('Buy Plans from membership', ()=>{
         cy.get('.product > :nth-child(2) > h4').contains('ANNUAL UNLIMITED MEMBERSHIP').should('be.visible')
         cy.get('.remove-button').click()
         cartPage.confirm_Remove_From_Cart()
-        cy.get('#w1-success-0').contains('Item has been removed from cart.')
+        cy.get('#w3-success-0').contains('Item has been removed from cart.')
      })
 
      it('Buy 1 class', () => {  
@@ -83,7 +83,7 @@ describe('Buy Plans from membership', ()=>{
         cy.get('.product > :nth-child(2) > h4').contains('1 CLASS').should('be.visible')
         cy.get('.remove-button').click()
         cartPage.confirm_Remove_From_Cart()
-        cy.get('#w1-success-0').contains('Item has been removed from cart.')
+        cy.get('#w3-success-0').contains('Item has been removed from cart.')
      })
 
      it.skip('Buy 5 Package', () => {  

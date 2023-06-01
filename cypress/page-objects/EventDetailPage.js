@@ -9,7 +9,8 @@ export class EventDetailPage {
 
     cancel_Event_from_EventDetail(){
         cy.reload()
-        cy.xpath("//a[.='Cancel Event']").click()
+        //cy.xpath("//a[.='Cancel Event']").click()
+        cy.get('.b-options > .btn').click()
     }
 
     confirm_Cancelation_from_EventDetail(){

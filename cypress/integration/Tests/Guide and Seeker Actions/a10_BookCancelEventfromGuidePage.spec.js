@@ -29,7 +29,7 @@ describe('Booking Event from Guide', ()=> {
         
     })
 
-    it.skip('Create an Event as a Guide', ()=>{
+    it('Create an Event as a Guide', ()=>{
        homePage.select_Login()
        commons.set_Guide_Credentials_One()
        homePage.submit_Credentials()
@@ -87,7 +87,7 @@ describe('Booking Event from Guide', ()=> {
        homePage.submit_Credentials()
        dashboard.go_to_Dashboard_From_Menu()
        dashboard.cancel_Created_Event()
-       cy.get('#w1-success-0').should('contain', 'Event has been canceled.')
+       cy.get('#w3-success-0').should('contain', 'Event has been canceled.')
        
     })
 

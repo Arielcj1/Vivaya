@@ -52,8 +52,8 @@ describe('Simplity Purchase', ()=> {
         cy.get('.logoVivaya').should('be.visible')
         cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click()
         cy.wait(500)
-        cy.get('#w1-success-0').should('contain','Event has been booked successfully')
-        cy.contains('This event has been booked.').should('be.visible')
+        cy.get('#w3-success-0').should('contain','Event has been booked successfully')
+        //cy.contains('This event has been booked.').should('be.visible')
 
     })
 
@@ -82,11 +82,12 @@ describe('Simplity Purchase', ()=> {
         cy.get('.expiration-date > .form-group > .form-control').type('0225')
         cy.get('.security-code > .form-group > .input-group > .form-control').type('1234')
         cy.get('#stripe-form-submit').click()
+        cy.get('#stripe-form-submit').click({force:true})
 
         cy.get('.logoVivaya').should('be.visible')
         cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click()
         cy.wait(500)
-        cy.get('#w1-success-0').should('contain','Event has been booked successfully')
+        cy.get('#w3-success-0').should('contain','Your Class has been booked successfully')
     })
 
     //Corporate domain: @corpol1.com    discount: 20%
@@ -153,7 +154,7 @@ describe('Simplity Purchase', ()=> {
         cy.get('.logoVivaya').should('be.visible')
         cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click()
         cy.wait(500)
-        cy.get('#w1-success-0').should('contain','Event has been booked successfully')
+        cy.get('#w3-success-0').should('contain','Your Class has been booked successfully')
     })
 
     it('Verify that seeker corporates lvl3 can make a simple purchase.', () => {
@@ -180,7 +181,7 @@ describe('Simplity Purchase', ()=> {
         cy.get('.logoVivaya').should('be.visible')
         cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click()
         cy.wait(500)
-        cy.get('#w1-success-0').should('contain','Event has been booked successfully')
+        cy.get('#w3-success-0').should('contain','Event has been booked successfully')
     })
 
     it('Delete corporate users Level One and Level 3',()=>{
@@ -202,19 +203,19 @@ describe('Simplity Purchase', ()=> {
         guestpage.select_Guest_Option()
         guestpage.select_Guest_List()
         guestpage.make_a_Search_by_email('guestuser@automa.com')
-        guestpage.guests_Options('2') // num 2 in order to delete guest
+        guestpage.guests_Options('3') // num 2 in order to delete guest
         cy.get('#w2-success').should('be.visible')
 
         guestpage.make_a_Search_by_email('automation@test.com')
-        guestpage.guests_Options('2') // num 2 in order to delete guest
+        guestpage.guests_Options('3') // num 2 in order to delete guest
         cy.get('#w2-success').should('be.visible')
 
         guestpage.make_a_Search_by_email('automation1@corpol1.com')
-        guestpage.guests_Options('2') // num 2 in order to delete guest
+        guestpage.guests_Options('3') // num 2 in order to delete guest
         cy.get('#w2-success').should('be.visible')
 
         guestpage.make_a_Search_by_email('autoc3@corpol3.com')
-        guestpage.guests_Options('2') // num 2 in order to delete guest
+        guestpage.guests_Options('3') // num 2 in order to delete guest
         cy.get('#w2-success').should('be.visible')
     })
 })

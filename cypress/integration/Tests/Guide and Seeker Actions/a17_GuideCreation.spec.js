@@ -1,6 +1,6 @@
 ///<reference types = "cypress"/>
 
-import {Commons} from "../../../Commons/common"
+import {Commons} from "../../../Commons/Common"
 import {HomePage} from "../../../page-objects/Home"
 import {GuideCreation} from "../../../page-objects/GuideCreation"
 import {GuidePage} from "../../../page-objects-admin/GuidePage"
