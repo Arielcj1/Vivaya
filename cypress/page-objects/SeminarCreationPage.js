@@ -41,7 +41,7 @@ export class SeminarCreationPage {
 
     select_Save_Progress(){
         //cy.get('.box-footer > .btn-primary').click({force:true})
-        cy.get('.box-footer > .btn-default').click({force:true})
+        cy.get('[name="submitact"]').click({force:true})
     }
 
     select_Cancel_Seminar(){

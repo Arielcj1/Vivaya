@@ -46,7 +46,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         seminars.select_Allow_Independent_Events()
         seminars.select_Save_Progress()
 
-        cy.get('#w2-success-0').should('contain', 'Seminar has been created.')
+        cy.get('#w3-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Automation')
         
      })
@@ -63,7 +63,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
       seminars.type_Seminar_Name("Seminar Automation Edited")
       //seminars.select_Publish_Button()
       seminars.select_Save_Progress()
-      cy.get('#w2-success-0').should('contain', 'Seminar has been updated.')
+      cy.get('#w3-success-0').should('contain', 'Seminar has been updated.')
       cy.get('h4 > a').should('contain', 'Seminar Automation Edited')
       
    })
@@ -76,7 +76,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
     
     //Cancel the Seminar
     seminars.select_Cancel_Seminar()
-    cy.get('#w2-success-0').should('contain', 'Seminar has been cancelled.')
+    cy.get('#w3-success-0').should('contain', 'Seminar has been cancelled.')
  })
 
 })     

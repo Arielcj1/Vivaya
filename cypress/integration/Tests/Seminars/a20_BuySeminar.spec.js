@@ -33,7 +33,7 @@ describe('Add seminar to cart and remove from cart',
         
     })
 
-    it.skip('Create a Seminar with one event',()=>{
+    it('Create a Seminar with one event',()=>{
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
@@ -48,13 +48,13 @@ describe('Add seminar to cart and remove from cart',
         seminars.select_Allow_Independent_Events()
         seminars.select_Save_Progress()
 
-        cy.get('#w2-success-0').should('contain', 'Seminar has been created.')
+        cy.get('#w3-success-0').should('contain', 'Seminar has been created.')
         cy.get('h4 > a').should('contain', 'Seminar Automation')
 
         //homePage.logout_Account()
     })
 
-    it.skip('Create a Seminar Event relate to the previous Seminar',()=>{
+    it('Create a Seminar Event relate to the previous Seminar',()=>{
       homePage.select_Login()
       commons.set_Guide_Credentials_One()
       homePage.submit_Credentials()
@@ -75,12 +75,12 @@ describe('Add seminar to cart and remove from cart',
       cy.wait(3000)
       seminarEvent.select_Yes()
       cy.wait(3000)
-      cy.get('#w2-success-0').should('contain', 'Seminar has been saved as public.')
+      cy.get('#w3-success-0').should('contain', 'Seminar has been saved as public.')
 
       //homePage.logout_Account()
   })
    
-    it.skip('Buy Seminar', ()=>{
+    it('Buy Seminar', ()=>{
 
         homePage.select_Login()
         commons.set_Seeker_Credentials_One()
@@ -113,7 +113,7 @@ describe('Add seminar to cart and remove from cart',
         homePage.submit_Credentials()
         cy.wait(1500)
         seminars.select_Cancel_Seminar()
-        cy.get('#w2-success-0').should('contain', 'Seminar has been cancelled.')
+        cy.get('#w3-success-0').should('contain', 'Seminar has been cancelled.')
      })
 
      
