@@ -52,7 +52,7 @@ describe('Simplity Purchase', ()=> {
         cy.get('.logoVivaya').should('be.visible')
         cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click()
         cy.wait(500)
-        cy.get('#w3-success-0').should('contain','Event has been booked successfully')
+        cy.get('#w3-success-0').should('contain','Your Class has been booked successfully')
         //cy.contains('This event has been booked.').should('be.visible')
 
     })
@@ -181,7 +181,7 @@ describe('Simplity Purchase', ()=> {
         cy.get('.logoVivaya').should('be.visible')
         cy.get('#appModal > .modal-dialog > .modal-content > .modal-header > .close').click()
         cy.wait(500)
-        cy.get('#w3-success-0').should('contain','Event has been booked successfully')
+        cy.get('#w3-success-0').should('contain','Your Class has been booked successfully')
     })
 
     it('Delete corporate users Level One and Level 3',()=>{

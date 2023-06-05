@@ -31,7 +31,8 @@ export class Dashboard{
     }
 
     select_toolkit(){
-        cy.get(':nth-child(6) > .col-sm-4 > a').click({force:true})
+        //cy.get(':nth-child(6) > .col-sm-4 > a').click({force:true})
+        cy.get(':nth-child(6) > :nth-child(1) > a').click({force:true})
     }
 
     add_Workshop(){

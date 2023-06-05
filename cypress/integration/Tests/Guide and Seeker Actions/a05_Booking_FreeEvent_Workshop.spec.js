@@ -22,7 +22,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     const guestpage = new GuestPage
     const eventsPage = new EventsPage
     const guidePage = new GuidePage
-    var user = 'guestuserx@auto.com'
+    var user = 'guestuserxx@auto.com'   //change the guest email
 
     beforeEach(()=>{
       commons.open_Web_Site()
@@ -124,7 +124,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       //cy.xpath('/html/body/div[2]/div[2]/div[2]/div[8]/div[1]/div[9]/span/a').click({ force: true })
       //cy.get(':nth-child(1) > .col-md-3 > .n').click({ force: true })
       cy.get('#w0 > .row > .col-md-3 > .n').click({ force: true })
-      cy.contains('BOOK CLASS').click({ force: true })
+      cy.xpath('/html/body/div[2]/div[3]/div/div[1]/div[2]/div/div/div[4]/a').click({ force: true })
+      //cy.contains('BOOK CLASS').click({ force: true })
       cy.get('.close > span').click()
       cy.wait(3000)
       cy.get('.logoVivaya').should('be.visible')

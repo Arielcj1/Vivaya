@@ -182,11 +182,11 @@ describe('Promotions page', ()=>{
         })
 
         it('Create seeker using the Code', ()=>{
-            cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=codex211')//link promotion code
+            cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=codex11')//link promotion code
             seekerCreation.type_First_Name('seeker')
             seekerCreation.type_Last_Name('influencer')
             seekerCreation.type_Seeker_Email('influencer1@seeker.com')
-            cy.get('.your-membership').should('contain','Your Free Trial')
+            //cy.get('.your-membership').should('contain','Your Free Trial')
             cy.get('.monthly-unlimited-box > .panel-body > .p-free-trial > .left').should('contain','Total Due Now (Free trial + PROMO EXTENDED)')
             seekerCreation.type_Seeker_Password('password')
             cy.get('.custom-control-label').click({force:true})

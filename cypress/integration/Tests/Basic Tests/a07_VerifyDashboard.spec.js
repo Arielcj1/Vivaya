@@ -115,7 +115,7 @@ describe('Verify the Elements within Dashboard', ()=>{
 
         cy.go('back')
         dashBoard.select_My_Referral()
-        cy.url().should('contains', 'https://stage.vivayalive.com/dashboard/referral-detail/6906')
+        cy.url().should('contains', 'https://stage.vivayalive.com/dashboard/referral-detail/6952')
 
         cy.go('back')
         dashBoard.select_My_Account_Seeker()

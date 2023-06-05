@@ -1,9 +1,10 @@
 /// <reference types = "cypress"/>
 
-import {Commons} from "../../../Commons/common"
+//import {Commons} from "../../../Commons/common"
 import {SeekerCreation} from "../../../page-objects/SeekerCreation"
 import {ReferralPage} from "../../../page-objects-admin/ReferralPage"
 import {SeekerPage} from "../../../page-objects-admin/SeekerPage"
+import { Commons } from "../../../Commons/Common";
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
@@ -31,7 +32,7 @@ describe('Admin Referral Page', ()=>{
     })
 
     it('Go to a Referral Link', ()=>{
-        cy.visit('https://stage.vivayalive.com/?referral=647138a6')//referral link of a test user 
+        cy.visit('https://stage.vivayalive.com/?referral=6477bb23')//referral link of a test user 
         seekerCreation.select_Free_trial_option()
         seekerCreation.type_First_Name('referral')
         seekerCreation.type_Last_Name('Mation')

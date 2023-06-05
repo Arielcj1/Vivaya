@@ -24,7 +24,7 @@ describe('Events Creation', ()=>{
         
     })
 
-    it.skip('Create a recurrent Daily Class', () => { 
+    it('Create a recurrent Daily Class', () => { 
         dashboard.verify_events()
        // dashboard.add_NewEvent()
         dashboard.add_Class()
@@ -39,7 +39,7 @@ describe('Events Creation', ()=>{
         cy.get('#w3-success-0').should('contain', 'Events have been created.')
     })
 
-    it.skip('Delete recurrent Daily Class',()=>{
+    it('Delete recurrent Daily Class',()=>{
         cy.wait(1500)
         cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[3]/div/div[2]/div[3]/div/p/a[1]').click()
         cy.wait(1000)
@@ -54,7 +54,7 @@ describe('Events Creation', ()=>{
         //dashboard.cancel_Several_Events_AtOnce_repeat()
     })
 
-    it.skip('Create a recurrent Weekly Class', () => { 
+    it('Create a recurrent Weekly Class', () => { 
         //dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Class1')
@@ -68,7 +68,7 @@ describe('Events Creation', ()=>{
         cy.get('#w3-success-0').should('contain', 'Events have been created.')
     })
 
-    it.skip('Delete recurrent Weekly Class',()=>{
+    it('Delete recurrent Weekly Class',()=>{
         cy.wait(1500)
         //dashboard.cancel_Several_Events_AtOnce_repeat()
         cy.get('.cancel-bulk-event').click()
@@ -80,7 +80,7 @@ describe('Events Creation', ()=>{
         cy.get('#w3-success-0').should('be.visible')
     })
 
-    it.skip('Create a Weekly Class by days', () => { 
+    it('Create a Weekly Class by days', () => { 
         //dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Class1')

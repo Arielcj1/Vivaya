@@ -112,21 +112,21 @@ it('Delete GuestClass user from Admin - workshop', () => {
         cy.wait(1200)
         cy.get(':nth-child(1) > .dashboard-box > :nth-child(5) > .count').invoke('text').then((text) =>{
             cy.log(text)
-           if(text != 0){
+           //if(text != 0){
             cy.wait(300)
             cy.get('.cancel-event').click({force:true})
             cy.wait(100)
             cy.get('.btn-success').click({force:true})
                 //dashboard.cancel_Created_Event_Workshop()
                 cy.get('#w3-success-0').should('contain', 'Event has been canceled.')
-           }
-           else{
-            cy.wait(100)
-                }
+          // }
+        //    else{
+        //     cy.wait(100)
+        //         }
        })
    })
 
-   it.skip('Create Class Event', () =>{
+   it.skip('Create Class Event', () =>{    //deprecated
         
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
@@ -200,8 +200,8 @@ it('Delete GuestClass user from Admin - workshop', () => {
         cy.get('#stripe-form-submit').click({force:true})
         cy.wait(2000)
         cy.get('.logoVivaya').should('be.visible')
-        cy.get(':nth-child(4) > .btn').click()   //click the 'Activate account' button
-
+        cy.get(':nth-child(3) > .btn').click()   //click the 'Activate account' button
+        
         cy.get('h1.text-center').should('contain','Activate Account')
         cy.get('#resetpasswordform-password').type('password')
         cy.wait(2000)
