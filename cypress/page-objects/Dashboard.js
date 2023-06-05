@@ -418,7 +418,7 @@ export class Dashboard{
         })
     }
     cancel_Several_Events_AtOnce_repeat(){
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').invoke('text').then((text)=>{ //only works for classes
+        cy.get(':nth-child(1) > .dashboard-box > :nth-child(5) > .count').invoke('text').then((text)=>{ //only works for classes
         cy.log(text)    
         for(var e=1; e<text; e++){
             cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div[2]')
