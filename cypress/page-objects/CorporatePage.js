@@ -2,7 +2,8 @@
 export class CorporatePage {
 
     select_Corporate_As_Loggedout(){
-        cy.get('#mainNav > :nth-child(6) > a').click()
+        //cy.get('#mainNav > :nth-child(6) > a').click()
+        cy.get('.ml-xl-auto > .nav-link').click()
     }
 
     click_contact_us(){

@@ -121,9 +121,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       cy.wait(2000)
       cy.get('.img-circle').click()
       cy.wait(3000)
-      //cy.xpath('/html/body/div[2]/div[2]/div[2]/div[8]/div[1]/div[9]/span/a').click({ force: true })
-      //cy.get(':nth-child(1) > .col-md-3 > .n').click({ force: true })
-      cy.get('#w0 > .row > .col-md-3 > .n').click({ force: true })
+      
+      //cy.get('#w0 > .row > .col-md-3 > .n').click({ force: true })
+      cy.get('#w0 > :nth-child(1) > .col-md-3 > .n').click({ force: true })
       cy.xpath('/html/body/div[2]/div[3]/div/div[1]/div[2]/div/div/div[4]/a').click({ force: true })
       //cy.contains('BOOK CLASS').click({ force: true })
       cy.get('.close > span').click()

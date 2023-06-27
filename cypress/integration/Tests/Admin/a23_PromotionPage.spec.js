@@ -169,7 +169,7 @@ describe('Promotions page', ()=>{
             promotionPage.select_Promotions_Option()
             promotionPage.select_Promo_Trial_extended()
             promotionPage.type_Promotion_Name('AutCode')
-            promotionPage.type_Promotion_Code_Name_free('codex11,codex211')   //Change promocode 
+            promotionPage.type_Promotion_Code_Name_free('cod11,cod21')   //Change promocode 
             promotionPage.type_Promotion_Limit('9')
             cy.wait(200)
             promotionPage.type_Promotion_ExpDate_trial('30-Nov-2022')
@@ -182,7 +182,7 @@ describe('Promotions page', ()=>{
         })
 
         it('Create seeker using the Code', ()=>{
-            cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=codex11')//link promotion code
+            cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=cod11')//link promotion code
             seekerCreation.type_First_Name('seeker')
             seekerCreation.type_Last_Name('influencer')
             seekerCreation.type_Seeker_Email('influencer1@seeker.com')
@@ -206,7 +206,7 @@ describe('Promotions page', ()=>{
         })
 
         it('Verify that the code only have one use', ()=>{
-            cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=codex211')//link promotion code
+            cy.visit('https://stage.vivayalive.com/signup/seeker/form?promocode=cod11')//link promotion code
                 
             cy.get('#w4-error-0').should('contain','The promotion code has been used before.')
         })
