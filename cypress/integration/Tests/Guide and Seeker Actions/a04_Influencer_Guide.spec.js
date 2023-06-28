@@ -108,8 +108,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       homePage.submit_Credentials()
 
       cy.wait(3000)
-      cy.get(':nth-child(2) > :nth-child(2) > :nth-child(5) > .btn').click()
-      //cy.get(':nth-child(5) > .btn').click()
+      dashboard.add_Class()     //Click on Add Class button  
+      
       eventCreationPage.add_EventName('Class Free event')
       cy.wait(2000)
       eventCreationPage.add_Description('This is a Test Class')

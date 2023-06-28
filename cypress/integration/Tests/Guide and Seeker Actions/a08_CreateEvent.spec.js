@@ -72,7 +72,7 @@ describe('Events Creation', ()=>{
         cy.get('#free-book-submit').click({force:true})
         cy.wait(2000)
         cy.get('.logoVivaya').should('be.visible')
-        cy.get(':nth-child(4) > .btn').click({force:true})  //click the 'Activate account' button
+        cy.get(':nth-child(3) > .btn').click({force:true})  //click the 'Activate account' button
 
         cy.get('h1.text-center').should('contain','Activate Account')
         cy.get('#resetpasswordform-password').type('password')

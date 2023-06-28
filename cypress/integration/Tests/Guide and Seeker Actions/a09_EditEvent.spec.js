@@ -39,6 +39,7 @@ describe('Events Edition from web page', ()=>{
         cy.get('#w3-success-0').should('contain', 'Events have been created.')
     })
     it('Edit the Event created', ()=>{
+
         dashboard.select_Edit_Event()
         cy.get('#eventform-startdate').clear()
         eventCreationPage.add_Custom_Number_Of_Days(4)

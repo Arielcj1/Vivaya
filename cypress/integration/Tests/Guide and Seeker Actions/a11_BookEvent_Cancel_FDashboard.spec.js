@@ -64,10 +64,12 @@ describe('Booking Event and Cancel the Event from Seeker Dashboard', ()=> {
         eventDetailPage.book_Event_from_EventDetail()
         cy.wait(1000)
         eventDetailPage.popup_thanks()
-        dashboard.go_to_Dashboard_From_Menu()
-        dashboard.cancel_Event_As_Seeker()
-        dashboard.confirm_Cancelation_From_Dashboard()
-        cy.get('#w3-success-0').should('contain', 'Event has been canceled.')
+        //dashboard.go_to_Dashboard_From_Menu()
+        //dashboard.cancel_Event_As_Seeker()
+        //dashboard.confirm_Cancelation_From_Dashboard()
+        cy.get('.remove-button').click()
+        eventDetailPage.confirm_Cancelation_from_EventDetail()
+        cy.get('#w3-success-0').should('contain', 'Item has been removed from cart.')
     })
 
     it('Guide delete the Event from his Dashboard',()=>{

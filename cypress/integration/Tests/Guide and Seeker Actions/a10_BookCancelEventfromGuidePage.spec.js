@@ -57,8 +57,10 @@ describe('Booking Event from Guide', ()=> {
         guidesPage.select_an_event()
         eventDetailPage.book_Event_from_EventDetail()
         cy.wait(1000)
-        eventDetailPage.popup_thanks()
-        eventDetailPage.cancel_Event_from_EventDetail()
+        //cy.get('.col-md-12 > .btn').click()
+        //eventDetailPage.popup_thanks()
+        //eventDetailPage.cancel_Event_from_EventDetail()
+        cy.get('.remove-button').click()
         eventDetailPage.confirm_Cancelation_from_EventDetail()
     })
 

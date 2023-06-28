@@ -3,9 +3,9 @@
 export class Dashboard{
 
     select_Edit_Event(){
-        //cy.xpath("//*[contains(text(), 'Edit')]").click({force:true})
-        //cy.contains('Edit').click({force:true})
-        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[3]/div/div[1]/div[3]/div/p/a[2]').click({force:true})
+        
+        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[4]/div/div[1]/div[3]/div/p/a[2]').click({force:true})
+            
     }
 
     find_the_free_booked(){
@@ -44,8 +44,9 @@ export class Dashboard{
     }
 
     add_Class(){
-       // cy.get(':nth-child(2) > :nth-child(2) > :nth-child(5) > .btn').click({force:true})
-        cy.get(':nth-child(5) > .btn').click({force:true})
+        //Click on Add Class button
+        //cy.get(':nth-child(2) > :nth-child(2) > :nth-child(2) > .btn').click({force:true})
+        cy.get(':nth-child(3) > :nth-child(2) > .btn').click({force:true})
     }
 
     add_Seminar_Event(){
