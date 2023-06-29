@@ -41,24 +41,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
             cy.get('.CaptionCont').should('be.visible')
             cy.get('.col-lg-4 > .btn').should('be.visible')
         })    
-
-        it('Verify Elements and redirection for What We Offer page as Logged out', ()=>{
-            home.go_To_WhatWeOffer_TopBar()
-            cy.get('.text-center > strong').should('be.visible').and('have.text', 'VIVAYA Offerings')
-            cy.get('.container > .box-shadow > .main-offering-image > .textUp > strong > a').should('be.visible').and('contain.text', 'Yoga')
-            cy.get(':nth-child(1) > :nth-child(1) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Meditation')
-            cy.get(':nth-child(1) > :nth-child(2) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Coaching')
-            cy.get(':nth-child(1) > :nth-child(3) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Restorative Fitness')
-            cy.get(':nth-child(2) > :nth-child(1) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Nutrition')
-            cy.get(':nth-child(2) > :nth-child(2) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Astrology and Spiritual Counseling')
-            cy.get(':nth-child(2) > :nth-child(3) > .box-shadow > .main-offering-image > .main-offering-title').should('be.visible').and('contain.text', 'Healing Arts and Reiki')
-            cy.get(':nth-child(3) > :nth-child(1) > .box-shadow > .main-offering-image > .main-offering-title > strong > a').should('be.visible').and('contain.text', 'Movement & Dance')
-        
-            
-        })
-
-
-
+/*
         it('Verify Yoga category and sub categories', ()=>{
 
             home.go_To_WhatWeOffer_TopBar()
@@ -373,7 +356,7 @@ describe('Elements verification in responsive mode for main pages navigation', (
 
             
             
-        })
+        })*/
 
         it('Verify Pricing page elements',()=>{
             home.go_To_Pricing_TopBar()

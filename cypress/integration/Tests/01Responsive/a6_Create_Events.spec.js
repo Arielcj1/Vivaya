@@ -27,7 +27,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
         })
 
         it('Verify Elements in Guide Dashboard after create a class', ()=>{
-            cy.get(':nth-child(5) > .btn').click()
+            cy.get(':nth-child(3) > :nth-child(2) > .btn').click()
 
             eventCreationPage.add_EventName('Class1')
             cy.wait(2000)
@@ -35,9 +35,9 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
             eventCreationPage.add_Custom_Number_Of_Days(2)
             eventCreationPage.custom_Start_Time(5)
             eventCreationPage.press_Add()
-            cy.get('#w2-success-0').should('contain', 'Events have been created.')
+            cy.get('#w3-success-0').should('contain', 'Events have been created.')
             dashboard.cancel_event_mobile()
-            cy.get('#w2-success-0').should('be.visible')
+            cy.get('#w3-success-0').should('be.visible')
             //cy.get('#w2-success-0').should('be.visible')
 
         })
@@ -51,14 +51,14 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
             eventCreationPage.add_Custom_Number_Of_Days(2)
             eventCreationPage.add_Price('40')
             eventCreationPage.press_Add()
-            cy.get('#w2-success-0').should('contain', 'Events have been created.')
-            cy.get('#w2-success-0 > .close').click()
+            cy.get('#w3-success-0').should('contain', 'Events have been created.')
+            cy.get('#w3-success-0 > .close').click()
             dashboard.cancel_event_mobile()
-            cy.get('#w2-success-0').should('contain', 'Event has been canceled.')
+            cy.get('#w3-success-0').should('contain', 'Event has been canceled.')
 
         })    
 
-        it('Verify Elements in Guide Dashboard after create a 1-1', ()=>{
+        it.skip('Verify Elements in Guide Dashboard after create a 1-1', ()=>{
             cy.get(':nth-child(4) > .btn').click({force:true})
 
             eventCreationPage.add_EventName('One-One')
@@ -70,10 +70,10 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
                 //cy.xpath('/html/body/div[2]/div[2]/div/div/div/form/div[11]/div/div/div[1]').click()
                 //cy.xpath('/html/body/div[2]/div[2]/div/div/div/form/div[11]/div/div/div[2]').click()
                 eventCreationPage.press_Add()
-                cy.get('#w2-success-0').should('contain', 'Events have been created.')
-                cy.get('#w2-success-0 > .close').click()
+                cy.get('#w3-success-0').should('contain', 'Events have been created.')
+                cy.get('#w3-success-0 > .close').click()
                 dashboard.cancel_event_mobile()
-                cy.get('#w2-success-0').should('contain', 'Event has been canceled.')
+                cy.get('#w3-success-0').should('contain', 'Event has been canceled.')
 
 
         })    

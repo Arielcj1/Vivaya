@@ -9,7 +9,7 @@ export class Home {
 
     go_To_Guides_TopBar(){
         cy.get('.open').click()
-        cy.get('#mainNav > :nth-child(3) > a').click()
+        cy.get('#mainNav > :nth-child(4) > .nav-link').click()
     }
 
     go_To_WhatWeOffer_TopBar(){
@@ -19,17 +19,17 @@ export class Home {
 
     go_To_Pricing_TopBar(){
         cy.get('.open').click()
-        cy.get('#mainNav > :nth-child(5) > a').click()
+        cy.get('#mainNav > :nth-child(5) > .nav-link').click()
     }
 
     go_To_Corporate_TopBar(){
         cy.get('.open').click()
-        cy.get('#mainNav > :nth-child(6) > a').click()
+        cy.get('.ml-xl-auto > .nav-link').click()
     }
 
     go_To_FResponders_TopBar(){
         cy.get('.open').click()
-        cy.get('#mainNav > li:nth-child(7) > a').click()
+        cy.get('.ml-xl-auto > .nav-link').click()
     }
 
     go_To_BecomeaGuide_TopBar(){

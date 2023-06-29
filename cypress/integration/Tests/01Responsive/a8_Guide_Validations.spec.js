@@ -30,7 +30,7 @@ describe('Elements verification in responsive mode for Events creation', ()=>{
         })
 
         it('Verify validations in Guide Dashboard while creating a class', ()=>{
-          cy.get(':nth-child(5) > .btn').click({force:true})
+          cy.get(':nth-child(3) > :nth-child(2) > .btn').click({force:true})
 
             cy.get('#btnCreateEvent').click()
 

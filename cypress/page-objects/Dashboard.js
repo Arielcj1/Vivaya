@@ -227,7 +227,7 @@ export class Dashboard{
     cancel_event_mobile(){
         cy.get('.cancel-event').click({force:true})
             cy.get('.btn-success').click({force:true})
-            cy.get('#w2-success-0').should('be.visible')
+            cy.get('#w3-success-0').should('be.visible')
     }
 
 
