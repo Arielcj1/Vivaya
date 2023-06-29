@@ -33,7 +33,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.get('.field-accountinformationform-phone_number > .col-sm-9 > .invalid-feedback').should('be.visible').and('have.text', 'Mobile number cannot be blank.')
     cy.go('back')
     //validate event creation fields
-    cy.get(':nth-child(5) > .btn').click()
+    cy.get(':nth-child(3) > :nth-child(2) > .btn').click()
 
     cy.get('#btnCreateEvent').click()
     //cy.get('.error-summary > div > ul > :nth-child(4)').should('be.visible').and('have.text', 'Start time cannot be selected in past.')

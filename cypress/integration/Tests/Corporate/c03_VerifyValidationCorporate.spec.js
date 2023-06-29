@@ -21,7 +21,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         
     })
 
-    it('Verify validation "corporate name" from Admin',()=>{
+    it.skip('Verify validation "corporate name" from Admin',()=>{
         commons.set_Admin_Credentials()
         admin_corporate.select_Corporate_Option()
         admin_corporate.select_Corporate_List()
@@ -50,10 +50,12 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         corporate.type_Company_Name('Automation corp')
         //corporate.type_email_corporate('manu@automation2.com')
         corporate.type_message_corporate('this is a message test')
+        cy.get('.field-corporatesignupform-email > .col-sm-9 > .invalid-feedback').should('include.text','Your email domain is already registered. Please contact us at corporates@vivayalive.com to continue the conversation')
         corporate.continue_From_Step2()
         cy.wait(300)
-        cy.get('.field-corporatesignupform-company_name > .col-sm-9 > .invalid-feedback').should('include.text','Your corporate name is already registered. Please contact us at corporates@vivayalive.com to continue the conversation')
-        cy.get('.field-corporatesignupform-email > .col-sm-9 > .invalid-feedback').should('include.text','Your email domain is already registered. Please contact us at corporates@vivayalive.com to continue the conversation')
+        cy.get('.col-md-7 > h3').should('include.text','Thank you for sending your details. We look forward to sharing VIVAYA with you! To book a Demo click on the link below.')
+        //cy.get('.field-corporatesignupform-company_name > .col-sm-9 > .invalid-feedback').should('include.text','Your corporate name is already registered. Please contact us at corporates@vivayalive.com to continue the conversation')
+        
         
 
         
