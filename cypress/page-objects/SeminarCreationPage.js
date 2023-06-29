@@ -51,7 +51,8 @@ export class SeminarCreationPage {
 
     select_Edit_Seminar(){
         //cy.get('.edit-event').click({force:true})
-        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[6]/div/div[1]/div/div/div[4]/a[2]').click({force:true})
+        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[7]/div/div[1]/div/div/div[4]/a[2]').click({force:true})
+        
     }
 
     select_Add_Event(){

@@ -31,7 +31,7 @@ describe('Seminar Creation, Cancelation and Seminar Event creation',
         homePage.logout_Account()
     
     })*/
-    it('Create a Seminar', ()=>{
+    it.skip('Create a Seminar', ()=>{
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()

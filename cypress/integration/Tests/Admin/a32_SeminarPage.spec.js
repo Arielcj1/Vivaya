@@ -54,7 +54,7 @@ describe('Verify Seminar Page admin', ()=>{
         homePage.select_Login()
         commons.set_Guide_Credentials_One()
         homePage.submit_Credentials()
-        dashboard.go_to_Dashboard_From_Menu()
+        //dashboard.go_to_Dashboard_From_Menu()
         dashboard.select_Add_Seminar()
         seminars.type_Seminar_Name("Seminar Manu")
         seminars.add_Description("This is a Seminar for Automation Proj")
