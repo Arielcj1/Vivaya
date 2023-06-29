@@ -41,7 +41,9 @@ describe('Events Creation', ()=>{
 
     it('Delete recurrent Daily Class',()=>{
         cy.wait(1500)
-        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[3]/div/div[2]/div[3]/div/p/a[1]').click()
+
+        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[4]/div/div[2]/div[3]/div/p/a[1]').click()
+                 
         cy.wait(1000)
         cy.get('#modalBodyBulk > ul > :nth-child(2) > a').click()
         cy.get('.text-center').should('contain', 'Cancel Events')
@@ -99,7 +101,8 @@ describe('Events Creation', ()=>{
 
     it('Delete recurrent Weekly by days Class',()=>{
         cy.wait(1500)
-        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[3]/div/div[2]/div[3]/div/p/a[1]').click()
+        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[4]/div/div[2]/div[3]/div/p/a[1]').click()
+                  
         cy.wait(1000)
         cy.get('#modalBodyBulk > ul > :nth-child(2) > a').click()
         cy.get('.text-center').should('contain', 'Cancel Events')

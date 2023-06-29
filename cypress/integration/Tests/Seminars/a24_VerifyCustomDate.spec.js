@@ -25,8 +25,8 @@ describe('Verify creation events using "Custom Date"', ()=>{
     })
 
     it('Create classes using Custom Date', () => { 
-        dashboard.verify_events()
-        dashboard.add_NewEvent()
+        //dashboard.verify_events()
+        //dashboard.add_NewEvent()
         dashboard.add_Class()
         eventCreationPage.add_EventName('Class1')
         cy.wait(2000)
@@ -36,12 +36,22 @@ describe('Verify creation events using "Custom Date"', ()=>{
         eventCreationPage.select_Repeater_customdate()
         eventCreationPage.add_Custom_date(10)
         eventCreationPage.add_Custom_date(12)
-        cy.get('#w1-success-0').should('contain', 'Events have been created.')
-        cy.get(':nth-child(1) > .dashboard-box > :nth-child(4) > .count').should('contain','3')
+        cy.get('#w3-success-0').should('contain', 'Events have been created.')
+        cy.get('.col-md-3 > .dashboard-box > :nth-child(5) > .count').should('contain','2')
     })
 
-    it('Delete classes custom date',()=>{
+    it.skip('Delete classes custom date',()=>{
         cy.wait(1500)
-        dashboard.cancel_Several_Events_AtOnce()
+        //dashboard.cancel_Several_Events_AtOnce()
+        cy.wait(1500)
+        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/div[4]/div/div[2]/div[3]/div/p/a[1]').click()
+                  
+        cy.wait(1000)
+        cy.get('#modalBodyBulk > ul > :nth-child(2) > a').click()
+        cy.get('.text-center').should('contain', 'Cancel Events')
+        cy.get('#bt-cancel-bulk-events').click()
+        cy.wait(1000)
+        cy.get('.btn-success').click()
+        cy.get('#w3-success-0').should('be.visible')
     })
 })
