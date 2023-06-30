@@ -129,6 +129,18 @@ export class Dashboard{
         cy.get('[href="/signup/add-seeker-account-from-guide"]').click()
     }
 
+    select_Set_1o1_Offering(){
+        cy.get(':nth-child(6) > .btn').click()
+    }
+
+    select_Set_1o1_Availability(){
+        cy.get(':nth-child(5) > .btn').click()
+    }
+
+    select_Edit_Profile(){
+        cy.get('.profile-box > .btn').click()
+    }
+
     //Seeker Dashboard Elements
 
     select_Book_More(){

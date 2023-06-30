@@ -1,6 +1,7 @@
 /// <reference types = "cypress"/>
 
-import {Commons} from "../../../Commons/common"
+//import {Commons} from "../../../Commons/common"
+import { Commons } from "../../../Commons/Common";
 import {AdminMembershipPage} from "../../../page-objects-admin/AdminMembershipPage"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -8,7 +9,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 describe('Negative scenarios for Membership ', ()=>{
-    const commons = new Commons()
+    const commons = new Commons
     const adminMembership = new AdminMembershipPage()
 
     beforeEach(()=>{
