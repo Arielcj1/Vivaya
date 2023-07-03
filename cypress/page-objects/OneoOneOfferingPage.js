@@ -16,8 +16,6 @@ export class OneoOneOfferingPage{
     }
 
     set_Duration(value){
-        //cy.get('.input-group-addon')
-        //cy.get('#guidepricedurationoneone-duration_hr_min').type(value)
         cy.get('.input-group-addon').click()
         for (let i = 0; i<value; i++){
             cy.get('tbody > :nth-child(1) > :nth-child(3) > a').click()

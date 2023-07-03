@@ -24,7 +24,7 @@ describe('SET 1-1 Offerings', ()=>{
         homePage.submit_Credentials()
     })
 
-    it.skip('Add a new offer and then delete it', () => {
+    it('Add a new offer and then delete it', () => {
         cy.wait(1000)
         dashboard.select_Set_1o1_Offering()
         cy.get('h1.text-center').should('contain', '1-1 Offerings')
@@ -41,7 +41,7 @@ describe('SET 1-1 Offerings', ()=>{
         cy.wait(2000)
     })
 
-    it.skip('Verify that you can select offering, add duration and price', () =>{
+    it('Verify that you can select offering, add duration and price', () =>{
         cy.wait(1000)
         dashboard.select_Set_1o1_Offering()
         cy.get('h1.text-center').should('contain', '1-1 Offerings')
@@ -56,7 +56,7 @@ describe('SET 1-1 Offerings', ()=>{
 
     })
 
-    it.skip('Verify that offering can be repeated and add other offerings', () => {
+    it('Verify that offering can be repeated and add other offerings', () => {
         cy.wait(1000)
         dashboard.select_Set_1o1_Offering()
         cy.get('h1.text-center').should('contain', '1-1 Offerings')
