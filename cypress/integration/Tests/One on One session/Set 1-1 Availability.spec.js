@@ -3,7 +3,6 @@
 import { HomePage } from "../../../page-objects/Home";
 import {Dashboard} from "../../../page-objects/Dashboard";
 import {Commons} from "../../../Commons/Common"
-import { OneoOneOfferingPage } from "../../../page-objects/OneoOneOfferingPage";
 import { OneoOneAvailability } from "../../../page-objects/OneoOneAvailability";
 
 Cypress.on('uncaught:exception', (err, runnable) => {
